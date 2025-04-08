@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | AI Reality Check</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Get in touch with AI Reality Check for inquiries, collaborations, or consultations.">
+    <style>
+        /* Additional styles for the contact form */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: var(--space-xs);
+            font-weight: 500;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: var(--space-sm);
+            border: 1px solid var(--neutral-light);
+            border-radius: var(--radius-sm);
+            font-family: var(--font-family);
+            font-size: var(--font-size-md);
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-info {
+            margin-top: var(--space-xxl);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+        }
+        
+        .contact-method {
+            text-align: center;
+            padding: var(--space-lg);
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .contact-method h3 {
+            margin-bottom: var(--space-md);
+            color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">AI Reality Check</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../case-studies/index.html">Case Studies</a></li>
+                    <li><a href="../articles/index.html">Articles</a></li>
+                    <li><a href="../portfolio/index.html">Portfolio</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p class="subtitle">Get in touch for inquiries, collaborations, or consultations</p>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="contact-form">
+                    <h2>Send a Message</h2>
+                    <form id="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <h3>Email</h3>
+                        <p><a href="mailto:info@airealitycheck.org">info@airealitycheck.org</a></p>
+                    </div>
+                    <div class="contact-method">
+                        <h3>Connect</h3>
+                        <div class="social-icons" style="justify-content: center; margin-top: var(--space-md);">
+                            <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="icon-twitter"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="icon-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../case-studies/index.html">Case Studies</a></li>
+                        <li><a href="../articles/index.html">Articles</a></li>
+                        <li><a href="../portfolio/index.html">Portfolio</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-media">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="icon-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="icon-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AI Reality Check. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Simple form validation and submission handling
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            // In a real implementation, you would handle the form submission here
+            // For example, using fetch to submit to a backend API
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
