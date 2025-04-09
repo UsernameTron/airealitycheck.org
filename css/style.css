@@ -190,18 +190,32 @@ nav a:hover::after {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+/* Use a translucent panel for better text visibility */
+.hero .container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    backdrop-filter: blur(5px);
+    width: 80%;
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
     margin-bottom: var(--space-sm);
     color: var(--white);
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-size: 2.5rem;
 }
 
 .subtitle {
     font-size: var(--font-size-lg);
     color: var(--white);
-    margin-bottom: var(--space-xl);
+    margin-bottom: 0;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -482,12 +496,13 @@ footer {
     background-color: #0a0a17;
     background-image: url('../images/footer/Dark\ UI\ Footer.webp');
     background-size: cover;
-    background-position: center;
+    background-position: center top; /* Position from top to avoid cutting off the logo */
     background-repeat: no-repeat;
     position: relative;
     padding: var(--space-xl) 0;
     margin-top: var(--space-xxl);
     color: var(--white);
+    min-height: 350px; /* Ensure enough height to display the image properly */
 }
 
 /* Semi-transparent dark overlay for better text readability */
@@ -498,7 +513,7 @@ footer::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly less dark to show more of the image */
     z-index: 1;
 }
 
