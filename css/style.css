@@ -194,6 +194,65 @@ nav a:hover::after {
     margin-bottom: var(--space-xl);
 }
 
+/* Profile Section */
+.profile {
+    background-color: var(--white);
+    padding: var(--space-xxl) 0;
+    border-top: 1px solid var(--neutral-lighter);
+    border-bottom: 1px solid var(--neutral-lighter);
+}
+
+.profile-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+}
+
+.profile-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.profile-highlight {
+    background-color: rgba(66, 133, 244, 0.1);
+    border-left: 4px solid var(--primary-blue);
+    padding: var(--space-md);
+    border-radius: 4px;
+    margin: var(--space-lg) 0;
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--space-md);
+    margin: var(--space-lg) 0;
+}
+
+.metric {
+    background-color: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-md);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.metric:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.metric h4 {
+    font-size: var(--font-size-xxl);
+    color: var(--primary-blue);
+    margin-bottom: var(--space-xs);
+}
+
+.metric p {
+    font-size: var(--font-size-sm);
+    margin-bottom: 0;
+}
+
 /* Cards */
 .cards {
     display: grid;

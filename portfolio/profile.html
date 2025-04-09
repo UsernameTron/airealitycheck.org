@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C. Pete Conner | AI Reality Check</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="C. Pete Conner's professional profile - AI, ML, and CX expert with extensive experience in operational transformations.">
+    <style>
+        /* Additional styles for the profile page */
+        .full-profile {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: var(--space-xl) 0;
+        }
+        
+        .section {
+            margin-bottom: var(--space-xxl);
+        }
+        
+        .section h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .section h2::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--primary-green) 100%);
+        }
+        
+        .metric-visuals {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            margin: var(--space-lg) 0;
+        }
+        
+        .metric-item {
+            flex: 1 1 200px;
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-md);
+            transition: transform 0.2s ease;
+        }
+        
+        .metric-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .metric-label {
+            font-weight: 500;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .metric-bar-container {
+            width: 100%;
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            position: relative;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .metric-bar {
+            height: 100%;
+            border-radius: 5px;
+            background: var(--primary-blue);
+            width: 0%;
+            transition: width 0.6s ease;
+        }
+        
+        .metric-value {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            background-color: rgba(66, 133, 244, 0.1);
+            border-left: 4px solid var(--primary-blue);
+            padding: var(--space-md);
+            border-radius: 4px;
+            margin: var(--space-lg) 0;
+        }
+        
+        .project-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+        
+        .project-card {
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            padding: var(--space-lg);
+            transition: transform 0.2s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .project-card h3 {
+            margin-bottom: var(--space-sm);
+            color: var(--primary-blue);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">AI Reality Check</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../case-studies/index.html">Case Studies</a></li>
+                    <li><a href="../articles/index.html">Articles</a></li>
+                    <li><a href="../portfolio/index.html">Portfolio</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>C. Pete Conner</h1>
+                <p class="subtitle">A first-person account of my AI, ML, and CX-focused accomplishments</p>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="full-profile">
+                <!-- Introduction / Overview -->
+                <div class="section">
+                    <h2>Overview</h2>
+                    <p>
+                      I've dedicated my career to transforming operational bottlenecks into gateways for growth—always with a keen eye 
+                      on maximizing the customer experience. My passion for AI, ML, and process automation has consistently delivered 
+                      faster resolutions, deeper insights, and measurable cost savings, whether in BPO, healthcare RCM, or large-scale 
+                      contact center environments. Every initiative—be it advanced generative content or robust revenue cycle 
+                      optimization—is grounded in the principle of elevating CX through data-driven, people-centric design.
+                    </p>
+                </div>
+
+                <!-- Why It All Revolves Around CX -->
+                <div class="section">
+                    <h2>Why It All Revolves Around CX</h2>
+                    <p>
+                      Every solution I craft—be it advanced generative content or robust predictive analytics—fuses seamlessly with 
+                      core CX principles: enhancing speed, empathy, and satisfaction. By measuring and refining first-call resolution, 
+                      average handle time, and NPS, I ensure that AI-driven intelligence translates directly to the experiences customers 
+                      remember and value.
+                    </p>
+                    <p>
+                      My approach integrates synergy among workflow acceleration, predictive insights, and a genuine people-first ethos. 
+                      This synergy provides an unrivaled blend of strategic efficiency and user-friendly warmth.
+                    </p>
+                </div>
+
+                <!-- Large-Scale Operational Transformations -->
+                <div class="section">
+                    <h2>Large-Scale Operational Transformations</h2>
+                    <p>
+                      I've consistently turned complexity into efficiency by implementing AI-based workflows in BPO and healthcare:
+                    </p>
+                    <div class="metric-visuals">
+                      <div class="metric-item">
+                        <span class="metric-label">Referral-to-Appointment Conversions</span>
+                        <div class="metric-bar-container">
+                          <div class="metric-bar" data-percentage="70%"></div>
+                        </div>
+                        <div class="metric-value">70% Increase</div>
+                      </div>
+                      <div class="metric-item">
+                        <span class="metric-label">Service Delivery Speed</span>
+                        <div class="metric-bar-container">
+                          <div class="metric-bar" data-percentage="33%"></div>
+                        </div>
+                        <div class="metric-value">33% Faster</div>
+                      </div>
+                      <div class="metric-item">
+                        <span class="metric-label">Cost Reduction</span>
+                        <div class="metric-bar-container">
+                          <div class="metric-bar" data-percentage="25%"></div>
+                        </div>
+                        <div class="metric-value">25% Reduction</div>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>Deployed MindMeld AI solutions, generating <strong>$8M–$12M</strong> in annual savings per engagement.</li>
+                      <li>Scaled from 50 to 200+ agents while maintaining 90%+ CSAT under 300% demand surges.</li>
+                    </ul>
+                    <p class="highlight">
+                      <strong>Bottom Line:</strong> My frameworks blend advanced analytics with empathetic user design, ensuring big-picture 
+                      efficiency gains that reinforce daily CX.
+                    </p>
+                </div>
+
+                <!-- Creative Content Generation & Prompt Engineering -->
+                <div class="section">
+                    <h2>Creative Content Generation & Prompt Engineering</h2>
+                    <p>
+                      On the generative AI front, I fuse brand consistency with minimal iteration overhead:
+                    </p>
+                    <div class="metric-visuals">
+                      <div class="metric-item">
+                        <span class="metric-label">Stable Diffusion Prompt Cycle Reduction</span>
+                        <div class="metric-bar-container">
+                          <div class="metric-bar" data-percentage="50%"></div>
+                        </div>
+                        <div class="metric-value">40–60% Range</div>
+                      </div>
+                      <div class="metric-item">
+                        <span class="metric-label">Text-to-Video Uptime</span>
+                        <div class="metric-bar-container">
+                          <div class="metric-bar" data-percentage="99.9%"></div>
+                        </div>
+                        <div class="metric-value">99.9% Uptime</div>
+                      </div>
+                    </div>
+                    <ul>
+                      <li>Maintained ~95% token accuracy for consistent creative outputs.</li>
+                      <li>Lowered manual iteration in text-to-video pipelines by ~60%, achieving ~300ms speeds.</li>
+                    </ul>
+                    <p class="highlight">
+                      <strong>Outcome:</strong> Creative teams pivot quickly and reliably on visual/video mediums, ensuring cohesive brand imagery. 
+                    </p>
+                </div>
+
+                <!-- GitHub Projects & Tools -->
+                <div class="section">
+                    <h2>Selected GitHub Projects</h2>
+                    <div class="project-links">
+                        <div class="project-card">
+                            <h3>CANDOR: Cross-Platform Content Generator</h3>
+                            <p>
+                              An AI-powered content engine that transforms a single idea into platform-tailored content with precision and wit.
+                            </p>
+                            <a href="https://github.com/UsernameTron/Content-Generator" target="_blank" class="btn">View Project</a>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3>Stable Diffusion Prompt Assistant</h3>
+                            <p>
+                              A sleek JavaScript tool turning raw imagination into precision-engineered prompts for image and video generation.
+                            </p>
+                            <a href="https://github.com/UsernameTron/Stable-Diffusion-Prompt-Engineer" target="_blank" class="btn">View Project</a>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3>Healthcare Claims Denial Prediction</h3>
+                            <p>
+                              High-impact RCM analytics predicting claim denials at over 90% accuracy, streamlining workflows and saving revenue.
+                            </p>
+                            <a href="https://github.com/UsernameTron/healthcare-rcm-denial-prediction" target="_blank" class="btn">View Project</a>
+                        </div>
+                        
+                        <div class="project-card">
+                            <h3>HR-LLM: Hiring Sentiment Tracker</h3>
+                            <p>
+                              Cutting-edge AI that deciphers hidden hiring intent in job postings via GPU-accelerated sentiment analysis.
+                            </p>
+                            <a href="https://github.com/UsernameTron/HR-LLM" target="_blank" class="btn">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../case-studies/index.html">Case Studies</a></li>
+                        <li><a href="../articles/index.html">Articles</a></li>
+                        <li><a href="../portfolio/index.html">Portfolio</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-media">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="icon-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="icon-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 AI Reality Check. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script>
+        // Animate metric bars
+        document.addEventListener('DOMContentLoaded', function() {
+            const bars = document.querySelectorAll('.metric-bar');
+            
+            setTimeout(function() {
+                bars.forEach(function(bar) {
+                    const percentage = bar.getAttribute('data-percentage');
+                    bar.style.width = percentage;
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
