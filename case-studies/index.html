@@ -1,121 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Case Studies | AI Reality Check</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="In-depth case studies examining real-world AI applications, capabilities, and limitations.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies | AI Reality Check</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="logo">
-                <a href="../index.html">AI Reality Check</a>
+  <!-- Header & Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <div class="logo">
+        <a href="../index.html">ARC</a>
+      </div>
+      <nav class="main-nav">
+        <button class="menu-toggle" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../resources.html">Resources</a></li>
+          <li><a href="../framework.html">Framework</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme">
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Case Studies</h1>
+        <p class="page-description">In-depth analysis of AI and ML implementations across various industries and use cases.</p>
+      </div>
+    </section>
+
+    <!-- Case Studies Grid -->
+    <section class="case-studies-section">
+      <div class="container">
+        <div class="case-studies-grid">
+          <!-- Case Study 1 -->
+          <div class="case-study-card">
+            <div class="card-content">
+              <h2 class="card-title">ML-Driven Employee Turnover Prediction</h2>
+              <p class="card-description">How machine learning models can reduce employee attrition and save millions in BPO environments.</p>
+              <div class="card-meta">
+                <span class="publish-date">March 15, 2025</span>
+                <span class="read-time">8 min read</span>
+              </div>
+              <a href="ML BPO Turnover WFM.html" class="primary-button">Read Case Study</a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="../case-studies/index.html">Case Studies</a></li>
-                    <li><a href="../articles/index.html">Articles</a></li>
-                    <li><a href="../portfolio/index.html">Portfolio</a></li>
-                    <li><a href="../contact/index.html">Contact</a></li>
-                </ul>
-            </nav>
+          </div>
+          
+          <!-- Case Study 2 -->
+          <div class="case-study-card">
+            <div class="card-content">
+              <h2 class="card-title">Contact Center Analytics & AI Transformation</h2>
+              <p class="card-description">How data-driven optimization and AI solutions transform contact center performance.</p>
+              <div class="card-meta">
+                <span class="publish-date">April 5, 2025</span>
+                <span class="read-time">10 min read</span>
+              </div>
+              <a href="contact-center-analytics.html" class="primary-button">Read Case Study</a>
+            </div>
+          </div>
+          
+          <!-- Case Study 3 -->
+          <div class="case-study-card">
+            <div class="card-content">
+              <h2 class="card-title">AI and ML Solutions</h2>
+              <p class="card-description">Innovative AI and ML implementations that drive business value across industries.</p>
+              <div class="card-meta">
+                <span class="publish-date">March 30, 2025</span>
+                <span class="read-time">7 min read</span>
+              </div>
+              <a href="HomepageHighlight.html" class="primary-button">Read Case Study</a>
+            </div>
+          </div>
+          
+          <!-- Case Study 4 -->
+          <div class="case-study-card">
+            <div class="card-content">
+              <h2 class="card-title">AI, ML & CX Solutions</h2>
+              <p class="card-description">Enhancing customer experience with AI and machine learning technologies.</p>
+              <div class="card-meta">
+                <span class="publish-date">April 2, 2025</span>
+                <span class="read-time">9 min read</span>
+              </div>
+              <a href="MindMeldCharacter.html" class="primary-button">Read Case Study</a>
+            </div>
+          </div>
+          
+          <!-- Case Study 5 -->
+          <div class="case-study-card">
+            <div class="card-content">
+              <h2 class="card-title">Revenue Cycle Management</h2>
+              <p class="card-description">Optimizing healthcare financial operations with AI-driven solutions.</p>
+              <div class="card-meta">
+                <span class="publish-date">March 20, 2025</span>
+                <span class="read-time">11 min read</span>
+              </div>
+              <a href="RCM and TikTok.html" class="primary-button">Read Case Study</a>
+            </div>
+          </div>
+          
+          <!-- Case Study 6 -->
+          <div class="case-study-card">
+            <div class="card-content">
+              <h2 class="card-title">TikTok Content Strategy</h2>
+              <p class="card-description">Data-driven approach to content creation and engagement on TikTok.</p>
+              <div class="card-meta">
+                <span class="publish-date">April 8, 2025</span>
+                <span class="read-time">6 min read</span>
+              </div>
+              <a href="TikTokDashboardStoreReturns.html" class="primary-button">Read Case Study</a>
+            </div>
+          </div>
+          
         </div>
-    </header>
+      </div>
+    </section>
+  </main>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Case Studies</h1>
-                <p class="subtitle">In-depth analyses of real-world AI implementations</p>
-            </div>
-        </section>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; 2025 AI Reality Check. All rights reserved.</p>
+        <a href="#" class="back-to-top" aria-label="Back to top">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
 
-        <section class="content">
-            <div class="container">
-                <div class="cards">
-                    <div class="card">
-                        <h3>Contact Center Analytics & AI Transformation</h3>
-                        <p>Revolutionizing customer experience through AI-powered insights in a national financial services provider.</p>
-                        <a href="ContactCenter.html" class="btn">Read Study</a>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>Healthcare Revenue Cycle Management</h3>
-                        <p>AI-driven workflows transforming healthcare financial management through smarter claims processing.</p>
-                        <a href="RCM.HTML" class="btn">Read Study</a>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>TikTok Dashboard for Store Returns</h3>
-                        <p>Analyzing social media impact on retail return patterns with advanced analytics visualization.</p>
-                        <a href="TikTokDashboardStoreReturns.html" class="btn">Read Study</a>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>BPO Workforce Management</h3>
-                        <p>Implementing ML-driven forecasting with incomplete historical data in a 500-agent operation.</p>
-                        <a href="BPO WFM Without Complete Data.html" class="btn">Read Study</a>
-                    </div>
-
-                    <div class="card">
-                        <h3>MindMeld Character AI Collaboration</h3>
-                        <p>Structured creativity and human-AI partnership in building character-driven narratives.</p>
-                        <a href="MindMeldCharacter.html" class="btn">Read Study</a>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>HR & Candidate Job Opening Prediction</h3>
-                        <p>ML-driven approach to matching candidates with future job openings before they're posted.</p>
-                        <a href="HR and Candidate Job Opening Predictive Model.html" class="btn">Read Study</a>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>BPO Employee Turnover Prediction</h3>
-                        <p>Using machine learning to reduce attrition and save millions in BPO environments through proactive interventions.</p>
-                        <a href="ML BPO Turnover WFM.html" class="btn">Read Study</a>
-                    </div>
-
-                    <div class="card">
-                        <h3>HR Turnover Prediction POC</h3>
-                        <p>Proof-of-concept implementation for using predictive analytics to identify flight-risk employees.</p>
-                        <a href="POC HR.HTML" class="btn">Read Study</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../case-studies/index.html">Case Studies</a></li>
-                        <li><a href="../articles/index.html">Articles</a></li>
-                        <li><a href="../portfolio/index.html">Portfolio</a></li>
-                        <li><a href="../contact/index.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="social-media">
-                    <h3>Connect</h3>
-                    <div class="social-icons">
-                        <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="icon-twitter"></i></a>
-                        <a href="#" aria-label="GitHub"><i class="icon-github"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 AI Reality Check. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="../js/main.min.js"></script>
+  <!-- Minimal JavaScript -->
+  <script>
+    // Theme toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+      
+      // Check for saved theme preference or use system preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        document.body.classList.add('dark-theme');
+      } else {
+        document.body.classList.remove('dark-theme');
+      }
+      
+      // Toggle theme when button is clicked
+      themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        const theme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+      });
+      
+      // Mobile menu toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      
+      menuToggle.addEventListener('click', function() {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+      });
+    });
+  </script>
 </body>
 </html>

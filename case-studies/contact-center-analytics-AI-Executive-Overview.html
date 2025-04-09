@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Center Analytics & AI Transformation Executive Overview">
+  <meta property="og:title" content="AI Reality Check | Contact Center Analytics">
+  <meta property="og:description" content="Executive overview of performance improvements and AI opportunities in contact center operations">
+  <title>AI Reality Check | Contact Center Analytics & AI Transformation</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Google-inspired Color Palette */
+    :root {
+      --blue: #4285F4;
+      --red: #EA4335;
+      --yellow: #FBBC05;
+      --green: #34A853;
+      --dark-blue: #1A73E8;
+      --light-blue: #8AB4F8;
+      --dark-gray: #202124;
+      --medium-gray: #5F6368;
+      --light-gray: #E8EAED;
+      --white: #FFFFFF;
+      
+      /* Theme Variables */
+      --primary-bg: var(--white);
+      --secondary-bg: var(--light-gray);
+      --tertiary-bg: #F8F9FA;
+      --primary-text: var(--dark-gray);
+      --secondary-text: var(--medium-gray);
+      --accent-color: var(--blue);
+      --secondary-accent: var(--green);
+      --highlight-color: var(--yellow);
+      --cta-color: var(--red);
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --transition-speed: 0.25s;
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-bg: var(--dark-gray);
+        --secondary-bg: #303134;
+        --tertiary-bg: #404144;
+        --primary-text: var(--white);
+        --secondary-text: #BDC1C6;
+        --accent-color: var(--light-blue);
+      }
+    }
+    
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Product Sans', sans-serif;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+    
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    
+    a:hover {
+      color: var(--dark-blue);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-bg);
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all var(--transition-speed);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Product Sans', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-left: 3px;
+    }
+    
+    .logo-dot-1 {
+      background-color: var(--blue);
+    }
+    
+    .logo-dot-2 {
+      background-color: var(--red);
+    }
+    
+    .logo-dot-3 {
+      background-color: var(--yellow);
+    }
+    
+    .logo-dot-4 {
+      background-color: var(--green);
+    }
+    
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      color: var(--primary-text);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--accent-color);
+      transition: width var(--transition-speed);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-button {
+      background-color: var(--cta-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      box-shadow: 0 2px 5px rgba(234, 67, 53, 0.3);
+      transition: all var(--transition-speed);
+    }
+    
+    .nav-button:hover {
+      background-color: #D33426;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(234, 67, 53, 0.3);
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-title {
+      margin-bottom: 1.5rem;
+      color: var(--primary-text);
+    }
+    
+    .hero-title span {
+      color: var(--accent-color);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--secondary-text);
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all var(--transition-speed);
+    }
+    
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: white;
+      box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--dark-blue);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      background-color: transparent;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.1;
+      background-image: radial-gradient(var(--blue) 1px, transparent 1px), 
+                        radial-gradient(var(--red) 1px, transparent 1px),
+                        radial-gradient(var(--yellow) 1px, transparent 1px),
+                        radial-gradient(var(--green) 1px, transparent 1px);
+      background-size: 60px 60px;
+      background-position: 0 0, 30px 30px, 15px 15px, 45px 45px;
+    }
+    
+    /* Content Section */
+    .content-section {
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .content-section:nth-child(even) {
+      background-color: var(--secondary-bg);
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 25%;
+      width: 50%;
+      height: 4px;
+      background: linear-gradient(to right, var(--blue), var(--red), var(--yellow), var(--green));
+      border-radius: 2px;
+    }
+    
+    .section-subtitle {
+      color: var(--secondary-text);
+      font-size: 1.2rem;
+    }
+    
+    /* Cards */
+    .card {
+      background-color: var(--primary-bg);
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+      margin-bottom: 2rem;
+      overflow: hidden;
+      transition: transform var(--transition-speed);
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .card-heading {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 1.5rem;
+      font-weight: 500;
+      font-size: 1.5rem;
+      font-family: 'Product Sans', sans-serif;
+    }
+    
+    .card-body {
+      padding: 1.5rem;
+    }
+    
+    /* Highlight Box */
+    .highlight-box {
+      background-color: rgba(66, 133, 244, 0.1);
+      border-left: 4px solid var(--accent-color);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+    
+    .highlight-box.success {
+      background-color: rgba(52, 168, 83, 0.1);
+      border-left-color: var(--green);
+    }
+    
+    .highlight-box.warning {
+      background-color: rgba(251, 188, 5, 0.1);
+      border-left-color: var(--yellow);
+    }
+    
+    .highlight-box.error {
+      background-color: rgba(234, 67, 53, 0.1);
+      border-left-color: var(--red);
+    }
+    
+    .highlight-box h4 {
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+      color: var(--accent-color);
+    }
+    
+    .highlight-box.success h4 {
+      color: var(--green);
+    }
+    
+    .highlight-box.warning h4 {
+      color: var(--yellow);
+    }
+    
+    .highlight-box.error h4 {
+      color: var(--red);
+    }
+    
+    /* Metric Cards */
+    .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .metric-card {
+      background-color: var(--tertiary-bg);
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform var(--transition-speed);
+    }
+    
+    .metric-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow);
+    }
+    
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .metric-value.blue {
+      color: var(--blue);
+    }
+    
+    .metric-value.red {
+      color: var(--red);
+    }
+    
+    .metric-value.yellow {
+      color: var(--yellow);
+    }
+    
+    .metric-value.green {
+      color: var(--green);
+    }
+    
+    .metric-label {
+      color: var(--secondary-text);
+      font-size: 1rem;
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+    
+    th {
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+      background-color: var(--tertiary-bg);
+    }
+    
+    .badge {
+      padding: 0.3rem 0.6rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+    
+    .badge-success {
+      background-color: var(--green);
+      color: white;
+    }
+    
+    .badge-primary {
+      background-color: var(--blue);
+      color: white;
+    }
+    
+    .badge-warning {
+      background-color: var(--yellow);
+      color: var(--dark-gray);
+    }
+    
+    /* Recommendations */
+    .recommendations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .recommendation-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+    
+    .recommendation-icon {
+      min-width: 40px;
+      height: 40px;
+      background-color: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      font-weight: bold;
+    }
+    
+    /* Progress bars */
+    .progress-container {
+      margin: 1rem 0;
+    }
+    
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    
+    .progress-bar {
+      height: 10px;
+      border-radius: 5px;
+      background-color: var(--secondary-bg);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      border-radius: 5px;
+    }
+    
+    .blue-fill {
+      background-color: var(--blue);
+    }
+    
+    .red-fill {
+      background-color: var(--red);
+    }
+    
+    .yellow-fill {
+      background-color: var(--yellow);
+    }
+    
+    .green-fill {
+      background-color: var(--green);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary-bg);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--tertiary-bg);
+      color: var(--secondary-text);
+      transition: all var(--transition-speed);
+    }
+    
+    .social-link:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .recommendations-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .nav {
+        display: none;
+      }
+      
+      .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .metrics-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        ARC
+        <span class="logo-dot logo-dot-1"></span>
+        <span class="logo-dot logo-dot-2"></span>
+        <span class="logo-dot logo-dot-3"></span>
+        <span class="logo-dot logo-dot-4"></span>
+      </a>
+      
+      <nav class="nav" id="mainNav">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#overview" class="nav-link">Overview</a>
+        <a href="#insights" class="nav-link">Insights</a>
+        <a href="#recommendations" class="nav-link">Recommendations</a>
+        <a href="#contact" class="nav-button">Contact</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Contact Center <span>Analytics & AI</span> Transformation</h1>
+        <p class="hero-subtitle">Executive overview of performance improvements and AI opportunities</p>
+        <div class="hero-cta">
+          <a href="#overview" class="btn btn-primary">View Overview</a>
+          <a href="#recommendations" class="btn btn-outline">See Recommendations</a>
+        </div>
+      </div>
+      <div class="hero-pattern"></div>
+    </div>
+  </section>
+  
+  <!-- Job Alignment Section -->
+  <section id="overview" class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Executive Overview</h2>
+        <p class="section-subtitle">Performance analysis and AI opportunities</p>
+      </div>
+      
+      <div class="highlight-box">
+        <h4>Job Alignment Highlight</h4>
+        <p>This work sample demonstrates my ability to leverage advanced analytics and AI transformation strategies to optimize contact center performance. The insights, metrics, and strategic recommendations showcased here directly align with the AI and Automation Consultant role at Acquire BPO—specifically in identifying AI opportunities, delivering measurable performance improvements, and providing actionable, data-driven consulting solutions.</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-heading">Performance Summary & AI Opportunity</div>
+        <div class="card-body">
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <div>
+              <p>Our three-month analysis of 45 agents across 5 teams demonstrates measurable performance improvements of 12% through data-driven optimization. Strategic implementation of AI and automation solutions presents an additional 10-15% performance improvement opportunity while aligning with our consulting transformation goals.</p>
+              
+              <div class="highlight-box success">
+                <h4>Strategic Alignment</h4>
+                <p>This analysis directly supports our need for <strong style="color: var(--accent-color);">AI and Automation Consultants</strong> who can <strong style="color: var(--accent-color);">"identify, develop, and implement AI and automation solutions that deliver measurable efficiencies across both client environments and internal operations."</strong></p>
+              </div>
+            </div>
+            <div>
+              <div class="metrics-row" style="grid-template-columns: 1fr; margin-top: 0;">
+                <div class="metric-card">
+                  <div class="metric-label">Current Improvement</div>
+                  <div class="metric-value blue">12%</div>
+                </div>
+                <div class="metric-card">
+                  <div class="metric-label">Additional AI Potential</div>
+                  <div class="metric-value green">10-15%</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Insights Section -->
+  <section id="insights" class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Performance Insights</h2>
+        <p class="section-subtitle">Channel and agent performance analysis</p>
+      </div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); gap: 2rem;">
+        <!-- Channel Performance -->
+        <div class="card">
+          <div class="card-heading">Channel Performance Insights</div>
+          <div class="card-body">
+            <p>Digital channels consistently outperform voice channels in key metrics, with chat showing the highest customer satisfaction at 4.5/5.</p>
+            
+            <table>
+              <thead>
+                <tr>
+                  <th>Channel</th>
+                  <th>CSAT</th>
+                  <th>Performance Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Chat</td>
+                  <td>4.5</td>
+                  <td><span class="badge badge-success">Highest</span></td>
+                </tr>
+                <tr>
+                  <td>Self-Service</td>
+                  <td>4.4</td>
+                  <td><span class="badge badge-primary">High</span></td>
+                </tr>
+                <tr>
+                  <td>Voice</td>
+                  <td>4.2</td>
+                  <td><span class="badge badge-warning">Standard</span></td>
+                </tr>
+              </tbody>
+            </table>
+            
+            <div class="highlight-box">
+              <h4>Consulting Opportunity</h4>
+              <p>Aligns with our need for consultants who can <strong style="color: var(--accent-color);">"apply a strong understanding of business software, system integration, and process improvement"</strong> and <strong style="color: var(--accent-color);">"identify opportunities for AI and automation"</strong> across channels.</p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Agent Performance -->
+        <div class="card">
+          <div class="card-heading">Agent Performance Distribution</div>
+          <div class="card-body">
+            <div class="metrics-row">
+              <div class="metric-card">
+                <div class="metric-label">Top Performers</div>
+                <div class="metric-value green">18%</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Quality-Focused</div>
+                <div class="metric-value blue">42%</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Development Needs</div>
+                <div class="metric-value yellow">25%</div>
+              </div>
+              <div class="metric-card">
+                <div class="metric-label">Others</div>
+                <div class="metric-value red">15%</div>
+              </div>
+            </div>
+            
+            <div class="highlight-box warning">
+              <h4>Talent Alignment</h4>
+              <p>Our analysis methodology supports consultants who are <strong style="color: var(--accent-color);">"natural problem solvers who thrive on understanding how things work"</strong> and can <strong style="color: var(--accent-color);">"measure and report on the impact and effectiveness of implemented solutions."</strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Recommendations Section -->
+  <section id="recommendations" class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Strategic AI & Automation Recommendations</h2>
+        <p class="section-subtitle">Data-driven recommendations for optimization</p>
+      </div>
+      
+      <div class="card">
+        <div class="card-heading">Strategic Recommendations</div>
+        <div class="card-body">
+          <div class="recommendations-grid">
+            <!-- Agent Optimization -->
+            <div>
+              <h3 style="color: var(--accent-color);">Agent Optimization</h3>
+              
+              <div class="recommendation-item">
+                <div class="recommendation-icon" style="background-color: var(--blue);">1</div>
+                <div>
+                  <h4>AI-Driven Coaching</h4>
+                  <p>Implement personalized AI coaching for the bottom 25% of agents, using performance pattern recognition to identify specific skill gaps.</p>
+                </div>
+              </div>
+              
+              <div class="recommendation-item">
+                <div class="recommendation-icon" style="background-color: var(--green);">2</div>
+                <div>
+                  <h4>Knowledge Management Automation</h4>
+                  <p>Deploy a knowledge-sharing platform with automated content recommendations based on top performer best practices.</p>
+                </div>
+              </div>
+              
+              <div class="highlight-box success">
+                <h4>Consulting Value</h4>
+                <p>Requires consultants who <strong style="color: var(--accent-color);">"stay current with emerging AI and automation technologies"</strong> and can <strong style="color: var(--accent-color);">"prepare and present recommendations to internal stakeholders and external clients."</strong></p>
+              </div>
+            </div>
+            
+            <!-- Process Automation -->
+            <div>
+              <h3 style="color: var(--accent-color);">Process Automation</h3>
+              
+              <div class="recommendation-item">
+                <div class="recommendation-icon" style="background-color: var(--red);">1</div>
+                <div>
+                  <h4>Intelligent Routing Engine</h4>
+                  <p>Implement ML-based routing that matches customer intent with agent specialization, leveraging historical performance data.</p>
+                </div>
+              </div>
+              
+              <div class="recommendation-item">
+                <div class="recommendation-icon" style="background-color: var(--yellow);">2</div>
+                <div>
+                  <h4>Predictive Workforce Management</h4>
+                  <p>Deploy AI forecasting for optimal scheduling, reducing adherence gaps and improving channel allocation.</p>
+                </div>
+              </div>
+              
+              <div class="highlight-box error">
+                <h4>Role Alignment</h4>
+                <p>These initiatives require consultants with an <strong style="color: var(--accent-color);">"entrepreneurial mindset"</strong> who can <strong style="color: var(--accent-color);">"collaborate with external technology partners and internal teams to implement approved recommendations."</strong></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Implementation & ROI -->
+      <div class="card" style="margin-top: 2rem;">
+        <div class="card-heading">Implementation Roadmap & Expected ROI</div>
+        <div class="card-body">
+          <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 2rem;">
+            <div>
+              <p>A phased implementation approach over three quarters will deliver progressive improvement with minimal operational disruption. Building on our current 12% gains, AI automation will drive an additional 10-15% improvement through:</p>
+              
+              <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li><strong>Reduced AHT</strong> (7-10% improvement through AI-assisted knowledge)</li>
+                <li><strong>Improved FCR</strong> (12-15% increase via intelligent routing)</li>
+                <li><strong>Enhanced CSAT</strong> (0.3-0.5 point increase through personalized service)</li>
+                <li><strong>Optimized Schedule Adherence</strong> (5-8% improvement via predictive WFM)</li>
+              </ul>
+              
+              <div class="highlight-box warning">
+                <h4>Consulting Leadership Opportunity</h4>
+                <p>This implementation requires consultants who <strong style="color: var(--accent-color);">"develop consulting deliverables including presentations, solution designs, workflow and process documentation"</strong> and can <strong style="color: var(--accent-color);">"identify opportunities for AI and automation within client environments and internal operations."</strong></p>
+              </div>
+            </div>
+            
+            <div>
+              <div class="metric-card" style="height: auto; margin-bottom: 2rem;">
+                <div class="metric-label">Implementation Timeline</div>
+                <div class="metric-value blue">3 Quarters</div>
+              </div>
+              
+              <div class="progress-container">
+                <div class="progress-label">
+                  <span>Q1: Analysis</span>
+                  <span>33%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill blue-fill" style="width: 33%;"></div>
+                </div>
+              </div>
+              
+              <div class="progress-container">
+                <div class="progress-label">
+                  <span>Q2: Implementation</span>
+                  <span>33%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill red-fill" style="width: 33%;"></div>
+                </div>
+              </div>
+              
+              <div class="progress-container">
+                <div class="progress-label">
+                  <span>Q3: Optimization</span>
+                  <span>33%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill green-fill" style="width: 33%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <p>&copy; AI Reality Check. All Rights Reserved.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="#" class="social-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

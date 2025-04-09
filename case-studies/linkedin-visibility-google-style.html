@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A data-driven investigation into LinkedIn visibility, reach bias, and the hidden rules of the feed.">
+  <meta property="og:title" content="AI Reality Check | LinkedIn Visibility — A Plain‑Language Deep‑Dive">
+  <meta property="og:description" content="A clear‑spoken look at the data behind reach, bias, and the hidden rules of the LinkedIn feed.">
+  <title>AI Reality Check | LinkedIn Visibility — A Plain‑Language Deep‑Dive</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Google-inspired Color Palette */
+    :root {
+      --blue: #4285F4;
+      --red: #EA4335;
+      --yellow: #FBBC05;
+      --green: #34A853;
+      --dark-blue: #1A73E8;
+      --light-blue: #8AB4F8;
+      --dark-gray: #202124;
+      --medium-gray: #5F6368;
+      --light-gray: #E8EAED;
+      --white: #FFFFFF;
+      
+      /* Theme Variables */
+      --primary-bg: var(--white);
+      --secondary-bg: var(--light-gray);
+      --tertiary-bg: #F8F9FA;
+      --primary-text: var(--dark-gray);
+      --secondary-text: var(--medium-gray);
+      --accent-color: var(--blue);
+      --secondary-accent: var(--green);
+      --highlight-color: var(--yellow);
+      --cta-color: var(--red);
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --transition-speed: 0.25s;
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-bg: var(--dark-gray);
+        --secondary-bg: #303134;
+        --tertiary-bg: #404144;
+        --primary-text: var(--white);
+        --secondary-text: #BDC1C6;
+        --accent-color: var(--light-blue);
+      }
+    }
+    
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Product Sans', sans-serif;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-top: 2rem;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    
+    a:hover {
+      color: var(--dark-blue);
+    }
+    
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    code {
+      background-color: var(--secondary-bg);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    
+    strong {
+      font-weight: 500;
+    }
+    
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-bg);
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all var(--transition-speed);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Product Sans', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-left: 3px;
+    }
+    
+    .logo-dot-1 {
+      background-color: var(--blue);
+    }
+    
+    .logo-dot-2 {
+      background-color: var(--red);
+    }
+    
+    .logo-dot-3 {
+      background-color: var(--yellow);
+    }
+    
+    .logo-dot-4 {
+      background-color: var(--green);
+    }
+    
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      color: var(--primary-text);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--accent-color);
+      transition: width var(--transition-speed);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-button {
+      background-color: var(--cta-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      box-shadow: 0 2px 5px rgba(234, 67, 53, 0.3);
+      transition: all var(--transition-speed);
+    }
+    
+    .nav-button:hover {
+      background-color: #D33426;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(234, 67, 53, 0.3);
+    }
+    
+    /* Hero Section */
+    .hero {
+      background-color: var(--accent-color);
+      color: white;
+      text-align: center;
+      padding: 10rem 0 6rem;
+    }
+    
+    .hero-title {
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+    
+    /* Main Content */
+    .content {
+      padding: 5rem 0;
+    }
+    
+    /* Grid Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .card {
+      background-color: var(--tertiary-bg);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-speed);
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .card h3 {
+      margin-top: 0;
+    }
+    
+    .bordered-card {
+      border-left: 6px solid var(--accent-color);
+    }
+    
+    .bordered-card.blue {
+      border-left-color: var(--blue);
+    }
+    
+    .bordered-card.red {
+      border-left-color: var(--red);
+    }
+    
+    .bordered-card.yellow {
+      border-left-color: var(--yellow);
+    }
+    
+    .bordered-card.green {
+      border-left-color: var(--green);
+    }
+    
+    /* Stats */
+    .stat {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+    
+    /* Figures */
+    figure {
+      margin: 3rem 0;
+      text-align: center;
+    }
+    
+    figure img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+    }
+    
+    figcaption {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--secondary-text);
+    }
+    
+    /* Call to Action */
+    .cta {
+      background-color: var(--accent-color);
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+      margin-top: 5rem;
+    }
+    
+    .cta h2 {
+      color: white;
+      margin-top: 0;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: white;
+      color: var(--accent-color);
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 500;
+      margin-top: 2rem;
+      transition: all var(--transition-speed);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--tertiary-bg);
+      text-align: center;
+      padding: 3rem 0;
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .nav {
+        display: none;
+      }
+      
+      .hero {
+        padding: 8rem 0 4rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stat {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        ARC
+        <span class="logo-dot logo-dot-1"></span>
+        <span class="logo-dot logo-dot-2"></span>
+        <span class="logo-dot logo-dot-3"></span>
+        <span class="logo-dot logo-dot-4"></span>
+      </a>
+      
+      <nav class="nav">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Case Studies</a>
+        <a href="#" class="nav-link">Articles</a>
+        <a href="#" class="nav-link">Portfolio</a>
+        <a href="#" class="nav-button">Contact</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">Who Really Gets Seen on LinkedIn?</h1>
+      <p class="hero-subtitle">A clear‑spoken look at the data behind reach, bias, and the hidden rules of the feed.</p>
+    </div>
+  </section>
+  
+  <!-- Main Content -->
+  <div class="content">
+    <div class="container">
+      <!-- Introduction Section -->
+      <section>
+        <h2>Why I Ran This Investigation</h2>
+        <p>
+          I kept hearing friends say, "It doesn't matter what I post—big brands always drown me out." So I built a
+          measurement system to check whether that gut feeling was true. Over six months I tracked thousands of
+          LinkedIn posts, noting <strong>who published</strong> them, <strong>how people reacted</strong>, and most importantly
+          <strong>how far each post actually travelled</strong> in the feed.
+        </p>
+      </section>
+      
+      <!-- Visual Summary Section -->
+      <section>
+        <h2>Three Things the Numbers Shout</h2>
+        <div class="grid">
+          <div class="card">
+            <h3 style="color:var(--red)">1. Big Names Get a Head‑Start</h3>
+            <p class="stat">3×</p>
+            <p>Posts from corporate pages appeared in three times as many feeds <em>before</em> anyone clicked like or share.</p>
+          </div>
+          <div class="card">
+            <h3 style="color:var(--yellow)">2. Indie Voices Fade Fast</h3>
+            <p class="stat">‑70&nbsp;%</p>
+            <p>Independent posts lost 70&nbsp;% of their visibility within the first 24 hours—much faster than corporate posts.</p>
+          </div>
+          <div class="card">
+            <h3 style="color:var(--green)">3. Story Matters More Than Likes</h3>
+            <p class="stat">‑45&nbsp;%</p>
+            <p>Just changing the angle of a story (without touching the image or headline) could cut reach nearly in half.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Key Charts Section -->
+      <section>
+        <h2>Visual Proof</h2>
+        
+        <figure>
+          <img src="decay_curves.png" alt="Visibility decay over 48 hours" />
+          <figcaption><strong>Figure 1.</strong> Corporate posts (blue) start high and glide down slowly. Independent posts (red) start lower and nosedive.</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="authority_bar.png" alt="Average authority score by publisher type" />
+          <figcaption><strong>Figure 2.</strong> Hidden "authority scores" built into the platform give brands an instant advantage.</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="alignment_penalty.png" alt="Reach penalty by narrative alignment" />
+          <figcaption><strong>Figure 3.</strong> The further a post strays from LinkedIn's preferred narrative, the steeper the reach penalty.</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="sentiment_heatmap.png" alt="Audience sentiment by publisher type and narrative alignment" />
+          <figcaption><strong>Figure 4.</strong> A heat‑map of audience reactions shows that sentiment stays positive even when reach is throttled—proof that low visibility isn't caused by poor content.</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="ab_test_flow.png" alt="A/B testing flow diagram" />
+          <figcaption><strong>Figure 5.</strong> Diagram of the A/B workflow: identical visuals, different captions, and side‑by‑side tracking to isolate narrative effects.</figcaption>
+        </figure>
+        
+        <figure>
+          <img src="network_amplification.png" alt="Network amplification diagram" />
+          <figcaption><strong>Figure 6.</strong> How one share from a high‑authority account can catapult an otherwise throttled post into thousands of extra feeds.</figcaption>
+        </figure>
+      </section>
+      
+      <!-- Network Effects Section -->
+      <section>
+        <h2>The Power (and Limits) of Network Effects</h2>
+        <p>LinkedIn rewards posts that tap into high‑authority networks. In the chart above, a single reshare by a Fortune 500 executive multiplied reach by <strong>6×</strong>. Yet the same post shared by five independent users added only <strong>+12 %</strong>. The takeaway: who amplifies you matters more than how many.</p>
+      </section>
+      
+      <!-- How the Investigation Worked Section -->
+      <section>
+        <h2>How the Investigation Worked</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>PDF Scroll Capture</h3>
+            <p>Every new post was grabbed by rapidly scrolling the feed and using "Print → Save as PDF." Each PDF captured the exact on‑screen metrics at that moment. Later, a parser extracted reach and engagement numbers directly from these files, so the data reflects what LinkedIn actually shows to users.</p>
+          </div>
+          <div class="card">
+            <h3>Time‑Lapse Tracking</h3>
+            <p>Each post is revisited five more times over 48 hours. This reveals how quickly LinkedIn stops showing it to fresh eyes.</p>
+          </div>
+          <div class="card">
+            <h3>Hidden Metrics Audit</h3>
+            <p>Using browser dev‑tools I uncovered an <code>authority_score</code> field—never shown to users—that strongly predicts reach.</p>
+          </div>
+          <div class="card">
+            <h3>A/B Story Tests</h3>
+            <p>I posted identical images with slightly different captions to measure how "on‑message" language affects distribution.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- What It Means Section -->
+      <section>
+        <h2>What This Means for Everyday Users</h2>
+        <ul>
+          <li><strong>You're not imagining it:</strong> the feed really does favour large, established voices.</li>
+          <li><strong>Quality alone isn't enough:</strong> engagement helps, but hidden scores can cap your reach before anyone even sees your work.</li>
+          <li><strong>Message framing matters:</strong> even neutral wording changes can swing visibility up or down by double‑digit percentages.</li>
+        </ul>
+      </section>
+      
+      <!-- Data Validation Section -->
+      <section>
+        <h2>How You Know These Numbers Are Solid</h2>
+        <div class="grid">
+          <div class="card bordered-card blue">
+            <h3>Large Sample</h3>
+            <p>More than <strong>10,000 posts</strong> across industries, company sizes, and audience levels were monitored—enough data to drown out random noise.</p>
+          </div>
+          <div class="card bordered-card green">
+            <h3>Time‑Stamped Tracking</h3>
+            <p>Each post was captured within the first minute of publication and re‑checked five more times. That means the study measures <em>what LinkedIn shows</em>, not what a user happened to see.</p>
+          </div>
+          <div class="card bordered-card red">
+            <h3>Independent Verification</h3>
+            <p>Two external analysts reproduced the core charts using the raw CSVs and confirmed the same trends.</p>
+          </div>
+          <div class="card bordered-card yellow">
+            <h3>Statistical Significance</h3>
+            <p>All key differences showed <code>p &lt; 0.001</code>—in plain English, there's less than a one‑in‑a‑thousand chance these gaps are just luck.</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Glossary Section -->
+      <section>
+        <h2>Quick Glossary</h2>
+        <ul>
+          <li><strong>Reach / Impressions</strong> – How many individual feeds a post lands in.</li>
+          <li><strong>Authority Score</strong> – A hidden rating LinkedIn assigns to each publisher; higher score = more initial reach.</li>
+          <li><strong>Decay Curve</strong> – A line that shows how quickly a post stops being shown over time.</li>
+          <li><strong>A/B Test</strong> – Publishing two versions of the same content to see which one performs better.</li>
+          <li><strong>Sentiment Heat‑Map</strong> – A colour grid that shows how positive or negative reactions cluster by topic.</li>
+          <li><strong>Network Amplification</strong> – The extra reach a post gains when someone else with a large or high‑authority following shares it.</li>
+        </ul>
+      </section>
+      
+      <!-- FAQs Section -->
+      <section>
+        <h2>FAQs in Plain Language</h2>
+        <h3>"Does engagement still matter?"</h3>
+        <p>Yes, but only after LinkedIn gives your post an initial push. If that push is tiny, engagement can't work its magic.</p>
+        <h3>"Should I stop posting?"</h3>
+        <p>No. Understanding the system helps you frame stories in ways that travel further—while also pushing for fairer algorithms.</p>
+      </section>
+      
+      <!-- About Me Section -->
+      <section>
+        <h2>Who Am I?</h2>
+        <p>I'm C. Pete Conner, a data storyteller who blends software engineering with visual design. I've helped brands, nonprofits, and indie creators decode platform algorithms for over a decade.</p>
+      </section>
+      
+      <!-- Closing Section -->
+      <section>
+        <h2>Closing Thought</h2>
+        <p>
+          LinkedIn markets itself as a merit‑based network, yet the numbers tell a different story: one where
+          institutional weight and narrative safety nets decide who gets heard. I hope this plain‑language
+          breakdown helps creators understand the unseen forces at play—and sparks a bigger conversation about
+          transparency in professional media.
+        </p>
+      </section>
+    </div>
+  </div>
+  
+  <!-- Call to Action Section -->
+  <section class="cta">
+    <div class="container">
+      <h2>Want the Full Data Workbook?</h2>
+      <p>Drop your email <em>(no spam, promise)</em> and I'll send the anonymised CSVs plus the Python notebooks used for this study.</p>
+      <a href="mailto:admin@airealitycheck.org?subject=LinkedIn%20Algorithm%20Workbook" class="cta-button">Request the Files</a>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 AI Reality Check. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
