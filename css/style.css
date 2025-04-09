@@ -479,9 +479,32 @@ nav a:hover::after {
 
 /* Footer */
 footer {
-    background-color: var(--neutral-lighter);
+    background-color: #0a0a17;
+    background-image: url('../images/footer/Dark\ UI\ Footer.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
     padding: var(--space-xl) 0;
     margin-top: var(--space-xxl);
+    color: var(--white);
+}
+
+/* Semi-transparent dark overlay for better text readability */
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+}
+
+footer .container {
+    position: relative;
+    z-index: 2;
 }
 
 .footer-content {
@@ -491,12 +514,26 @@ footer {
     margin-bottom: var(--space-xl);
 }
 
+.footer-links h3,
+.social-media h3 {
+    color: var(--white);
+}
+
 .footer-links ul {
     list-style: none;
 }
 
 .footer-links li {
     margin-bottom: var(--space-sm);
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.85);
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--white);
 }
 
 .social-icons {
@@ -511,21 +548,22 @@ footer {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: var(--white);
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     box-shadow: var(--shadow-sm);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .social-icons a:hover {
     transform: translateY(-2px);
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .copyright {
     text-align: center;
-    color: var(--neutral-medium);
+    color: rgba(255, 255, 255, 0.7);
     font-size: var(--font-size-sm);
-    border-top: 1px solid var(--neutral-light);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding-top: var(--space-lg);
 }
 
@@ -649,6 +687,7 @@ footer {
     background-repeat: no-repeat;
     background-size: contain;
     content: '';
+    filter: brightness(1.5); /* Make icons brighter for dark footer */
 }
 
 .icon-linkedin::before {
