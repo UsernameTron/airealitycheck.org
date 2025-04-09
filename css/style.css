@@ -182,27 +182,40 @@ nav a:hover::after {
     text-align: center;
     padding: var(--space-xxl) 0;
     background-color: #0a0a17;
-    background-image: url('../images/hero/ARC\ Hero.webp');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    position: relative;
     min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    overflow: hidden;
+}
+
+/* Background image with overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../images/hero/ARC\ Hero.webp');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    z-index: 1;
 }
 
 /* Use a translucent panel for better text visibility */
 .hero .container {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     padding: var(--space-lg);
     border-radius: var(--radius-md);
-    backdrop-filter: blur(5px);
     width: 80%;
     max-width: 800px;
     position: relative;
     z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .hero h1 {
