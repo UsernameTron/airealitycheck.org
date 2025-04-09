@@ -15,7 +15,7 @@ Thank you for your interest in contributing to AI Reality Check! This document p
 ```
 airealitycheck.org/
 ├── css/                # All stylesheets
-│   ├── style.css       # Main stylesheet
+│   └── style.css       # Main stylesheet
 ├── js/                 # JavaScript files
 │   ├── main.js         # Main script
 │   └── main.min.js     # Minified version for production
@@ -25,7 +25,8 @@ airealitycheck.org/
 │   └── portfolio/      # Portfolio images
 ├── case-studies/       # Case study pages
 ├── articles/           # Article pages
-└── portfolio/          # Portfolio content
+├── portfolio/          # Portfolio content
+└── contact/            # Contact information
 ```
 
 ## Adding a New Case Study
@@ -155,6 +156,64 @@ airealitycheck.org/
    - Add your article to the list in `/articles/index.html`
    - Include a brief description (1-2 sentences)
 
+4. **Article Template**:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Article Title] | AI Reality Check</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="[Brief description of the article]">
+</head>
+<body>
+    <header>
+        <!-- Same header as case study template -->
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>[Article Title]</h1>
+                <p class="subtitle">[Brief subtitle or tagline]</p>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <article class="article-content">
+                    <div class="article-meta">
+                        <span class="article-date">[Publication Date]</span>
+                        <span class="article-category">[Category]</span>
+                        <span class="article-read-time">[Read Time]</span>
+                    </div>
+
+                    <div class="article-introduction">
+                        <p>[Introductory paragraph - make this engaging]</p>
+                    </div>
+
+                    <!-- Article content sections -->
+                    <h2>[First Section Title]</h2>
+                    <p>[Content]</p>
+                    
+                    <!-- More sections as needed -->
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Same footer as case study template -->
+    </footer>
+
+    <script src="../js/main.min.js"></script>
+</body>
+</html>
+```
+
 ## Styling Guidelines
 
 1. **CSS Organization**:
@@ -176,6 +235,12 @@ airealitycheck.org/
    - Maintain the established size hierarchy
    - Use relative units (rem, em) for font sizes
 
+4. **Component Styling**:
+   - Cards should have consistent padding (var(--space-lg))
+   - Maintain consistent border-radius (var(--radius-md))
+   - Use shadow variables for elevation (var(--shadow-md))
+   - Follow hover state conventions (translateY(-4px) + shadow increase)
+
 ## Making Changes
 
 1. **Development Process**:
@@ -185,23 +250,49 @@ airealitycheck.org/
    - Test locally using a simple server: `python -m http.server`
    - Submit a pull request
 
-2. **Testing**:
+2. **Pull Request Guidelines**:
+   - Provide a clear description of changes
+   - Include screenshots if UI changes are made
+   - Reference any related issues
+   - Ensure all HTML/CSS validates
+   - Verify mobile responsiveness
+
+3. **Commit Message Format**:
+   - Use clear, descriptive commit messages
+   - Start with an action verb (Add, Update, Fix, Refactor)
+   - Example: "Add contact form validation"
+
+4. **Testing**:
    - Verify HTML validity using [W3C Validator](https://validator.w3.org/)
    - Verify CSS validity using [W3C CSS Validator](https://jigsaw.w3.org/css-validator/)
    - Test on multiple browsers and screen sizes
    - Check for accessibility issues
 
-## Publishing Updates
+## Content Structure Requirements
 
-1. **Merge Process**:
-   - Pull requests require review
-   - Changes are deployed to GitHub Pages automatically after merge
-   - Verify changes on the live site after deployment
+1. **Heading Hierarchy**:
+   - Use only one H1 per page (main title)
+   - Use H2 for major sections
+   - Use H3 for subsections
+   - Maintain proper hierarchy (don't skip levels)
 
-2. **Asset Optimization**:
-   - Compress images before uploading
-   - Use minified JavaScript in production
-   - Ensure proper caching headers are set
+2. **Image Formatting**:
+   - Optimize all images before adding
+   - Use descriptive filenames (e.g., "contact-center-dashboard.jpg")
+   - Always include alt text
+   - Use responsive images (max-width: 100%)
+   - Consider adding width and height attributes to prevent layout shift
+
+3. **Metadata Requirements**:
+   - Include proper meta description
+   - Use descriptive, SEO-friendly page titles
+   - Maintain consistent Open Graph metadata
+
+4. **Link Formatting**:
+   - Use relative links for internal pages
+   - Include descriptive link text (avoid "click here")
+   - Add aria-label to icon-only links
+   - Maintain consistent hover states
 
 ## Questions or Issues
 

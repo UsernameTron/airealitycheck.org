@@ -1,1070 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI Reality Check - Employee Turnover Prediction: ML-Driven Analytics for BPO Success">
-  <meta property="og:title" content="AI Reality Check | ML-Driven Turnover Prediction">
-  <meta property="og:description" content="How machine learning models can reduce employee attrition and save millions in BPO environments">
-  <title>AI Reality Check | ML-Driven Turnover Prediction</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  
-  <style>
-    /* Google-inspired Color Palette */
-    :root {
-      --blue: #4285F4;
-      --red: #EA4335;
-      --yellow: #FBBC05;
-      --green: #34A853;
-      --dark-blue: #1A73E8;
-      --light-blue: #8AB4F8;
-      --dark-gray: #202124;
-      --medium-gray: #5F6368;
-      --light-gray: #E8EAED;
-      --white: #FFFFFF;
-      
-      /* Theme Variables */
-      --primary-bg: var(--white);
-      --secondary-bg: var(--light-gray);
-      --tertiary-bg: #F8F9FA;
-      --primary-text: var(--dark-gray);
-      --secondary-text: var(--medium-gray);
-      --accent-color: var(--blue);
-      --secondary-accent: var(--green);
-      --highlight-color: var(--yellow);
-      --cta-color: var(--red);
-      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      --transition-speed: 0.25s;
-    }
-    
-    /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --primary-bg: var(--dark-gray);
-        --secondary-bg: #303134;
-        --tertiary-bg: #404144;
-        --primary-text: var(--white);
-        --secondary-text: #BDC1C6;
-        --accent-color: var(--light-blue);
-      }
-    }
-    
-    /* Reset & Base Styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--primary-bg);
-      color: var(--primary-text);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Product Sans', sans-serif;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-    
-    h1 {
-      font-size: 3.5rem;
-      font-weight: 700;
-    }
-    
-    h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--accent-color);
-    }
-    
-    h3 {
-      font-size: 1.8rem;
-      font-weight: 500;
-    }
-    
-    p {
-      margin-bottom: 1.5rem;
-    }
-    
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-      transition: color var(--transition-speed);
-    }
-    
-    a:hover {
-      color: var(--dark-blue);
-    }
-    
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-    
-    /* Container */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    
-    /* Header */
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: var(--primary-bg);
-      box-shadow: var(--box-shadow);
-      z-index: 1000;
-      padding: 1rem 0;
-      transition: all var(--transition-speed);
-    }
-    
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      font-family: 'Product Sans', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent-color);
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo-dot {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-left: 3px;
-    }
-    
-    .logo-dot-1 {
-      background-color: var(--blue);
-    }
-    
-    .logo-dot-2 {
-      background-color: var(--red);
-    }
-    
-    .logo-dot-3 {
-      background-color: var(--yellow);
-    }
-    
-    .logo-dot-4 {
-      background-color: var(--green);
-    }
-    
-    .nav {
-      display: flex;
-      gap: 2rem;
-    }
-    
-    .nav-link {
-      color: var(--primary-text);
-      font-weight: 500;
-      position: relative;
-      padding-bottom: 5px;
-    }
-    
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background-color: var(--accent-color);
-      transition: width var(--transition-speed);
-    }
-    
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    
-    .nav-button {
-      background-color: var(--cta-color);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 500;
-      box-shadow: 0 2px 5px rgba(234, 67, 53, 0.3);
-      transition: all var(--transition-speed);
-    }
-    
-    .nav-button:hover {
-      background-color: #D33426;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(234, 67, 53, 0.3);
-    }
-    
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 25px;
-      height: 20px;
-      cursor: pointer;
-    }
-    
-    .menu-toggle span {
-      width: 100%;
-      height: 2px;
-      background-color: var(--primary-text);
-      transition: all var(--transition-speed);
-    }
-    
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 6rem 0;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .hero-content {
-      max-width: 600px;
-      position: relative;
-      z-index: 2;
-    }
-    
-    .hero-title {
-      margin-bottom: 1.5rem;
-      color: var(--primary-text);
-    }
-    
-    .hero-title span {
-      color: var(--accent-color);
-    }
-    
-    .hero-subtitle {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: var(--secondary-text);
-    }
-    
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-    
-    .btn {
-      padding: 0.8rem 1.8rem;
-      border-radius: 30px;
-      font-weight: 500;
-      font-size: 1rem;
-      transition: all var(--transition-speed);
-    }
-    
-    .btn-primary {
-      background-color: var(--accent-color);
-      color: white;
-      box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
-    }
-    
-    .btn-primary:hover {
-      background-color: var(--dark-blue);
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
-    }
-    
-    .btn-outline {
-      border: 2px solid var(--accent-color);
-      color: var(--accent-color);
-      background-color: transparent;
-    }
-    
-    .btn-outline:hover {
-      background-color: var(--accent-color);
-      color: white;
-      transform: translateY(-2px);
-    }
-    
-    .hero-pattern {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 60%;
-      height: 100%;
-      z-index: 1;
-      opacity: 0.1;
-      background-image: radial-gradient(var(--blue) 1px, transparent 1px), 
-                        radial-gradient(var(--red) 1px, transparent 1px),
-                        radial-gradient(var(--yellow) 1px, transparent 1px),
-                        radial-gradient(var(--green) 1px, transparent 1px);
-      background-size: 60px 60px;
-      background-position: 0 0, 30px 30px, 15px 15px, 45px 45px;
-    }
-    
-    /* Case Study Section */
-    .case-study {
-      padding: 6rem 0;
-      background-color: var(--secondary-bg);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .case-study-header {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 4rem;
-    }
-    
-    .section-title {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 1.5rem;
-    }
-    
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 25%;
-      width: 50%;
-      height: 4px;
-      background: linear-gradient(to right, var(--blue), var(--red), var(--yellow), var(--green));
-      border-radius: 2px;
-    }
-    
-    .case-study-subtitle {
-      color: var(--secondary-text);
-      font-size: 1.2rem;
-    }
-    
-    .case-study-container {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 2rem;
-    }
-    
-    .case-study-sidebar {
-      grid-column: span 3;
-      position: relative;
-    }
-    
-    .case-study-content {
-      grid-column: span 9;
-      background-color: var(--primary-bg);
-      padding: 2.5rem;
-      border-radius: 10px;
-      box-shadow: var(--box-shadow);
-    }
-    
-    .metadata {
-      margin-bottom: 2rem;
-      display: flex;
-      gap: 1.5rem;
-      color: var(--secondary-text);
-      font-size: 0.9rem;
-    }
-    
-    .metadata-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    
-    .content-title {
-      margin-bottom: 1.5rem;
-      font-size: 2.2rem;
-    }
-    
-    .content-lead {
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--secondary-text);
-      margin-bottom: 2rem;
-      padding-left: 1rem;
-      border-left: 4px solid var(--accent-color);
-    }
-    
-    .case-study-section {
-      margin-bottom: 2.5rem;
-    }
-    
-    .highlight-box {
-      background-color: rgba(66, 133, 244, 0.1);
-      border-left: 4px solid var(--accent-color);
-      padding: 1.5rem;
-      margin: 2rem 0;
-      border-radius: 0 8px 8px 0;
-    }
-    
-    .highlight-box.success {
-      background-color: rgba(52, 168, 83, 0.1);
-      border-left-color: var(--green);
-    }
-    
-    .highlight-box.warning {
-      background-color: rgba(251, 188, 5, 0.1);
-      border-left-color: var(--yellow);
-    }
-    
-    .highlight-box.error {
-      background-color: rgba(234, 67, 53, 0.1);
-      border-left-color: var(--red);
-    }
-    
-    .highlight-box h4 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-    
-    .quote {
-      font-style: italic;
-      font-size: 1.5rem;
-      max-width: 90%;
-      margin: 2rem auto;
-      position: relative;
-      text-align: center;
-      color: var(--secondary-text);
-    }
-    
-    .quote::before, .quote::after {
-      content: '"';
-      font-size: 3rem;
-      position: absolute;
-      color: var(--accent-color);
-      opacity: 0.3;
-    }
-    
-    .quote::before {
-      top: -20px;
-      left: -20px;
-    }
-    
-    .quote::after {
-      bottom: -40px;
-      right: -20px;
-    }
-    
-    .outcome-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .outcome-card {
-      background-color: var(--tertiary-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: var(--box-shadow);
-      transition: transform var(--transition-speed);
-    }
-    
-    .outcome-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .outcome-icon {
-      margin-bottom: 1rem;
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      background-color: var(--accent-color);
-    }
-    
-    .outcome-card:nth-child(2) .outcome-icon {
-      background-color: var(--red);
-    }
-    
-    .outcome-card:nth-child(3) .outcome-icon {
-      background-color: var(--yellow);
-    }
-    
-    .outcome-card:nth-child(4) .outcome-icon {
-      background-color: var(--green);
-    }
-    
-    .outcome-title {
-      margin-bottom: 0.5rem;
-      font-size: 1.2rem;
-    }
-    
-    .toc {
-      background-color: var(--tertiary-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: var(--box-shadow);
-      position: sticky;
-      top: 100px;
-    }
-    
-    .toc-title {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: var(--accent-color);
-    }
-    
-    .toc-list {
-      list-style-type: none;
-    }
-    
-    .toc-item {
-      margin-bottom: 0.8rem;
-    }
-    
-    .toc-link {
-      color: var(--secondary-text);
-      font-size: 0.9rem;
-      transition: all var(--transition-speed);
-      display: block;
-      padding: 0.3rem 0;
-      border-left: 2px solid transparent;
-      padding-left: 0.8rem;
-    }
-    
-    .toc-link:hover, .toc-link.active {
-      color: var(--accent-color);
-      border-left-color: var(--accent-color);
-      padding-left: 1rem;
-    }
-    
-    .toc-divider {
-      height: 1px;
-      background-color: rgba(66, 133, 244, 0.2);
-      margin: 0.8rem 0;
-    }
-    
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-    
-    .metric-card {
-      background-color: var(--tertiary-bg);
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: var(--box-shadow);
-      text-align: center;
-      transition: transform var(--transition-speed);
-    }
-    
-    .metric-card:hover {
-      transform: translateY(-5px);
-    }
-    
-    .metric-value {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--accent-color);
-      margin-bottom: 0.5rem;
-    }
-    
-    .metric-card:nth-child(2) .metric-value {
-      color: var(--red);
-    }
-    
-    .metric-card:nth-child(3) .metric-value {
-      color: var(--yellow);
-    }
-    
-    .metric-card:nth-child(4) .metric-value {
-      color: var(--green);
-    }
-    
-    .metric-label {
-      font-size: 1rem;
-      color: var(--secondary-text);
-    }
-    
-    .image-container {
-      margin: 2rem 0;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: var(--box-shadow);
-    }
-    
-    .image-container img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    
-    .image-caption {
-      background-color: var(--tertiary-bg);
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: var(--secondary-text);
-      text-align: center;
-    }
-    
-    /* Footer */
-    .footer {
-      background-color: var(--primary-bg);
-      padding: 4rem 0 2rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
-    
-    .footer-column h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      color: var(--accent-color);
-    }
-    
-    .footer-links {
-      list-style-type: none;
-    }
-    
-    .footer-link {
-      margin-bottom: 0.8rem;
-    }
-    
-    .footer-link a {
-      color: var(--secondary-text);
-      transition: color var(--transition-speed);
-    }
-    
-    .footer-link a:hover {
-      color: var(--accent-color);
-    }
-    
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-      color: var(--secondary-text);
-      font-size: 0.9rem;
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .social-link {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: var(--tertiary-bg);
-      color: var(--secondary-text);
-      transition: all var(--transition-speed);
-    }
-    
-    .social-link:hover {
-      background-color: var(--accent-color);
-      color: white;
-      transform: translateY(-3px);
-    }
-    
-    /* Responsive */
-    @media (max-width: 992px) {
-      .case-study-container {
-        grid-template-columns: 1fr;
-      }
-      
-      .case-study-sidebar, .case-study-content {
-        grid-column: span 12;
-      }
-      
-      .toc {
-        position: static;
-        margin-bottom: 2rem;
-      }
-    }
-    
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.8rem;
-      }
-      
-      h2 {
-        font-size: 2rem;
-      }
-      
-      .nav {
-        display: none;
-        position: fixed;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: var(--primary-bg);
-        padding: 1.5rem;
-        box-shadow: var(--box-shadow);
-        flex-direction: column;
-        gap: 1.5rem;
-        z-index: 999;
-      }
-      
-      .nav.active {
-        display: flex;
-      }
-      
-      .menu-toggle {
-        display: flex;
-      }
-      
-      .menu-toggle.active span:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-      }
-      
-      .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-      
-      .menu-toggle.active span:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .container {
-        padding: 0 1.5rem;
-      }
-      
-      h1 {
-        font-size: 2.2rem;
-      }
-      
-      h2 {
-        font-size: 1.8rem;
-      }
-      
-      .hero-cta {
-        flex-direction: column;
-      }
-      
-      .metrics-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .footer-bottom {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BPO Workforce Management | AI Reality Check</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <meta name="description" content="Case study on implementing ML-driven forecasting with incomplete historical data in a 500-agent operation.">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="#" class="logo">
-        ARC
-        <span class="logo-dot logo-dot-1"></span>
-        <span class="logo-dot logo-dot-2"></span>
-        <span class="logo-dot logo-dot-3"></span>
-        <span class="logo-dot logo-dot-4"></span>
-      </a>
-      
-      <button class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      
-      <nav class="nav" id="mainNav">
-        <a href="#" class="nav-link">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#resources" class="nav-link">Resources</a>
-        <a href="#framework" class="nav-link">Framework</a>
-        <a href="#contact" class="nav-button">Contact</a>
-      </nav>
-    </div>
-  </header>
-  
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title">ML-Driven <span>Employee Turnover</span> Prediction</h1>
-        <p class="hero-subtitle">How machine learning can reduce attrition and save millions in BPO environments</p>
-        <div class="hero-cta">
-          <a href="#case-study" class="btn btn-primary">View Case Study</a>
-          <a href="#approach" class="btn btn-outline">Explore Approach</a>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">AI Reality Check</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../case-studies/index.html">Case Studies</a></li>
+                    <li><a href="../articles/index.html">Articles</a></li>
+                    <li><a href="../portfolio/index.html">Portfolio</a></li>
+                    <li><a href="../contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-      </div>
-      <div class="hero-pattern"></div>
-    </div>
-  </section>
-  
-  <!-- Case Study Section -->
-  <section id="case-study" class="case-study">
-    <div class="container">
-      <div class="case-study-header">
-        <h2 class="section-title">BPO Turnover Prediction: A Case Study</h2>
-        <p class="case-study-subtitle">Combining data science with human insights to create substantial business value</p>
-      </div>
-      
-      <div class="case-study-container">
-        <aside class="case-study-sidebar">
-          <div class="toc">
-            <h3 class="toc-title">Contents</h3>
-            <ul class="toc-list">
-              <li class="toc-item">
-                <a href="#introduction" class="toc-link active">Introduction</a>
-              </li>
-              <li class="toc-item">
-                <a href="#challenge" class="toc-link">The Challenge</a>
-              </li>
-              <li class="toc-divider"></li>
-              <li class="toc-item">
-                <a href="#approach" class="toc-link">The Approach</a>
-              </li>
-              <li class="toc-item">
-                <a href="#implementation" class="toc-link">Implementation</a>
-              </li>
-              <li class="toc-divider"></li>
-              <li class="toc-item">
-                <a href="#results" class="toc-link">Results & Impact</a>
-              </li>
-              <li class="toc-item">
-                <a href="#conclusion" class="toc-link">Conclusion</a>
-              </li>
-            </ul>
-          </div>
-        </aside>
-        
-        <article class="case-study-content">
-          <div class="metadata">
-            <div class="metadata-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                <line x1="16" y1="2" x2="16" y2="6"></line>
-                <line x1="8" y1="2" x2="8" y2="6"></line>
-                <line x1="3" y1="10" x2="21" y2="10"></line>
-              </svg>
-              <span>March 15, 2025</span>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>ML-Driven Employee Turnover Prediction</h1>
+                <p class="subtitle">How machine learning can reduce attrition and save millions in BPO environments</p>
             </div>
-            <div class="metadata-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>BPO Industry</span>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="case-study-meta">
+                    <div class="meta-item">
+                        <strong>Industry</strong>
+                        <p>Business Process Outsourcing</p>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Date Completed</strong>
+                        <p>March 15, 2025</p>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Scope</strong>
+                        <p>500-Agent Operation</p>
+                    </div>
+                </div>
+
+                <div class="case-study-content">
+                    <section id="introduction">
+                        <h2>Introduction</h2>
+                        <p class="content-lead">In the high-pressure world of Business Process Outsourcing, employee turnover is more than just an HR statistic—it's a critical business challenge with direct impact on service quality, operational costs, and long-term growth. This case study explores how machine learning can transform reactive HR practices into proactive talent strategies.</p>
+                    </section>
+
+                    <section id="challenge">
+                        <h2>The Challenge: The True Cost of BPO Turnover</h2>
+                        <p>BPO environments face unique workforce challenges. High-stress conditions, repetitive tasks, and competitive job markets create a perfect storm for employee attrition. Each departing agent takes with them valuable training investment, institutional knowledge, and client relationships.</p>
+                        
+                        <div class="highlight-box warning">
+                            <h3>The Business Problem</h3>
+                            <p>High agent turnover increases training costs, disrupts service quality, and ultimately damages client relationships. Traditional HR approaches are reactive—addressing the issue only after an employee has decided to leave, when intervention is typically too late.</p>
+                        </div>
+                        
+                        <p>The numbers tell a compelling story. For a mid-sized BPO operation with 500 employees:</p>
+                        
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-value">30%</div>
+                                <p>Average Annual Turnover</p>
+                            </div>
+                            
+                            <div class="result-card">
+                                <div class="result-value">$4,000</div>
+                                <p>Cost Per Turnover</p>
+                            </div>
+                            
+                            <div class="result-card">
+                                <div class="result-value">$600K</div>
+                                <p>Annual Cost Impact</p>
+                            </div>
+                        </div>
+                        
+                        <p>The question became clear: Could we transform reactive HR practices into proactive talent strategies by predicting who might leave before they even start looking?</p>
+                        
+                        <div class="image-container">
+                            <img src="../images/case-studies/turnover-prediction/prediction-model.svg" alt="Employee Turnover Prediction System flow diagram">
+                        </div>
+                    </section>
+
+                    <section id="approach">
+                        <h2>The Approach: Machine Learning as a Strategic HR Tool</h2>
+                        <p>Traditional approaches to employee retention rely heavily on exit interviews and anecdotal evidence—information gathered too late to prevent departure. Our solution leveraged the predictive power of machine learning to identify at-risk employees months before traditional warning signs appeared.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>Three-Stage Process</h3>
+                            <ol>
+                                <li><strong>Data Collection:</strong> Integration of HR records, engagement surveys, team metrics, compensation data, and external market information.</li>
+                                <li><strong>ML Processing:</strong> Application of Random Forest and XGBoost algorithms with SHAP analysis for interpretability.</li>
+                                <li><strong>Actionable Insights:</strong> Translation of predictions into targeted retention strategies and measurable interventions.</li>
+                            </ol>
+                        </div>
+                        
+                        <p>The system was designed not just to predict turnover, but to provide actionable intelligence on <em>why</em> employees might leave. Our SHAP analysis framework allowed HR leaders to understand the contributing factors for each high-risk employee, enabling personalized retention strategies.</p>
+                        
+                        <div class="client-quote">
+                            "The most valuable aspect wasn't just knowing who might leave—it was understanding why they might leave. That insight transformed our entire approach to talent management."
+                        </div>
+                    </section>
+
+                    <section id="implementation">
+                        <h2>Implementation: From Theory to Practice</h2>
+                        <p>The implementation followed a carefully structured methodology:</p>
+                        
+                        <ol>
+                            <li><strong>Data Integration:</strong> We created a unified data pipeline that connected disparate sources while maintaining strict privacy controls and GDPR compliance.</li>
+                            <li><strong>Model Development:</strong> Multiple ML algorithms were tested, with Random Forest and XGBoost emerging as the most effective predictors.</li>
+                            <li><strong>Explainability Layer:</strong> SHAP (SHapley Additive exPlanations) analysis was implemented to provide transparent, interpretable results that HR leaders could trust and act upon.</li>
+                            <li><strong>Intervention Framework:</strong> We developed a structured approach for translating predictions into action, including personalized retention plans and targeted interventions.</li>
+                        </ol>
+                        
+                        <div class="highlight-box success">
+                            <h3>Key Technical Innovations</h3>
+                            <ul>
+                                <li><strong>Pattern Detection System:</strong> 92% accuracy in identifying early warning signals across engagement, compensation, and performance metrics.</li>
+                                <li><strong>Signal Strength Evaluation:</strong> Weighted scoring system that prioritized based on confidence levels and intervention potential.</li>
+                                <li><strong>Predictive Timeline:</strong> 3-week advantage over traditional detection methods, providing critical early intervention opportunities.</li>
+                            </ul>
+                        </div>
+                        
+                        <p>What set this implementation apart was the focus on <em>practical application</em>. Machine learning in HR often produces insights that are interesting but not actionable. Our approach bridged that gap by integrating retention strategies directly into the prediction workflow.</p>
+                    </section>
+
+                    <section id="results">
+                        <h2>Results & Impact: Measurable Business Value</h2>
+                        <p>The implementation delivered substantial business impact across multiple dimensions:</p>
+                        
+                        <div class="results-grid">
+                            <div class="result-card">
+                                <div class="result-value">15-30%</div>
+                                <p>Reduction in Turnover</p>
+                            </div>
+                            
+                            <div class="result-card">
+                                <div class="result-value">$700K-$1.4M</div>
+                                <p>Annual Savings</p>
+                            </div>
+                            
+                            <div class="result-card">
+                                <div class="result-value">Enhanced</div>
+                                <p>Talent Stability</p>
+                            </div>
+                            
+                            <div class="result-card">
+                                <div class="result-value">Data-Driven</div>
+                                <p>HR Culture</p>
+                            </div>
+                        </div>
+                        
+                        <div class="highlight-box success">
+                            <h3>Technical Performance Metrics</h3>
+                            <ul>
+                                <li>Pattern Detection Accuracy: 92%</li>
+                                <li>Average Processing Speed: ~100ms per job post</li>
+                                <li>False Positive Rate: < 2%</li>
+                                <li>Model F1 Score: 0.91 (Balance of precision and recall)</li>
+                            </ul>
+                        </div>
+                        
+                        <p>Beyond the numbers, we observed a fundamental shift in how managers approached retention. Rather than treating turnover as inevitable, they began to see it as manageable. The transparency provided by the SHAP analysis framework also improved trust in the system—managers could understand and validate the risk factors being identified.</p>
+                    </section>
+
+                    <section id="conclusion">
+                        <h2>Conclusion: The Future of AI-Driven Talent Management</h2>
+                        <p>This implementation demonstrated that machine learning can transform HR from a reactive to a proactive function—identifying at-risk employees before they become flight risks and enabling early, targeted interventions.</p>
+                        
+                        <p>The success factors that made this project valuable provide a roadmap for other organizations:</p>
+                        
+                        <ol>
+                            <li><strong>Focus on explainability:</strong> Predictions alone don't drive action; understanding "why" is essential for appropriate intervention.</li>
+                            <li><strong>Integrate with existing processes:</strong> The solution enhanced rather than replaced human judgment, making it easier to adopt.</li>
+                            <li><strong>Measure meaningful outcomes:</strong> Success metrics focused on business impact, not just model accuracy.</li>
+                            <li><strong>Prioritize ethical considerations:</strong> Privacy, consent, and responsible use were built into the system architecture from day one.</li>
+                        </ol>
+                        
+                        <p>For BPO environments where talent stability directly impacts service quality and operational costs, predictive turnover solutions offer a powerful competitive advantage. The approach demonstrated here—combining advanced analytics with human insight—provides a template for the future of strategic talent management.</p>
+                        
+                        <div class="client-quote">
+                            "In an industry where people are our product, keeping the right talent isn't just an HR goal—it's a business imperative. This solution translated that imperative into action."
+                            <footer>— Head of Operations</footer>
+                        </div>
+                    </section>
+                </div>
             </div>
-            <div class="metadata-item">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <polyline points="12 6 12 12 16 14"></polyline>
-              </svg>
-              <span>8 min read</span>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../case-studies/index.html">Case Studies</a></li>
+                        <li><a href="../articles/index.html">Articles</a></li>
+                        <li><a href="../portfolio/index.html">Portfolio</a></li>
+                        <li><a href="../contact/index.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-media">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="icon-twitter"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="icon-github"></i></a>
+                    </div>
+                </div>
             </div>
-          </div>
-          
-          <h1 class="content-title">ML-Driven Employee Turnover Prediction</h1>
-          
-          <p class="content-lead" id="introduction">In the high-pressure world of Business Process Outsourcing, employee turnover is more than just an HR statistic—it's a critical business challenge with direct impact on service quality, operational costs, and long-term growth. This case study explores how machine learning can transform reactive HR practices into proactive talent strategies.</p>
-          
-          <div class="case-study-section" id="challenge">
-            <h3>The Challenge: The True Cost of BPO Turnover</h3>
-            
-            <p>BPO environments face unique workforce challenges. High-stress conditions, repetitive tasks, and competitive job markets create a perfect storm for employee attrition. Each departing agent takes with them valuable training investment, institutional knowledge, and client relationships.</p>
-            
-            <div class="highlight-box warning">
-              <h4>The Business Problem</h4>
-              <p>High agent turnover increases training costs, disrupts service quality, and ultimately damages client relationships. Traditional HR approaches are reactive—addressing the issue only after an employee has decided to leave, when intervention is typically too late.</p>
+            <div class="copyright">
+                <p>&copy; 2025 AI Reality Check. All rights reserved.</p>
             </div>
-            
-            <p>The numbers tell a compelling story. For a mid-sized BPO operation with 500 employees:</p>
-            
-            <div class="metrics-grid">
-              <div class="metric-card">
-                <div class="metric-value">30%</div>
-                <div class="metric-label">Average Annual Turnover</div>
-              </div>
-              <div class="metric-card">
-                <div class="metric-value">$4,000</div>
-                <div class="metric-label">Cost Per Turnover</div>
-              </div>
-              <div class="metric-card">
-                <div class="metric-value">$600K</div>
-                <p>The question became clear: Could we transform reactive HR practices into proactive talent strategies by predicting who might leave before they even start looking?</p>
-      </div>
-      
-      <div class="image-container">
-        <img src="image1.png" alt="Employee Turnover Prediction System flow diagram showing data collection, ML processing, and actionable insights">
-        <div class="image-caption">The three-stage process: Data Collection, ML Processing, and Actionable Insights</div>
-      </div>
-      
-      <div class="case-study-section" id="approach">
-        <h3>The Approach: Machine Learning as a Strategic HR Tool</h3>
-        
-        <p>Traditional approaches to employee retention rely heavily on exit interviews and anecdotal evidence—information gathered too late to prevent departure. Our solution leveraged the predictive power of machine learning to identify at-risk employees months before traditional warning signs appeared.</p>
-        
-        <div class="highlight-box">
-          <h4>Three-Stage Process</h4>
-          <ol>
-            <li><strong>Data Collection:</strong> Integration of HR records, engagement surveys, team metrics, compensation data, and external market information.</li>
-            <li><strong>ML Processing:</strong> Application of Random Forest and XGBoost algorithms with SHAP analysis for interpretability.</li>
-            <li><strong>Actionable Insights:</strong> Translation of predictions into targeted retention strategies and measurable interventions.</li>
-          </ol>
         </div>
-        
-        <p>The system was designed not just to predict turnover, but to provide actionable intelligence on <em>why</em> employees might leave. Our SHAP analysis framework allowed HR leaders to understand the contributing factors for each high-risk employee, enabling personalized retention strategies.</p>
-        
-        <div class="quote">
-          "The most valuable aspect wasn't just knowing who might leave—it was understanding why they might leave. That insight transformed our entire approach to talent management."
-        </div>
-      </div>
-      
-      <div class="case-study-section" id="implementation">
-        <h3>Implementation: From Theory to Practice</h3>
-        
-        <p>The implementation followed a carefully structured methodology:</p>
-        
-        <ol>
-          <li><strong>Data Integration:</strong> We created a unified data pipeline that connected disparate sources while maintaining strict privacy controls and GDPR compliance.</li>
-          <li><strong>Model Development:</strong> Multiple ML algorithms were tested, with Random Forest and XGBoost emerging as the most effective predictors.</li>
-          <li><strong>Explainability Layer:</strong> SHAP (SHapley Additive exPlanations) analysis was implemented to provide transparent, interpretable results that HR leaders could trust and act upon.</li>
-          <li><strong>Intervention Framework:</strong> We developed a structured approach for translating predictions into action, including personalized retention plans and targeted interventions.</li>
-        </ol>
-        
-        <div class="highlight-box success">
-          <h4>Key Technical Innovations</h4>
-          <ul>
-            <li><strong>Pattern Detection System:</strong> 92% accuracy in identifying early warning signals across engagement, compensation, and performance metrics.</li>
-            <li><strong>Signal Strength Evaluation:</strong> Weighted scoring system that prioritized based on confidence levels and intervention potential.</li>
-            <li><strong>Predictive Timeline:</strong> 3-week advantage over traditional detection methods, providing critical early intervention opportunities.</li>
-          </ul>
-        </div>
-        
-        <p>What set this implementation apart was the focus on <em>practical application</em>. Machine learning in HR often produces insights that are interesting but not actionable. Our approach bridged that gap by integrating retention strategies directly into the prediction workflow.</p>
-      </div>
-      
-      <div class="image-container">
-        <img src="image2.png" alt="Proposed approach and alignment with BPO requirements showing data integration, predictive ML, and actionable insights">
-        <div class="image-caption">The comprehensive solution architecture showing alignment with BPO requirements</div>
-      </div>
-      
-      <div class="case-study-section" id="results">
-        <h3>Results & Impact: Measurable Business Value</h3>
-        
-        <p>The implementation delivered substantial business impact across multiple dimensions:</p>
-        
-        <div class="outcome-grid">
-          <div class="outcome-card">
-            <div class="outcome-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 20V10"></path>
-                <path d="M18 20V4"></path>
-                <path d="M6 20v-4"></path>
-              </svg>
-            </div>
-            <h4 class="outcome-title">15-30% Reduction in Turnover</h4>
-            <p>Early interventions significantly reduced voluntary departures, especially among high-performers and critical roles.</p>
-          </div>
-          
-          <div class="outcome-card">
-            <div class="outcome-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-              </svg>
-            </div>
-            <h4 class="outcome-title">$700K-$1.4M Annual Savings</h4>
-            <p>Reduced recruitment, training, and onboarding costs created substantial direct financial impact.</p>
-          </div>
-          
-          <div class="outcome-card">
-            <div class="outcome-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-            </div>
-            <h4 class="outcome-title">Enhanced Talent Stability</h4>
-            <p>Improved consistency in service delivery and client relationships, leading to higher customer satisfaction scores.</p>
-          </div>
-          
-          <div class="outcome-card">
-            <div class="outcome-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-                <line x1="1" y1="10" x2="23" y2="10"></line>
-              </svg>
-            </div>
-            <h4 class="outcome-title">Data-Driven HR Culture</h4>
-            <p>Transformed HR from a reactive to proactive function by embedding predictive analytics into core processes.</p>
-          </div>
-        </div>
-        
-        <div class="highlight-box success">
-          <h4>Technical Performance Metrics</h4>
-          <ul>
-            <li>Pattern Detection Accuracy: 92%</li>
-            <li>Average Processing Speed: ~100ms per job post</li>
-            <li>False Positive Rate: < 2%</li>
-            <li>Model F1 Score: 0.91 (Balance of precision and recall)</li>
-          </ul>
-        </div>
-        
-        <p>Beyond the numbers, we observed a fundamental shift in how managers approached retention. Rather than treating turnover as inevitable, they began to see it as manageable. The transparency provided by the SHAP analysis framework also improved trust in the system—managers could understand and validate the risk factors being identified.</p>
-      </div>
-      
-      <div class="case-study-section" id="conclusion">
-        <h3>Conclusion: The Future of AI-Driven Talent Management</h3>
-        
-        <p>This implementation demonstrated that machine learning can transform HR from a reactive to a proactive function—identifying at-risk employees before they become flight risks and enabling early, targeted interventions.</p>
-        
-        <p>The success factors that made this project valuable provide a roadmap for other organizations:</p>
-        
-        <ol>
-          <li><strong>Focus on explainability:</strong> Predictions alone don't drive action; understanding "why" is essential for appropriate intervention.</li>
-          <li><strong>Integrate with existing processes:</strong> The solution enhanced rather than replaced human judgment, making it easier to adopt.</li>
-          <li><strong>Measure meaningful outcomes:</strong> Success metrics focused on business impact, not just model accuracy.</li>
-          <li><strong>Prioritize ethical considerations:</strong> Privacy, consent, and responsible use were built into the system architecture from day one.</li>
-        </ol>
-        
-        <p>For BPO environments where talent stability directly impacts service quality and operational costs, predictive turnover solutions offer a powerful competitive advantage. The approach demonstrated here—combining advanced analytics with human insight—provides a template for the future of strategic talent management.</p>
-        
-        <div class="quote">
-          "In an industry where people are our product, keeping the right talent isn't just an HR goal—it's a business imperative. This solution translated that imperative into action."
-        </div>
-      </div>
-    </article>
-  </div>
-</div>
+    </footer>
+
+    <script src="../js/main.min.js"></script>
+</body>
+</html>
