@@ -182,7 +182,7 @@ nav a:hover::after {
     text-align: center;
     padding: var(--space-xxl) 0;
     background-color: #0a0a17;
-    background-image: url('../images/hero/ARC\ Hero.png');
+    background-image: url('../images/hero/ARC\ Hero.webp');
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
