@@ -2,60 +2,38 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    
-    - name: Setup Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '16'
-    
-    - name: Install dependencies
-      run: |
-        npm install -g html-minifier-terser
-    
-    - name: Optimize HTML
-      run: |
-        find . -name "*.html" -type f -exec html-minifier-terser --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype {} -o {} \;
-    
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@v4
-      if: github.event_name != 'pull_request'
-      with:
-        folder: .
-        branch: gh-pages
-        clean: true
-        
-    - name: Add CNAME
-      if: github.event_name != 'pull_request'
-      run: |
-        echo "airealitycheck.org" > CNAME
-        
-    - name: Cache Control
-      if: github.event_name != 'pull_request'
-      run: |
-        mkdir -p .github/workflows
-        cat > _headers << EOL
-        /*
-          Cache-Control: max-age=3600
-        *.css
-          Cache-Control: max-age=604800
-        *.js
-          Cache-Control: max-age=604800
-        *.svg
-          Cache-Control: max-age=2592000
-        *.jpg
-          Cache-Control: max-age=2592000
-        *.png
-          Cache-Control: max-age=2592000
-        EOL
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: |
+          npm install -g html-minifier
+          npm install -g svgo
+
+      - name: Optimize Assets
+        run: |
+          # Minify HTML files
+          find . -type f -name "*.html" -exec html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true {} -o {} \;
+          
+          # Optimize SVG files
+          find ./images -type f -name "*.svg" -exec svgo {} \;
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages
+          folder: .
+          clean: true
