@@ -10,46 +10,76 @@ const ComponentConfig = {
     // Component paths relative to the site root
     paths: {
         header: 'components/header.html',
-        footer: 'components/footer.html'
+        footer: 'components/footer.html',
+        metaTags: 'components/meta-tags.html'
     },
     // Component placeholder IDs
     placeholders: {
         header: 'header-placeholder',
-        footer: 'footer-placeholder'
+        footer: 'footer-placeholder',
+        metaTags: 'meta-tags-placeholder'
     },
     // Fallback content if component loading fails
     fallbacks: {
         header: '<header class="error-header"><div class="container"><a href="/" class="logo">AI Reality Check</a></div></header>',
-        footer: '<footer class="error-footer"><div class="container"><p>&copy; 2025 AI Reality Check</p></div></footer>'
+        footer: '<footer class="error-footer"><div class="container"><p>&copy; 2025 AI Reality Check</p></div></footer>',
+        metaTags: '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="css/style.min.css">'
     }
 };
 
 // Wait for the DOM to be fully loaded before loading components
 document.addEventListener('DOMContentLoaded', function() {
+    // Count how many components we need to load
+    let totalComponents = 0;
+    
+    // Check which placeholders exist
+    const headerPlaceholder = document.getElementById(ComponentConfig.placeholders.header);
+    const footerPlaceholder = document.getElementById(ComponentConfig.placeholders.footer);
+    const metaTagsPlaceholder = document.getElementById(ComponentConfig.placeholders.metaTags);
+    
+    // Count components to load
+    if (headerPlaceholder) totalComponents++;
+    if (footerPlaceholder) totalComponents++;
+    if (metaTagsPlaceholder) totalComponents++;
+    
     // Track component loading for error handling
     window.componentLoadingStatus = {
-        total: 2, // Total number of components to load
+        total: totalComponents, // Total number of components to load
         loaded: 0, // Counter for successfully loaded components
         failed: 0, // Counter for failed component loads
         errors: [] // Array to store error messages
     };
     
-    // Load critical components with timeouts for better UX
-    setTimeout(() => {
+    // Load meta-tags component first if it exists (critical for SEO)
+    if (metaTagsPlaceholder) {
         loadComponent(
-            ComponentConfig.placeholders.header, 
-            ComponentConfig.paths.header,
-            ComponentConfig.fallbacks.header
+            ComponentConfig.placeholders.metaTags,
+            ComponentConfig.paths.metaTags,
+            ComponentConfig.fallbacks.metaTags
         );
-    }, 0);
+    }
     
-    setTimeout(() => {
-        loadComponent(
-            ComponentConfig.placeholders.footer, 
-            ComponentConfig.paths.footer,
-            ComponentConfig.fallbacks.footer
-        );
-    }, 10);
+    // Load header component with small delay
+    if (headerPlaceholder) {
+        setTimeout(() => {
+            loadComponent(
+                ComponentConfig.placeholders.header, 
+                ComponentConfig.paths.header,
+                ComponentConfig.fallbacks.header
+            );
+        }, 10);
+    }
+    
+    // Load footer component with slightly longer delay
+    if (footerPlaceholder) {
+        setTimeout(() => {
+            loadComponent(
+                ComponentConfig.placeholders.footer, 
+                ComponentConfig.paths.footer,
+                ComponentConfig.fallbacks.footer
+            );
+        }, 20);
+    }
 });
 
 /**
@@ -103,8 +133,24 @@ function loadComponent(placeholderId, componentPath, fallbackHtml) {
             return response.text();
         })
         .then(html => {
+            // Get the current path for placeholders
+            const currentPath = window.location.pathname;
+            
             // Replace the [ROOT_URL] placeholder with the correct relative path
             html = html.replace(/\[ROOT_URL\]/g, rootPath);
+            
+            // Replace the [CURRENT_PATH] placeholder with the current page path
+            html = html.replace(/\[CURRENT_PATH\]/g, currentPath);
+            
+            // Replace any page-specific title and description placeholders if they exist in the document
+            if (document.title) {
+                html = html.replace(/\[PAGE_TITLE\]/g, document.title);
+            }
+            
+            const metaDescription = document.querySelector('meta[name="description"]');
+            if (metaDescription && metaDescription.content) {
+                html = html.replace(/\[PAGE_DESCRIPTION\]/g, metaDescription.content);
+            }
             
             // Insert the component into the placeholder
             placeholder.innerHTML = html;

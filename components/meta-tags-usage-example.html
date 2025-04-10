@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Page-specific meta information -->
+    <title>Your Page Title | AI Reality Check</title>
+    <meta name="description" content="Your page-specific description goes here.">
+    
+    <!-- Meta-tags component placeholder -->
+    <div id="meta-tags-placeholder"></div>
+    
+    <!-- Additional page-specific stylesheets or scripts -->
+</head>
+<body>
+    <!-- Page content goes here -->
+    
+    <!-- Scripts at the end of the body -->
+    <script src="[ROOT_URL]js/main.min.js"></script>
+    <script src="[ROOT_URL]js/components.min.js"></script>
+    
+    <!-- Load meta-tags component -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Use the same loadComponent function from components.js
+            if (typeof loadComponent === 'function') {
+                loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+            }
+        });
+    </script>
+</body>
+</html>
