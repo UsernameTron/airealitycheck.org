@@ -196,18 +196,13 @@ nav a:hover::after {
 
 /* Hero Section */
 .hero {
-    text-align: center;
-    padding: var(--space-xxl) 0;
-    background-color: #0a0a17;
     position: relative;
     min-height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
     overflow: hidden;
 }
 
-/* Background image with overlay */
+/* Background image at full opacity */
 .hero::before {
     content: '';
     position: absolute;
@@ -219,34 +214,8 @@ nav a:hover::after {
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.9;
+    opacity: 1;
     z-index: 1;
-}
-
-/* Use a translucent panel for better text visibility */
-.hero .container {
-    background-color: rgba(0, 0, 0, 0.7);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    width: 80%;
-    max-width: 800px;
-    position: relative;
-    z-index: 2;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.hero h1 {
-    margin-bottom: var(--space-sm);
-    color: var(--white);
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    font-size: 2.5rem;
-}
-
-.subtitle {
-    font-size: var(--font-size-lg);
-    color: var(--white);
-    margin-bottom: 0;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Profile Section */
