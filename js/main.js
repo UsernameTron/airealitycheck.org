@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize smooth scrolling for anchor links
     initSmoothScroll();
+    
+    // Initialize theme toggle functionality
+    initThemeToggle();
 });
 
 /**
@@ -108,6 +111,70 @@ function initSmoothScroll() {
                 history.pushState(null, null, targetId);
             }
         });
+    });
+}
+
+/**
+ * Initializes theme toggle functionality
+ * Supports system preference detection and manual override
+ */
+function initThemeToggle() {
+    // Check if theme was previously set
+    const savedTheme = localStorage.getItem('theme') || 'auto';
+    
+    // Set initial theme
+    document.documentElement.className = `theme-${savedTheme}`;
+    
+    // Get the theme toggle button
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (!themeToggle) return;
+    
+    // Get the sun and moon icons
+    const lightIcon = themeToggle.querySelector('.light-icon');
+    const darkIcon = themeToggle.querySelector('.dark-icon');
+    
+    // Set initial button state based on saved theme
+    if (savedTheme === 'dark') {
+        themeToggle.setAttribute('aria-pressed', 'true');
+        lightIcon.style.display = 'none';
+        darkIcon.style.display = 'block';
+    } else {
+        themeToggle.setAttribute('aria-pressed', 'false');
+        lightIcon.style.display = 'block';
+        darkIcon.style.display = 'none';
+    }
+    
+    // Toggle theme when the button is clicked
+    themeToggle.addEventListener('click', function() {
+        // Get current theme
+        const currentTheme = document.documentElement.className;
+        let newTheme;
+        
+        // Cycle through themes: auto -> light -> dark -> auto
+        if (currentTheme === 'theme-auto') {
+            newTheme = 'light';
+        } else if (currentTheme === 'theme-light') {
+            newTheme = 'dark';
+        } else {
+            newTheme = 'auto';
+        }
+        
+        // Apply new theme
+        document.documentElement.className = `theme-${newTheme}`;
+        
+        // Save preference
+        localStorage.setItem('theme', newTheme);
+        
+        // Update button state
+        if (newTheme === 'dark') {
+            themeToggle.setAttribute('aria-pressed', 'true');
+            lightIcon.style.display = 'none';
+            darkIcon.style.display = 'block';
+        } else {
+            themeToggle.setAttribute('aria-pressed', 'false');
+            lightIcon.style.display = 'block';
+            darkIcon.style.display = 'none';
+        }
     });
 }
 

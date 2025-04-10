@@ -33,6 +33,8 @@
     --neutral-light: #9AA0A6; /* Darkened for better contrast */
     --neutral-lighter: #F1F3F4;
     --white: #FFFFFF;
+    --black: #000000;
+    --surface: #FFFFFF;
     
     /* For semi-transparent backgrounds with accessible contrast */
     --blue-bg: #e8f0fe; /* Solid color replacement for rgba(66, 133, 244, 0.1) */
@@ -45,6 +47,31 @@
     --footer-text: #FFFFFF; /* Full white for text on dark backgrounds */
     --footer-overlay: rgba(0, 0, 0, 0.85); /* Darker overlay for better text contrast */
     --footer-secondary: rgba(255, 255, 255, 0.9); /* Brighter for better contrast */
+    
+    /* Dark mode variables */
+    --dark-surface: #121212;
+    --dark-surface-elevated-1: #1E1E1E;
+    --dark-surface-elevated-2: #222222;
+    --dark-surface-elevated-3: #252525;
+    --dark-text-high: rgba(255, 255, 255, 0.87); /* ~4.5:1 contrast ratio */
+    --dark-text-medium: rgba(255, 255, 255, 0.6); /* For less important text */
+    --dark-border: #333333;
+    
+    /* Dark mode color equivalents */
+    --dark-primary-blue: #64B5F6; /* Lighter blue for dark mode with 4.5:1+ contrast */
+    --dark-primary-blue-dark: #90CAF9; /* Even lighter for hover in dark mode */
+    --dark-primary-red: #E57373; /* Lighter red for dark mode */
+    --dark-primary-yellow: #FFD54F; /* Adjusted yellow for dark mode */
+    --dark-primary-green: #81C784; /* Lighter green for dark mode */
+    --dark-blue-bg: rgba(25, 118, 210, 0.15); /* Dark mode blue background */
+    --dark-green-bg: rgba(67, 160, 71, 0.15); /* Dark mode green background */
+    --dark-yellow-bg: rgba(251, 140, 0, 0.15); /* Dark mode yellow background */
+    --dark-red-bg: rgba(211, 47, 47, 0.15); /* Dark mode red background */
+    
+    /* Shadows for dark mode */
+    --dark-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.9);
+    --dark-shadow-md: 0 2px 6px rgba(0, 0, 0, 0.9);
+    --dark-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.9);
     
     /* Spacing system (8px grid) */
     --space-xs: 4px;
@@ -1147,6 +1174,135 @@ footer .container {
 
 .text-center {
     text-align: center;
+}
+
+/* ===== DARK MODE ===== */
+/* Theme toggle button */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-left: var(--space-md);
+    margin-right: calc(var(--space-md) * -1);
+}
+
+.theme-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--primary-blue);
+}
+
+.theme-toggle-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.theme-toggle[aria-pressed="true"] .theme-toggle-icon {
+    transform: rotate(360deg);
+}
+
+/* Media query for system preferences */
+@media (prefers-color-scheme: dark) {
+    :root.theme-auto {
+        /* Apply dark theme when system prefers dark and theme is set to auto */
+        --primary-blue: var(--dark-primary-blue);
+        --primary-blue-dark: var(--dark-primary-blue-dark);
+        --primary-red: var(--dark-primary-red);
+        --primary-yellow: var(--dark-primary-yellow);
+        --primary-green: var(--dark-primary-green);
+        --neutral-dark: var(--dark-text-high);
+        --neutral-medium: var(--dark-text-medium);
+        --neutral-light: rgba(255, 255, 255, 0.3);
+        --neutral-lighter: var(--dark-surface-elevated-1);
+        --white: var(--dark-surface);
+        --surface: var(--dark-surface);
+        
+        --blue-bg: var(--dark-blue-bg);
+        --green-bg: var(--dark-green-bg);
+        --yellow-bg: var(--dark-yellow-bg);
+        --red-bg: var(--dark-red-bg);
+        
+        --shadow-sm: var(--dark-shadow-sm);
+        --shadow-md: var(--dark-shadow-md);
+        --shadow-lg: var(--dark-shadow-lg);
+    }
+}
+
+/* Manual dark theme toggle */
+:root.theme-dark {
+    --primary-blue: var(--dark-primary-blue);
+    --primary-blue-dark: var(--dark-primary-blue-dark);
+    --primary-red: var(--dark-primary-red);
+    --primary-yellow: var(--dark-primary-yellow);
+    --primary-green: var(--dark-primary-green);
+    --neutral-dark: var(--dark-text-high);
+    --neutral-medium: var(--dark-text-medium);
+    --neutral-light: rgba(255, 255, 255, 0.3);
+    --neutral-lighter: var(--dark-surface-elevated-1);
+    --white: var(--dark-surface);
+    --surface: var(--dark-surface);
+    
+    --blue-bg: var(--dark-blue-bg);
+    --green-bg: var(--dark-green-bg);
+    --yellow-bg: var(--dark-yellow-bg);
+    --red-bg: var(--dark-red-bg);
+    
+    --shadow-sm: var(--dark-shadow-sm);
+    --shadow-md: var(--dark-shadow-md);
+    --shadow-lg: var(--dark-shadow-lg);
+}
+
+/* Dark mode specific overrides */
+:root.theme-dark body, 
+:root.theme-auto body {
+    background-color: var(--dark-surface);
+    color: var(--dark-text-high);
+}
+
+:root.theme-dark header, 
+:root.theme-auto header {
+    background-color: var(--dark-surface-elevated-1);
+    box-shadow: var(--dark-shadow-sm);
+}
+
+:root.theme-dark .logo a, 
+:root.theme-auto .logo a,
+:root.theme-dark nav a, 
+:root.theme-auto nav a {
+    color: var(--dark-text-high);
+}
+
+:root.theme-dark .card, 
+:root.theme-auto .card,
+:root.theme-dark .result-card, 
+:root.theme-auto .result-card,
+:root.theme-dark .metric-card, 
+:root.theme-auto .metric-card {
+    background-color: var(--dark-surface-elevated-1);
+    box-shadow: var(--dark-shadow-md);
+}
+
+:root.theme-dark footer::before, 
+:root.theme-auto footer::before {
+    background-color: rgba(0, 0, 0, 0.95);
+}
+
+:root.theme-dark .mobile-nav-toggle .bar, 
+:root.theme-auto .mobile-nav-toggle .bar {
+    background-color: var(--dark-text-high);
 }
 
 /* Add icons using CSS to avoid external dependencies */
