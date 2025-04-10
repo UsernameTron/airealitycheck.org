@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "Creative";
+        const PAGE_DESCRIPTION = "Explore creative AI-generated content, visualizations, and artistic experiments that showcase the intersection of technology and creativity.";
+        const REL_PATH = "../"; // Creative is one level down from root
+        const CANONICAL_PATH = "/creative/"; // Path after domain
+    </script>
+    
+    <!-- Meta tags component placeholder -->
+    <div id="meta-tags-placeholder"></div>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Page-specific styles */
+        .featured-image {
+            max-width: 850px;
+            margin: 2rem auto;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .creative-intro {
+            max-width: 850px;
+            margin: 0 auto 3rem;
+            padding: 0 var(--space-lg);
+            text-align: center;
+        }
+        
+        .creative-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin: 2rem 0;
+        }
+        
+        .creative-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .creative-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .creative-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .creative-content {
+            padding: var(--space-lg);
+            background-color: var(--surface);
+        }
+        
+        .creative-content h3 {
+            margin-top: 0;
+            color: var(--primary-blue);
+        }
+        
+        .creative-tags {
+            margin-top: var(--space-md);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xs);
+        }
+        
+        .creative-tag {
+            font-size: var(--font-size-xs);
+            padding: 4px 8px;
+            border-radius: var(--radius-sm);
+            background-color: var(--blue-bg);
+            color: var(--primary-blue);
+        }
+        
+        @media (max-width: 768px) {
+            .creative-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="content">
+            <h1 class="section-title">Creative AI</h1>
+            <div class="container">
+                <div class="creative-intro">
+                    <p>Explore the intersection of AI and creative expression. This section showcases various experiments, visualizations, and artistic projects that demonstrate the potential of artificial intelligence as a creative tool.</p>
+                </div>
+                
+                <div class="featured-image">
+                    <img src="images/placeholder.svg" alt="AI-generated creative visualization" />
+                </div>
+                
+                <h2 class="subsection-title">Featured Projects</h2>
+                
+                <div class="creative-grid">
+                    <div class="creative-item">
+                        <img src="images/placeholder.svg" alt="Creative AI project" />
+                        <div class="creative-content">
+                            <h3>Coming Soon</h3>
+                            <p>New creative AI content will be featured here. Check back soon for updates.</p>
+                            <div class="creative-tags">
+                                <span class="creative-tag">AI Art</span>
+                                <span class="creative-tag">Visualization</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/main.min.js"></script>
+    <script src="../js/components.min.js"></script>
+    
+    <!-- Load components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Use the loadComponent function from components.js
+            if (typeof loadComponent === 'function') {
+                // Load meta tags first (if not already loaded by components.js)
+                if (document.getElementById('meta-tags-placeholder')) {
+                    loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
