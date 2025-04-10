@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "Oppy: AI Reimagining";
+        const PAGE_DESCRIPTION = "A tribute to the Opportunity Mars rover, reimagined through the lens of AI technology and creative digital storytelling.";
+        const REL_PATH = "../"; // Portfolio is one level down from root
+        const CANONICAL_PATH = "/portfolio/oppy-video.html"; // Path after domain
+    </script>
+    
+    <!-- Meta tags component placeholder -->
+    <div id="meta-tags-placeholder"></div>
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Page-specific styles */
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: black;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-info {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .video-info h1 {
+            color: var(--primary-blue);
+            margin-bottom: var(--space-md);
+        }
+        
+        .meta-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            font-size: var(--font-size-sm);
+            color: var(--neutral-medium);
+        }
+        
+        .meta-details span {
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .meta-details span::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+        }
+        
+        .date::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z'/%3E%3C/svg%3E");
+        }
+        
+        .author::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+        }
+        
+        .category::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z'/%3E%3C/svg%3E");
+        }
+        
+        .duration::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z'/%3E%3C/svg%3E");
+        }
+        
+        .description {
+            line-height: 1.7;
+        }
+        
+        .tags {
+            margin-top: var(--space-xl);
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-sm);
+            margin-right: var(--space-xs);
+            margin-bottom: var(--space-xs);
+            background-color: var(--neutral-lighter);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            color: var(--neutral-dark);
+        }
+        
+        .buttons {
+            margin-top: var(--space-xl);
+            display: flex;
+            gap: var(--space-md);
+        }
+        
+        .btn-secondary {
+            background-color: var(--neutral-lighter);
+            color: var(--neutral-dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--neutral-light);
+            color: var(--neutral-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .video-info h1 {
+                font-size: 1.8rem;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="content">
+            <div class="container">
+                <div class="video-container">
+                    <video controls poster="../images/hero/ARC Hero.webp">
+                        <source src="../videos/oppy.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                
+                <div class="video-info">
+                    <h1>Oppy: An AI Reimagining</h1>
+                    
+                    <div class="meta-details">
+                        <span class="date">April 2025</span>
+                        <span class="author">C. Pete Conner</span>
+                        <span class="category">Creative AI</span>
+                        <span class="duration">1:30</span>
+                    </div>
+                    
+                    <div class="description">
+                        <p>This video is a creative tribute to the Opportunity Mars rover, affectionately known as "Oppy," reimagined through the lens of AI technology. The rover operated on Mars for nearly 15 years, far exceeding its planned 90-day mission, before communication was lost during a massive dust storm in 2018.</p>
+                        
+                        <p>Using a combination of AI-generated imagery, animation techniques, and audio processing, this piece captures the essence of Oppy's journey and the emotional connection humans formed with this remarkable machine. The visuals were created using advanced stable diffusion models and frame interpolation, while the audio was crafted using specialized AI sound design tools.</p>
+                        
+                        <p>This project represents the intersection of space exploration, emotional storytelling, and creative applications of artificial intelligence. It demonstrates how AI can be used not just for analytical or practical purposes, but also as a medium for artistic expression and emotional connection.</p>
+                    </div>
+                    
+                    <div class="tags">
+                        <span class="tag">AI Creativity</span>
+                        <span class="tag">Mars Exploration</span>
+                        <span class="tag">Digital Storytelling</span>
+                        <span class="tag">Opportunity Rover</span>
+                        <span class="tag">Stable Diffusion</span>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="../videos/oppy.mp4" download class="btn">Download Video</a>
+                        <a href="index.html" class="btn btn-secondary">Back to Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/main.min.js"></script>
+    <script src="../js/components.min.js"></script>
+    
+    <!-- Load components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Use the loadComponent function from components.js
+            if (typeof loadComponent === 'function') {
+                // Load meta tags first (if not already loaded by components.js)
+                if (document.getElementById('meta-tags-placeholder')) {
+                    loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
