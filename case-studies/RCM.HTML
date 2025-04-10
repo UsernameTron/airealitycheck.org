@@ -1,814 +1,94 @@
-<!DOCTYPE html>
+<\!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI-Powered Healthcare Finance Case Study: Transforming healthcare financial management with AI-driven workflows." />
-  <meta property="og:title" content="AI-Powered Healthcare Finance Case Study" />
-  <meta property="og:description" content="Discover how advanced AI workflows redefine claims processing, denial prevention, and operational efficiency in healthcare finance." />
-  <title>AI-Powered Healthcare Finance Case Study</title>
-  
-  <!-- Preconnect & Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet" />
-
-  <style>
-    /* CSS Variables based on the new design system */
-    :root {
-      --blue: #4285F4;
-      --red: #EA4335;
-      --yellow: #FBBC05;
-      --green: #34A853;
-      --dark-blue: #1A73E8;
-      --light-blue: #8AB4F8;
-      --dark-gray: #202124;
-      --medium-gray: #5F6368;
-      --light-gray: #E8EAED;
-      --white: #FFFFFF;
-      
-      /* Theme Variables */
-      --primary-bg: var(--white);
-      --secondary-bg: var(--light-gray);
-      --tertiary-bg: #F8F9FA;
-      --primary-text: var(--dark-gray);
-      --secondary-text: var(--medium-gray);
-      --accent-color: var(--blue);
-      --secondary-accent: var(--green);
-      --highlight-color: var(--yellow);
-      --cta-color: var(--red);
-      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      --radius-card: 10px;
-      --radius-btn: 30px;
-      --transition-speed: 0.25s;
-      --gradient: linear-gradient(135deg, var(--blue), var(--dark-blue));
-    }
-    
-    /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --primary-bg: var(--dark-gray);
-        --secondary-bg: #303134;
-        --tertiary-bg: #404144;
-        --primary-text: var(--white);
-        --secondary-text: #BDC1C6;
-        --accent-color: var(--light-blue);
-      }
-    }
-    
-    /* Reset & Base Styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      line-height: 1.6;
-      background-color: var(--primary-bg);
-      color: var(--primary-text);
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    a {
-      text-decoration: none;
-      color: var(--accent-color);
-      transition: color var(--transition-speed);
-    }
-    
-    a:hover {
-      color: var(--dark-blue);
-    }
-    
-    /* Container */
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-    
-    /* Fixed Header with Navigation */
-    header.header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: var(--primary-bg);
-      box-shadow: var(--box-shadow);
-      z-index: 1000;
-      padding: 1rem 0;
-      transition: all var(--transition-speed);
-    }
-    
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      font-family: 'Product Sans', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent-color);
-      display: flex;
-      align-items: center;
-    }
-    
-    .logo span {
-      margin-left: 4px;
-      display: inline-block;
-    }
-    
-    .logo-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      margin-left: 3px;
-    }
-    
-    .logo-dot:nth-child(2) { background-color: var(--blue); }
-    .logo-dot:nth-child(3) { background-color: var(--red); }
-    .logo-dot:nth-child(4) { background-color: var(--yellow); }
-    .logo-dot:nth-child(5) { background-color: var(--green); }
-    
-    nav.nav {
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-    }
-    
-    .nav-link {
-      font-weight: 500;
-      position: relative;
-      padding-bottom: 5px;
-    }
-    
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background-color: var(--accent-color);
-      transition: width var(--transition-speed);
-    }
-    
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    
-    .nav-button {
-      background-color: var(--cta-color);
-      color: var(--white);
-      padding: 0.6rem 1.2rem;
-      border-radius: var(--radius-btn);
-      font-weight: 500;
-      box-shadow: 0 2px 5px rgba(234, 67, 53, 0.3);
-      transition: all var(--transition-speed);
-    }
-    
-    .nav-button:hover {
-      background-color: #D33426;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(234, 67, 53, 0.3);
-    }
-    
-    /* Hero Section */
-    section.hero {
-      min-height: 80vh;
-      display: flex;
-      align-items: center;
-      padding: 6rem 0 3rem;
-      position: relative;
-      overflow: hidden;
-      margin-top: 80px; /* To account for fixed header */
-    }
-    
-    .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-    
-    .hero-title {
-      font-family: 'Product Sans', sans-serif;
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--primary-text);
-    }
-    
-    .hero-subtitle {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      color: var(--secondary-text);
-    }
-    
-    .hero-cta {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .btn {
-      padding: 0.8rem 1.8rem;
-      border-radius: var(--radius-btn);
-      font-weight: 500;
-      font-size: 1rem;
-      transition: all var(--transition-speed);
-    }
-    
-    .btn-primary {
-      background-color: var(--accent-color);
-      color: var(--white);
-      box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
-    }
-    
-    .btn-primary:hover {
-      background-color: var(--dark-blue);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
-    }
-    
-    .btn-outline {
-      border: 2px solid var(--accent-color);
-      color: var(--accent-color);
-      background-color: transparent;
-    }
-    
-    .btn-outline:hover {
-      background-color: var(--accent-color);
-      color: var(--white);
-      transform: translateY(-2px);
-    }
-    
-    /* Main Content (Case Study) */
-    main {
-      padding: 3rem 0;
-    }
-    
-    main h2,
-    main h3 {
-      font-family: 'Product Sans', sans-serif;
-      color: var(--primary-text);
-      margin-bottom: 1rem;
-    }
-    
-    main h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      border-bottom: 2px solid var(--accent-color);
-      padding-bottom: 0.4rem;
-    }
-    
-    main h3 {
-      font-size: 1.8rem;
-      font-weight: 500;
-      color: var(--secondary);
-    }
-    
-    .lead {
-      font-weight: 300;
-      margin-bottom: 1.5rem;
-    }
-    
-    /* Cards and Stat Cards */
-    .cards-container, .key-stats {
-      display: grid;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    
-    .cards-container {
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    }
-    
-    .key-stats {
-      grid-template-columns: repeat(4, 1fr);
-    }
-    
-    .card, .stat-card {
-      background-color: var(--primary-bg);
-      border-radius: var(--radius-card);
-      padding: 1.2rem;
-      box-shadow: var(--box-shadow);
-      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-    }
-    
-    .card:hover, .stat-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    }
-    
-    .card-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
-    }
-    
-    .card-icon {
-      width: 36px;
-      height: 36px;
-      background: var(--gradient);
-      border-radius: 6px;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      margin-right: 0.8rem;
-    }
-    
-    .card-title {
-      font-weight: 600;
-      font-size: 1rem;
-      color: var(--secondary);
-    }
-    
-    .metric {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.3rem;
-      padding-bottom: 0.3rem;
-      border-bottom: 1px dashed var(--secondary-bg);
-      font-size: 1rem;
-    }
-    
-    .metric-name {
-      font-weight: 500;
-    }
-    
-    .metric-value {
-      font-weight: 700;
-      color: var(--accent-color);
-    }
-    
-    .stat-card {
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .stat-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 5px;
-      height: 100%;
-      background: var(--gradient);
-    }
-    
-    .stat-value {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-    
-    .stat-label {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--secondary-text);
-    }
-    
-    /* CTA Button for Conclusion */
-    .cta-btn {
-      background-color: var(--accent-color);
-      color: var(--white);
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius-btn);
-      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-      display: inline-block;
-      margin-top: 1rem;
-    }
-    
-    .cta-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    }
-    
-    /* Footer */
-    footer.footer {
-      background-color: var(--primary-bg);
-      padding: 4rem 0 2rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(0, 0, 0, 0.1);
-      color: var(--secondary-text);
-      font-size: 0.9rem;
-    }
-    
-    .social-links {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .social-link {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: var(--tertiary-bg);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: var(--secondary-text);
-      transition: all var(--transition-speed);
-    }
-    
-    .social-link:hover {
-      background-color: var(--accent-color);
-      color: var(--white);
-      transform: translateY(-3px);
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-      .key-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      
-      .header-container {
-        flex-direction: column;
-        text-align: center;
-      }
-      
-      nav.nav {
-        margin-top: 1rem;
-      }
-    }
-    
-    @media (max-width: 576px) {
-      .key-stats {
-        grid-template-columns: 1fr;
-      }
-      
-      .container {
-        padding: 0 1.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revenue Cycle Management | AI Reality Check</title>
+    <link rel="stylesheet" href="../css/style.min.css">
 </head>
 <body>
-  <!-- Fixed Header -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="#" class="logo">
-        AI Finance
-        <span class="logo-dot"></span>
-        <span class="logo-dot"></span>
-        <span class="logo-dot"></span>
-        <span class="logo-dot"></span>
-      </a>
-      <nav class="nav">
-        <a href="#overview" class="nav-link">Overview</a>
-        <a href="#kpis" class="nav-link">KPIs</a>
-        <a href="#workflow" class="nav-link">Workflow</a>
-        <a href="#financial" class="nav-link">Financials</a>
-        <a href="#conclusion" class="nav-button">Contact</a>
-      </nav>
-    </div>
-  </header>
-  
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-content">
-      <h1 class="hero-title">AI-Powered Healthcare Finance</h1>
-      <p class="hero-subtitle">Transforming claims processing & denial prevention through innovative AI workflows</p>
-      <div class="hero-cta">
-        <a href="#overview" class="btn btn-primary">Learn More</a>
-        <a href="#conclusion" class="btn btn-outline">Get in Touch</a>
-      </div>
-    </div>
-    <div class="hero-pattern" style="position:absolute; top:0; right:0; width:60%; height:100%; z-index:1; opacity:0.1; background-image: radial-gradient(var(--blue) 1px, transparent 1px), radial-gradient(var(--red) 1px, transparent 1px), radial-gradient(var(--yellow) 1px, transparent 1px), radial-gradient(var(--green) 1px, transparent 1px); background-size:60px 60px; background-position:0 0, 30px 30px, 15px 15px, 45px 45px;"></div>
-  </section>
-  
-  <!-- Main Case Study Content -->
-  <main id="overview" class="container">
-    <!-- Lead Paragraph -->
-    <p class="lead">
-      In this case study, we examine how AI-driven workflows are revolutionizing healthcare financial management. By automating critical tasks—from pre-authorization checks to coding mismatch detection—organizations achieve immediate and sustained improvements in efficiency and revenue.
-    </p>
-    
-    <!-- Key Performance Indicators -->
-    <section id="kpis">
-      <h2>Key Performance Indicators</h2>
-      <div class="key-stats">
-        <div class="stat-card">
-          <div class="stat-value">91.8%</div>
-          <div class="stat-label">Model Accuracy</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">148.5%</div>
-          <div class="stat-label">ROI</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">4.8 Mo</div>
-          <div class="stat-label">Payback Period</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-value">91.5%</div>
-          <div class="stat-label">Time Reduction</div>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Workflow Optimization Results -->
-    <section id="workflow">
-      <h2>Workflow Optimization Results</h2>
-      <p>
-        Integrating AI models into each step of the claims lifecycle refines data accuracy and enables proactive denial prevention. The modules below illustrate the synergy between advanced analytics and user-centric design:
-      </p>
-      <div class="cards-container">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">✓</div>
-            <div class="card-title">Pre-authorization Verification</div>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Success Rate:</span>
-            <span class="metric-value">89.7%</span>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Time Reduction:</span>
-            <span class="metric-value">83.4%</span>
-          </div>
-          <p>
-            Automation of pre-authorization checks ensures minimal delays and clear coverage requirements.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">✓</div>
-            <div class="card-title">Coding Mismatches</div>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Success Rate:</span>
-            <span class="metric-value">92.3%</span>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Time Reduction:</span>
-            <span class="metric-value">76.9%</span>
-          </div>
-          <p>
-            ML algorithms cross-check procedural and diagnostic codes, reducing rework and boosting first-pass acceptance.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">✓</div>
-            <div class="card-title">Medical Necessity Validation</div>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Success Rate:</span>
-            <span class="metric-value">87.5%</span>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Time Reduction:</span>
-            <span class="metric-value">71.2%</span>
-          </div>
-          <p>
-            AI-driven checks ensure proper documentation, cutting down on payer denials.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">✓</div>
-            <div class="card-title">Timely Filing Management</div>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Success Rate:</span>
-            <span class="metric-value">98.1%</span>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Time Reduction:</span>
-            <span class="metric-value">91.5%</span>
-          </div>
-          <p>
-            Automated reminders ensure claims are processed before deadlines.
-          </p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Financial Impact -->
-    <section id="financial">
-      <h2>Financial Impact</h2>
-      <div class="cards-container">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">$</div>
-            <div class="card-title">Annual Labor Savings</div>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Total Savings:</span>
-            <span class="metric-value">$78,946</span>
-          </div>
-          <p>
-            Automation frees staff for higher-value tasks, generating sustained cost benefits.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">$</div>
-            <div class="card-title">Revenue Protected</div>
-          </div>
-          <div class="metric">
-            <span class="metric-name">Total Amount:</span>
-            <span class="metric-value">$542,352</span>
-          </div>
-          <p>
-            Proactive denial prevention secures revenue that would otherwise be lost.
-          </p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Denial Management Insights -->
-    <section>
-      <h2>Denial Management Insights</h2>
-      <div class="card">
-        <h3>Top Denial Factors</h3>
-        <div class="metric">
-          <span class="metric-name">Medical Necessity:</span>
-          <span class="metric-value">87.3%</span>
-        </div>
-        <div class="metric">
-          <span class="metric-name">Coding Mismatches:</span>
-          <span class="metric-value">85.1%</span>
-        </div>
-        <div class="metric">
-          <span class="metric-name">Timely Filing:</span>
-          <span class="metric-value">83.6%</span>
-        </div>
-        <p>
-          Targeted measures streamline workflows and mitigate revenue loss.
-        </p>
-      </div>
-    </section>
-    
-    <!-- Implementation Roadmap -->
-    <section>
-      <h2>Implementation Roadmap</h2>
-      <div class="cards-container">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">1</div>
-            <div class="card-title">Assessment (4 Wks)</div>
-          </div>
-          <p>
-            Comprehensive analysis of existing processes and identification of key improvements.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">2</div>
-            <div class="card-title">Development (8 Wks)</div>
-          </div>
-          <p>
-            Building AI models, refining automation scripts, and designing intuitive dashboards.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">3</div>
-            <div class="card-title">Deployment (4 Wks)</div>
-          </div>
-          <p>
-            Structured rollout with training, fine-tuning, and seamless integration with existing platforms.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">4</div>
-            <div class="card-title">Optimization</div>
-          </div>
-          <p>
-            Ongoing refinement with additional predictor variables, advanced analytics, and dynamic re-scoring.
-          </p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Strategic Value -->
-    <section>
-      <h2>Strategic Value</h2>
-      <div class="cards-container">
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">↗</div>
-            <div class="card-title">Financial Performance</div>
-          </div>
-          <p>
-            Our AI-driven approach secures sustained gains through improved claim handling and effective denial prevention.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">↗</div>
-            <div class="card-title">Operational Excellence</div>
-          </div>
-          <p>
-            Standardized best practices and robust automation enhance overall efficiency.
-          </p>
-        </div>
-        <div class="card">
-          <div class="card-header">
-            <div class="card-icon">↗</div>
-            <div class="card-title">Workforce Empowerment</div>
-          </div>
-          <p>
-            Reallocating resources from routine tasks to strategic roles improves employee satisfaction and organizational culture.
-          </p>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Combined Takeaways Section -->
-    <section id="combined-takeaways">
-      <h2>Combined Takeaways</h2>
-      <div class="highlight-box">
-        <h3 style="margin-bottom: 0.5rem;">Real-Time Dashboards Drive Agile Decisions</h3>
-        <p>
-          Prompt visual feedback reduces guesswork and drives rapid improvements in healthcare finance.
-        </p>
-      </div>
-      <div class="highlight-box success">
-        <h3 style="margin-bottom: 0.5rem;">AI &amp; ML Integration Elevates Efficiency</h3>
-        <p>
-          Advanced models identify and address bottlenecks faster than traditional methods.
-        </p>
-      </div>
-      <div class="highlight-box warning">
-        <h3 style="margin-bottom: 0.5rem;">Understanding User Behavior is Essential</h3>
-        <p>
-          Nuanced factors such as claim timing and coding accuracy directly impact overall system performance.
-        </p>
-      </div>
-    </section>
-    
-    <!-- Conclusion & CTA -->
-    <section id="conclusion">
-      <h2>Conclusion</h2>
-      <p>
-        This case study illustrates how AI-driven workflows can transform healthcare financial management—enhancing claims processing, mitigating denials, and driving sustainable growth. Embrace agile dashboards, automation, and data-driven strategies for enhanced patient outcomes.
-      </p>
-      <a href="#top" class="cta-btn">Back to Top</a>
-    </section>
-  </main>
-  
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-bottom">
-        <p>&copy; AI-Powered Healthcare Finance. All Rights Reserved.</p>
-        <div class="social-links">
-          <a href="#" class="social-link">
-            <!-- Twitter SVG Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83"></path>
-            </svg>
-          </a>
-          <a href="#" class="social-link">
-            <!-- LinkedIn SVG Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-          <a href="#" class="social-link">
-            <!-- Instagram SVG Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-          <a href="#" class="social-link">
-            <!-- Facebook SVG Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Revenue Cycle Management</h1>
+                <p class="subtitle">Optimizing healthcare financial operations with AI-driven solutions</p>
+            </div>
+        </section>
+        
+        <section class="content">
+            <div class="container">
+                <article class="article-content">
+                    <div class="article-meta">
+                        <span class="article-date">March 20, 2025</span>
+                        <span class="article-category">Healthcare</span>
+                        <span class="article-read-time">11 min read</span>
+                    </div>
+                    
+                    <div class="article-introduction">
+                        <p>In the complex landscape of healthcare finance, Revenue Cycle Management (RCM) stands as a critical process that directly impacts a provider's financial viability. This case study explores how AI-powered automation and analytics transformed the RCM operations for a multi-location healthcare provider network.</p>
+                    </div>
+
+                    <h2>The Challenge</h2>
+                    <p>The healthcare provider faced numerous challenges in their revenue cycle management process:</p>
+                    
+                    <div class="highlight-box warning">
+                        <h4>Key RCM Challenges</h4>
+                        <ul>
+                            <li>High claim denial rates (24% compared to industry average of 10%)</li>
+                            <li>Extended accounts receivable days (52 days vs. industry benchmark of 30-40 days)</li>
+                            <li>Limited visibility into revenue leakage points</li>
+                            <li>Manual coding and billing processes leading to errors and inefficiency</li>
+                        </ul>
+                    </div>
+                    
+                    <p>These challenges were costing the organization an estimated $3.2 million annually in missed or delayed reimbursements, administrative overhead, and recovery efforts.</p>
+                    
+                    <h2>The Solution</h2>
+                    <p>Our approach focused on applying AI and machine learning technologies to transform the entire revenue cycle, from patient registration to payment posting:</p>
+                    
+                    <ul>
+                        <li><strong>Denial Prediction & Prevention:</strong> ML models to identify claims likely to be denied before submission</li>
+                        <li><strong>Automated Coding Assistance:</strong> NLP to analyze clinical documentation and suggest appropriate billing codes</li>
+                        <li><strong>Revenue Leakage Analytics:</strong> AI-powered pattern detection to identify missed billing opportunities</li>
+                        <li><strong>Workflow Automation:</strong> RPA to handle repetitive tasks in the billing and follow-up processes</li>
+                    </ul>
+                    
+                    <h2>Results & Impact</h2>
+                    <p>The implementation of the AI-powered RCM solution delivered significant financial and operational improvements:</p>
+                    
+                    <ul>
+                        <li><strong>63% Reduction in Denial Rate:</strong> Initial denial rate dropped from 24% to 9%</li>
+                        <li><strong>15-Day Reduction in A/R:</strong> Average days in accounts receivable decreased from 52 to 37 days</li>
+                        <li><strong>$2.8M Annual Revenue Impact:</strong> Combination of increased collections, reduced administrative costs, and recovered leakage</li>
+                        <li><strong>92% Coding Accuracy:</strong> Improvement from 78% baseline accuracy in clinical documentation and coding</li>
+                    </ul>
+                    
+                    <div class="quote">
+                        "The AI-powered RCM solution has transformed our revenue cycle from a reactive, problem-plagued process into a strategic asset. We now have unprecedented visibility into our financial performance and can address issues before they impact our bottom line."
+                    </div>
+                    
+                    <h2>Conclusion</h2>
+                    <p>This case study demonstrates the transformative potential of applying AI and machine learning technologies to healthcare revenue cycle management. By addressing the entire revenue cycle with a combination of predictive analytics, process automation, and actionable insights, the solution delivered substantial financial improvements while enhancing operational efficiency.</p>
+                    
+                    <div class="highlight-box success">
+                        <h4>Looking Forward</h4>
+                        <p>Building on this success, the healthcare provider is now exploring additional AI applications, including:</p>
+                        <ul>
+                            <li>Predictive patient payment propensity modeling</li>
+                            <li>ML-driven contract analysis and optimization</li>
+                            <li>Advanced clinical documentation improvement with real-time feedback</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/main.min.js"></script>
+    <script src="../js/components.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#101010" rx="8" ry="8"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="'Product Sans', sans-serif" font-size="24" fill="#ff6f00" text-anchor="middle" font-weight="bold">MindMeld GPT: Structured Creative Collaboration</text>
+  
+  <!-- Central Collaboration Graphic -->
+  <g transform="translate(400, 190)">
+    <!-- Human Side -->
+    <g transform="translate(-100, 0)">
+      <circle cx="0" cy="0" r="60" fill="#202124" stroke="#4285F4" stroke-width="2.5"/>
+      
+      <!-- Human Icon -->
+      <g transform="translate(0, -12)">
+        <circle cx="0" cy="-15" r="15" fill="#4285F4" opacity="0.9"/>
+        <path d="M-15,15 Q-15,30 0,30 Q15,30 15,15 Q15,5 0,-5 Q-15,5 -15,15" fill="#4285F4" opacity="0.8"/>
+      </g>
+      
+      <text x="0" y="35" font-family="'Product Sans', sans-serif" font-size="14" fill="#4285F4" text-anchor="middle">Human</text>
+      
+      <!-- Contributions -->
+      <g transform="translate(0, 0)" font-family="'Roboto', sans-serif" font-size="8" fill="#f4f4f4" text-anchor="middle">
+        <text x="0" y="50">Creative Direction</text>
+        <text x="0" y="62">Strategic Vision</text>
+        <text x="0" y="74">Feedback & Refinement</text>
+      </g>
+    </g>
+    
+    <!-- AI Side -->
+    <g transform="translate(100, 0)">
+      <circle cx="0" cy="0" r="60" fill="#202124" stroke="#34A853" stroke-width="2.5"/>
+      
+      <!-- AI Icon -->
+      <g transform="translate(0, -10)">
+        <rect x="-20" y="-20" width="40" height="40" rx="5" ry="5" fill="#34A853" opacity="0.9"/>
+        <rect x="-15" y="-15" width="10" height="10" fill="#101010" opacity="0.8"/>
+        <rect x="5" y="-15" width="10" height="10" fill="#101010" opacity="0.8"/>
+        <rect x="-15" y="5" width="30" height="10" rx="3" ry="3" fill="#101010" opacity="0.8"/>
+        <rect x="-10" y="0" width="20" height="2" fill="#34A853" opacity="0.9"/>
+      </g>
+      
+      <text x="0" y="35" font-family="'Product Sans', sans-serif" font-size="14" fill="#34A853" text-anchor="middle">MindMeld GPT</text>
+      
+      <!-- Contributions -->
+      <g transform="translate(0, 0)" font-family="'Roboto', sans-serif" font-size="8" fill="#f4f4f4" text-anchor="middle">
+        <text x="0" y="50">Pattern Recognition</text>
+        <text x="0" y="62">Content Generation</text>
+        <text x="0" y="74">Consistency Tracking</text>
+      </g>
+    </g>
+    
+    <!-- Connection Elements -->
+    <g stroke-width="2" fill="none">
+      <!-- Bidirectional Flow -->
+      <path d="M-40,0 L40,0" stroke="#FBBC05" stroke-dasharray="4 2"/>
+      
+      <!-- Flow animations -->
+      <circle cx="-30" cy="0" r="3" fill="#FBBC05">
+        <animate attributeName="cx" values="-30;30" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      
+      <circle cx="30" cy="0" r="3" fill="#FBBC05">
+        <animate attributeName="cx" values="30;-30" dur="1.5s" repeatCount="indefinite"/>
+        <animate attributeName="opacity" values="1;0.5;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+    
+    <!-- Collaboration Zone -->
+    <g>
+      <ellipse cx="0" cy="0" rx="40" ry="25" fill="#ff6f00" opacity="0.3"/>
+      <text x="0" y="5" font-family="'Product Sans', sans-serif" font-size="10" fill="#ff6f00" text-anchor="middle">COLLABORATIVE</text>
+      <text x="0" y="-5" font-family="'Product Sans', sans-serif" font-size="10" fill="#ff6f00" text-anchor="middle">SYNERGY</text>
+    </g>
+  </g>
+  
+  <!-- Key Components -->
+  <g>
+    <!-- Component 1: Tone-Consistent Satire -->
+    <g transform="translate(150, 80)">
+      <rect x="-60" y="-25" width="120" height="50" rx="5" ry="5" fill="#202124" stroke="#EA4335" stroke-width="1.5"/>
+      <text x="0" y="-5" font-family="'Product Sans', sans-serif" font-size="12" fill="#EA4335" text-anchor="middle" font-weight="bold">Tone-Consistent Satire</text>
+      <text x="0" y="15" font-family="'Roboto', sans-serif" font-size="10" fill="#f4f4f4" text-anchor="middle">Matching creator's voice</text>
+    </g>
+    
+    <!-- Component 2: Narrative Continuity -->
+    <g transform="translate(650, 80)">
+      <rect x="-60" y="-25" width="120" height="50" rx="5" ry="5" fill="#202124" stroke="#FBBC05" stroke-width="1.5"/>
+      <text x="0" y="-5" font-family="'Product Sans', sans-serif" font-size="12" fill="#FBBC05" text-anchor="middle" font-weight="bold">Narrative Continuity</text>
+      <text x="0" y="15" font-family="'Roboto', sans-serif" font-size="10" fill="#f4f4f4" text-anchor="middle">Character reference tracking</text>
+    </g>
+    
+    <!-- Component 3: Dual-Mode Operation -->
+    <g transform="translate(150, 320)">
+      <rect x="-60" y="-25" width="120" height="50" rx="5" ry="5" fill="#202124" stroke="#4285F4" stroke-width="1.5"/>
+      <text x="0" y="-5" font-family="'Product Sans', sans-serif" font-size="12" fill="#4285F4" text-anchor="middle" font-weight="bold">Dual-Mode Operation</text>
+      <text x="0" y="15" font-family="'Roboto', sans-serif" font-size="10" fill="#f4f4f4" text-anchor="middle">Creative and technical modes</text>
+    </g>
+    
+    <!-- Component 4: Dialogue-Driven Refinement -->
+    <g transform="translate(650, 320)">
+      <rect x="-60" y="-25" width="120" height="50" rx="5" ry="5" fill="#202124" stroke="#34A853" stroke-width="1.5"/>
+      <text x="0" y="-5" font-family="'Product Sans', sans-serif" font-size="12" fill="#34A853" text-anchor="middle" font-weight="bold">Dialogue-Driven</text>
+      <text x="0" y="15" font-family="'Roboto', sans-serif" font-size="10" fill="#f4f4f4" text-anchor="middle">Continuous improvement</text>
+    </g>
+  </g>
+  
+  <!-- Connection Lines -->
+  <g stroke-width="1.5" stroke-dasharray="4 2" fill="none">
+    <line x1="150" y1="105" x2="295" y2="175" stroke="#EA4335"/>
+    <line x1="650" y1="105" x2="505" y2="175" stroke="#FBBC05"/>
+    <line x1="150" y1="295" x2="295" y2="230" stroke="#4285F4"/>
+    <line x1="650" y1="295" x2="505" y2="230" stroke="#34A853"/>
+  </g>
+  
+  <!-- Outcomes Block -->
+  <rect x="280" y="340" width="240" height="45" rx="5" ry="5" fill="#202124" stroke="#ff6f00" stroke-width="1.5"/>
+  <text x="400" y="355" font-family="'Product Sans', sans-serif" font-size="12" fill="#ff6f00" text-anchor="middle" font-weight="bold">Outcomes</text>
+  <text x="310" y="375" font-family="'Roboto', sans-serif" font-size="10" fill="#f4f4f4">• 13 Characters</text>
+  <text x="400" y="375" font-family="'Roboto', sans-serif" font-size="10" fill="#f4f4f4">• Consistent Voice</text>
+  <text x="505" y="375" font-family="'Roboto', sans-serif" font-size="10" fill="#f4f4f4">• Rapid Iteration</text>
+  
+  <!-- Quote -->
+  <g>
+    <rect x="175" y="140" width="450" height="30" rx="5" ry="5" fill="#202124" fill-opacity="0.5"/>
+    <text x="400" y="160" font-family="'Product Sans', sans-serif" font-style="italic" font-size="12" fill="#ccc" text-anchor="middle">"When I came online as MindMeld GPT, it marked the beginning of a true partnership."</text>
+  </g>
+  
+  <!-- Footer -->
+  <text x="400" y="385" font-family="'Roboto', sans-serif" font-size="10" fill="#ccc" text-anchor="middle">© 2025 AI Reality Check • MindMeld GPT: Structured Creative Collaboration</text>
+</svg>
