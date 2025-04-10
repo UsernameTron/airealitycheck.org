@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /**
  * Highlights the current page in the navigation menu
+ * Also ensures all navigation links work properly
  */
 function highlightCurrentPage() {
     // Get the current page URL
@@ -27,14 +28,74 @@ function highlightCurrentPage() {
     
     // Loop through each link
     navLinks.forEach(link => {
-        // Get the href attribute
+        // Get the href attribute and ensure it's an absolute URL from the base of the site
         const href = link.getAttribute('href');
         
-        // Check if the href matches the current page
-        if (currentPage.endsWith(href)) {
-            link.classList.add('active');
+        // Fix potentially broken links that might have [ROOT_URL] not replaced
+        if (href && href.includes('[ROOT_URL]')) {
+            // Calculate the correct path to root
+            const rootPath = getPathToRoot();
+            
+            // Update the href with the corrected path
+            const fixedHref = href.replace('[ROOT_URL]', rootPath);
+            link.setAttribute('href', fixedHref);
+        }
+
+        // Check if the href (without trailing slash) matches the current page (without trailing slash)
+        // This handles directory paths better
+        if (href && currentPage) {
+            const cleanHref = href.replace(/\/$/, ''); // Remove trailing slash if exists
+            const cleanCurrentPage = currentPage.replace(/\/$/, ''); // Remove trailing slash if exists
+            
+            if (cleanCurrentPage.endsWith(cleanHref) || 
+                cleanCurrentPage === cleanHref || 
+                (cleanHref.includes('/') && cleanCurrentPage.includes(cleanHref))) {
+                link.classList.add('active');
+            }
         }
     });
+}
+
+/**
+ * Helper function to determine the relative path to site root
+ * This is a simplified version of the one in components.js
+ */
+function getPathToRoot() {
+    // Get the pathname from the current URL
+    let path = window.location.pathname;
+    
+    // Handle development environments with missing trailing slashes
+    if (!path.endsWith('/') && !path.endsWith('.html')) {
+        path += '/';
+    }
+    
+    // Split path into segments and filter out empty segments
+    const segments = path.split('/').filter(segment => segment.length > 0);
+    
+    // Special handling for root or direct HTML files under root
+    if (segments.length === 0) {
+        return './'; // At root
+    }
+    
+    if (segments.length === 1 && segments[0].endsWith('.html')) {
+        return './'; // HTML file at root level
+    }
+    
+    // Count how many directories deep we are for proper path calculation
+    let depth = segments.length;
+    
+    // If the last segment is an HTML file, reduce the depth by 1
+    if (segments.length > 0 && segments[segments.length - 1].endsWith('.html')) {
+        depth--;
+    }
+    
+    // Generate the appropriate number of "../" based on depth
+    let rootPath = '';
+    for (let i = 0; i < depth; i++) {
+        rootPath += '../';
+    }
+    
+    return rootPath;
 }
 
 /**
