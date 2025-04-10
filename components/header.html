@@ -1,15 +1,18 @@
-<!-- Standard Header Component -->
-<header>
+<!-- Standard Header Component with proper ARIA landmarks -->
+<header role="banner">
     <div class="container">
         <div class="logo">
-            <a href="[ROOT_URL]index.html">AI Reality Check</a>
+            <a href="[ROOT_URL]index.html" aria-label="AI Reality Check - Home">
+                <span class="visually-hidden">AI Reality Check</span>
+                <span aria-hidden="true">AI Reality Check</span>
+            </a>
         </div>
-        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav>
+        <nav id="main-navigation" role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="[ROOT_URL]case-studies/index.html">Case Studies</a></li>
                 <li><a href="[ROOT_URL]articles/index.html">Articles</a></li>
@@ -19,3 +22,16 @@
         </nav>
     </div>
 </header>
+
+<!-- Hero section template - pages should add this after the header placeholder -->
+<!-- 
+<section class="hero" role="region" aria-labelledby="page-title">
+    <div class="container">
+        <h1 id="page-title">Page Title</h1>
+        <p class="subtitle">Page subtitle or description</p>
+    </div>
+</section>
+-->
+
+<!-- Visually-hidden class has been added to style.css -->
+<!-- This template helps maintain proper heading hierarchy with h1 in main content -->
