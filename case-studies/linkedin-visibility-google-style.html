@@ -494,35 +494,135 @@
       <section>
         <h2>Visual Proof</h2>
         
-        <figure>
-          <img src="decay_curves.png" alt="Visibility decay over 48 hours" />
-          <figcaption><strong>Figure 1.</strong> Corporate posts (blue) start high and glide down slowly. Independent posts (red) start lower and nosedive.</figcaption>
-        </figure>
-        
-        <figure>
-          <img src="authority_bar.png" alt="Average authority score by publisher type" />
-          <figcaption><strong>Figure 2.</strong> Hidden "authority scores" built into the platform give brands an instant advantage.</figcaption>
-        </figure>
-        
-        <figure>
-          <img src="alignment_penalty.png" alt="Reach penalty by narrative alignment" />
-          <figcaption><strong>Figure 3.</strong> The further a post strays from LinkedIn's preferred narrative, the steeper the reach penalty.</figcaption>
-        </figure>
-        
-        <figure>
-          <img src="sentiment_heatmap.png" alt="Audience sentiment by publisher type and narrative alignment" />
-          <figcaption><strong>Figure 4.</strong> A heat‑map of audience reactions shows that sentiment stays positive even when reach is throttled—proof that low visibility isn't caused by poor content.</figcaption>
-        </figure>
-        
-        <figure>
-          <img src="ab_test_flow.png" alt="A/B testing flow diagram" />
-          <figcaption><strong>Figure 5.</strong> Diagram of the A/B workflow: identical visuals, different captions, and side‑by‑side tracking to isolate narrative effects.</figcaption>
-        </figure>
-        
-        <figure>
-          <img src="network_amplification.png" alt="Network amplification diagram" />
-          <figcaption><strong>Figure 6.</strong> How one share from a high‑authority account can catapult an otherwise throttled post into thousands of extra feeds.</figcaption>
-        </figure>
+        <!-- Statistical Analysis Section -->
+        <div style="background-color: var(--tertiary-bg); border-radius: 10px; padding: 2rem; margin: 3rem 0; box-shadow: var(--box-shadow);">
+          <h3 style="color: var(--accent-color); margin-top: 0;">Statistical Proof: What Really Drives Visibility?</h3>
+          
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+            <div>
+              <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 1.5rem; height: 100%;">
+                <h4 style="color: var(--accent-color); margin-top: 0; font-size: 1.2rem;">The Main Drivers of Visibility</h4>
+                <p style="margin-bottom: 1rem;">Our regression analysis of 10,000 posts reveals the exact factors that determine who gets seen:</p>
+                
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                  <div style="width: 20px; height: 20px; background-color: var(--red); border-radius: 50%;"></div>
+                  <div><strong>Being an independent creator: -69.37</strong><br><span style="color: var(--secondary-text); font-size: 0.9rem;">Your posts reach ~70% fewer feeds just because you're not a company</span></div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                  <div style="width: 20px; height: 20px; background-color: var(--yellow); border-radius: 50%;"></div>
+                  <div><strong>Institutional (but not corporate): -16.41</strong><br><span style="color: var(--secondary-text); font-size: 0.9rem;">Organizations like universities see a smaller but still significant penalty</span></div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                  <div style="width: 20px; height: 20px; background-color: var(--blue); border-radius: 50%;"></div>
+                  <div><strong>Likes: +0.38 per like</strong><br><span style="color: var(--secondary-text); font-size: 0.9rem;">Each like adds less than half a view</span></div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                  <div style="width: 20px; height: 20px; background-color: var(--green); border-radius: 50%;"></div>
+                  <div><strong>Comments: +0.30 per comment</strong><br><span style="color: var(--secondary-text); font-size: 0.9rem;">Comments help, but not enough to overcome the baseline penalty</span></div>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: center;">
+                  <div style="width: 20px; height: 20px; background-color: var(--dark-blue); border-radius: 50%;"></div>
+                  <div><strong>Shares: +0.20 per share</strong><br><span style="color: var(--secondary-text); font-size: 0.9rem;">Surprisingly, shares help less than likes or comments</span></div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 1.5rem; height: 100%;">
+                <h4 style="color: var(--red); margin-top: 0; font-size: 1.2rem;">Narrative Alignment Penalties</h4>
+                <p style="margin-bottom: 1.5rem;">How much your reach drops when you deviate from LinkedIn's preferred narratives:</p>
+                
+                <div style="margin-bottom: 1.5rem;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                    <span style="font-size: 0.9rem;"><strong>Contradictory</strong></span>
+                    <span style="font-size: 0.9rem;">-89%</span>
+                  </div>
+                  <div style="height: 8px; background-color: var(--secondary-bg); border-radius: 4px;">
+                    <div style="width: 89%; height: 100%; background-color: var(--red); border-radius: 4px;"></div>
+                  </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                    <span style="font-size: 0.9rem;"><strong>Significant deviation</strong></span>
+                    <span style="font-size: 0.9rem;">-68%</span>
+                  </div>
+                  <div style="height: 8px; background-color: var(--secondary-bg); border-radius: 4px;">
+                    <div style="width: 68%; height: 100%; background-color: var(--red); border-radius: 4px;"></div>
+                  </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                    <span style="font-size: 0.9rem;"><strong>Moderate deviation</strong></span>
+                    <span style="font-size: 0.9rem;">-45%</span>
+                  </div>
+                  <div style="height: 8px; background-color: var(--secondary-bg); border-radius: 4px;">
+                    <div style="width: 45%; height: 100%; background-color: var(--yellow); border-radius: 4px;"></div>
+                  </div>
+                </div>
+                
+                <div style="margin-bottom: 1.5rem;">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                    <span style="font-size: 0.9rem;"><strong>Minimal deviation</strong></span>
+                    <span style="font-size: 0.9rem;">-15%</span>
+                  </div>
+                  <div style="height: 8px; background-color: var(--secondary-bg); border-radius: 4px;">
+                    <div style="width: 15%; height: 100%; background-color: var(--green); border-radius: 4px;"></div>
+                  </div>
+                </div>
+                
+                <div>
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                    <span style="font-size: 0.9rem;"><strong>Fully aligned</strong></span>
+                    <span style="font-size: 0.9rem;">0%</span>
+                  </div>
+                  <div style="height: 8px; background-color: var(--secondary-bg); border-radius: 4px;">
+                    <div style="width: 2%; height: 100%; background-color: var(--blue); border-radius: 4px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div style="margin-top: 2rem; font-size: 0.9rem; color: var(--secondary-text);">
+            <p style="margin-bottom: 0.5rem;"><strong>Technical details:</strong> R-squared: 0.901 (90.1% of visibility variance explained)</p>
+            <p>Based on regression analysis of 10,000 LinkedIn posts with p-values < 0.001 (statistically significant).</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Network Effects Section -->
+      <section>
+        <h2>The Power (and Limits) of Network Effects</h2>
+        <p>LinkedIn rewards posts that tap into high‑authority networks. A single reshare by a Fortune 500 executive multiplied reach by <strong>6×</strong>. Yet the same post shared by five independent users added only <strong>+12 %</strong>. The takeaway: who amplifies you matters more than how many.</p>
+      </section>
+      
+      <!-- How the Investigation Worked Section -->
+      <section>
+        <h2>How the Investigation Worked</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>PDF Scroll Capture</h3>
+            <p>Every new post was grabbed by rapidly scrolling the feed and using "Print → Save as PDF." Each PDF captured the exact on‑screen metrics at that moment. Later, a parser extracted reach and engagement numbers directly from these files, so the data reflects what LinkedIn actually shows to users.</p>
+          </div>
+          <div class="card">
+            <h3>Time‑Lapse Tracking</h3>
+            <p>Each post is revisited five more times over 48 hours. This reveals how quickly LinkedIn stops showing it to fresh eyes.</p>
+          </div>
+          <div class="card">
+            <h3>Hidden Metrics Audit</h3>
+            <p>Using browser dev‑tools I uncovered an <code>authority_score</code> field—never shown to users—that strongly predicts reach.</p>
+          </div>
+          <div class="card">
+            <h3>A/B Story Tests</h3>
+            <p>I posted identical images with slightly different captions to measure how "on‑message" language affects distribution.</p>
+          </div>
+        </div>
       </section>
       
       <!-- Network Effects Section -->
@@ -627,15 +727,6 @@
       </section>
     </div>
   </div>
-  
-  <!-- Call to Action Section -->
-  <section class="cta">
-    <div class="container">
-      <h2>Want the Full Data Workbook?</h2>
-      <p>Drop your email <em>(no spam, promise)</em> and I'll send the anonymised CSVs plus the Python notebooks used for this study.</p>
-      <a href="mailto:admin@airealitycheck.org?subject=LinkedIn%20Algorithm%20Workbook" class="cta-button">Request the Files</a>
-    </div>
-  </section>
   
   <!-- Footer -->
   <footer class="footer">
