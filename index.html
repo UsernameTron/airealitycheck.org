@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-auto">
 <head>
+    <!-- Emergency style fix script -->
+    <script src="js/style-fix.min.js"></script>
+
     <!-- Meta Information Setup (REQUIRED for proper SEO) -->
     <script>
         // Define these variables before loading components
@@ -9,6 +12,10 @@
         const REL_PATH = "./"; // Home page is at root level
         const CANONICAL_PATH = "/"; // Home page canonical path
     </script>
+    
+    <!-- Direct stylesheet references to ensure they load -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.min.css">
     
     <!-- Meta tags component placeholder -->
     <div id="meta-tags-placeholder"></div>
