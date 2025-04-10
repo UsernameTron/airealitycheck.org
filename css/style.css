@@ -157,6 +157,7 @@ section {
     background-position: center;
     background-repeat: no-repeat;
     margin-bottom: var(--space-xl);
+    filter: brightness(1.3) contrast(1.1); /* Increase brightness and add a bit of contrast */
 }
 
 /* Header and Navigation */
