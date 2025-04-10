@@ -489,12 +489,17 @@ nav a:hover::after {
     border: none;
 }
 
-/* Substack Specific */
-iframe[src*="substack.com"] {
+/* Video Styling */
+.video-card video {
     width: 100%;
-    min-height: 320px;
-    background-color: white;
-    overflow: hidden;
+    height: 100%;
+    object-fit: cover;
+    background-color: black;
+    cursor: pointer;
+}
+
+.video-card video:hover {
+    opacity: 0.95;
 }
 
 /* Article Styles */
