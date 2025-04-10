@@ -527,11 +527,66 @@ input, textarea {
     border-radius: var(--radius-sm);
     font-family: var(--font-family);
     font-size: var(--font-size-md);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.1);
+}
+
+input.invalid, textarea.invalid {
+    border-color: var(--primary-red);
 }
 
 textarea {
     min-height: 150px;
     resize: vertical;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+}
+
+input[type="checkbox"] {
+    width: auto;
+    margin-top: 4px;
+}
+
+.checkbox-label {
+    font-size: var(--font-size-sm);
+    color: var(--neutral-medium);
+}
+
+.form-status {
+    margin-bottom: var(--space-md);
+    min-height: 30px;
+}
+
+.status-message {
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-sm);
+}
+
+.status-message.loading {
+    background-color: var(--neutral-lighter);
+    color: var(--neutral-medium);
+}
+
+.status-message.success {
+    background-color: rgba(52, 168, 83, 0.1);
+    color: var(--primary-green);
+    border-left: 4px solid var(--primary-green);
+}
+
+.status-message.error {
+    background-color: rgba(234, 67, 53, 0.1);
+    color: var(--primary-red);
+    border-left: 4px solid var(--primary-red);
 }
 
 .contact-info {
@@ -547,11 +602,24 @@ textarea {
     background-color: var(--white);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-method:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
 .contact-method h3 {
     margin-bottom: var(--space-md);
     color: var(--primary-blue);
+}
+
+.contact-method .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
 }
 
 /* Buttons */

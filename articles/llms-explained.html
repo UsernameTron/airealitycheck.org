@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Understanding the capabilities and limitations of large language models (LLMs) - a technical overview of how they work, what they can do, and their constraints.">
+    <meta property="og:title" content="AI Reality Check | LLMs Explained">
+    <meta property="og:description" content="An in-depth, fact-based exploration of large language models, how they work, and what they can and cannot do.">
+    <title>AI Reality Check | LLMs Explained</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>LLMs Explained</h1>
+                <p class="subtitle">Understanding the capabilities and limitations of large language models</p>
+            </div>
+        </section>
+        
+        <section class="content">
+            <div class="container">
+                <article class="article-content">
+                    <div class="article-meta">
+                        <span class="article-date">April 7, 2025</span>
+                        <span class="article-category">Technical Insights</span>
+                        <span class="article-read-time">8 min read</span>
+                    </div>
+                    
+                    <div class="article-introduction">
+                        <p>Large Language Models (LLMs) have rapidly transformed the AI landscape, creating both incredible opportunities and significant confusion about their capabilities. As these systems become more integrated into our daily lives and workflows, understanding what they can and cannot do becomes increasingly important for both developers and users.</p>
+                    </div>
+
+                    <div class="image-container">
+                        <img src="../images/articles/llm-architecture.svg" alt="Diagram showing the architecture of a large language model with transformer layers, attention mechanisms, and token processing" width="800" height="400">
+                        <div class="image-caption">Figure 1: High-level architecture of a modern large language model</div>
+                    </div>
+                    
+                    <h2>What Are Large Language Models?</h2>
+                    <p>Large Language Models are machine learning systems trained on vast amounts of text data to predict what word or sequence of words should come next in a given context. While this sounds simple, this next-token prediction ability enables them to generate remarkably coherent and contextually appropriate text across a wide range of topics and formats.</p>
+                    
+                    <p>Modern LLMs utilize a neural network architecture called a Transformer, which was introduced in the landmark 2017 paper "Attention Is All You Need" by researchers at Google. The fundamental innovation of the Transformer was the attention mechanism, which allows the model to focus on different parts of the input text when generating each word in its response.</p>
+                    
+                    <div class="highlight-box">
+                        <h4>Key Components of Modern LLMs</h4>
+                        <ul>
+                            <li><strong>Transformer Architecture:</strong> The backbone neural network design that enables processing of text sequences</li>
+                            <li><strong>Self-Attention Mechanisms:</strong> Allow the model to weigh the importance of different words in context</li>
+                            <li><strong>Tokenization:</strong> The process of breaking text into manageable pieces for processing</li>
+                            <li><strong>Pre-training:</strong> Initial learning phase using vast amounts of text data (often trillions of tokens)</li>
+                            <li><strong>Fine-tuning:</strong> Additional training to align the model with specific goals or values</li>
+                        </ul>
+                    </div>
+                    
+                    <h2>How LLMs Actually Work</h2>
+                    <p>At their core, LLMs operate on tokens, not words. A token might be a word, part of a word, or even a single character, depending on the tokenization scheme. The model processes these tokens through multiple layers of transformations, using self-attention to determine which tokens are most relevant to predicting the next one.</p>
+                    
+                    <p>This process is entirely statistical in nature. The model doesn't "understand" text in the human sense—it has learned complex statistical patterns about how language is structured and which words tend to follow others in various contexts. When generating responses, the model essentially asks, "Based on my training data, what tokens are most likely to come next?"</p>
+                    
+                    <h3>The Scale Effect</h3>
+                    <p>One of the most remarkable findings in LLM research is that simply scaling up the size of models (measured in parameters) and training data leads to emergent capabilities that were not explicitly programmed. Models suddenly become better at reasoning, following instructions, and even performing tasks they weren't specifically trained on. This phenomenon, often called "emergent abilities," remains an active area of research.</p>
+                    
+                    <div class="image-container">
+                        <img src="../images/articles/llm-scaling.svg" alt="Graph showing how LLM capabilities improve with model scale, with emergent abilities appearing at certain thresholds" width="800" height="400">
+                        <div class="image-caption">Figure 2: How capabilities emerge as LLMs scale in size</div>
+                    </div>
+                    
+                    <h2>What LLMs Can Do</h2>
+                    <p>Modern LLMs exhibit impressive capabilities across a wide range of language tasks:</p>
+                    
+                    <ul>
+                        <li><strong>Content Generation:</strong> Writing articles, stories, emails, marketing copy, and other forms of text</li>
+                        <li><strong>Summarization:</strong> Condensing long documents into concise summaries while preserving key information</li>
+                        <li><strong>Translation:</strong> Converting text between languages with high accuracy</li>
+                        <li><strong>Question Answering:</strong> Providing relevant responses to specific queries</li>
+                        <li><strong>Code Generation:</strong> Writing and explaining programming code across various languages</li>
+                        <li><strong>Creative Writing:</strong> Generating poetry, fiction, and other creative content</li>
+                        <li><strong>Reasoning:</strong> Working through logical problems step by step</li>
+                    </ul>
+                    
+                    <h2>The Limitations of LLMs</h2>
+                    <p>Despite their impressive abilities, LLMs have significant limitations that are important to understand:</p>
+                    
+                    <div class="highlight-box warning">
+                        <h4>Key Limitations of Current LLMs</h4>
+                        <ul>
+                            <li><strong>No True Understanding:</strong> LLMs process patterns in text without conceptual understanding</li>
+                            <li><strong>Hallucinations:</strong> They can generate plausible-sounding but factually incorrect information</li>
+                            <li><strong>Training Data Cutoffs:</strong> They don't know about events after their training cutoff date</li>
+                            <li><strong>No Internet Access:</strong> Base models cannot access current information unless specifically engineered to do so</li>
+                            <li><strong>Limited Reasoning:</strong> While improving, they struggle with complex logical reasoning and mathematics</li>
+                            <li><strong>Context Window Constraints:</strong> They can only consider a limited amount of text at once</li>
+                            <li><strong>No Real-world Perception:</strong> They lack direct experience with the physical world</li>
+                        </ul>
+                    </div>
+                    
+                    <h3>The Hallucination Problem</h3>
+                    <p>One of the most significant challenges with LLMs is their tendency to "hallucinate" or generate information that sounds plausible but is factually incorrect. This occurs because the models are optimized to produce text that statistically resembles human-written content, not necessarily text that is factually accurate.</p>
+                    
+                    <p>When an LLM is uncertain about something, rather than admitting ignorance (which wasn't heavily reinforced during training), it often generates a confident-sounding but potentially incorrect response based on statistical patterns. This tendency makes verification of LLM outputs essential, especially for factual or critical applications.</p>
+                    
+                    <h2>Responsible Use of LLMs</h2>
+                    <p>Given these strengths and limitations, responsible use of LLMs involves:</p>
+                    
+                    <ol>
+                        <li><strong>Verification:</strong> Always verify factual claims made by LLMs with authoritative sources</li>
+                        <li><strong>Human Oversight:</strong> Maintain human review of important content generated by LLMs</li>
+                        <li><strong>Clear Disclosure:</strong> Be transparent about when content is AI-generated</li>
+                        <li><strong>Appropriate Applications:</strong> Use LLMs for tasks where their limitations won't cause harm</li>
+                        <li><strong>Continuous Learning:</strong> Stay updated on LLM capabilities and limitations as the field evolves</li>
+                    </ol>
+                    
+                    <h2>The Future of LLMs</h2>
+                    <p>The field of large language models is evolving rapidly. Current research focuses on several key areas:</p>
+                    
+                    <ul>
+                        <li><strong>Multimodal Models:</strong> Integrating text, images, audio, and potentially other modalities</li>
+                        <li><strong>Retrieval-Augmented Generation:</strong> Connecting LLMs to external knowledge sources to reduce hallucinations</li>
+                        <li><strong>Longer Context Windows:</strong> Extending the amount of text models can process at once</li>
+                        <li><strong>Efficiency Improvements:</strong> Making models smaller, faster, and less resource-intensive</li>
+                        <li><strong>Alignment and Safety:</strong> Ensuring models behave according to human values and preferences</li>
+                    </ul>
+                    
+                    <p>While it's clear that LLMs will continue to improve, it's important to maintain a realistic understanding of their fundamental nature as statistical pattern matchers rather than systems with human-like understanding.</p>
+                    
+                    <h2>Conclusion</h2>
+                    <p>Large Language Models represent a remarkable achievement in artificial intelligence, demonstrating capabilities that would have seemed impossible just a few years ago. However, they remain tools with specific strengths and limitations.</p>
+                    
+                    <p>By understanding how LLMs actually work—as complex statistical systems rather than truly intelligent entities—we can better leverage their capabilities while mitigating their risks. The most effective approaches typically combine the creative and pattern-matching strengths of LLMs with human judgment, domain expertise, and critical thinking.</p>
+                    
+                    <div class="highlight-box success">
+                        <h4>Key Takeaways</h4>
+                        <ul>
+                            <li>LLMs are statistical pattern matchers that predict likely next tokens based on vast training data</li>
+                            <li>They excel at generating human-like text across a wide range of topics and formats</li>
+                            <li>They lack true understanding and can generate confident-sounding but incorrect information</li>
+                            <li>Responsible use requires verification, oversight, and appropriate application</li>
+                            <li>The field continues to evolve rapidly, but fundamental limitations remain</li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/main.min.js"></script>
+    <script src="../js/components.min.js"></script>
+</body>
+</html>

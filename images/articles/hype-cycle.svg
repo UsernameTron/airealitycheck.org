@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+    }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .subtitle {
+      font-size: 14px;
+      fill: #5F6368;
+    }
+    .axis-label {
+      font-size: 12px;
+      fill: #5F6368;
+    }
+    .stage-label {
+      font-size: 12px;
+      fill: #5F6368;
+    }
+    .tech-label {
+      font-size: 11px;
+      fill: #202124;
+    }
+    .tech-point {
+      stroke-width: 2;
+      fill: white;
+    }
+    .curve {
+      fill: none;
+      stroke: #4285F4;
+      stroke-width: 3;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="#F8F9FA" />
+  
+  <!-- Title -->
+  <text x="400" y="40" class="title" text-anchor="middle">AI Hype Cycle 2025</text>
+  <text x="400" y="60" class="subtitle" text-anchor="middle">Current position of AI technologies on the path to maturity</text>
+  
+  <!-- Axes -->
+  <line x1="100" y1="320" x2="700" y2="320" stroke="#5F6368" stroke-width="2" />
+  <line x1="100" y1="320" x2="100" y2="100" stroke="#5F6368" stroke-width="2" />
+  
+  <!-- Y-axis label -->
+  <text x="40" y="210" class="axis-label" text-anchor="middle" transform="rotate(-90, 40, 210)" font-weight="bold">Expectations</text>
+  
+  <!-- X-axis label -->
+  <text x="400" y="370" class="axis-label" text-anchor="middle" font-weight="bold">Maturity / Time</text>
+  
+  <!-- Hype Cycle Curve -->
+  <path d="M100,300 C150,200 180,130 240,100 C300,70 360,150 400,200 C440,250 500,290 600,280 C700,270 700,250 700,250" class="curve" />
+  
+  <!-- Stage Labels -->
+  <text x="150" y="340" class="stage-label" text-anchor="middle">Technology Trigger</text>
+  <text x="275" y="340" class="stage-label" text-anchor="middle">Peak of Inflated Expectations</text>
+  <text x="400" y="340" class="stage-label" text-anchor="middle">Trough of Disillusionment</text>
+  <text x="550" y="340" class="stage-label" text-anchor="middle">Slope of Enlightenment</text>
+  <text x="680" y="340" class="stage-label" text-anchor="middle">Plateau of Productivity</text>
+  
+  <!-- Tech Points -->
+  <!-- Technology Trigger -->
+  <circle cx="120" cy="280" r="6" class="tech-point" stroke="#EA4335" />
+  <text x="120" y="260" class="tech-label" text-anchor="middle">AGI</text>
+  
+  <circle cx="150" cy="250" r="6" class="tech-point" stroke="#34A853" />
+  <text x="150" y="230" class="tech-label" text-anchor="middle">Quantum ML</text>
+  
+  <!-- Peak of Inflated Expectations -->
+  <circle cx="230" cy="110" r="6" class="tech-point" stroke="#FBBC05" />
+  <text x="230" y="90" class="tech-label" text-anchor="middle">Generative AI</text>
+  
+  <circle cx="260" cy="130" r="6" class="tech-point" stroke="#4285F4" />
+  <text x="260" y="110" class="tech-label" text-anchor="middle">Multimodal AI</text>
+  
+  <!-- Trough of Disillusionment -->
+  <circle cx="360" cy="220" r="6" class="tech-point" stroke="#EA4335" />
+  <text x="360" y="240" class="tech-label" text-anchor="middle">Self-driving cars</text>
+  
+  <circle cx="400" cy="200" r="6" class="tech-point" stroke="#34A853" />
+  <text x="400" y="220" class="tech-label" text-anchor="middle">AI assistants</text>
+
+  <!-- Slope of Enlightenment -->
+  <circle cx="480" cy="270" r="6" class="tech-point" stroke="#FBBC05" />
+  <text x="480" y="290" class="tech-label" text-anchor="middle">Recommendation systems</text>
+  
+  <circle cx="520" cy="260" r="6" class="tech-point" stroke="#4285F4" />
+  <text x="520" y="280" class="tech-label" text-anchor="middle">Computer vision</text>
+  
+  <!-- Plateau of Productivity -->
+  <circle cx="600" cy="280" r="6" class="tech-point" stroke="#EA4335" />
+  <text x="600" y="300" class="tech-label" text-anchor="middle">Fraud detection</text>
+  
+  <circle cx="650" cy="260" r="6" class="tech-point" stroke="#34A853" />
+  <text x="650" y="280" class="tech-label" text-anchor="middle">Speech recognition</text>
+  
+  <!-- Legend -->
+  <rect x="580" y="30" width="190" height="105" rx="4" ry="4" fill="white" stroke="#E0E0E0" stroke-width="1" />
+  <text x="650" y="50" font-size="12" font-weight="bold" text-anchor="middle">Technology Categories</text>
+  
+  <circle cx="600" cy="70" r="6" class="tech-point" stroke="#EA4335" />
+  <text x="670" y="74" font-size="12" text-anchor="middle">Speculative AI</text>
+  
+  <circle cx="600" cy="90" r="6" class="tech-point" stroke="#FBBC05" />
+  <text x="670" y="94" font-size="12" text-anchor="middle">Emerging AI</text>
+  
+  <circle cx="600" cy="110" r="6" class="tech-point" stroke="#4285F4" />
+  <text x="670" y="114" font-size="12" text-anchor="middle">Maturing AI</text>
+  
+  <circle cx="600" cy="130" r="6" class="tech-point" stroke="#34A853" />
+  <text x="670" y="134" font-size="12" text-anchor="middle">Established AI</text>
+</svg>
