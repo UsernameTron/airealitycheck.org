@@ -25,49 +25,26 @@
         .case-studies-hero {
             background-image: url('../images/hero/case-studies-hero.webp') !important;
             position: relative;
-            height: 40vh;
-            min-height: 300px;
-            background-size: cover;
+            height: 50vh; /* Increased from 40vh to 50vh */
+            min-height: 400px; /* Increased from 300px to 400px */
+            background-size: contain; /* Changed from cover to contain */
             background-position: center;
             background-repeat: no-repeat;
             margin-bottom: var(--space-xl);
             filter: brightness(1.1) contrast(1.05);
+            background-color: #0a0a17; /* Dark background for letterboxing */
         }
         
-        .hero-overlay {
+        /* Visually hidden element for accessibility */
+        .visually-hidden {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
-            display: flex;
-            align-items: center;
-            text-align: center;
-        }
-        
-        .hero-overlay .container {
-            width: 100%;
-        }
-        
-        .hero-overlay h1 {
-            color: white;
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .hero-subtitle {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        /* Dark mode adjustments */
-        :root.theme-dark .hero-overlay {
-            background-color: rgba(0, 0, 0, 0.6);
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
         }
     </style>
 </head>
@@ -75,14 +52,10 @@
     <!-- Header Component Placeholder -->
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section with Image -->
+    <!-- Hero Section with Image (No Text Overlay) -->
     <section class="case-studies-hero" role="region" aria-labelledby="page-title">
-        <div class="hero-overlay">
-            <div class="container">
-                <h1 id="page-title">Case Studies</h1>
-                <p class="hero-subtitle">Explore real-world AI implementations and their impact</p>
-            </div>
-        </div>
+        <!-- No text overlay -->
+        <h1 id="page-title" class="visually-hidden">Case Studies</h1>
     </section>
 
     <main>

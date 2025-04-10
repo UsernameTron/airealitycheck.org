@@ -226,14 +226,15 @@ section {
 /* Case Studies Hero Section */
 .case-studies-hero {
     position: relative;
-    height: 40vh;
-    min-height: 300px;
+    height: 50vh; /* Increased for better visibility */
+    min-height: 400px; /* Minimum height to ensure image is visible */
     background-image: url('../images/hero/case-studies-hero.webp');
-    background-size: cover;
+    background-size: contain; /* Show full image without cropping */
     background-position: center;
     background-repeat: no-repeat;
     margin-bottom: var(--space-xl);
     filter: brightness(1.1) contrast(1.05); /* Subtle enhancement */
+    background-color: #0a0a17; /* Dark background for letterboxing */
 }
 
 /* Header and Navigation */
