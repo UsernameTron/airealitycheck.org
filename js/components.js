@@ -23,12 +23,86 @@ const ComponentConfig = {
     fallbacks: {
         header: '<header class="error-header"><div class="container"><a href="/" class="logo">AI Reality Check</a></div></header>',
         footer: '<footer class="error-footer"><div class="container"><p>&copy; 2025 AI Reality Check</p></div></footer>',
-        metaTags: '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="css/style.min.css">'
-    }
+        metaTags: `
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>AI Reality Check</title>
+            <meta name="description" content="AI Reality Check - Practical AI solutions for business">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="css/style.min.css">
+            <link rel="stylesheet" href="../css/style.min.css">
+            <link rel="stylesheet" href="../../css/style.min.css">
+            <script>
+                // Emergency stylesheet loading
+                (function() {
+                    function loadEmergencyStyles() {
+                        const isStyleLoaded = Array.from(document.styleSheets).some(sheet => {
+                            try {
+                                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+                            } catch(e) {
+                                return false;
+                            }
+                        });
+                        
+                        if (!isStyleLoaded) {
+                            console.warn('Main stylesheet not detected, attempting to load emergency styles');
+                            // Try different relative paths to find the stylesheet
+                            const paths = ['./css/style.min.css', '../css/style.min.css', '../../css/style.min.css', '/css/style.min.css'];
+                            
+                            // Create emergency style element
+                            const emergencyStyle = document.createElement('link');
+                            emergencyStyle.rel = 'stylesheet';
+                            emergencyStyle.id = 'emergency-styles';
+                            
+                            // Try first path
+                            emergencyStyle.href = paths[0];
+                            document.head.appendChild(emergencyStyle);
+                            
+                            // Check if it worked after a short delay
+                            setTimeout(function() {
+                                const computed = getComputedStyle(document.body);
+                                const fontFamily = computed.fontFamily;
+                                
+                                // If we don't have Roboto, try the next path
+                                if (!fontFamily.includes('Roboto')) {
+                                    console.warn('First stylesheet path failed, trying alternatives');
+                                    // Try each path
+                                    let pathIndex = 1;
+                                    const tryNextPath = function() {
+                                        if (pathIndex < paths.length) {
+                                            emergencyStyle.href = paths[pathIndex];
+                                            pathIndex++;
+                                            setTimeout(tryNextPath, 100);
+                                        } else {
+                                            console.error('All stylesheet paths failed');
+                                        }
+                                    };
+                                    tryNextPath();
+                                }
+                            }, 100);
+                        }
+                    }
+                    
+                    // Check styles on load
+                    window.addEventListener('load', loadEmergencyStyles);
+                    
+                    // Also check after a short delay in case load event already fired
+                    setTimeout(loadEmergencyStyles, 1000);
+                })();
+            </script>
+        `
+    },
+    // Default CSS class for the whole site (ensuring theme consistency)
+    defaultThemeClass: 'theme-auto'
 };
 
 // Wait for the DOM to be fully loaded before loading components
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure HTML has a theme class
+    ensureThemeClass();
+    
     // Count how many components we need to load
     let totalComponents = 0;
     
@@ -57,6 +131,9 @@ document.addEventListener('DOMContentLoaded', function() {
             ComponentConfig.paths.metaTags,
             ComponentConfig.fallbacks.metaTags
         );
+    } else {
+        // If no meta tags placeholder, ensure we have styles
+        ensureStylesLoaded();
     }
     
     // Load header component with small delay
@@ -81,6 +158,76 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 20);
     }
 });
+
+/**
+ * Ensures the HTML element has a theme class
+ */
+function ensureThemeClass() {
+    const htmlElement = document.documentElement;
+    const savedTheme = localStorage.getItem('theme') || 'auto';
+    
+    // Remove any existing theme classes
+    htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+    
+    // Add the default or saved theme class
+    htmlElement.classList.add(`theme-${savedTheme}`);
+}
+
+/**
+ * Ensures styles are loaded even if the meta-tags component fails
+ */
+function ensureStylesLoaded() {
+    // Check if we already have styles loaded
+    const isStyleLoaded = Array.from(document.styleSheets).some(sheet => {
+        try {
+            return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+        } catch(e) {
+            return false;
+        }
+    });
+    
+    if (!isStyleLoaded) {
+        console.warn('No stylesheet detected, adding emergency style links');
+        
+        // Add Google Fonts
+        if (!document.querySelector('link[href*="fonts.googleapis.com/css"]')) {
+            const fontLink = document.createElement('link');
+            fontLink.rel = 'stylesheet';
+            fontLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap';
+            document.head.appendChild(fontLink);
+        }
+        
+        // Try to add style.min.css
+        const cssLink = document.createElement('link');
+        cssLink.rel = 'stylesheet';
+        
+        // Check path based on current URL
+        const pathSegments = window.location.pathname.split('/').filter(s => s.length > 0);
+        
+        // Calculate relative path to CSS
+        let cssPath;
+        if (pathSegments.length === 0) {
+            cssPath = './css/style.min.css'; // Root level
+        } else if (pathSegments.length === 1 && pathSegments[0].endsWith('.html')) {
+            cssPath = './css/style.min.css'; // HTML file at root
+        } else {
+            // Create the right number of "../" based on depth
+            let depth = pathSegments.length;
+            if (pathSegments[pathSegments.length - 1].endsWith('.html')) {
+                depth--;
+            }
+            
+            cssPath = '';
+            for (let i = 0; i < depth; i++) {
+                cssPath += '../';
+            }
+            cssPath += 'css/style.min.css';
+        }
+        
+        cssLink.href = cssPath;
+        document.head.appendChild(cssLink);
+    }
+}
 
 /**
  * Loads a component into a placeholder element with error handling

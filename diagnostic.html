@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "Website Diagnostics";
+        const PAGE_DESCRIPTION = "Diagnostic page for testing website styling and component loading.";
+        const REL_PATH = "./"; // Page is at root level
+        const CANONICAL_PATH = "/diagnostic.html"; // Canonical path
+    </script>
+    
+    <!-- Meta tags component placeholder -->
+    <div id="meta-tags-placeholder"></div>
+    
+    <!-- Diagnostic tool script -->
+    <script src="diagnostic.js"></script>
+    
+    <style>
+        /* Fallback styles in case the main stylesheet fails to load */
+        body.diagnostic-fallback {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .diagnostic-fallback h1 {
+            color: #1a73e8;
+        }
+        
+        .diagnostic-fallback .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .diagnostic-fallback .test-section {
+            margin-bottom: 40px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .diagnostic-fallback .color-swatch {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        
+        .diagnostic-fallback .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #1a73e8;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        
+        .diagnostic-fallback .btn:hover {
+            background-color: #0d47a1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Add fallback class if stylesheet doesn't load -->
+    <script>
+        // Check if stylesheet loaded correctly 
+        window.addEventListener('load', function() {
+            const pageStyle = getComputedStyle(document.body);
+            const hasCssLoaded = pageStyle.fontFamily.includes('Roboto');
+            
+            if (!hasCssLoaded) {
+                document.body.classList.add('diagnostic-fallback');
+                console.warn('Main stylesheet failed to load, using fallback styles');
+            }
+        });
+    </script>
+
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+
+    <main>
+        <div class="container">
+            <h1>Website Diagnostic Tool</h1>
+            <p>This page tests various aspects of the website's styling and components.</p>
+            
+            <!-- CSS Variables Test -->
+            <section class="test-section">
+                <h2>CSS Variables Test</h2>
+                <p>The following color swatches should reflect the site's color scheme:</p>
+                <div>
+                    <div class="color-swatch" style="background-color: var(--primary-blue);" title="--primary-blue"></div>
+                    <div class="color-swatch" style="background-color: var(--primary-blue-dark);" title="--primary-blue-dark"></div>
+                    <div class="color-swatch" style="background-color: var(--primary-red);" title="--primary-red"></div>
+                    <div class="color-swatch" style="background-color: var(--primary-yellow);" title="--primary-yellow"></div>
+                    <div class="color-swatch" style="background-color: var(--primary-green);" title="--primary-green"></div>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background-color: var(--neutral-dark);" title="--neutral-dark"></div>
+                    <div class="color-swatch" style="background-color: var(--neutral-medium);" title="--neutral-medium"></div>
+                    <div class="color-swatch" style="background-color: var(--neutral-light);" title="--neutral-light"></div>
+                    <div class="color-swatch" style="background-color: var(--neutral-lighter);" title="--neutral-lighter"></div>
+                    <div class="color-swatch" style="background-color: var(--white);" title="--white"></div>
+                </div>
+            </section>
+            
+            <!-- Component Loading Test -->
+            <section class="test-section">
+                <h2>Component Loading Test</h2>
+                <p>The following components should be loaded correctly:</p>
+                <ul>
+                    <li>Header Component: <span id="header-check">Checking...</span></li>
+                    <li>Meta Tags Component: <span id="meta-check">Checking...</span></li>
+                    <li>Footer Component: <span id="footer-check">Checking...</span></li>
+                </ul>
+                <script>
+                    // Check components after page load
+                    window.addEventListener('load', function() {
+                        setTimeout(function() {
+                            // Check header
+                            const headerExists = document.querySelector('header') !== null;
+                            document.getElementById('header-check').textContent = headerExists ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
+                            document.getElementById('header-check').style.color = headerExists ? 'green' : 'red';
+                            
+                            // Check meta tags
+                            const metaTagsExist = document.querySelector('meta[name="description"]') !== null;
+                            document.getElementById('meta-check').textContent = metaTagsExist ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
+                            document.getElementById('meta-check').style.color = metaTagsExist ? 'green' : 'red';
+                            
+                            // Check footer
+                            const footerExists = document.querySelector('footer') !== null;
+                            document.getElementById('footer-check').textContent = footerExists ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
+                            document.getElementById('footer-check').style.color = footerExists ? 'green' : 'red';
+                        }, 1000); // Wait a second for components to load
+                    });
+                </script>
+            </section>
+            
+            <!-- UI Elements Test -->
+            <section class="test-section">
+                <h2>UI Elements Test</h2>
+                <p>The following UI elements should match the site's design:</p>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3>Buttons</h3>
+                    <button class="btn">Standard Button</button>
+                    <a href="#" class="btn">Link Button</a>
+                </div>
+                
+                <div style="margin-bottom: 20px;">
+                    <h3>Cards</h3>
+                    <div class="cards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;">
+                        <div class="card">
+                            <h3>Test Card 1</h3>
+                            <p>This is test content for a card to check styling.</p>
+                            <a href="#" class="btn">Action</a>
+                        </div>
+                        <div class="card">
+                            <h3>Test Card 2</h3>
+                            <p>This is test content for a card to check styling.</p>
+                            <a href="#" class="btn">Action</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Dark Mode Test -->
+            <section class="test-section">
+                <h2>Dark Mode Test</h2>
+                <p>Test the dark mode toggle functionality:</p>
+                <button id="theme-test-btn" class="btn">Toggle Dark Mode</button>
+                <p>Current Theme: <span id="current-theme">Checking...</span></p>
+                
+                <script>
+                    // Update current theme display
+                    function updateThemeDisplay() {
+                        const htmlClasses = document.documentElement.className.split(' ');
+                        const themeClass = htmlClasses.find(cls => cls.startsWith('theme-')) || 'No theme';
+                        document.getElementById('current-theme').textContent = themeClass;
+                    }
+                    
+                    // Initialize
+                    window.addEventListener('load', function() {
+                        updateThemeDisplay();
+                        
+                        // Set up theme toggle button
+                        document.getElementById('theme-test-btn').addEventListener('click', function() {
+                            const htmlClasses = document.documentElement.className.split(' ');
+                            const currentTheme = htmlClasses.find(cls => cls.startsWith('theme-')) || 'theme-auto';
+                            
+                            // Cycle through themes
+                            let newTheme;
+                            if (currentTheme === 'theme-auto') {
+                                newTheme = 'theme-light';
+                            } else if (currentTheme === 'theme-light') {
+                                newTheme = 'theme-dark';
+                            } else {
+                                newTheme = 'theme-auto';
+                            }
+                            
+                            // Remove all theme classes and add the new one
+                            document.documentElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+                            document.documentElement.classList.add(newTheme);
+                            
+                            // Save to localStorage for persistence
+                            localStorage.setItem('theme', newTheme.replace('theme-', ''));
+                            
+                            // Update display
+                            updateThemeDisplay();
+                        });
+                    });
+                </script>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="js/main.min.js"></script>
+    <script src="js/components.min.js"></script>
+    
+    <!-- Load components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Use the loadComponent function from components.js
+            if (typeof loadComponent === 'function') {
+                // Load meta tags first (if not already loaded by components.js)
+                if (document.getElementById('meta-tags-placeholder')) {
+                    loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

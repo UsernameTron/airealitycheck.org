@@ -9,6 +9,9 @@
   - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
 -->
 
+<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+<script src="{{REL_PATH}}js/loader.min.js"></script>
+
 <!-- Core Meta Tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,11 +47,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-<!-- Stylesheet -->
+<!-- Main Stylesheet -->
 <link rel="stylesheet" href="{{REL_PATH}}css/style.min.css">
+<link rel="stylesheet" href="{{REL_PATH}}css/style.css" media="print" onload="this.media='all'; this.onload=null;">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="{{REL_PATH}}images/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="{{REL_PATH}}images/favicon/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="{{REL_PATH}}images/favicon/apple-touch-icon.png">
 <link rel="manifest" href="{{REL_PATH}}site.webmanifest">
+
+<!-- Error Recovery Script -->
+<script>
+    // Check if styles are loaded correctly after a short delay
+    setTimeout(function() {
+        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+            try {
+                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+            } catch(e) {
+                return false;
+            }
+        });
+        
+        if (!hasStylesheet) {
+            console.warn('Stylesheet not detected, trying emergency load');
+            const emergencyStyle = document.createElement('link');
+            emergencyStyle.rel = 'stylesheet';
+            emergencyStyle.href = '{{REL_PATH}}css/style.min.css';
+            document.head.appendChild(emergencyStyle);
+        }
+    }, 500);
+</script>

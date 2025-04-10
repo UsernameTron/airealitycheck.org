@@ -122,8 +122,14 @@ function initThemeToggle() {
     // Check if theme was previously set
     const savedTheme = localStorage.getItem('theme') || 'auto';
     
-    // Set initial theme
-    document.documentElement.className = `theme-${savedTheme}`;
+    // Set initial theme (preserving existing classes)
+    const htmlElement = document.documentElement;
+    
+    // Remove any existing theme classes
+    htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+    
+    // Add the new theme class
+    htmlElement.classList.add(`theme-${savedTheme}`);
     
     // Get the theme toggle button
     const themeToggle = document.querySelector('.theme-toggle');
@@ -132,6 +138,12 @@ function initThemeToggle() {
     // Get the sun and moon icons
     const lightIcon = themeToggle.querySelector('.light-icon');
     const darkIcon = themeToggle.querySelector('.dark-icon');
+    
+    // Make sure icons exist to prevent errors
+    if (!lightIcon || !darkIcon) {
+        console.warn('Theme toggle icons not found');
+        return;
+    }
     
     // Set initial button state based on saved theme
     if (savedTheme === 'dark') {
@@ -147,20 +159,23 @@ function initThemeToggle() {
     // Toggle theme when the button is clicked
     themeToggle.addEventListener('click', function() {
         // Get current theme
-        const currentTheme = document.documentElement.className;
+        const currentThemeClass = Array.from(htmlElement.classList)
+            .find(cls => cls.startsWith('theme-')) || 'theme-auto';
+        const currentTheme = currentThemeClass.replace('theme-', '');
         let newTheme;
         
         // Cycle through themes: auto -> light -> dark -> auto
-        if (currentTheme === 'theme-auto') {
+        if (currentTheme === 'auto') {
             newTheme = 'light';
-        } else if (currentTheme === 'theme-light') {
+        } else if (currentTheme === 'light') {
             newTheme = 'dark';
         } else {
             newTheme = 'auto';
         }
         
         // Apply new theme
-        document.documentElement.className = `theme-${newTheme}`;
+        htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+        htmlElement.classList.add(`theme-${newTheme}`);
         
         // Save preference
         localStorage.setItem('theme', newTheme);
@@ -175,7 +190,20 @@ function initThemeToggle() {
             lightIcon.style.display = 'block';
             darkIcon.style.display = 'none';
         }
+        
+        // Dispatch theme change event
+        const themeChangeEvent = new CustomEvent('themechange', { 
+            detail: { theme: newTheme }
+        });
+        document.dispatchEvent(themeChangeEvent);
     });
+    
+    // Initialize theme class if none exists
+    if (!htmlElement.classList.contains('theme-auto') && 
+        !htmlElement.classList.contains('theme-light') && 
+        !htmlElement.classList.contains('theme-dark')) {
+        htmlElement.classList.add(`theme-${savedTheme}`);
+    }
 }
 
 /**
