@@ -14,14 +14,32 @@
     <div id="meta-tags-placeholder"></div>
     
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Visually hidden element for accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Component Placeholder -->
     <div id="header-placeholder"></div>
 
+    <!-- Hero Section with Image (No Text Overlay) -->
+    <section class="portfolio-hero" role="region" aria-labelledby="page-title">
+        <h1 id="page-title" class="visually-hidden">Portfolio</h1>
+    </section>
+
     <main>
         <section class="content">
-            <h1 class="section-title">Portfolio</h1>
+            <h2 class="section-title">Portfolio</h2>
             <div class="container">
                 <div class="cards">
                     <div class="card">
