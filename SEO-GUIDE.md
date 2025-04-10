@@ -2,13 +2,75 @@
 
 This document provides guidelines for maintaining and improving the SEO of the AI Reality Check website.
 
+## Meta Tags and Canonical URLs Implementation
+
+### Step 1: Add Meta Tag Variables to Each Page
+
+At the top of each HTML page within the `<head>` section, add the following script:
+
+```html
+<!-- Meta Information Setup (REQUIRED for proper SEO) -->
+<script>
+    // Define these variables before loading components
+    const PAGE_TITLE = "Your Page Title"; // Without "AI Reality Check |" prefix
+    const PAGE_DESCRIPTION = "Your page description (150-160 characters recommended).";
+    const REL_PATH = "./"; // Path to root: use "./" for root level, "../" for one level down, etc.
+    const CANONICAL_PATH = "/your-path.html"; // Always start with slash
+</script>
+
+<!-- Meta tags component placeholder -->
+<div id="meta-tags-placeholder"></div>
+```
+
+#### Setting the Correct Values:
+
+1. **PAGE_TITLE**: The page-specific title, without the "AI Reality Check |" prefix (it's added automatically)
+2. **PAGE_DESCRIPTION**: A unique, descriptive summary of the page content (150-160 characters recommended)
+3. **REL_PATH**: The relative path to the root directory:
+   - For files in the root directory: `./`
+   - For files one level down (in a subfolder): `../`
+   - For files two levels down: `../../`
+4. **CANONICAL_PATH**: The URL path after the domain, always starting with a slash:
+   - Home page: `/`
+   - About page: `/about.html`
+   - Case study: `/case-studies/example.html`
+
+### Step 2: Add the Component Loading Script
+
+At the bottom of each HTML page, before the closing `</body>` tag, add the following script:
+
+```html
+<!-- Load components -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Use the loadComponent function from components.js
+        if (typeof loadComponent === 'function') {
+            // Load meta tags (if not already loaded by components.js)
+            if (document.getElementById('meta-tags-placeholder')) {
+                loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+            }
+        }
+    });
+</script>
+```
+
+### Step 3: Remove Any Existing Meta Tags
+
+When implementing this new system, remove any existing meta tags from the page that would be duplicated by the component, including:
+
+- `<title>` tag
+- `<meta name="description">` tag
+- All Open Graph tags (`og:*`)
+- All Twitter card tags (`twitter:*`)
+- Canonical URL tag
+
 ## On-Page SEO Guidelines
 
 ### Meta Tags
 
 1. **Title Tags**: 
    - Keep titles under 60 characters
-   - Format: `Primary Keyword | AI Reality Check` or `AI Reality Check | Primary Keyword`
+   - Format: `AI Reality Check | Primary Keyword` (automatically handled by component)
    - Include the main keyword for the page
 
 2. **Meta Descriptions**:

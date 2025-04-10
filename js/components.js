@@ -136,21 +136,25 @@ function loadComponent(placeholderId, componentPath, fallbackHtml) {
             // Get the current path for placeholders
             const currentPath = window.location.pathname;
             
-            // Replace the [ROOT_URL] placeholder with the correct relative path
-            html = html.replace(/\[ROOT_URL\]/g, rootPath);
+            // Check for globally defined meta variables
+            const pageTitle = window.PAGE_TITLE || document.title || 'AI Reality Check';
+            const pageDescription = window.PAGE_DESCRIPTION || 
+                (document.querySelector('meta[name="description"]')?.content) || 
+                'AI Reality Check - Practical AI solutions for business';
+            const relPath = window.REL_PATH || rootPath || './';
+            const canonicalPath = window.CANONICAL_PATH || currentPath || '/';
             
-            // Replace the [CURRENT_PATH] placeholder with the current page path
-            html = html.replace(/\[CURRENT_PATH\]/g, currentPath);
+            // Replace all placeholder variables with their values
+            html = html.replace(/\{\{PAGE_TITLE\}\}/g, pageTitle);
+            html = html.replace(/\{\{PAGE_DESCRIPTION\}\}/g, pageDescription);
+            html = html.replace(/\{\{REL_PATH\}\}/g, relPath);
+            html = html.replace(/\{\{CANONICAL_PATH\}\}/g, canonicalPath);
             
-            // Replace any page-specific title and description placeholders if they exist in the document
-            if (document.title) {
-                html = html.replace(/\[PAGE_TITLE\]/g, document.title);
-            }
-            
-            const metaDescription = document.querySelector('meta[name="description"]');
-            if (metaDescription && metaDescription.content) {
-                html = html.replace(/\[PAGE_DESCRIPTION\]/g, metaDescription.content);
-            }
+            // Legacy placeholders for backward compatibility
+            html = html.replace(/\[ROOT_URL\]/g, relPath);
+            html = html.replace(/\[CURRENT_PATH\]/g, canonicalPath);
+            html = html.replace(/\[PAGE_TITLE\]/g, pageTitle);
+            html = html.replace(/\[PAGE_DESCRIPTION\]/g, pageDescription);
             
             // Insert the component into the placeholder
             placeholder.innerHTML = html;

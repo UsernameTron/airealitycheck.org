@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="[Article Description]">
-    <meta property="og:title" content="AI Reality Check | [Article Title]">
-    <meta property="og:description" content="[Article Brief Description]">
-    <title>AI Reality Check | [Article Title]</title>
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "[Article Title]";
+        const PAGE_DESCRIPTION = "[Article Description - 150-160 characters recommended]";
+        const REL_PATH = "../"; // Articles are one level down
+        const CANONICAL_PATH = "/articles/article-name.html"; // Replace with actual path
+    </script>
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- Meta tags component placeholder -->
+    <div id="meta-tags-placeholder"></div>
 </head>
 <body>
     <!-- Header Component Placeholder -->
@@ -82,5 +81,18 @@
 
     <script src="../js/main.min.js"></script>
     <script src="../js/components.min.js"></script>
+    
+    <!-- Load components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Use the loadComponent function from components.js
+            if (typeof loadComponent === 'function') {
+                // Load meta tags first (if not already loaded by components.js)
+                if (document.getElementById('meta-tags-placeholder')) {
+                    loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
