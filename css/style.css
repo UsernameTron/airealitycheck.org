@@ -1045,7 +1045,7 @@ footer .container {
 .iframe-container {
     position: relative;
     overflow: hidden;
-    padding-top: 85%; /* Increased from 60% to 85% to show more content */
+    padding-top: 60%; 
     margin: var(--space-lg) 0;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
