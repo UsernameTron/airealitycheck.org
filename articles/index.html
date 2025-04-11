@@ -1,20 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-auto">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Articles | AI Reality Check</title>
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "Articles";
+        const PAGE_DESCRIPTION = "Articles providing fact-based perspectives on artificial intelligence capabilities, limitations, and implications.";
+        const REL_PATH = "../"; // Articles is one level down from root
+        const CANONICAL_PATH = "/articles/"; // Path after domain
+    </script>
+    
+    <!-- Emergency style fix script -->
+    <script src="../js/style-fix.min.js"></script>
+    
+    <!-- Direct stylesheet references to ensure they load -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <meta name="description" content="Articles providing fact-based perspectives on artificial intelligence capabilities, limitations, and implications.">
+    <link rel="stylesheet" href="../css/style.min.css">
+    
+    <!-- Meta tags component placeholder -->
+    <div id="meta-tags-placeholder"></div>
+    
+    <!-- Ensure hero image loads properly -->
+    <style>
+        .articles-hero {
+            background-image: url('../images/hero/articleshero.webp') !important;
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin-bottom: var(--space-xl);
+            filter: brightness(1.1) contrast(1.05);
+            background-color: #0a0a17; /* Dark background for letterboxing */
+        }
+        
+        /* Visually hidden element for accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Component Placeholder -->
     <div id="header-placeholder"></div>
+    
+    <!-- Hero Section with Image (No Text Overlay) -->
+    <section class="articles-hero" role="region" aria-labelledby="page-title">
+        <!-- No text overlay -->
+        <h1 id="page-title" class="visually-hidden">Articles</h1>
+    </section>
 
     <main>
         <section class="content">
-            <h1 class="section-title">Articles</h1>
+            <h2 class="section-title">Featured Articles</h2>
             <div class="container">
                 <div class="cards">
                     <div class="card">
