@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Practical AI prompt tools that work - no paywall, no comment bait, direct access to improve your prompts for image generation, video creation, research, and reasoning.">
-  <title>AI Reality Check | Practical Prompt Tools Collection</title>
+  <meta name="description" content="Practical AI prompt tools that work - no paywall, no comment bait, direct access to improve your prompts for AI.">
+  <title>AI Reality Check | Practical Prompt Tool</title>
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,7 +63,7 @@
     .tools-content h1 {
       text-align: center;
       font-size: 2.5em;
-      margin-top: 2rem;
+      margin-top: 6rem; /* Increased to account for fixed header */
     }
 
     .intro {
@@ -136,6 +136,7 @@
     @media (max-width: 768px) {
       .tools-content h1 {
         font-size: 2rem;
+        margin-top: 5rem;
       }
       
       .intro {
@@ -145,6 +146,16 @@
       .tool-item h2 {
         font-size: 1.3em;
       }
+    }
+    
+    /* Additional styles to fix header issues */
+    #header-placeholder {
+      position: relative;
+      z-index: 1000;
+    }
+    
+    .header-container {
+      max-width: 1200px !important;
     }
   </style>
   
@@ -157,60 +168,20 @@
   
   <!-- Main content -->
   <main class="tools-content">
-  <h1>🛠️ Tools That Work</h1>
+  <h1>Practical Tool</h1>
   <div class="intro">
-    No paywall, no comment bait, no film degree required.<br>
-    You don’t need to comment “🔥” to get access. You don’t need to buy a course. And you definitely don’t need to “DM me for the prompt.”<br>
-    Below are tools I actually use — not because they’re magical, but because they’re not trying to be.
-    They’re fast, useful, and don’t make you feel like you’re hacking into the Pentagon just to write a better prompt.
+    No paywall, no comment bait, no complicated setup required.<br>
+    A simple, practical tool that helps you get things done effectively.
   </div>
   
   <div class="tool-list">
-    <!-- Image Prompt Modifier + Organizer -->
-    <div class="tool-item">
-      <h2>🎨 Image Prompt Modifier + Organizer</h2>
-      <p><em>"Feel like a director without pretending you went to NYU."</em></p>
-      <p>A clean, web-based tool that helps you build better image prompts — even if you have no idea what “anamorphic lens” means.
-         Click modifiers, stack up a prompt that actually sounds cinematic, and copy-paste it into your image model of choice.
-         No film degree. No guessing. Just results.</p>
-      <a class="tool-link" href="https://imagepromptingassistant.netlify.app/" target="_blank">👉 Access Tool</a>
-    </div>
-
-    <!-- Video Prompt Optimizer -->
-    <div class="tool-item">
-      <h2>🎥 Video Prompt Optimizer</h2>
-      <p><em>"Make text-to-video prompts that don’t suck — no A24 worship required."</em></p>
-      <p>This tool is for video generation. Click your way through camera movements, moods, and scene styles without pretending you’re Spielberg.
-         It creates clean, structured prompts using cinematic terms most people don’t even know exist. Ideal for tools like Runway, Pika, etc.
-         Perfect if you don’t want to Google “Dutch angle” mid-project.</p>
-      <a class="tool-link" href="https://videopromptassistant.netlify.app/enhancer" target="_blank">👉 Access Tool</a>
-    </div>
-    
     <!-- Plain English Prompt Builder -->
     <div class="tool-item">
-      <h2>🧠 Plain English Prompt Builder</h2>
-      <p><em>"Just tell it what you want. It’ll do the rest. Like a prompt therapist."</em></p>
-      <p>Built on Streamlit, this tool lets you speak naturally (“I want a summary of X with examples and stats”), choose your model, click once,
-         and get a copy-paste ready prompt. Ideal for those who want results without diving deep into prompt theory.</p>
-      <a class="tool-link" href="https://llm-system-prompts-vkaxmtjmoxpuvepoowpgby.streamlit.app/" target="_blank">👉 Access Tool</a>
-    </div>
-    
-    <!-- Deep Research Prompt Generator -->
-    <div class="tool-item">
-      <h2>🔍 Deep Research Prompt Generator (GPT Store)</h2>
-      <p><em>"Skip the hallucinations. Get research like it matters."</em></p>
-      <p>This tool helps structure deep research prompts — asking for citations, studies, stats, and all the real data you need.
-         Perfect for content strategy, research, or when you want your AI to deliver PhD-level analysis without the fluff.</p>
-      <a class="tool-link" href="https://chatgpt.com/g/g-67f893e169b0819186767f75812c77ae-deep-research-prompt-generator" target="_blank">👉 Access Tool</a>
-    </div>
-    
-    <!-- Advanced Reasoning Prompt Generator -->
-    <div class="tool-item">
-      <h2>🧩 Advanced Reasoning Prompt Generator (GPT Store)</h2>
-      <p><em>"Make your AI actually think, instead of just sounding confident."</em></p>
-      <p>This generator is built for complex thinking. It guides you through creating structured, multi-step prompts that force the AI
-         to reason deeply. Perfect for strategy work, comparisons, decisions, or when you’re tired of getting surface-level responses.</p>
-      <a class="tool-link" href="https://chatgpt.com/g/g-67f893d21f788191ae0a76089f6f5fcb-advanced-reasoning-prompt-generator" target="_blank">👉 Access Tool</a>
+      <h2>🧠 Practical Tool</h2>
+      <p><em>"Just tell it what you want. It'll do the rest. Like a prompt therapist."</em></p>
+      <p>This efficient tool lets you speak naturally about what you need, choose your model, click once,
+         and get a copy-paste ready prompt. Ideal for those who want results without diving deep into prompt theory or technical jargon.</p>
+      <a class="tool-link" href="https://llm-system-prompts-vkaxmtjmoxpuvepoowpgby.streamlit.app/" target="_blank" rel="noopener">👉 Access Tool</a>
     </div>
   </div>
   
