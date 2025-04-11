@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Practical AI prompt tools that work - no paywall, no comment bait, direct access to improve your prompts for image generation, video creation, research, and reasoning.">
+  <title>AI Reality Check | Practical Prompt Tools Collection</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <!-- Site styles -->
+  <link rel="stylesheet" href="css/style.min.css">
+  
+  <style>
+    :root {
+      --primary-blue: #4285F4;
+      --primary-red: #EA4335;
+      --primary-yellow: #FBBC05;
+      --primary-green: #34A853;
+      --dark-blue: #1A73E8;
+      --light-blue: #8AB4F8;
+      --dark-gray: #202124;
+      --medium-gray: #5F6368;
+      --light-gray: #E8EAED;
+      --background-light: #fafafa;
+      --background-dark: #202124;
+      --text-light: #333;
+      --text-dark: #f4f4f4;
+      --shadow: 0 2px 10px rgba(0,0,0,0.1);
+      --transition-speed: 0.25s;
+      /* Custom card background variable */
+      --card-bg: #f5f5f5;
+    }
+    
+    /* Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-light: var(--background-dark);
+        --text-light: var(--text-dark);
+        --card-bg: #333333;
+      }
+    }
+    
+    /* Global Styles */
+    .tools-content {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-light);
+      color: var(--text-light);
+      margin: 0;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+    }
+
+    .tools-content h1, .tools-content h2 {
+      font-family: 'Roboto', sans-serif;
+      margin: 0 0 15px;
+      color: var(--primary-blue);
+    }
+    
+    .tools-content h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 2rem;
+    }
+
+    .intro {
+      text-align: center;
+      font-size: 1.1em;
+      margin-bottom: 30px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .tool-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .tool-item {
+      background-color: var(--card-bg);
+      padding: 20px;
+      border-left: 5px solid var(--primary-blue);
+      box-shadow: var(--shadow);
+      border-radius: 4px;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    
+    .tool-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    
+    .tool-item h2 {
+      margin-top: 0;
+      font-size: 1.6em;
+      color: var(--primary-blue);
+    }
+    
+    .tool-item p {
+      margin: 10px 0;
+    }
+    
+    /* Change the italic text to primary red */
+    .tool-item em {
+      color: var(--primary-red);
+    }
+
+    .tool-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: var(--primary-blue);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    
+    .tool-link:hover {
+      color: var(--dark-blue);
+      text-decoration: underline;
+    }
+    
+    .return-link {
+      display: block;
+      text-align: center;
+      margin: 2rem auto;
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .tools-content h1 {
+        font-size: 2rem;
+      }
+      
+      .intro {
+        font-size: 1rem;
+      }
+      
+      .tool-item h2 {
+        font-size: 1.3em;
+      }
+    }
+  </style>
+  
+  <!-- Emergency style fix script -->
+  <script src="js/style-fix.min.js"></script>
+</head>
+<body>
+  <!-- Header placeholder -->
+  <div id="header-placeholder"></div>
+  
+  <!-- Main content -->
+  <main class="tools-content">
+  <h1>🛠️ Tools That Work</h1>
+  <div class="intro">
+    No paywall, no comment bait, no film degree required.<br>
+    You don’t need to comment “🔥” to get access. You don’t need to buy a course. And you definitely don’t need to “DM me for the prompt.”<br>
+    Below are tools I actually use — not because they’re magical, but because they’re not trying to be.
+    They’re fast, useful, and don’t make you feel like you’re hacking into the Pentagon just to write a better prompt.
+  </div>
+  
+  <div class="tool-list">
+    <!-- Image Prompt Modifier + Organizer -->
+    <div class="tool-item">
+      <h2>🎨 Image Prompt Modifier + Organizer</h2>
+      <p><em>"Feel like a director without pretending you went to NYU."</em></p>
+      <p>A clean, web-based tool that helps you build better image prompts — even if you have no idea what “anamorphic lens” means.
+         Click modifiers, stack up a prompt that actually sounds cinematic, and copy-paste it into your image model of choice.
+         No film degree. No guessing. Just results.</p>
+      <a class="tool-link" href="https://imagepromptingassistant.netlify.app/" target="_blank">👉 Access Tool</a>
+    </div>
+
+    <!-- Video Prompt Optimizer -->
+    <div class="tool-item">
+      <h2>🎥 Video Prompt Optimizer</h2>
+      <p><em>"Make text-to-video prompts that don’t suck — no A24 worship required."</em></p>
+      <p>This tool is for video generation. Click your way through camera movements, moods, and scene styles without pretending you’re Spielberg.
+         It creates clean, structured prompts using cinematic terms most people don’t even know exist. Ideal for tools like Runway, Pika, etc.
+         Perfect if you don’t want to Google “Dutch angle” mid-project.</p>
+      <a class="tool-link" href="https://videopromptassistant.netlify.app/enhancer" target="_blank">👉 Access Tool</a>
+    </div>
+    
+    <!-- Plain English Prompt Builder -->
+    <div class="tool-item">
+      <h2>🧠 Plain English Prompt Builder</h2>
+      <p><em>"Just tell it what you want. It’ll do the rest. Like a prompt therapist."</em></p>
+      <p>Built on Streamlit, this tool lets you speak naturally (“I want a summary of X with examples and stats”), choose your model, click once,
+         and get a copy-paste ready prompt. Ideal for those who want results without diving deep into prompt theory.</p>
+      <a class="tool-link" href="https://llm-system-prompts-vkaxmtjmoxpuvepoowpgby.streamlit.app/" target="_blank">👉 Access Tool</a>
+    </div>
+    
+    <!-- Deep Research Prompt Generator -->
+    <div class="tool-item">
+      <h2>🔍 Deep Research Prompt Generator (GPT Store)</h2>
+      <p><em>"Skip the hallucinations. Get research like it matters."</em></p>
+      <p>This tool helps structure deep research prompts — asking for citations, studies, stats, and all the real data you need.
+         Perfect for content strategy, research, or when you want your AI to deliver PhD-level analysis without the fluff.</p>
+      <a class="tool-link" href="https://chatgpt.com/g/g-67f893e169b0819186767f75812c77ae-deep-research-prompt-generator" target="_blank">👉 Access Tool</a>
+    </div>
+    
+    <!-- Advanced Reasoning Prompt Generator -->
+    <div class="tool-item">
+      <h2>🧩 Advanced Reasoning Prompt Generator (GPT Store)</h2>
+      <p><em>"Make your AI actually think, instead of just sounding confident."</em></p>
+      <p>This generator is built for complex thinking. It guides you through creating structured, multi-step prompts that force the AI
+         to reason deeply. Perfect for strategy work, comparisons, decisions, or when you’re tired of getting surface-level responses.</p>
+      <a class="tool-link" href="https://chatgpt.com/g/g-67f893d21f788191ae0a76089f6f5fcb-advanced-reasoning-prompt-generator" target="_blank">👉 Access Tool</a>
+    </div>
+  </div>
+  
+  <a href="resources/" class="return-link">Return to All Resources</a>
+  </main>
+  
+  <!-- Footer placeholder -->
+  <div id="footer-placeholder"></div>
+  
+  <!-- Scripts for components -->
+  <script src="js/main.min.js"></script>
+  <script src="js/components.min.js"></script>
+</body>
+</html>

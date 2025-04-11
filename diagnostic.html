@@ -13,9 +13,6 @@
     <!-- Meta tags component placeholder -->
     <div id="meta-tags-placeholder"></div>
     
-    <!-- Diagnostic tool script -->
-    <script src="diagnostic.js"></script>
-    
     <style>
         /* Fallback styles in case the main stylesheet fails to load */
         body.diagnostic-fallback {
@@ -67,6 +64,50 @@
         .diagnostic-fallback .btn:hover {
             background-color: #0d47a1;
         }
+
+        /* Result styling */
+        .success-result {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #e6f4ea;
+            border-left: 4px solid #34a853;
+            border-radius: 4px;
+        }
+        
+        .warning-result {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fef7e0;
+            border-left: 4px solid #fbbc05;
+            border-radius: 4px;
+        }
+        
+        .error-result {
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fce8e6;
+            border-left: 4px solid #ea4335;
+            border-radius: 4px;
+        }
+
+        .code-display {
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+
+        .fix-button {
+            margin-top: 10px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -92,13 +133,24 @@
             <h1>Website Diagnostic Tool</h1>
             <p>This page tests various aspects of the website's styling and components.</p>
             
+            <!-- Critical JS File Integrity Check -->
+            <section class="test-section">
+                <h2>JavaScript File Integrity Check</h2>
+                <div id="js-integrity-check">Running checks...</div>
+            </section>
+
+            <!-- Console Error Check -->
+            <section class="test-section">
+                <h2>JavaScript Console Errors</h2>
+                <div id="console-error-check">Monitoring for errors...</div>
+            </section>
+            
             <!-- CSS Variables Test -->
             <section class="test-section">
                 <h2>CSS Variables Test</h2>
                 <p>The following color swatches should reflect the site's color scheme:</p>
                 <div>
                     <div class="color-swatch" style="background-color: var(--primary-blue);" title="--primary-blue"></div>
-                    <div class="color-swatch" style="background-color: var(--primary-blue-dark);" title="--primary-blue-dark"></div>
                     <div class="color-swatch" style="background-color: var(--primary-red);" title="--primary-red"></div>
                     <div class="color-swatch" style="background-color: var(--primary-yellow);" title="--primary-yellow"></div>
                     <div class="color-swatch" style="background-color: var(--primary-green);" title="--primary-green"></div>
@@ -110,6 +162,7 @@
                     <div class="color-swatch" style="background-color: var(--neutral-lighter);" title="--neutral-lighter"></div>
                     <div class="color-swatch" style="background-color: var(--white);" title="--white"></div>
                 </div>
+                <div id="css-variables-check"></div>
             </section>
             
             <!-- Component Loading Test -->
@@ -121,27 +174,6 @@
                     <li>Meta Tags Component: <span id="meta-check">Checking...</span></li>
                     <li>Footer Component: <span id="footer-check">Checking...</span></li>
                 </ul>
-                <script>
-                    // Check components after page load
-                    window.addEventListener('load', function() {
-                        setTimeout(function() {
-                            // Check header
-                            const headerExists = document.querySelector('header') !== null;
-                            document.getElementById('header-check').textContent = headerExists ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
-                            document.getElementById('header-check').style.color = headerExists ? 'green' : 'red';
-                            
-                            // Check meta tags
-                            const metaTagsExist = document.querySelector('meta[name="description"]') !== null;
-                            document.getElementById('meta-check').textContent = metaTagsExist ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
-                            document.getElementById('meta-check').style.color = metaTagsExist ? 'green' : 'red';
-                            
-                            // Check footer
-                            const footerExists = document.querySelector('footer') !== null;
-                            document.getElementById('footer-check').textContent = footerExists ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
-                            document.getElementById('footer-check').style.color = footerExists ? 'green' : 'red';
-                        }, 1000); // Wait a second for components to load
-                    });
-                </script>
             </section>
             
             <!-- UI Elements Test -->
@@ -178,52 +210,447 @@
                 <p>Test the dark mode toggle functionality:</p>
                 <button id="theme-test-btn" class="btn">Toggle Dark Mode</button>
                 <p>Current Theme: <span id="current-theme">Checking...</span></p>
-                
-                <script>
-                    // Update current theme display
-                    function updateThemeDisplay() {
-                        const htmlClasses = document.documentElement.className.split(' ');
-                        const themeClass = htmlClasses.find(cls => cls.startsWith('theme-')) || 'No theme';
-                        document.getElementById('current-theme').textContent = themeClass;
-                    }
-                    
-                    // Initialize
-                    window.addEventListener('load', function() {
-                        updateThemeDisplay();
-                        
-                        // Set up theme toggle button
-                        document.getElementById('theme-test-btn').addEventListener('click', function() {
-                            const htmlClasses = document.documentElement.className.split(' ');
-                            const currentTheme = htmlClasses.find(cls => cls.startsWith('theme-')) || 'theme-auto';
-                            
-                            // Cycle through themes
-                            let newTheme;
-                            if (currentTheme === 'theme-auto') {
-                                newTheme = 'theme-light';
-                            } else if (currentTheme === 'theme-light') {
-                                newTheme = 'theme-dark';
-                            } else {
-                                newTheme = 'theme-auto';
-                            }
-                            
-                            // Remove all theme classes and add the new one
-                            document.documentElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
-                            document.documentElement.classList.add(newTheme);
-                            
-                            // Save to localStorage for persistence
-                            localStorage.setItem('theme', newTheme.replace('theme-', ''));
-                            
-                            // Update display
-                            updateThemeDisplay();
-                        });
-                    });
-                </script>
+            </section>
+
+            <!-- Quick Fix Section -->
+            <section class="test-section">
+                <h2>Quick Fix Options</h2>
+                <div id="fix-options"></div>
             </section>
         </div>
     </main>
 
     <!-- Footer Component Placeholder -->
     <div id="footer-placeholder"></div>
+
+    <!-- Core diagnostics script -->
+    <script>
+        // Store console errors
+        const consoleErrors = [];
+        const originalConsoleError = console.error;
+        console.error = function() {
+            consoleErrors.push(Array.from(arguments));
+            originalConsoleError.apply(this, arguments);
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check JavaScript file integrity
+            checkJsIntegrity();
+            
+            // Check CSS variables
+            checkCssVariables();
+            
+            // Monitor console errors
+            updateConsoleErrors();
+            
+            // Check components after a delay
+            setTimeout(checkComponents, 1000);
+            
+            // Setup theme toggle
+            setupThemeToggle();
+            
+            // Setup quick fix options
+            setupQuickFixes();
+        });
+
+        // Check JavaScript file integrity
+        function checkJsIntegrity() {
+            const jsIntegrityCheck = document.getElementById('js-integrity-check');
+            const jsFiles = [
+                { name: 'components.min.js', path: 'js/components.min.js' },
+                { name: 'main.min.js', path: 'js/main.min.js' }
+            ];
+            
+            let checksCompleted = 0;
+            
+            jsFiles.forEach(file => {
+                fetch(file.path)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`Failed to load ${file.name} (HTTP ${response.status})`);
+                        }
+                        return response.text();
+                    })
+                    .then(content => {
+                        // Check if file ends with proper JavaScript (typically ; or })
+                        const lastChar = content.trim().slice(-1);
+                        const isProperEnding = [';', '}', ')'].includes(lastChar);
+                        
+                        const resultDiv = document.createElement('div');
+                        resultDiv.className = isProperEnding ? 'success-result' : 'error-result';
+                        
+                        if (isProperEnding) {
+                            resultDiv.innerHTML = `<strong>✅ ${file.name} appears properly formatted</strong>`;
+                        } else {
+                            resultDiv.innerHTML = `
+                                <strong>❌ ${file.name} appears to be truncated!</strong>
+                                <p>Last 50 characters: </p>
+                                <div class="code-display">${escapeHtml(content.slice(-50))}</div>
+                                <p>The file does not end with a proper JavaScript ending character (;, }, or ))</p>
+                                <p><strong>Fix:</strong> This is causing your styling issues. You need to restore a complete version of this file.</p>`;
+                            
+                            // Add fix button if it's components.min.js
+                            if (file.name === 'components.min.js') {
+                                const fixButton = document.createElement('button');
+                                fixButton.className = 'fix-button';
+                                fixButton.textContent = 'Apply Emergency Fix';
+                                fixButton.addEventListener('click', applyEmergencyCompJsFix);
+                                resultDiv.appendChild(fixButton);
+                            }
+                        }
+                        
+                        jsIntegrityCheck.appendChild(resultDiv);
+                        checksCompleted++;
+                        
+                        if (checksCompleted === jsFiles.length) {
+                            const summaryDiv = document.createElement('div');
+                            summaryDiv.innerHTML = '<p><strong>All JavaScript file checks complete.</strong></p>';
+                            jsIntegrityCheck.appendChild(summaryDiv);
+                        }
+                    })
+                    .catch(error => {
+                        const errorDiv = document.createElement('div');
+                        errorDiv.className = 'error-result';
+                        errorDiv.innerHTML = `<strong>❌ Error checking ${file.name}:</strong> ${error.message}`;
+                        jsIntegrityCheck.appendChild(errorDiv);
+                        
+                        checksCompleted++;
+                        
+                        if (checksCompleted === jsFiles.length) {
+                            const summaryDiv = document.createElement('div');
+                            summaryDiv.innerHTML = '<p><strong>All JavaScript file checks complete.</strong></p>';
+                            jsIntegrityCheck.appendChild(summaryDiv);
+                        }
+                    });
+            });
+        }
+        
+        // Check CSS variables
+        function checkCssVariables() {
+            const cssCheck = document.getElementById('css-variables-check');
+            const computedStyle = getComputedStyle(document.documentElement);
+            const expectedVars = [
+                '--primary-blue', 
+                '--primary-red',
+                '--primary-yellow',
+                '--primary-green',
+                '--neutral-dark',
+                '--neutral-medium',
+                '--neutral-light',
+                '--neutral-lighter',
+                '--white'
+            ];
+            
+            const missingVars = expectedVars.filter(
+                varName => !computedStyle.getPropertyValue(varName).trim()
+            );
+            
+            const resultDiv = document.createElement('div');
+            
+            if (missingVars.length > 0) {
+                resultDiv.className = 'error-result';
+                resultDiv.innerHTML = `
+                    <strong>❌ Missing CSS variables:</strong>
+                    <div class="code-display">${missingVars.join(', ')}</div>
+                    <p>This indicates that your stylesheet is not loading correctly or CSS variables are not defined.</p>`;
+                
+                const fixButton = document.createElement('button');
+                fixButton.className = 'fix-button';
+                fixButton.textContent = 'Apply Emergency CSS Variables';
+                fixButton.addEventListener('click', applyEmergencyCssVars);
+                resultDiv.appendChild(fixButton);
+            } else {
+                resultDiv.className = 'success-result';
+                resultDiv.innerHTML = '<strong>✅ All expected CSS variables are defined</strong>';
+            }
+            
+            cssCheck.appendChild(resultDiv);
+        }
+        
+        // Update console errors
+        function updateConsoleErrors() {
+            const consoleErrorCheck = document.getElementById('console-error-check');
+            
+            if (consoleErrors.length > 0) {
+                const resultDiv = document.createElement('div');
+                resultDiv.className = 'error-result';
+                
+                let errorContent = '<strong>❌ JavaScript errors detected:</strong><ul>';
+                consoleErrors.forEach(error => {
+                    errorContent += `<li>${escapeHtml(error.join(' '))}</li>`;
+                });
+                errorContent += '</ul>';
+                
+                resultDiv.innerHTML = errorContent;
+                consoleErrorCheck.innerHTML = '';
+                consoleErrorCheck.appendChild(resultDiv);
+            } else {
+                consoleErrorCheck.innerHTML = '<div class="success-result"><strong>✅ No JavaScript errors detected</strong></div>';
+            }
+            
+            // Check again in 2 seconds
+            setTimeout(updateConsoleErrors, 2000);
+        }
+        
+        // Check components
+        function checkComponents() {
+            // Check header
+            const headerExists = document.querySelector('header') !== null;
+            document.getElementById('header-check').textContent = headerExists ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
+            document.getElementById('header-check').style.color = headerExists ? 'green' : 'red';
+            
+            // Check meta tags
+            const metaTagsExist = document.querySelector('meta[name="description"]') !== null;
+            document.getElementById('meta-check').textContent = metaTagsExist ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
+            document.getElementById('meta-check').style.color = metaTagsExist ? 'green' : 'red';
+            
+            // Check footer
+            const footerExists = document.querySelector('footer') !== null;
+            document.getElementById('footer-check').textContent = footerExists ? 'Loaded Successfully ✓' : 'Failed to Load ✗';
+            document.getElementById('footer-check').style.color = footerExists ? 'green' : 'red';
+        }
+        
+        // Setup theme toggle
+        function setupThemeToggle() {
+            updateThemeDisplay();
+            
+            // Set up theme toggle button
+            document.getElementById('theme-test-btn').addEventListener('click', function() {
+                const htmlClasses = document.documentElement.className.split(' ');
+                const currentTheme = htmlClasses.find(cls => cls.startsWith('theme-')) || 'theme-auto';
+                
+                // Cycle through themes
+                let newTheme;
+                if (currentTheme === 'theme-auto') {
+                    newTheme = 'theme-light';
+                } else if (currentTheme === 'theme-light') {
+                    newTheme = 'theme-dark';
+                } else {
+                    newTheme = 'theme-auto';
+                }
+                
+                // Remove all theme classes and add the new one
+                document.documentElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+                document.documentElement.classList.add(newTheme);
+                
+                // Save to localStorage for persistence
+                localStorage.setItem('theme', newTheme.replace('theme-', ''));
+                
+                // Update display
+                updateThemeDisplay();
+            });
+        }
+        
+        // Update theme display
+        function updateThemeDisplay() {
+            const htmlClasses = document.documentElement.className.split(' ');
+            const themeClass = htmlClasses.find(cls => cls.startsWith('theme-')) || 'No theme';
+            document.getElementById('current-theme').textContent = themeClass;
+        }
+        
+        // Setup quick fixes
+        function setupQuickFixes() {
+            const fixOptions = document.getElementById('fix-options');
+            
+            // Full Emergency Fix
+            const fullFixDiv = document.createElement('div');
+            fullFixDiv.innerHTML = `
+                <p>Apply a comprehensive emergency fix to make the website functional:</p>
+                <button id="full-emergency-fix" class="fix-button">Apply Full Emergency Fix</button>
+            `;
+            fixOptions.appendChild(fullFixDiv);
+            
+            document.getElementById('full-emergency-fix').addEventListener('click', applyFullEmergencyFix);
+        }
+        
+        // Emergency fixes
+        function applyEmergencyCompJsFix() {
+            const emergencyScript = document.createElement('script');
+            emergencyScript.textContent = `
+                // Basic component loading functionality
+                function loadComponent(placeholderId, componentPath) {
+                    const placeholder = document.getElementById(placeholderId);
+                    if (!placeholder) return;
+                    
+                    fetch(componentPath)
+                        .then(response => response.text())
+                        .then(html => {
+                            placeholder.outerHTML = html;
+                        })
+                        .catch(error => {
+                            console.error('Error loading component:', error);
+                        });
+                }
+                
+                // Load components
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Header
+                    loadComponent('header-placeholder', 'components/header.html');
+                    
+                    // Meta tags if not already loaded
+                    if (document.getElementById('meta-tags-placeholder')) {
+                        loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+                    }
+                    
+                    // Footer
+                    loadComponent('footer-placeholder', 'components/footer.html');
+                });
+            `;
+            document.head.appendChild(emergencyScript);
+            
+            alert('Emergency components.min.js fix applied. Please reload the page to see if it works.');
+        }
+        
+        function applyEmergencyCssVars() {
+            const emergencyStyle = document.createElement('style');
+            emergencyStyle.textContent = `
+                :root {
+                    --primary-blue: #4285F4;
+                    --primary-red: #EA4335;
+                    --primary-yellow: #FBBC05;
+                    --primary-green: #34A853;
+                    --neutral-dark: #202124;
+                    --neutral-medium: #5F6368;
+                    --neutral-light: #BDC1C6;
+                    --neutral-lighter: #F1F3F4;
+                    --white: #FFFFFF;
+                }
+            `;
+            document.head.appendChild(emergencyStyle);
+            
+            alert('Emergency CSS variables applied. The color swatches should now show colors.');
+            
+            // Refresh CSS variables check
+            document.getElementById('css-variables-check').innerHTML = '';
+            checkCssVariables();
+        }
+        
+        function applyFullEmergencyFix() {
+            // Apply emergency styling
+            const emergencyStyle = document.createElement('style');
+            emergencyStyle.textContent = `
+                :root {
+                    --primary-blue: #4285F4;
+                    --primary-red: #EA4335;
+                    --primary-yellow: #FBBC05;
+                    --primary-green: #34A853;
+                    --neutral-dark: #202124;
+                    --neutral-medium: #5F6368;
+                    --neutral-light: #BDC1C6;
+                    --neutral-lighter: #F1F3F4;
+                    --white: #FFFFFF;
+                }
+                
+                body {
+                    font-family: 'Roboto', Arial, sans-serif;
+                    line-height: 1.5;
+                    color: #202124;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                }
+                
+                header {
+                    background-color: white;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    padding: 15px 0;
+                }
+                
+                nav ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 20px;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                nav a {
+                    color: #5F6368;
+                    text-decoration: none;
+                    font-weight: 500;
+                }
+                
+                nav a:hover {
+                    color: #4285F4;
+                }
+                
+                .btn {
+                    display: inline-block;
+                    background-color: #4285F4;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    border: none;
+                    cursor: pointer;
+                }
+                
+                .card {
+                    background-color: white;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                    padding: 20px;
+                }
+                
+                footer {
+                    background-color: #f8f9fa;
+                    padding: 40px 0;
+                    margin-top: 40px;
+                }
+            `;
+            document.head.appendChild(emergencyStyle);
+            
+            // Create emergency header if needed
+            if (!document.querySelector('header')) {
+                const header = document.createElement('header');
+                header.innerHTML = `
+                    <div class="container">
+                        <nav>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/case-studies/">Case Studies</a></li>
+                                <li><a href="/articles/">Articles</a></li>
+                                <li><a href="/portfolio/">Portfolio</a></li>
+                                <li><a href="/contact/">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                `;
+                document.body.insertBefore(header, document.body.firstChild);
+            }
+            
+            // Create emergency footer if needed
+            if (!document.querySelector('footer')) {
+                const footer = document.createElement('footer');
+                footer.innerHTML = `
+                    <div class="container">
+                        <p>&copy; 2025 AI Reality Check. All rights reserved.</p>
+                    </div>
+                `;
+                document.body.appendChild(footer);
+            }
+            
+            // Apply emergency component loading
+            applyEmergencyCompJsFix();
+            
+            alert('Full emergency fix applied. The website should now be functional with basic styling.');
+        }
+        
+        // Helper function to escape HTML
+        function escapeHtml(unsafe) {
+            return unsafe
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+    </script>
 
     <script src="js/main.min.js"></script>
     <script src="js/components.min.js"></script>

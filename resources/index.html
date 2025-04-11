@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-auto">
+<head>
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "Resources & Tools";
+        const PAGE_DESCRIPTION = "Helpful resources, tools, and examples to assist with AI implementation, analysis, and strategy development.";
+        const REL_PATH = "../"; // Resources is one level down from root
+        const CANONICAL_PATH = "/resources/"; // Path after domain
+    </script>
+    
+    <!-- Emergency style fix script -->
+    <script src="../js/style-fix.min.js"></script>
+    
+    <!-- Direct stylesheet references to ensure they load -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.min.css">
+    
+    <!-- Meta tags component placeholder -->
+    <div id="meta-tags-placeholder"></div>
+    
+    <!-- Ensure hero image loads properly -->
+    <style>
+        .resources-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            margin-bottom: var(--space-xl);
+            background-color: #0a0a17; /* Dark background */
+            overflow: hidden;
+            background-image: linear-gradient(to right, rgba(66, 133, 244, 0.7), rgba(52, 168, 83, 0.7));
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .resource-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .resource-card-header {
+            padding: 1.5rem;
+            background-color: var(--primary-blue);
+            color: white;
+        }
+        
+        .resource-card-header h3 {
+            margin: 0;
+            font-size: 1.5rem;
+        }
+        
+        .resource-card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .resource-card-description {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .resource-tag {
+            display: inline-block;
+            background-color: var(--blue-bg);
+            color: var(--primary-blue);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resource-tag.tool {
+            background-color: var(--green-bg);
+            color: var(--primary-green);
+        }
+        
+        .resource-tag.example {
+            background-color: var(--yellow-bg);
+            color: var(--primary-yellow);
+        }
+        
+        .resource-category-title {
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-blue);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .resource-category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-blue);
+        }
+        
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .resources-hero {
+                height: 40vh;
+                min-height: 300px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .resources-hero {
+                height: 30vh;
+                min-height: 200px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Hero Section with background gradient -->
+    <section class="resources-hero" role="region" aria-labelledby="page-title">
+        <div class="container">
+            <div class="hero-content">
+                <h1 id="page-title">Resources & Tools</h1>
+                <p>A collection of free tools, examples, and resources to help you implement and analyze AI solutions effectively</p>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <section class="content">
+            <div class="container">
+                <div class="section-introduction">
+                    <p>
+                        These resources are designed to help you better understand, implement, and optimize AI solutions in your organization. 
+                        From analysis tools to implementation examples, find what you need to move your AI initiatives forward.
+                    </p>
+                </div>
+                
+                <!-- Practical Tools Section -->
+                <h2 class="resource-category-title" id="practical-tools">Practical Tools</h2>
+                <div class="cards">
+                    <div class="card resource-card">
+                        <div class="resource-card-header">
+                            <h3>AI Prompt Tools Collection</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>Curated collection of practical prompt tools to help you build better prompts for image generation, video creation, research, and reasoning - no paywall, no comment bait, direct access.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag tool">Tool</span>
+                                <span class="resource-tag">Free</span>
+                            </div>
+                            <a href="../tools.html" class="btn" target="_blank" rel="noopener">Access Tools <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analysis Tools Section -->
+                <h2 class="resource-category-title">Analysis Tools</h2>
+                <div class="cards">
+                    <div class="card resource-card">
+                        <div class="resource-card-header">
+                            <h3>ROI Calculator</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>Calculate the potential return on investment for AI implementations in your organization. Factors in implementation costs, ongoing expenses, and expected benefits.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag tool">Tool</span>
+                                <span class="resource-tag">Free</span>
+                            </div>
+                            <a href="https://example.com/roi-calculator" class="btn" target="_blank" rel="noopener">Access Tool <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card resource-card">
+                        <div class="resource-card-header">
+                            <h3>AI Readiness Assessment</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>Evaluate your organization's readiness for AI implementation across five key dimensions: data maturity, technical infrastructure, talent, governance, and strategic alignment.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag tool">Tool</span>
+                                <span class="resource-tag">Free</span>
+                            </div>
+                            <a href="https://example.com/ai-readiness" class="btn" target="_blank" rel="noopener">Take Assessment <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card resource-card">
+                        <div class="resource-card-header">
+                            <h3>LLM Comparison Matrix</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>Interactive comparison of leading large language models, including performance benchmarks, cost structures, and ideal use cases. Updated monthly with new models and data.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag tool">Tool</span>
+                                <span class="resource-tag">Free</span>
+                            </div>
+                            <a href="https://example.com/llm-matrix" class="btn" target="_blank" rel="noopener">View Matrix <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Implementation Examples Section -->
+                <h2 class="resource-category-title">Implementation Examples</h2>
+                <div class="cards">
+                    <div class="card resource-card">
+                        <div class="resource-card-header" style="background-color: var(--primary-green);">
+                            <h3>Customer Support Bot Template</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>A ready-to-customize template for implementing a customer support chatbot with detailed prompts, fallback mechanisms, and escalation paths.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag example">Example</span>
+                                <span class="resource-tag">Template</span>
+                            </div>
+                            <a href="https://example.com/support-bot" class="btn" target="_blank" rel="noopener">View Template <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card resource-card">
+                        <div class="resource-card-header" style="background-color: var(--primary-green);">
+                            <h3>Training Data Structure Guide</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>Guide to structuring training data for fine-tuning language models, with sample datasets and preprocessing code examples for various use cases.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag example">Example</span>
+                                <span class="resource-tag">Guide</span>
+                            </div>
+                            <a href="https://example.com/training-guide" class="btn" target="_blank" rel="noopener">Access Guide <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card resource-card">
+                        <div class="resource-card-header" style="background-color: var(--primary-green);">
+                            <h3>Model Evaluation Framework</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>A framework for evaluating AI model performance in real-world scenarios, including sample testing protocols, metrics definitions, and reporting templates.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag example">Example</span>
+                                <span class="resource-tag">Framework</span>
+                            </div>
+                            <a href="https://example.com/evaluation-framework" class="btn" target="_blank" rel="noopener">Download Framework <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Strategy Resources Section -->
+                <h2 class="resource-category-title">Strategy Resources</h2>
+                <div class="cards">
+                    <div class="card resource-card">
+                        <div class="resource-card-header" style="background-color: var(--primary-yellow);">
+                            <h3>AI Implementation Roadmap</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>A phased approach to implementing AI in organizations of different sizes and technical maturity, with milestones, key considerations, and risk mitigation strategies.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag">Strategy</span>
+                                <span class="resource-tag">Planning</span>
+                            </div>
+                            <a href="https://example.com/implementation-roadmap" class="btn" target="_blank" rel="noopener">View Roadmap <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card resource-card">
+                        <div class="resource-card-header" style="background-color: var(--primary-yellow);">
+                            <h3>AI Ethics Checklist</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>Comprehensive checklist for ensuring ethical considerations are addressed throughout the AI lifecycle, from design and development to deployment and monitoring.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag">Strategy</span>
+                                <span class="resource-tag">Ethics</span>
+                            </div>
+                            <a href="https://example.com/ethics-checklist" class="btn" target="_blank" rel="noopener">Access Checklist <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    
+                    <div class="card resource-card">
+                        <div class="resource-card-header" style="background-color: var(--primary-yellow);">
+                            <h3>Business Case Template</h3>
+                        </div>
+                        <div class="resource-card-body">
+                            <div class="resource-card-description">
+                                <p>Template for building a business case for AI investments, including sections for cost analysis, expected benefits, risk assessment, and implementation timeline.</p>
+                            </div>
+                            <div class="resource-tags">
+                                <span class="resource-tag">Strategy</span>
+                                <span class="resource-tag">Template</span>
+                            </div>
+                            <a href="https://example.com/business-case-template" class="btn" target="_blank" rel="noopener">Download Template <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-footer" style="margin-top: 4rem; text-align: center;">
+                    <p>All resources are provided free of charge as part of AI Reality Check's commitment to promoting responsible and effective AI implementations.</p>
+                    <p>Missing something? <a href="../contact/">Contact us</a> with suggestions for additional resources.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer Component Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/main.min.js"></script>
+    <script src="../js/components.min.js"></script>
+</body>
+</html>
