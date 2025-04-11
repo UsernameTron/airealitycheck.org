@@ -27,12 +27,25 @@
             position: relative;
             height: 50vh;
             min-height: 400px;
-            background-size: contain;
-            background-position: center;
+            background-size: cover; /* Changed from contain to cover */
+            background-position: center top; /* Changed to center top */
             background-repeat: no-repeat;
             margin-bottom: var(--space-xl);
-            filter: brightness(1.1) contrast(1.05);
-            background-color: #0a0a17; /* Dark background for letterboxing */
+            filter: brightness(1.3) contrast(1.1); /* Increased brightness and contrast */
+            background-color: transparent; /* Removed dark background */
+        }
+        
+        /* Add a fallback color and backup image in case the webp doesn't load */
+        @supports not (background-image: url('../images/hero/articleshero.webp')) {
+            .articles-hero {
+                background-image: url('../images/hero/ARC Hero.webp') !important;
+                background-color: #4285F4;
+            }
+        }
+        
+        /* Debug border to ensure the section is rendered */
+        .articles-hero {
+            border: 4px solid red;
         }
         
         /* Visually hidden element for accessibility */
@@ -56,6 +69,10 @@
     <section class="articles-hero" role="region" aria-labelledby="page-title">
         <!-- No text overlay -->
         <h1 id="page-title" class="visually-hidden">Articles</h1>
+        
+        <!-- Fallback image in case background doesn't work -->
+        <img src="../images/hero/articleshero.webp" alt="AI Reality Check Articles" 
+             style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
     </section>
 
     <main>
