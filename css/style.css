@@ -963,6 +963,19 @@ footer .container {
         padding: var(--space-xl) 0;
     }
     
+    /* Hero section improvements for mobile */
+    .home-hero {
+        height: 50vh; /* Reduced from 80vh */
+        min-height: 400px; /* Reduced from 600px */
+    }
+    
+    .case-studies-hero,
+    .portfolio-hero,
+    .articles-hero {
+        height: 40vh; /* Reduced from 50vh */
+        min-height: 300px; /* Reduced from 400px */
+    }
+    
     .footer-content {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
@@ -970,6 +983,27 @@ footer .container {
 
     .problem-solution-container {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    /* Additional hero adjustments for smaller screens */
+    .home-hero {
+        height: 40vh;
+        min-height: 250px;
+    }
+    
+    .case-studies-hero,
+    .portfolio-hero,
+    .articles-hero {
+        height: 30vh;
+        min-height: 200px;
+    }
+    
+    /* Ensure hero image content is visible */
+    .hero-image {
+        object-position: center top;
     }
 }
 
