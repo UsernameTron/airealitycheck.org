@@ -29,7 +29,6 @@
             margin-bottom: var(--space-xl);
             background-color: #0a0a17; /* Dark background */
             overflow: hidden;
-            border: 4px solid red; /* Debug border */
         }
         
         .hero-image {
@@ -68,10 +67,10 @@
         
         <!-- Primary image with fallback -->
         <picture>
-            <source srcset="../images/hero/articleshero.webp" type="image/webp">
-            <source srcset="./articleshero.webp" type="image/webp"> <!-- Local to articles directory -->
-            <source srcset="../images/hero/ARC Hero.webp" type="image/webp">
-            <img class="hero-image" src="../images/hero/ARC Hero.png" alt="AI Reality Check Articles">
+            <source srcset="./images/articleshero.webp" type="image/webp"> <!-- Correct path in articles/images -->
+            <source srcset="../images/hero/articleshero.webp" type="image/webp"> <!-- Fallback to root path -->
+            <source srcset="../images/hero/ARC Hero.webp" type="image/webp"> <!-- Second fallback -->
+            <img class="hero-image" src="../images/hero/ARC Hero.png" alt="AI Reality Check Articles"> <!-- Final fallback -->
         </picture>
     </section>
 
