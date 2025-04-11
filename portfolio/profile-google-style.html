@@ -1,59 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-auto">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="C. Pete Conner's comprehensive portfolio showcasing AI, ML, and CX-focused accomplishments with strategic, metrics-driven outcomes.">
-  <meta property="og:title" content="AI Reality Check | C. Pete Conner">
-  <meta property="og:description" content="Comprehensive portfolio of AI, ML, and CX-focused accomplishments with strategic, metrics-driven outcomes">
-  <title>AI Reality Check | C. Pete Conner - Comprehensive Portfolio</title>
+  <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+  <script>
+    // Define these variables before loading components
+    const PAGE_TITLE = "C. Pete Conner – Professional CX Profile";
+    const PAGE_DESCRIPTION = "Comprehensive CX Profile showcasing transformative customer experience solutions, advanced AI/ML innovations, certifications, and professional recommendations.";
+    const REL_PATH = "../"; // Profile is one level down from root
+    const CANONICAL_PATH = "/portfolio/profile-google-style.html"; // Path after domain
+  </script>
+  
+  <!-- Loader script ensures theme and critical styling works -->
+  <script src="../js/loader.min.js"></script>
+  
+  <!-- Meta tags component placeholder -->
+  <div id="meta-tags-placeholder"></div>
+  
+  <meta property="og:title" content="C. Pete Conner – Professional CX Profile">
+  <meta property="og:description" content="A dynamic portfolio of CX-driven accomplishments with strategic, metrics-driven outcomes.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://airealitycheck.org/portfolio/profile-google-style.html">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Product Sans is a Google-only font, using Roboto as a fallback -->
   
   <style>
-    /* Google-inspired Color Palette */
+    /* Google-Inspired Color Palette & Theme Variables */
     :root {
       --blue: #4285F4;
       --red: #EA4335;
       --yellow: #FBBC05;
       --green: #34A853;
-      --dark-blue: #1A73E8;
-      --light-blue: #8AB4F8;
       --dark-gray: #202124;
       --medium-gray: #5F6368;
       --light-gray: #E8EAED;
       --white: #FFFFFF;
-      
-      /* Theme Variables */
-      --primary-bg: var(--white);
-      --secondary-bg: var(--light-gray);
-      --tertiary-bg: #F8F9FA;
-      --primary-text: var(--dark-gray);
-      --secondary-text: var(--medium-gray);
+      /* Theme Defaults */
+      --primary-bg: var(--dark-gray);
+      --secondary-bg: #303134;
+      --tertiary-bg: #404144;
+      --primary-text: var(--white);
+      --secondary-text: #BDC1C6;
       --accent-color: var(--blue);
-      --secondary-accent: var(--green);
-      --highlight-color: var(--yellow);
-      --cta-color: var(--red);
-      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       --transition-speed: 0.25s;
     }
     
-    /* Dark Mode */
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --primary-bg: var(--dark-gray);
-        --secondary-bg: #303134;
-        --tertiary-bg: #404144;
-        --primary-text: var(--white);
-        --secondary-text: #BDC1C6;
-        --accent-color: var(--light-blue);
-      }
-    }
+    /* Dark Mode Overrides already set as defaults */
     
-    /* Reset & Base Styles */
+    /* Global Resets & Base Styles */
     *, *::before, *::after {
       box-sizing: border-box;
       margin: 0;
@@ -71,18 +69,24 @@
       color: var(--primary-text);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      /* Subtle dot pattern overlay */
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
       overflow-x: hidden;
     }
     
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Product Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       margin-bottom: 1rem;
       line-height: 1.2;
+      font-weight: 500;
     }
     
     h1 {
       font-size: 3.5rem;
       font-weight: 700;
+      text-align: center;
+      margin-top: 5rem;
     }
     
     h2 {
@@ -107,7 +111,7 @@
     }
     
     a:hover {
-      color: var(--dark-blue);
+      color: var(--red);
     }
     
     ul {
@@ -132,7 +136,7 @@
       padding: 0 2rem;
     }
     
-    /* Header */
+    /* Header with Fixed Position */
     .header {
       position: fixed;
       top: 0;
@@ -152,7 +156,7 @@
     }
     
     .logo {
-      font-family: 'Product Sans', sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 1.8rem;
       font-weight: 700;
       color: var(--accent-color);
@@ -168,96 +172,12 @@
       margin-left: 3px;
     }
     
-    .logo-dot-1 {
-      background-color: var(--blue);
-    }
+    .logo-dot-1 { background-color: var(--blue); }
+    .logo-dot-2 { background-color: var(--red); }
+    .logo-dot-3 { background-color: var(--yellow); }
+    .logo-dot-4 { background-color: var(--green); }
     
-    .logo-dot-2 {
-      background-color: var(--red);
-    }
-    
-    .logo-dot-3 {
-      background-color: var(--yellow);
-    }
-    
-    .logo-dot-4 {
-      background-color: var(--green);
-    }
-    
-    .nav {
-      display: flex;
-      gap: 2rem;
-    }
-    
-    .nav-link {
-      color: var(--primary-text);
-      font-weight: 500;
-      position: relative;
-      padding-bottom: 5px;
-    }
-    
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 3px;
-      background-color: var(--accent-color);
-      transition: width var(--transition-speed);
-    }
-    
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    
-    .nav-button {
-      background-color: var(--cta-color);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      font-weight: 500;
-      box-shadow: 0 2px 5px rgba(234, 67, 53, 0.3);
-      transition: all var(--transition-speed);
-    }
-    
-    .nav-button:hover {
-      background-color: #D33426;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(234, 67, 53, 0.3);
-    }
-    
-    /* Hero Section */
-    .hero {
-      padding: 8rem 0 4rem;
-      background-color: var(--primary-bg);
-      border-bottom: 1px solid var(--secondary-bg);
-    }
-    
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    
-    .hero-title {
-      margin-bottom: 1.5rem;
-      color: var(--primary-text);
-    }
-    
-    .hero-title span {
-      color: var(--accent-color);
-    }
-    
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--secondary-text);
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    
-    /* Section */
+    /* Section Styling */
     .section {
       padding: 4rem 0;
       border-bottom: 1px solid var(--secondary-bg);
@@ -284,7 +204,7 @@
       border-radius: 2px;
     }
     
-    /* Metrics Visuals */
+    /* Metric Visuals & Cards */
     .metric-visuals {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -341,7 +261,7 @@
       text-align: right;
     }
     
-    /* Highlight Box */
+    /* Highlight Box for Key Takeaways */
     .highlight {
       background-color: var(--tertiary-bg);
       border-left: 4px solid var(--accent-color);
@@ -350,7 +270,49 @@
       margin: 2rem 0;
     }
     
-    /* Project Cards */
+    /* Card Styles (for various sections) */
+    .card {
+      background-color: var(--secondary-bg);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    
+    /* Skills & Certifications Cards - left accent */
+    .skill-card {
+      border-left: 4px solid var(--green);
+    }
+    
+    /* Recommendation Cards - left accent */
+    .recommendation-card {
+      border-left: 2px solid var(--blue);
+    }
+    
+    /* Toggle Link for Certifications Section */
+    .toggle-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 1px dashed var(--accent-color);
+    }
+    
+    /* Grid Layout for Recommendation Cards & Project Cards */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .grid.single-column {
+      grid-template-columns: 1fr;
+    }
+    
     .project-links {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -391,93 +353,7 @@
     }
     
     .project-card a:hover {
-      color: var(--dark-blue);
-    }
-    
-    /* Color alternating project cards */
-    .project-card:nth-child(4n+1) h3 {
-      color: var(--blue);
-    }
-    
-    .project-card:nth-child(4n+2) h3 {
-      color: var(--red);
-    }
-    
-    .project-card:nth-child(4n+3) h3 {
-      color: var(--yellow);
-    }
-    
-    .project-card:nth-child(4n+4) h3 {
-      color: var(--green);
-    }
-    
-    /* Footer */
-    .footer {
-      background-color: var(--primary-bg);
-      padding: 4rem 0 2rem;
-      border-top: 1px solid var(--secondary-bg);
-    }
-    
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-    
-    .footer-links h3, .social-media h3 {
-      color: var(--accent-color);
-      margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-    }
-    
-    .footer-links ul {
-      list-style: none;
-      margin-left: 0;
-    }
-    
-    .footer-links li {
-      margin-bottom: 0.8rem;
-    }
-    
-    .footer-links a {
-      color: var(--secondary-text);
-      transition: color var(--transition-speed);
-    }
-    
-    .footer-links a:hover {
-      color: var(--accent-color);
-    }
-    
-    .social-icons {
-      display: flex;
-      gap: 1rem;
-    }
-    
-    .social-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: var(--tertiary-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--secondary-text);
-      transition: all var(--transition-speed);
-    }
-    
-    .social-icon:hover {
-      background-color: var(--accent-color);
-      color: white;
-      transform: translateY(-3px);
-    }
-    
-    .copyright {
-      text-align: center;
-      color: var(--secondary-text);
-      font-size: 0.9rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--secondary-bg);
+      color: var(--dark-gray);
     }
     
     /* Responsive Adjustments */
@@ -491,20 +367,10 @@
       h1 {
         font-size: 2.8rem;
       }
-      
       h2 {
         font-size: 2rem;
       }
-      
-      .nav {
-        display: none;
-      }
-      
-      .metric-visuals {
-        grid-template-columns: 1fr;
-      }
-      
-      .project-links {
+      .metric-visuals, .project-links, .grid.single-column {
         grid-template-columns: 1fr;
       }
     }
@@ -524,72 +390,48 @@
     }
   </style>
   
-  <!-- Script to animate metric bars -->
+  <!-- Script for Animating Metric Bars -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
-        const bars = document.querySelectorAll('.metric-bar');
-        bars.forEach(bar => {
-          const percentage = bar.getAttribute('data-percentage');
-          bar.style.width = percentage;
+        document.querySelectorAll('.metric-bar').forEach(bar => {
+          bar.style.width = bar.getAttribute('data-percentage');
         });
       }, 300);
     });
   </script>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-container">
-      <a href="/" class="logo">
-        ARC
-        <span class="logo-dot logo-dot-1"></span>
-        <span class="logo-dot logo-dot-2"></span>
-        <span class="logo-dot logo-dot-3"></span>
-        <span class="logo-dot logo-dot-4"></span>
-      </a>
-    </div>
-  </header>
+  <!-- Header Component Placeholder -->
+  <div id="header-placeholder"></div>
   
-  <!-- Introduction/Overview Section -->
+  <!-- Introduction / Overview Section -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Overview</h2>
       <p>
-        I've dedicated my career to transforming operational bottlenecks into gateways for growth—always with a keen eye 
-        on maximizing the customer experience. My passion for AI, ML, and process automation has consistently delivered 
-        faster resolutions, deeper insights, and measurable cost savings, whether in BPO, healthcare RCM, or large-scale 
-        contact center environments. Every initiative—be it advanced generative content or robust revenue cycle 
-        optimization—is grounded in the principle of elevating CX through data-driven, people-centric design.
+        I've dedicated my career to transforming operational bottlenecks into gateways for growth—always with a keen eye on maximizing the customer experience (CX). My passion for AI, ML, and process automation has consistently delivered faster resolutions, deeper insights, and measurable cost savings across BPO, healthcare RCM, and large-scale contact centers.
       </p>
     </div>
   </section>
   
-  <!-- Why It All Revolves Around CX Section -->
+  <!-- Why CX Matters -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Why It All Revolves Around CX</h2>
       <p>
-        Every solution I craft—be it advanced generative content or robust predictive analytics—fuses seamlessly with 
-        core CX principles: enhancing speed, empathy, and satisfaction. By measuring and refining first-call resolution, 
-        average handle time, and NPS, I ensure that AI-driven intelligence translates directly to the experiences customers 
-        remember and value.
-      </p>
-      <p>
-        My approach integrates synergy among workflow acceleration, predictive insights, and a genuine people-first ethos. 
-        This synergy provides an unrivaled blend of strategic efficiency and user-friendly warmth.
+        Every solution I design—whether it’s advanced generative content or robust predictive analytics—fuses seamlessly with core CX principles: speed, empathy, and customer satisfaction. My approach harmonizes workflow acceleration with people-first innovation, ensuring that every touchpoint resonates with quality and efficiency.
       </p>
     </div>
   </section>
   
-  <!-- Large-Scale Operational Transformations Section -->
+  <!-- Large-Scale Operational Transformations -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Large-Scale Operational Transformations</h2>
       <p>
-        I've consistently turned complexity into efficiency by implementing AI-based workflows in BPO and healthcare:
+        By implementing AI-based workflows, I’ve turned complexity into efficiency. Key performance boosts include:
       </p>
-      
       <div class="metric-visuals">
         <div class="metric-item">
           <span class="metric-label">Referral-to-Appointment Conversions</span>
@@ -613,34 +455,30 @@
           <div class="metric-value">25% Reduction</div>
         </div>
       </div>
-      
       <ul>
-        <li>Deployed MindMeld AI solutions, generating <strong>$8M–$12M</strong> in annual savings per engagement.</li>
-        <li>Scaled from 50 to 200+ agents while maintaining 90%+ CSAT under 300% demand surges.</li>
+        <li>Deployed MindMeld AI solutions generating <strong>$8M–$12M</strong> in annual savings per engagement.</li>
+        <li>Scaled operations from 50 to 200+ agents while maintaining 90%+ CSAT under heavy demand surges.</li>
       </ul>
-      
       <div class="highlight">
-        <strong>Bottom Line:</strong> My frameworks blend advanced analytics with empathetic user design, ensuring big-picture 
-        efficiency gains that reinforce daily CX.
+        <strong>Bottom Line:</strong> Integrating analytics with empathetic design creates lasting CX improvements.
       </div>
     </div>
   </section>
   
-  <!-- Creative Content Generation Section -->
+  <!-- Creative Content & Prompt Engineering -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">Creative Content Generation & Prompt Engineering</h2>
+      <h2 class="section-title">Creative Content & Prompt Engineering</h2>
       <p>
-        On the generative AI front, I fuse brand consistency with minimal iteration overhead:
+        I merge brand consistency with minimal iterative overhead to generate creative content:
       </p>
-      
       <div class="metric-visuals">
         <div class="metric-item">
-          <span class="metric-label">Stable Diffusion Prompt Cycle Reduction</span>
+          <span class="metric-label">Prompt Cycle Reduction</span>
           <div class="metric-bar-container">
             <div class="metric-bar" data-percentage="50%"></div>
           </div>
-          <div class="metric-value">40–60% Range</div>
+          <div class="metric-value">40–60% Reduction</div>
         </div>
         <div class="metric-item">
           <span class="metric-label">Text-to-Video Uptime</span>
@@ -650,33 +488,30 @@
           <div class="metric-value">99.9% Uptime</div>
         </div>
       </div>
-      
       <ul>
-        <li>Maintained ~95% token accuracy for consistent creative outputs.</li>
-        <li>Lowered manual iteration in text-to-video pipelines by ~60%, achieving ~300ms speeds.</li>
+        <li>Maintained ~95% token accuracy for creative outputs.</li>
+        <li>Reduced manual iterations in text-to-video pipelines by ~60% achieving ~300ms cycle times.</li>
       </ul>
-      
       <div class="highlight">
-        <strong>Outcome:</strong> Creative teams pivot quickly and reliably on visual/video mediums, ensuring cohesive brand imagery. 
+        <strong>Outcome:</strong> Creative teams pivot quickly, ensuring cohesive and impactful brand imagery.
       </div>
     </div>
   </section>
   
-  <!-- Sentiment Analysis Section -->
+  <!-- Sentiment Analysis & Resource Optimization -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Sentiment Analysis & Resource Optimization</h2>
       <p>
-        My multi-model sentiment platforms and Apple Silicon-based LLM engines drive real-time efficiency:
+        My sentiment platforms and Apple Silicon-based LLM engines deliver real-time, efficient analysis:
       </p>
-      
       <div class="metric-visuals">
         <div class="metric-item">
           <span class="metric-label">Data Coverage</span>
           <div class="metric-bar-container">
             <div class="metric-bar" data-percentage="98%"></div>
           </div>
-          <div class="metric-value">98% Variety</div>
+          <div class="metric-value">98% Coverage</div>
         </div>
         <div class="metric-item">
           <span class="metric-label">Texts Processed/Sec</span>
@@ -686,27 +521,23 @@
           <div class="metric-value">1,200/sec</div>
         </div>
       </div>
-      
       <ul>
-        <li>Handled documents up to 100MB and 8 video frames at ~300ms latency.</li>
-        <li>Kept GPU usage ~65% and memory ~45%, enabling near-instant analytics for large inputs.</li>
+        <li>Handled documents up to 100MB and video frames at ~300ms latency.</li>
+        <li>Optimized GPU and memory usage for near-instant analytics.</li>
       </ul>
-      
       <div class="highlight">
-        <strong>Key Advantage:</strong> Real-time analysis at minimal overhead, letting teams adapt instantly based on sentiment or resource metrics.
+        <strong>Key Advantage:</strong> Real-time insights enable teams to adapt instantly based on sentiment metrics.
       </div>
     </div>
   </section>
   
-  <!-- Recruitment & HR Analytics Section -->
+  <!-- Recruitment & HR Analytics -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Recruitment & HR Analytics</h2>
       <p>
-        By introducing predictive hiring trackers and advanced workforce analytics, I enable proactive recruitment, retention, and 
-        talent alignment:
+        Implementing predictive hiring trackers and workforce analytics empowers proactive recruitment and retention:
       </p>
-      
       <div class="metric-visuals">
         <div class="metric-item">
           <span class="metric-label">Hiring Pattern Accuracy</span>
@@ -720,29 +551,26 @@
           <div class="metric-bar-container">
             <div class="metric-bar" data-percentage="30%"></div>
           </div>
-          <div class="metric-value">15–30%</div>
+          <div class="metric-value">15–30% Reduction</div>
         </div>
       </div>
-      
       <ul>
-        <li>Sub-100ms overhead in job screening, saving ~$1,500 per agent annually.</li>
-        <li>Accent neutralization cut AHT by 8–12%, saving another $1,500 in training per agent.</li>
+        <li>Job screening with sub-100ms overhead saves ~$1,500 per agent annually.</li>
+        <li>Accent neutralization reduces AHT by 8–12%, saving additional training costs.</li>
       </ul>
-      
       <div class="highlight">
-        <strong>Theme:</strong> Data-informed HR decisions foster a stable workforce that consistently delivers top-tier service.
+        <strong>Theme:</strong> Data-informed HR decisions foster a stable, high-performing workforce.
       </div>
     </div>
   </section>
   
-  <!-- Healthcare Denial Prediction Section -->
+  <!-- Healthcare Denial Prediction & RCM -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Healthcare Denial Prediction & RCM</h2>
       <p>
-        I've applied AI to secure revenue and reduce manual tasks within healthcare:
+        Leveraging AI to secure revenue and reduce manual tasks in healthcare:
       </p>
-      
       <div class="metric-visuals">
         <div class="metric-item">
           <span class="metric-label">Model Accuracy</span>
@@ -759,26 +587,23 @@
           <div class="metric-value">148.5% ROI</div>
         </div>
       </div>
-      
       <ul>
-        <li>Protected $150K+ monthly in reimbursements, with ~4.8-month payback timeline.</li>
-        <li>Fully compliant with HIPAA, SOC 2, and GDPR while scaling cost efficiencies.</li>
+        <li>Secured $150K+ monthly in reimbursements with a ~4.8-month payback.</li>
+        <li>Ensured full HIPAA, SOC 2, and GDPR compliance while optimizing costs.</li>
       </ul>
-      
       <div class="highlight">
-        <strong>Result:</strong> Providers expedite claims approvals, lower denials, and maintain robust compliance.
+        <strong>Result:</strong> Accelerated claim approvals and robust compliance across healthcare providers.
       </div>
     </div>
   </section>
   
-  <!-- Contact Center Optimization Section -->
+  <!-- Contact Center Optimization & CX Metrics -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Contact Center Optimization & CX Metrics</h2>
       <p>
-        My contact center solutions harness real-time dashboards and strategic AI:
+        My contact center solutions combine real-time dashboards with strategic AI to enhance customer interactions:
       </p>
-      
       <div class="metric-visuals">
         <div class="metric-item">
           <span class="metric-label">FCR Improvement</span>
@@ -802,25 +627,23 @@
           <div class="metric-value">~20% Increase</div>
         </div>
       </div>
-      
       <ul>
-        <li>Cut AHT by 23%, improved retention ~15%, and realized a 70% jump in referral-to-appointment conversions.</li>
+        <li>AHT reduced by 23% and customer retention improved by ~15%.</li>
+        <li>Achieved a 70% increase in referral-to-appointment conversions.</li>
       </ul>
-      
       <div class="highlight">
-        <strong>Core Benefit:</strong> Agents handle deeper, empathetic interactions, while customers get swift, relevant resolutions.
+        <strong>Core Benefit:</strong> Deeper agent-customer interactions delivered with speed and relevance.
       </div>
     </div>
   </section>
   
-  <!-- Strategic Advantage Section -->
+  <!-- Strategic Advantage & Custom In-House Models -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Strategic Advantage & Custom In-House Models</h2>
       <p>
-        By tailoring AI models, I consistently outpace off-the-shelf solutions:
+        By tailoring AI models, I consistently deliver a performance edge:
       </p>
-      
       <div class="metric-visuals">
         <div class="metric-item">
           <span class="metric-label">Vendor Failure Rate</span>
@@ -834,40 +657,151 @@
           <div class="metric-bar-container">
             <div class="metric-bar" data-percentage="100%"></div>
           </div>
-          <div class="metric-value">~$620K Each Deployment</div>
+          <div class="metric-value">~$620K per Deployment</div>
         </div>
       </div>
-      
       <ul>
-        <li>Aligns with compliance (HIPAA, PCI, SOC 2) without compromising performance or ROI.</li>
+        <li>Customized solutions adhering to HIPAA, PCI, and SOC 2 requirements without compromising ROI.</li>
       </ul>
-      
       <div class="highlight">
-        <strong>Takeaway:</strong> Domain-savvy customization ensures a lasting performance edge unique to your business challenges.
+        <strong>Takeaway:</strong> Domain-savvy customization delivers sustained performance and unique business advantages.
       </div>
     </div>
   </section>
   
-  <!-- Leadership & Collaboration Section -->
+  <!-- Leadership & Collaboration -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Leadership & Collaboration</h2>
       <p>
         My cross-functional leadership merges data-driven insights with human empathy:
       </p>
-      
       <ul>
-        <li>Seamless synergy with Finance, Product, and IT, integrating key payment (Stripe/Braintree) and ticketing platforms (Zendesk, Freshdesk).</li>
-        <li>Built real-time KPI dashboards (Power BI, SQL) that delivered a 25% performance jump and clarity across all departments.</li>
+        <li>Collaborated seamlessly with Finance, Product, and IT, integrating payment platforms and ticketing systems.</li>
+        <li>Developed real-time KPI dashboards (Power BI, SQL) that increased performance by 25%.</li>
       </ul>
-      
       <div class="highlight">
-        <strong>Philosophy:</strong> Process design outlasts short-term targets. My transparency and KPI-based approach ensures unified productivity and straightforward stakeholder alignment.
+        <strong>Philosophy:</strong> Transparent, process-driven leadership ensures unified productivity and clear stakeholder alignment.
       </div>
     </div>
   </section>
   
-  <!-- GitHub Projects & Tools Section -->
+  <!-- Skills & Certifications (from skills.html) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Skills & Certifications</h2>
+      <p>
+        My professional journey is bolstered by a wide range of certifications validating my expertise:
+      </p>
+      <!-- Toggle for Certifications -->
+      <span class="toggle-link" onclick="toggleCertifications()">View All Certifications</span>
+      <div id="certifications-list" style="display: none;">
+        <!-- DeepLearning.AI -->
+        <article class="card skill-card">
+          <h3>DeepLearning.AI</h3>
+          <p>
+            <strong>Advanced Reasoning Prompt Engineering with o1</strong><br>
+            Issued Dec 2024<br>
+            <em>(Credential available via DeepLearning.AI)</em>
+          </p>
+        </article>
+        <!-- 365 Data Science Certifications -->
+        <article class="card skill-card">
+          <h3>365 Data Science</h3>
+          <ul>
+            <li><strong>Build Chat Applications with OpenAI and LangChain</strong> – Issued Nov 2024</li>
+            <li><strong>Chat GPT and Generative AI</strong> – Issued Nov 2024</li>
+            <li><strong>ChatGPT for Data Science</strong> – Issued Nov 2024</li>
+            <li><strong>Data Analysis in PowerBI with ChatGPT</strong> – Issued Nov 2024</li>
+            <li><strong>Data Analysis with Excel Pivot Tables</strong> – Issued Nov 2024</li>
+            <li><strong>Data Literacy</strong> – Issued Nov 2024</li>
+            <li><strong>Data Strategy</strong> – Issued Nov 2024</li>
+            <li><strong>Git and Github</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to AI</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Data Science</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Excel</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Jupyter</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Programming Using Python</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to R Programming</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Tableau</strong> – Issued Nov 2024</li>
+            <li><strong>Product Management for AI & Data Science</strong> – Issued Nov 2024</li>
+            <li><strong>Statistics</strong> – Issued Nov 2024</li>
+            <li><strong>The Complete Data Visualization Course with Python, R, Tableau, and Excel</strong> – Issued Nov 2024</li>
+            <li><strong>Data Analysis with ChatGPT</strong> – Issued Nov 2024</li>
+            <li><strong>Advanced Excel</strong> – Issued Nov 2024</li>
+          </ul>
+        </article>
+        <!-- Marquis Who's Who -->
+        <article class="card skill-card">
+          <h3>Marquis Who's Who</h3>
+          <p>
+            <strong>Honored Listee</strong><br>
+            Issued Jul 2024 · Expires Dec 2029
+          </p>
+        </article>
+        <!-- Certified Call Center Management -->
+        <article class="card skill-card">
+          <h3>Certified Call Center Management</h3>
+          <p><strong>Certified Call Center Management</strong></p>
+        </article>
+        <!-- Project Management Institute -->
+        <article class="card skill-card">
+          <h3>Project Management Institute</h3>
+          <p><strong>Project Management Professional (PMP)</strong></p>
+        </article>
+        <!-- Six Sigma PH -->
+        <article class="card skill-card">
+          <h3>Six Sigma PH</h3>
+          <p><strong>Six Sigma-Green Belt Change Management</strong></p>
+        </article>
+        <!-- Toastmasters International -->
+        <article class="card skill-card">
+          <h3>Toastmasters International</h3>
+          <p><strong>Toastmasters Public Speaking</strong></p>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Professional Recommendations (from reccomendations.html) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Professional Recommendations</h2>
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <a class="btn" href="https://www.linkedin.com/in/petecconnor/details/recommendations/?detailScreenTabIndex=0" target="_blank">View All LinkedIn Recommendations</a>
+      </div>
+      <div class="grid single-column">
+        <!-- Recommendation: Tamar Stolz -->
+        <article class="card recommendation-card">
+          <h3>Tamar Stolz</h3>
+          <p style="font-weight: bold; color: var(--accent-color);">Creator of The Momentum Accelerator™</p>
+          <p style="font-style: italic; color: var(--secondary-text);">
+            "Pete is an incredible innovator and problem-solver. I had a vision and he tackled it head-on by developing a fully customized assessment tool that brought my vision to life! Working with Pete was a fantastic experience—he’s incredibly skilled, creative, and a true pleasure to collaborate with. I highly recommend him for innovative, strategic solutions."
+          </p>
+        </article>
+        <!-- Recommendation: Darren Prine -->
+        <article class="card recommendation-card">
+          <h3>Darren Prine</h3>
+          <p style="font-weight: bold; color: var(--accent-color);">CX Facilitator, Guide and Advisor / CX Solutions Guru</p>
+          <p style="font-style: italic; color: var(--secondary-text);">
+            "I’m thrilled to recommend Pete Connor, a true innovator in the CX and AI landscape. His ability to integrate AI-driven analytics with actionable strategies has not only reduced churn but also boosted measurable outcomes. Pete’s expertise and collaborative spirit set him apart as a transformative leader."
+          </p>
+        </article>
+        <!-- Recommendation: MICHELE CROCKER -->
+        <article class="card recommendation-card">
+          <h3>MICHELE CROCKER</h3>
+          <p style="font-weight: bold; color: var(--accent-color);">
+            Digital Transformation and Contact Center Expert / Board Member / Change Leader / Harvard Business Review Contributor
+          </p>
+          <p style="font-style: italic; color: var(--secondary-text);">
+            "Pete is a seasoned contact center leader who understands the importance of optimizing and aligning people, processes, and technology. His growth mindset and forward-thinking approach create a culture of learning and innovation. He is a true A Player in every sense, consistently executing with professionalism and strategic insight."
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- GitHub Projects & Tools -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">GitHub Projects & Tools</h2>
@@ -876,150 +810,119 @@
         <div class="project-card">
           <h3>CANDOR: Cross-Platform Satirical Content Generator</h3>
           <p>
-            A brilliantly irreverent, AI-powered content engine that transforms a single idea into platform-tailored satire 
-            with scalpel-sharp wit. Fusing counterfactual reasoning, healthcare metrics, and ML insights via a PyQt interface, 
-            CANDOR reimagines cross-platform messaging as a smart, satirical science.
+            A brilliantly irreverent, AI-powered content engine that transforms a single idea into platform-tailored satire with scalpel-sharp wit.
           </p>
           <a href="https://github.com/UsernameTron/Content-Generator" target="_blank">GitHub: CANDOR</a>
         </div>
-
         <!-- Stable Diffusion Prompt Assistant -->
         <div class="project-card">
           <h3>Stable Diffusion Prompt Assistant</h3>
           <p>
-            A sleek JavaScript tool turning raw imagination into precision-engineered prompts for image and video generation. 
-            Supporting advanced models like Juggernaut XL and Kling AI, it merges photorealism, motion nuance, and creative ease 
-            for seamless visual storytelling.
+            A sleek JavaScript tool turning raw imagination into precision-engineered prompts for image and video generation.
           </p>
           <a href="https://github.com/UsernameTron/Stable-Diffusion-Prompt-Engineer" target="_blank">GitHub: Stable Diffusion Prompt Assistant</a>
         </div>
-
         <!-- Text-to-Video Prompt Assistant -->
         <div class="project-card">
           <h3>Text-to-Video Prompt Assistant</h3>
           <p>
-            Transform narrative fragments into frame-perfect prompts for video AI engines (Sora, Kling). 
-            A high-precision, mood-rich assistant synchronizing motion, mise-en-scène, and creative nuance.
+            Transform narrative fragments into frame-perfect prompts for video AI engines with high-precision and mood-rich assistance.
           </p>
           <a href="https://github.com/UsernameTron/Text-to-Video-Prompt-Assistant" target="_blank">GitHub: Text-to-Video Assistant</a>
         </div>
-
         <!-- OpenAI TTS -->
         <div class="project-card">
           <h3>OpenAI TTS</h3>
           <p>
-            A minimalist yet potent interface exploring OpenAI's advanced Text-to-Speech capabilities. 
-            Perfect for testing vocal nuances or building expressive audio prototypes.
+            A minimalist interface exploring OpenAI's advanced Text-to-Speech capabilities for expressive audio prototypes.
           </p>
           <a href="https://github.com/UsernameTron/OpenAITTS" target="_blank">GitHub: OpenAI TTS</a>
         </div>
-
         <!-- OpenArt AI Prompt Tool -->
         <div class="project-card">
           <h3>OpenArt AI Prompt Tool</h3>
           <p>
-            With curated modifiers, stylized presets, and an internal inspiration engine, 
-            this prompt wizard sculpts visuals ranging from gritty realism to vaporwave dreamscapes — 
-            your aesthetic compass in AI art creation.
+            A prompt wizard with curated modifiers and presets that sculpts visuals from gritty realism to vaporwave dreamscapes.
           </p>
           <a href="https://github.com/UsernameTron/openart-ai-prompt-tool" target="_blank">GitHub: OpenArt AI Prompt Tool</a>
         </div>
-
         <!-- Open-Source LLM -->
         <div class="project-card">
           <h3>Open-Source LLM</h3>
           <p>
-            A Mac-native, self-hostable framework for deploying and experimenting with local large language models. 
-            Lean, fast, and built for developers seeking sovereignty over speed and scale.
+            A Mac-native, self-hostable framework for deploying and experimenting with local large language models.
           </p>
           <a href="https://github.com/UsernameTron/Open-Source-LLM-" target="_blank">GitHub: Open-Source LLM</a>
         </div>
-
         <!-- HR-LLM (Hiring Sentiment Tracker) -->
         <div class="project-card">
           <h3>HR-LLM: Hiring Sentiment Tracker</h3>
           <p>
-            Cutting-edge AI that deciphers hidden hiring intent in job postings via GPU-accelerated sentiment analysis, 
-            historical benchmarking, and fuzzy pattern recognition. Driving strategic talent forecasting to new heights.
+            AI-driven sentiment analysis for deciphering hiring intent in job postings via advanced benchmarking and pattern recognition.
           </p>
           <a href="https://github.com/UsernameTron/HR-LLM" target="_blank">GitHub: HR-LLM</a>
         </div>
-
         <!-- LLM System Prompt Generator -->
         <div class="project-card">
           <h3>LLM System Prompt Generator</h3>
           <p>
-            An intelligent prompt-engineering toolkit that dynamically crafts optimized system prompts for multiple AI models—removing guesswork and accelerating alignment.
+            An intelligent toolkit dynamically crafting optimized system prompts for various AI models to remove guesswork.
           </p>
           <a href="https://github.com/UsernameTron/LLM-System-Prompts" target="_blank">GitHub: LLM System Prompt Generator</a>
         </div>
-
-        <!-- CoreML LLM Engine MacOS LLM -->
+        <!-- CoreML LLM Engine (MacOS LLM) -->
         <div class="project-card">
           <h3>CoreML LLM Engine (MacOS LLM)</h3>
           <p>
-            A blazing-fast local inference engine customized for Apple Silicon. Real-time analysis at minimal memory footprint, 
-            perfect for sentiment or advanced NLP tasks on macOS.
+            A blazing-fast local inference engine for Apple Silicon delivering real-time analysis at minimal memory footprint.
           </p>
           <a href="https://github.com/UsernameTron/Open-Source-LLM-" target="_blank">GitHub: CoreML LLM Engine</a>
         </div>
-
         <!-- Contact Center Analytics -->
         <div class="project-card">
           <h3>Contact Center Analytics</h3>
           <p>
-            A data intelligence platform translating raw agent performance metrics into actionable dashboards—empowering 
-            management to drive satisfaction, efficiency, and team synergy with each new insight.
+            A platform translating raw agent metrics into actionable dashboards that drive satisfaction, efficiency, and synergy.
           </p>
           <a href="https://github.com/UsernameTron/contact-center-analytics" target="_blank">GitHub: Contact Center Analytics</a>
         </div>
-
         <!-- OpenAI Voice Toolkit -->
         <div class="project-card">
           <h3>OpenAI Voice Toolkit</h3>
           <p>
-            Browser-based studio for advanced TTS, Whisper transcription, and GPT-4o video narration—turning natural language 
-            into expressive, production-ready media assets.
+            Browser-based studio for advanced TTS, Whisper transcription, and GPT-4o video narration to generate production-ready media assets.
           </p>
           <a href="https://github.com/UsernameTron/OpenAITTS" target="_blank">GitHub: OpenAI Voice Toolkit</a>
         </div>
-
         <!-- OpenArt AI Prompt Optimizer -->
         <div class="project-card">
           <h3>OpenArt AI Prompt Optimizer</h3>
           <p>
-            A zero-install, pro-grade prompt engineer for models like Flux, SDXL, and SD1.5. Balances scene detection, modifier logic, 
-            and model-specific tuning into razor-sharp image prompts.
+            A zero-install, pro-grade prompt engineer balancing scene detection, modifier logic, and model-specific tuning for razor-sharp prompts.
           </p>
           <a href="https://github.com/UsernameTron/Openart-AI-Prompt-Tool" target="_blank">GitHub: OpenArt AI Prompt Optimizer</a>
         </div>
-
         <!-- Healthcare Claims Denial Prediction -->
         <div class="project-card">
           <h3>Healthcare Claims Denial Prediction</h3>
           <p>
-            High-impact RCM analytics predicting claim denials at over 90% accuracy, streamlining workflows, saving hundreds of thousands 
-            in recovered revenue, and offering data-backed clarity for finance teams.
+            RCM analytics predicting claim denials at over 90% accuracy to streamline workflows and recover revenue.
           </p>
           <a href="https://github.com/UsernameTron/healthcare-rcm-denial-prediction" target="_blank">GitHub: Healthcare Denial Prediction</a>
         </div>
-
         <!-- Suno Prompt Assistant -->
         <div class="project-card">
           <h3>Suno Prompt Assistant</h3>
           <p>
-            An interactive music prompt builder for Suno AI, converting creative ideas into structured, audio-enhanced prompts. 
-            With voice input, smart templates, and analytics, it elevates sonic storytelling.
+            An interactive music prompt builder converting creative ideas into structured, audio-enhanced prompts for elevated sonic storytelling.
           </p>
           <a href="https://github.com/UsernameTron/suno-prompt-assistant" target="_blank">GitHub: Suno Prompt Assistant</a>
         </div>
-
-        <!-- Customer Churn Loyalty Logic -->
+        <!-- Customer Churn Predictions -->
         <div class="project-card">
           <h3>Customer Churn Predictions</h3>
           <p>
-            This API model creation combines intuitive user input processing, visual dashboards, and real-time 
-            risk assessments. This is both a practical tool for customer churn prediction an for robust ML data visualization.
+            An API that fuses intuitive user input, visual dashboards, and real-time risk assessments for robust churn prediction.
           </p>
           <a href="https://github.com/UsernameTron/Customer-Churn-Loyalty-Logic" target="_blank">GitHub: Customer Churn Predictions</a>
         </div>
@@ -1027,6 +930,36 @@
     </div>
   </section>
   
-  <!-- No Footer -->
+  <!-- Footer Component Placeholder -->
+  <div id="footer-placeholder"></div>
+  
+  <!-- JavaScript for Toggle Functionality -->
+  <script>
+    function toggleCertifications() {
+      var certList = document.getElementById("certifications-list");
+      if (certList.style.display === "none" || certList.style.display === "") {
+        certList.style.display = "block";
+      } else {
+        certList.style.display = "none";
+      }
+    }
+  </script>
+  
+  <!-- Component loading scripts -->
+  <script src="../js/main.min.js"></script>
+  <script src="../js/components.min.js"></script>
+  
+  <!-- Load components -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Use the loadComponent function from components.js
+      if (typeof loadComponent === 'function') {
+        // Load meta tags first (if not already loaded by components.js)
+        if (document.getElementById('meta-tags-placeholder')) {
+          loadComponent('meta-tags-placeholder', '../components/meta-tags.html');
+        }
+      }
+    });
+  </script>
 </body>
 </html>
