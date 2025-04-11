@@ -29,31 +29,21 @@
             margin-bottom: var(--space-xl);
             background-color: #0a0a17; /* Dark background */
             overflow: hidden;
-            background-image: linear-gradient(to right, rgba(66, 133, 244, 0.7), rgba(52, 168, 83, 0.7));
+            background-image: url('../airc tv.webp');
+            background-size: cover;
+            background-position: center;
         }
         
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            height: 100%;
-            color: white;
-            text-align: center;
-        }
-        
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        .hero-content p {
-            font-size: 1.25rem;
-            max-width: 800px;
-            margin: 0 auto;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        /* Visually hidden class for accessibility */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
         }
         
         .resource-card {
@@ -135,24 +125,12 @@
                 height: 40vh;
                 min-height: 300px;
             }
-            
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1rem;
-            }
         }
         
         @media (max-width: 480px) {
             .resources-hero {
                 height: 30vh;
                 min-height: 200px;
-            }
-            
-            .hero-content h1 {
-                font-size: 2rem;
             }
         }
     </style>
@@ -161,15 +139,13 @@
     <!-- Header Component Placeholder -->
     <div id="header-placeholder"></div>
     
-    <!-- Hero Section with background gradient -->
+    <!-- Hero Section with background image -->
     <section class="resources-hero" role="region" aria-labelledby="page-title">
-        <div class="container">
-            <div class="hero-content">
-                <h1 id="page-title">Resources & Tools</h1>
-                <p>Access our free practical tool to help you implement and use AI effectively</p>
-            </div>
-        </div>
+        <!-- Image displayed as background, no text overlay -->
     </section>
+    
+    <!-- Visually hidden heading for accessibility -->
+    <h1 id="page-title" class="visually-hidden">Resources & Tools</h1>
 
     <main>
         <section class="content">
