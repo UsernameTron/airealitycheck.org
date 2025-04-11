@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-auto">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Practical AI prompt tools that work - no paywall, no comment bait, direct access to improve your prompts for AI.">
-  <title>AI Reality Check | Practical Prompt Tool</title>
+  <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+  <script>
+    // Define these variables before loading components
+    const PAGE_TITLE = "Tools That Work";
+    const PAGE_DESCRIPTION = "Practical AI prompt tools that work - no paywall, no comment bait, direct access to all the tools you need.";
+    const REL_PATH = "./"; // Tools is at root level
+    const CANONICAL_PATH = "/tools.html"; // Path after domain
+  </script>
   
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Loader script ensures theme and critical styling works -->
+  <script src="js/loader.min.js"></script>
   
-  <!-- Site styles -->
+  <!-- Direct stylesheet references to ensure they load -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.min.css">
+  
+  <!-- Meta tags component placeholder -->
+  <div id="meta-tags-placeholder"></div>
   
   <style>
     :root {
@@ -44,154 +50,265 @@
       }
     }
     
-    /* Global Styles */
+    /* Tools Content Styles */
     .tools-content {
-      font-family: 'Roboto', sans-serif;
-      background-color: var(--background-light);
-      color: var(--text-light);
-      margin: 0;
-      padding: 2rem 1.5rem;
-      line-height: 1.6;
-    }
-
-    .tools-content h1, .tools-content h2 {
-      font-family: 'Roboto', sans-serif;
-      margin: 0 0 15px;
-      color: var(--primary-blue);
+      padding-top: 80px; /* Extra padding to account for fixed header */
+      padding-bottom: 60px;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: 24px;
+      padding-right: 24px;
     }
     
     .tools-content h1 {
+      font-family: 'Roboto', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary-blue);
       text-align: center;
-      font-size: 2.5em;
-      margin-top: 6rem; /* Increased to account for fixed header */
+      margin-bottom: 1.5rem;
     }
-
-    .intro {
+    
+    .tools-intro {
       text-align: center;
-      font-size: 1.1em;
-      margin-bottom: 30px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .tool-list {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
     }
     
     .tool-item {
       background-color: var(--card-bg);
-      padding: 20px;
-      border-left: 5px solid var(--primary-blue);
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: 8px;
       box-shadow: var(--shadow);
-      border-radius: 4px;
-      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      border-left: 5px solid var(--primary-blue);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     
     .tool-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    
+    .tool-item:nth-child(2) {
+      border-left-color: var(--primary-red);
+    }
+    
+    .tool-item:nth-child(3) {
+      border-left-color: var(--primary-green);
+    }
+    
+    .tool-item:nth-child(4) {
+      border-left-color: var(--primary-yellow);
+    }
+    
+    .tool-item:nth-child(5) {
+      border-left-color: var(--dark-blue);
     }
     
     .tool-item h2 {
+      font-size: 1.6rem;
       margin-top: 0;
-      font-size: 1.6em;
+      margin-bottom: 0.75rem;
       color: var(--primary-blue);
+    }
+    
+    .tool-item em {
+      display: block;
+      font-style: italic;
+      color: var(--primary-red);
+      margin-bottom: 1.25rem;
+      font-size: 1.1rem;
     }
     
     .tool-item p {
-      margin: 10px 0;
+      margin-bottom: 1rem;
+      line-height: 1.6;
     }
     
-    /* Change the italic text to primary red */
-    .tool-item em {
-      color: var(--primary-red);
+    .tool-item ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.25rem;
     }
-
+    
+    .tool-item li {
+      margin-bottom: 0.5rem;
+    }
+    
     .tool-link {
       display: inline-block;
-      margin-top: 10px;
-      font-weight: bold;
-      color: var(--primary-blue);
+      padding: 10px 20px;
+      background-color: var(--primary-blue);
+      color: white;
       text-decoration: none;
-      transition: color var(--transition-speed);
+      border-radius: 50px;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
     
     .tool-link:hover {
+      background-color: var(--dark-blue);
+      transform: translateY(-2px);
+    }
+    
+    .tool-section {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0,0,0,0.1);
+    }
+    
+    .tool-section h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
       color: var(--dark-blue);
-      text-decoration: underline;
+    }
+    
+    .tool-section p em {
+      display: block;
+      font-style: italic;
+      color: var(--primary-red);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    
+    /* Dark mode support for section borders */
+    @media (prefers-color-scheme: dark) {
+      .tool-section {
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
     }
     
     .return-link {
       display: block;
       text-align: center;
-      margin: 2rem auto;
+      margin-top: 2rem;
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    
+    .return-link:hover {
+      text-decoration: underline;
     }
     
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .tools-content h1 {
-        font-size: 2rem;
-        margin-top: 5rem;
+      .tools-content {
+        padding-top: 70px;
       }
       
-      .intro {
+      .tools-content h1 {
+        font-size: 2rem;
+      }
+      
+      .tool-item {
+        padding: 20px;
+      }
+      
+      .tool-item h2 {
+        font-size: 1.4rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .tools-content {
+        padding-top: 60px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      
+      .tools-content h1 {
+        font-size: 1.8rem;
+      }
+      
+      .tools-intro {
         font-size: 1rem;
       }
       
       .tool-item h2 {
-        font-size: 1.3em;
+        font-size: 1.3rem;
+      }
+      
+      .tool-item em {
+        font-size: 1rem;
       }
     }
-    
-    /* Additional styles to fix header issues */
-    #header-placeholder {
-      position: relative;
-      z-index: 1000;
-    }
-    
-    .header-container {
-      max-width: 1200px !important;
-    }
   </style>
-  
-  <!-- Emergency style fix script -->
-  <script src="js/style-fix.min.js"></script>
 </head>
+
 <body>
-  <!-- Header placeholder -->
+  <!-- Header Component Placeholder -->
   <div id="header-placeholder"></div>
   
-  <!-- Main content -->
+  <!-- Main Content -->
   <main class="tools-content">
-  <h1>Practical Tool</h1>
-  <div class="intro">
-    No paywall, no comment bait, no complicated setup required.<br>
-    A simple, practical tool that helps you get things done effectively.
-  </div>
-  
-  <div class="tool-list">
-    <!-- Plain English Prompt Builder -->
-    <div class="tool-item">
-      <h2>🧠 Practical Tool</h2>
-      <p><em>"Just tell it what you want. It'll do the rest. Like a prompt therapist."</em></p>
-      <p>This efficient tool lets you speak naturally about what you need, choose your model, click once,
-         and get a copy-paste ready prompt. Ideal for those who want results without diving deep into prompt theory or technical jargon.</p>
-      <a class="tool-link" href="https://llm-system-prompts-vkaxmtjmoxpuvepoowpgby.streamlit.app/" target="_blank" rel="noopener">👉 Access Tool</a>
+    <h1>🛠️ Tools That Work</h1>
+    
+    <div class="tools-intro">
+      <!-- Intro content moved to the main tool item -->
     </div>
-  </div>
-  
-  <a href="resources/" class="return-link">Return to All Resources</a>
+    
+    <div class="tool-list">
+      <!-- Single combined tool with all content -->
+      <div class="tool-item">
+        <h2>🛠️ Tools That Work</h2>
+        <em>"No Paywall, No Comment Bait, No Film Degree Required"</em>
+        <p>You don't need to comment "🔥" to get access. You don't need to buy a course. And you definitely don't need to "DM me for the prompt."</p>
+        <p>Below are tools I actually use — not because they're magical, but because they're not trying to be. They're fast, useful, and don't make you feel like you're hacking into the Pentagon just to write a better prompt.</p>
+        
+        <div class="tool-section">
+          <h3>🎨 Image Prompt Modifier + Organizer</h3>
+          <p><em>"Feel like a director without pretending you went to NYU."</em></p>
+          <p>A clean, web-based tool that helps you build better image prompts — even if you have no idea what "anamorphic lens" means. Click modifiers, stack up a prompt that actually sounds cinematic, and copy-paste it into your image model of choice.</p>
+          <p>No film degree. No guessing. Just results.</p>
+          <a class="tool-link" href="https://imagepromptingassistant.netlify.app/" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+        
+        <div class="tool-section">
+          <h3>🎥 Video Prompt Optimizer</h3>
+          <p><em>"Make text-to-video prompts that don't suck — no A24 worship required."</em></p>
+          <p>This one's for the video generation folks. Click your way through camera movements, moods, and scene styles without pretending you're Spielberg. It generates clean, structured prompts using cinematic terms most people don't even know exist.</p>
+          <p>Useful for:</p>
+          <ul>
+            <li>AI video tools like Runway, Pika, etc.</li>
+            <li>People who don't want to Google "Dutch angle" mid-project</li>
+          </ul>
+          <a class="tool-link" href="https://videopromptassistant.netlify.app/enhancer" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+        
+        <div class="tool-section">
+          <h3>🧠 Plain English Prompt Builder</h3>
+          <p><em>"Just tell it what you want. It'll do the rest. Like a prompt therapist."</em></p>
+          <p>Built on Streamlit, this tool lets you speak like a human ("I want a summary of X with examples and stats"), choose your model, click once, and boom — usable prompt, copy-paste ready. It's natural language to optimized engineering without the headache.</p>
+          <p>For the "I don't want to learn prompt theory, I just want it to work" crowd.</p>
+          <a class="tool-link" href="https://llm-system-prompts-vkaxmtjmoxpuvepoowpgby.streamlit.app/" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+        
+        <div class="tool-section">
+          <h3>🔍 Deep Research Prompt Generator (GPT Store)</h3>
+          <p><em>"Skip the hallucinations. Get research like it matters."</em></p>
+          <p>This GPT is designed to help you structure deep research prompts — the kind that ask for citations, studies, actual stats, and no BuzzFeed energy. Perfect for content, strategy, or when you want your AI to fake having a PhD.</p>
+          <a class="tool-link" href="https://chatgpt.com/g/g-67f893e169b0819186767f75812c77ae-deep-research-prompt-generator" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+        
+        <div class="tool-section">
+          <h3>🧩 Advanced Reasoning Prompt Generator (GPT Store)</h3>
+          <p><em>"Make your AI actually think, instead of just sounding confident."</em></p>
+          <p>This one's built for complex thinking. It walks you through creating structured, multi-step prompts that make the AI reason like it has a second brain cell. Ideal for strategy work, comparisons, decisions, or when you're tired of surface-level sludge.</p>
+          <a class="tool-link" href="https://chatgpt.com/g/g-67f893d21f788191ae0a76089f6f5fcb-advanced-reasoning-prompt-generator" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+      </div>
+    </div>
+    
+    <a href="resources/" class="return-link">Return to All Resources</a>
   </main>
   
-  <!-- Footer placeholder -->
+  <!-- Footer Component Placeholder -->
   <div id="footer-placeholder"></div>
   
-  <!-- Scripts for components -->
+  <!-- Component loading scripts -->
   <script src="js/main.min.js"></script>
   <script src="js/components.min.js"></script>
 </body>
