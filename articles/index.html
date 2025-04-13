@@ -69,6 +69,18 @@
             clip: rect(0, 0, 0, 0);
             border: 0;
         }
+        
+        /* Featured card styling */
+        .featured-card {
+            border-left: 4px solid var(--red);
+            background-color: var(--secondary-bg);
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .featured-card h3 {
+            color: var(--red);
+        }
     </style>
 </head>
 <body>
@@ -94,6 +106,12 @@
             <h2 class="section-title">Featured Articles</h2>
             <div class="container">
                 <div class="cards">
+                    <div class="card featured-card">
+                        <h3>You Can't Detect Content Created by AI</h3>
+                        <p>Why AI detection tools fail and what's really needed to address the challenges of AI-generated content.</p>
+                        <a href="detection.html" class="btn">Read Article</a>
+                    </div>
+                
                     <div class="card">
                         <h3>CX and Counterfactual Reasoning</h3>
                         <p>How counterfactual thinking can transform customer experience and contact center operations.</p>
@@ -110,12 +128,6 @@
                         <h3>Automation Strategy</h3>
                         <p>Building effective automation strategies that balance human expertise and AI capabilities.</p>
                         <a href="automation-strategy-article.html" class="btn">Read Article</a>
-                    </div>
-                    
-                    <div class="card">
-                        <h3>Employee Turnover ML</h3>
-                        <p>Using machine learning to reduce attrition and save millions in BPO environments through predictive workforce management.</p>
-                        <a href="../case-studies/ml-bpo-turnover-wfm.html" class="btn">Read Article</a>
                     </div>
                 </div>
             </div>
