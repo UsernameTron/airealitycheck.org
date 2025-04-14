@@ -1,9 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-auto">
 <head>
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "You Can't Detect Content Created by AI. You Just Need Attention.";
+        const PAGE_DESCRIPTION = "Why AI detection tools fail and what's really needed to address the challenges of AI-generated content.";
+        const REL_PATH = "../"; // Article is one level down from root
+        const CANONICAL_PATH = "/articles/detection.html"; // Path after domain
+    </script>
+    
+    <!-- Loader script ensures theme and critical styling works -->
+    <script src="../js/loader.min.js"></script>
+    
+    <!-- Meta tags component placeholder -->
+    <div id="meta-tags-placeholder"></div>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>You Can't Detect Content Created by AI. You Just Need Attention.</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.min.css">
     <style>
@@ -763,6 +777,11 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Use the loadComponent function from components.js
             if (typeof loadComponent === 'function') {
+                // Load meta tags first (if not already loaded by components.js)
+                if (document.getElementById('meta-tags-placeholder')) {
+                    loadComponent('meta-tags-placeholder', '../components/meta-tags.html');
+                }
+                
                 // Load header component
                 if (document.getElementById('header-placeholder')) {
                     loadComponent('header-placeholder', '../components/header.html');
