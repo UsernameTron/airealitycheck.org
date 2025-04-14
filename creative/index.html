@@ -106,55 +106,131 @@
             color: var(--primary-blue);
         }
         
-        /* Gallery Styles */
-        .gallery-container {
-            width: 100%;
+        /* AI Sauce Carousel Styles */
+        .sauce-gallery-item {
+            position: relative;
             overflow: hidden;
         }
         
-        .gallery-main {
+        .sauce-carousel-container {
             width: 100%;
-            height: 250px;
-            overflow: hidden;
             position: relative;
         }
         
-        .gallery-main img {
+        .sauce-carousel {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease-in-out;
-        }
-        
-        .gallery-thumbnails {
-            display: flex;
-            gap: 8px;
-            padding: 10px;
-            background-color: var(--surface);
-        }
-        
-        .gallery-thumb {
-            width: 70px;
-            height: 50px;
+            height: 320px;
+            position: relative;
             overflow: hidden;
-            cursor: pointer;
-            border: 2px solid transparent;
-            border-radius: 4px;
-            transition: all 0.2s ease;
+            background-color: #e9b965; /* Mustard background to match the sauce bottles */
+            border-radius: var(--radius-sm) var(--radius-sm) 0 0;
         }
         
-        .gallery-thumb img {
+        .sauce-carousel-track {
+            display: flex;
+            position: absolute;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            transition: transform 0.5s ease-in-out;
         }
         
-        .gallery-thumb.active {
-            border-color: var(--primary-blue);
+        .sauce-slide {
+            min-width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
         }
         
-        .gallery-thumb:hover {
+        .sauce-slide.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .sauce-image {
+            height: 100%;
+            width: 100%;
+            object-fit: contain;
+            padding: 10px;
+        }
+        
+        .sauce-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.3);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+        
+        .sauce-carousel-btn:hover {
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .sauce-carousel-btn.prev {
+            left: 10px;
+        }
+        
+        .sauce-carousel-btn.next {
+            right: 10px;
+        }
+        
+        .sauce-carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 8px;
+            background-color: var(--surface);
+            padding: 8px 0;
+        }
+        
+        .sauce-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--neutral-light);
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .sauce-dot.active {
+            background-color: var(--primary-blue);
+            transform: scale(1.2);
+        }
+        
+        .sauce-view-all-btn {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+            text-decoration: none;
+            font-weight: 500;
+            margin-top: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .sauce-view-all-btn:hover {
+            background-color: var(--dark-blue);
             transform: translateY(-2px);
+        }
+        
+        .sauce-gallery-actions {
+            margin: 15px 0;
         }
         
         @media (max-width: 768px) {
@@ -242,28 +318,44 @@
                         </div>
                     </div>
                     
-                    <!-- New Image Gallery Item -->
-                    <div class="creative-item gallery-item">
-                        <div class="gallery-container">
-                            <div class="gallery-main">
-                                <img src="../images/creative/featured-ai-image.webp" alt="AI-generated artwork" class="gallery-current" id="gallery-current">
+                    <!-- AI Sauce Carousel -->
+                    <div class="creative-item sauce-gallery-item">
+                        <div class="sauce-carousel-container">
+                            <div class="sauce-carousel" id="sauce-carousel">
+                                <div class="sauce-carousel-track" id="sauce-carousel-track">
+                                    <div class="sauce-slide active">
+                                        <img src="../AI Sauces/20250413_2046_AI Sauce Parody_remix_01jrrzhk51eser641tt2tqdhha.png" alt="AI Sauce Detection Dijon - Overconfident Engagement" class="sauce-image">
+                                    </div>
+                                    <div class="sauce-slide">
+                                        <img src="../AI Sauces/20250413_2153_AI-Themed Steak Sauce_remix_01jrs3cvr3fzkas1wg11hfsbts.png" alt="AI Steak Sauce - Rich in synthetic flavors" class="sauce-image">
+                                    </div>
+                                    <div class="sauce-slide">
+                                        <img src="../AI Sauces/20250413_2311_AI Steak Sauce Satire_remix_01jrs7vd4kfkvs66nf5r3ksvxm.png" alt="AI Steak Sauce Satire" class="sauce-image">
+                                    </div>
+                                    <div class="sauce-slide">
+                                        <img src="../AI Sauces/20250413_2302_AI Sauce Parody_remix_01jrs7a60sfmmbra579mthjkmw.png" alt="AI Sauce Parody - Hot takes, unverified facts" class="sauce-image">
+                                    </div>
+                                </div>
+                                <button class="sauce-carousel-btn prev" id="sauce-prev-btn">❮</button>
+                                <button class="sauce-carousel-btn next" id="sauce-next-btn">❯</button>
                             </div>
-                            <div class="gallery-thumbnails">
-                                <div class="gallery-thumb active" data-src="../images/creative/featured-ai-image.webp">
-                                    <img src="../images/creative/featured-ai-image.webp" alt="AI-generated artwork 1">
-                                </div>
-                                <div class="gallery-thumb" data-src="../images/creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw.webp">
-                                    <img src="../images/creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw.webp" alt="AI-generated artwork 2">
-                                </div>
-                                <div class="gallery-thumb" data-src="../images/hero/portfolio-hero.webp">
-                                    <img src="../images/hero/portfolio-hero.webp" alt="AI-generated artwork 3">
-                                </div>
+                            <div class="sauce-carousel-dots" id="sauce-carousel-dots">
+                                <span class="sauce-dot active" data-index="0"></span>
+                                <span class="sauce-dot" data-index="1"></span>
+                                <span class="sauce-dot" data-index="2"></span>
+                                <span class="sauce-dot" data-index="3"></span>
                             </div>
                         </div>
                         <div class="creative-content">
+                            <h3>AI Sauce Parodies</h3>
+                            <p>Satirical sauce bottle designs poking fun at AI detection claims and tech hype.</p>
+                            <div class="sauce-gallery-actions">
+                                <a href="https://airealitycheck.org/ai-sauces/" class="sauce-view-all-btn" target="_blank">View All Sauces</a>
+                            </div>
                             <div class="creative-tags">
+                                <span class="creative-tag">AI Humor</span>
+                                <span class="creative-tag">Parody</span>
                                 <span class="creative-tag">Images</span>
-                                <span class="creative-tag">Gallery</span>
                             </div>
                         </div>
                     </div>
@@ -304,28 +396,79 @@
         });
         
         function initImageGallery() {
-            const thumbs = document.querySelectorAll('.gallery-thumb');
-            const mainImage = document.getElementById('gallery-current');
+            // AI Sauce Carousel Functionality
+            initSauceCarousel();
+        }
+        
+        function initSauceCarousel() {
+            const slides = document.querySelectorAll('.sauce-slide');
+            const dots = document.querySelectorAll('.sauce-dot');
+            const prevBtn = document.getElementById('sauce-prev-btn');
+            const nextBtn = document.getElementById('sauce-next-btn');
             
-            if (!thumbs.length || !mainImage) return;
+            if (!slides.length || !dots.length || !prevBtn || !nextBtn) return;
             
-            thumbs.forEach(thumb => {
-                thumb.addEventListener('click', function() {
-                    // Update main image
-                    const imgSrc = this.getAttribute('data-src');
-                    mainImage.src = imgSrc;
-                    
-                    // Update active state
-                    thumbs.forEach(t => t.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    // Add a small zoom effect
-                    mainImage.style.transform = 'scale(1.02)';
-                    setTimeout(() => {
-                        mainImage.style.transform = 'scale(1)';
-                    }, 300);
+            let currentIndex = 0;
+            
+            // Function to show a specific slide
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.classList.remove('active');
+                });
+                
+                // Show the selected slide
+                slides[index].classList.add('active');
+                
+                // Update dots
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                dots[index].classList.add('active');
+                
+                currentIndex = index;
+            }
+            
+            // Event listeners for navigation buttons
+            prevBtn.addEventListener('click', () => {
+                const newIndex = (currentIndex - 1 + slides.length) % slides.length;
+                showSlide(newIndex);
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                const newIndex = (currentIndex + 1) % slides.length;
+                showSlide(newIndex);
+            });
+            
+            // Event listeners for dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
                 });
             });
+            
+            // Auto-advance carousel every 5 seconds
+            let interval = setInterval(() => {
+                const newIndex = (currentIndex + 1) % slides.length;
+                showSlide(newIndex);
+            }, 5000);
+            
+            // Pause auto-advance when mouse hovers over carousel
+            const carouselContainer = document.querySelector('.sauce-carousel-container');
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            // Resume auto-advance when mouse leaves carousel
+            carouselContainer.addEventListener('mouseleave', () => {
+                interval = setInterval(() => {
+                    const newIndex = (currentIndex + 1) % slides.length;
+                    showSlide(newIndex);
+                }, 5000);
+            });
+            
+            // Initialize the first slide
+            showSlide(0);
         }
     </script>
 </body>
