@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
         '20250413_2248_AI Sauce Bottle_remix_01jrs6h32wevvbk2kmpfgqynsy.png',
         '20250413_2302_AI Sauce Parody_remix_01jrs7a60sfmmbra579mthjkmw.png',
         '20250413_2311_AI Steak Sauce Satire_remix_01jrs7vd4kfkvs66nf5r3ksvxm.png',
-        '394F47C4-051F-4439-9C1C-EF72B7214717.png',
         'IMG_4536.PNG',
         'IMG_4537.PNG'
     ];
