@@ -7,6 +7,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.min.css">
     <style>
+        /* Fix for SVG path display issues */
+        .theme-toggle svg path {
+            fill: currentColor;
+        }
+        
+        /* Ensure proper display for theme toggle icons */
+        .theme-toggle .light-icon,
+        .theme-toggle .dark-icon {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+        }
+        
+        /* Hide SVGs that might be causing display issues */
+        svg:not(.light-icon):not(.dark-icon) path {
+            fill: currentColor;
+        }
         /* Google-inspired Color Palette */
         :root {
             --blue: #4285F4;
@@ -755,6 +772,26 @@
                 if (document.getElementById('footer-placeholder')) {
                     loadComponent('footer-placeholder', '../components/footer.html');
                 }
+                
+                // Fix SVG path display issues that cause Google Chrome warnings
+                setTimeout(function() {
+                    // Fix any SVG paths by ensuring proper attributes
+                    const svgElements = document.querySelectorAll('svg');
+                    svgElements.forEach(function(svg) {
+                        // Ensure viewBox is properly set
+                        if (!svg.getAttribute('viewBox')) {
+                            svg.setAttribute('viewBox', '0 0 24 24');
+                        }
+                        
+                        // Ensure path elements have proper attributes
+                        const paths = svg.querySelectorAll('path');
+                        paths.forEach(function(path) {
+                            if (!path.getAttribute('fill')) {
+                                path.setAttribute('fill', 'currentColor');
+                            }
+                        });
+                    });
+                }, 1000); // Wait for components to load
             }
         });
     </script>
