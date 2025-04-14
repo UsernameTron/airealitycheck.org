@@ -429,6 +429,14 @@
                 background: transparent !important;
             }
             
+            blockquote footer a {
+                color: var(--light-blue) !important;
+            }
+            
+            blockquote footer span {
+                color: rgba(184, 198, 245, 0.8) !important;
+            }
+            
             .source-item::before {
                 color: var(--light-blue);
             }
@@ -439,6 +447,33 @@
             height: 1px;
             background: linear-gradient(to right, var(--blue), var(--red), var(--yellow), var(--green));
             margin: 2rem 0;
+        }
+        
+        /* Blockquote Styling */
+        blockquote {
+            margin: 1.5rem 0; 
+            padding: 1rem 1.25rem; 
+            background: var(--light-gray); 
+            border-left: 4px solid var(--blue);
+        }
+        
+        blockquote p {
+            margin: 0; 
+            font-style: italic; 
+            color: var(--dark-gray); 
+            line-height: 1.6;
+        }
+        
+        blockquote footer {
+            margin-top: 0.75rem;
+            font-weight: 600;
+            font-family: 'Product Sans', 'Roboto', sans-serif;
+            background: transparent !important;
+            padding: 0;
+        }
+        
+        blockquote footer a {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -510,13 +545,13 @@
  
             <p><strong>Bottom line:</strong> The em dash myth is dead on arrival—repeatedly discredited, endlessly reposted. A superstition in a blazer, clinging to its last shred of LinkedIn credibility.</p>
  
-            <blockquote style="margin: 1.5rem 0; padding: 1rem 1.25rem; background: var(--light-gray); border-left: 4px solid var(--blue);">
-                <p style="margin: 0; font-style: italic; color: var(--dark-gray); line-height: 1.6;">"The em dash isn't a sign of AI—it's a sign of a writer who knows how to use punctuation.<br/><br/>
+            <blockquote>
+                <p>"The em dash isn't a sign of AI—it's a sign of a writer who knows how to use punctuation.<br/><br/>
                 And for me, the em dash isn't just punctuation—it's a lifeline. My brain is always in hyperdrive, with ideas jumping around excitedly and thoughts connecting unpredictably. The em dash allows me to shift gears in my writing without causing a 10‑car pileup of confused readers.<br/><br/>
                 So it's frustrating to see people label punctuation choices as 'telltale signs' of AI when these choices actually reflect how I, a human writer, think and write.<br/><br/>
                 If the biggest concern people have about authenticity is an em dash, they're missing the point completely. Writing is about connecting—by providing meaning, purpose, and value."</p>
-                <footer style="margin-top:0.75rem; font-weight:600; font-family:'Product Sans','Roboto',sans-serif; color:var(--dark-blue); background:transparent; padding:0;">
-                    — <a href="https://www.linkedin.com/in/allisonmarierossi/" target="_blank" style="color:var(--dark-blue); text-decoration:none;">Allison Rossi</a> <span style="font-weight:400;">(Top Voice &amp; LinkedIn Creator)</span>
+                <footer>
+                    — <a href="https://www.linkedin.com/in/allisonmarierossi/" target="_blank">Allison Rossi</a> <span style="font-weight:400;">(Top Voice &amp; LinkedIn Creator)</span>
                 </footer>
             </blockquote>
         </section>
