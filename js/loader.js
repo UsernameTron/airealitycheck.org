@@ -6,12 +6,22 @@
 (function() {
     // Ensure theme is initialized
     function initializeTheme() {
-        const savedTheme = localStorage.getItem('theme') || 'auto';
+        // Get theme from HTML or localStorage - page-level setting overrides localStorage
         const htmlElement = document.documentElement;
-        
-        // Remove any existing theme classes and add the saved one
-        htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
-        htmlElement.classList.add(`theme-${savedTheme}`);
+        const currentThemeClass = Array.from(htmlElement.classList)
+            .find(cls => cls.startsWith('theme-'));
+            
+        if (currentThemeClass) {
+            // If a specific theme class is already set in HTML, respect it
+            console.log('Respecting HTML theme class:', currentThemeClass);
+        } else {
+            // Otherwise use the saved theme from localStorage
+            const savedTheme = localStorage.getItem('theme') || 'auto';
+            console.log('Using localStorage theme:', savedTheme);
+            // Remove any existing theme classes and add the saved one
+            htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+            htmlElement.classList.add(`theme-${savedTheme}`);
+        }
     }
     
     // Ensure styles are loaded
