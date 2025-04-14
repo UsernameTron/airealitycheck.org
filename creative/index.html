@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="theme-auto">
 <head>
     <!-- Meta Information Setup (REQUIRED for proper SEO) -->
     <script>
@@ -49,6 +49,7 @@
             overflow: hidden;
             box-shadow: var(--shadow-md);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--surface);
         }
         
         .creative-item:hover {
@@ -62,6 +63,17 @@
             object-fit: cover;
         }
         
+        .video-card {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-card iframe {
+            border: none;
+            display: block;
+        }
+        
         .creative-content {
             padding: var(--space-lg);
             background-color: var(--surface);
@@ -70,6 +82,13 @@
         .creative-content h3 {
             margin-top: 0;
             color: var(--primary-blue);
+            font-size: 1.2rem;
+            line-height: 1.4;
+        }
+        
+        .creative-content p {
+            margin-bottom: 1rem;
+            color: var(--neutral-dark);
         }
         
         .creative-tags {
@@ -107,20 +126,76 @@
                 </div>
                 
                 <div class="featured-image">
-                    <img src="images/placeholder.svg" alt="AI-generated creative visualization" />
+                    <img src="images/openart-85d6fd79311c4e1faebd34e0c57f2320_raw.webp" alt="AI-generated creative visualization" />
                 </div>
                 
                 <h2 class="subsection-title">Featured Projects</h2>
                 
                 <div class="creative-grid">
                     <div class="creative-item">
-                        <img src="images/placeholder.svg" alt="Creative AI project" />
+                        <a href="https://youtu.be/5EMscUGemdM?si=gSwfpPaQ0aVT-zKX" target="_blank">
+                            <div class="video-card">
+                                <iframe width="100%" height="180" src="https://www.youtube.com/embed/5EMscUGemdM" title="The Reflective Engine for Advanced Reasoning" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </a>
                         <div class="creative-content">
-                            <h3>Coming Soon</h3>
-                            <p>New creative AI content will be featured here. Check back soon for updates.</p>
+                            <h3>The Reflective Engine for Advanced Reasoning</h3>
+                            <p>A creative exploration of how reflective engines can enhance AI reasoning capabilities.</p>
                             <div class="creative-tags">
-                                <span class="creative-tag">AI Art</span>
-                                <span class="creative-tag">Visualization</span>
+                                <span class="creative-tag">AI Reasoning</span>
+                                <span class="creative-tag">Reflection</span>
+                                <span class="creative-tag">Video</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="creative-item">
+                        <a href="https://youtu.be/TxYoR-qnwMI?si=TH_g0_KnpVOoScEJ" target="_blank">
+                            <div class="video-card">
+                                <iframe width="100%" height="180" src="https://www.youtube.com/embed/TxYoR-qnwMI" title="AI in Healthcare: Five Critical Needs for Real Impact" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </a>
+                        <div class="creative-content">
+                            <h3>AI in Healthcare: Five Critical Needs for Real Impact</h3>
+                            <p>Exploring the transformative potential of AI in healthcare through creative visualization.</p>
+                            <div class="creative-tags">
+                                <span class="creative-tag">Healthcare</span>
+                                <span class="creative-tag">AI Impact</span>
+                                <span class="creative-tag">Video</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="creative-item">
+                        <a href="https://youtu.be/f745hLbSXAQ?si=x-eNbrHKbmAt-IEx" target="_blank">
+                            <div class="video-card">
+                                <iframe width="100%" height="180" src="https://www.youtube.com/embed/f745hLbSXAQ" title="The 2030 Energy Crisis: Advanced Reasoning Analysis" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </a>
+                        <div class="creative-content">
+                            <h3>The 2030 Energy Crisis: Advanced Reasoning Analysis</h3>
+                            <p>A creative analysis of potential future energy scenarios through AI-driven reasoning.</p>
+                            <div class="creative-tags">
+                                <span class="creative-tag">Energy</span>
+                                <span class="creative-tag">Future Analysis</span>
+                                <span class="creative-tag">Video</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="creative-item">
+                        <a href="https://youtu.be/UC9XSq8USyU?si=8EqYhUUbvIdVot-A" target="_blank">
+                            <div class="video-card">
+                                <iframe width="100%" height="180" src="https://www.youtube.com/embed/UC9XSq8USyU" title="Misusing AI Technology" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        </a>
+                        <div class="creative-content">
+                            <h3>Misusing AI Technology</h3>
+                            <p>An artistic exploration of ethical considerations and potential misuses of AI technology.</p>
+                            <div class="creative-tags">
+                                <span class="creative-tag">AI Ethics</span>
+                                <span class="creative-tag">Technology</span>
+                                <span class="creative-tag">Video</span>
                             </div>
                         </div>
                     </div>
@@ -142,7 +217,17 @@
             if (typeof loadComponent === 'function') {
                 // Load meta tags first (if not already loaded by components.js)
                 if (document.getElementById('meta-tags-placeholder')) {
-                    loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+                    loadComponent('meta-tags-placeholder', '../components/meta-tags.html');
+                }
+                
+                // Load header component
+                if (document.getElementById('header-placeholder')) {
+                    loadComponent('header-placeholder', '../components/header.html');
+                }
+                
+                // Load footer component
+                if (document.getElementById('footer-placeholder')) {
+                    loadComponent('footer-placeholder', '../components/footer.html');
                 }
             }
         });
