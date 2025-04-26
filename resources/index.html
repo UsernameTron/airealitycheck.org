@@ -17,9 +17,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.min.css">
     
-    <!-- Meta tags component placeholder -->
-    <div id="meta-tags-placeholder"></div>
-    
     <!-- Ensure hero image loads properly -->
     <style>
         .resources-hero {
@@ -136,6 +133,9 @@
     </style>
 </head>
 <body>
+    <!-- Meta tags component placeholder (moved from <head>) -->
+    <div id="meta-tags-placeholder"></div>
+    
     <!-- Header Component Placeholder -->
     <div id="header-placeholder"></div>
     
@@ -160,21 +160,69 @@
                 <!-- Practical Tools Section -->
                 <h2 class="resource-category-title" id="practical-tools">Practical Tools</h2>
                 <div class="cards">
-                    <div class="card resource-card">
-                        <div class="resource-card-header">
-                            <h3>Practical AI Prompt Tool</h3>
-                        </div>
-                        <div class="resource-card-body">
-                            <div class="resource-card-description">
-                                <p>A simple, practical tool that helps you create effective AI prompts without complex jargon or technical knowledge - no paywall, no comment bait, direct access.</p>
-                            </div>
-                            <div class="resource-tags">
-                                <span class="resource-tag tool">Tool</span>
-                                <span class="resource-tag">Free</span>
-                            </div>
-                            <a href="../tools.html" class="btn" target="_blank" rel="noopener">Access Tool <span aria-hidden="true">→</span></a>
-                        </div>
+                  <!-- Start of direct tool listings -->
+                  <div class="card resource-card">
+                    <div class="resource-card-header">
+                      <h3>Image Prompt Modifier + Organizer</h3>
                     </div>
+                    <div class="resource-card-body">
+                      <div class="resource-card-description">
+                        <p>A clean, web-based tool that helps you build better image prompts — even if you have no idea what "anamorphic lens" means. Click modifiers, stack up a prompt that actually sounds cinematic, and copy-paste it into your image model of choice.</p>
+                        <p>No film degree. No guessing. Just results.</p>
+                      </div>
+                      <a href="https://imagepromptingassistant.netlify.app/" class="btn" target="_blank" rel="noopener">Access Tool</a>
+                    </div>
+                  </div>
+                  <div class="card resource-card">
+                    <div class="resource-card-header">
+                      <h3>Video Prompt Optimizer</h3>
+                    </div>
+                    <div class="resource-card-body">
+                      <div class="resource-card-description">
+                        <p>This one's for the video generation folks. Click your way through camera movements, moods, and scene styles without pretending you're Spielberg. It generates clean, structured prompts using cinematic terms most people don't even know exist.</p>
+                        <ul>
+                          <li>AI video tools like Runway, Pika, etc.</li>
+                          <li>People who don't want to Google "Dutch angle" mid-project</li>
+                        </ul>
+                      </div>
+                      <a href="https://videopromptassistant.netlify.app/enhancer" class="btn" target="_blank" rel="noopener">Access Tool</a>
+                    </div>
+                  </div>
+                  <div class="card resource-card">
+                    <div class="resource-card-header">
+                      <h3>Plain English Prompt Builder</h3>
+                    </div>
+                    <div class="resource-card-body">
+                      <div class="resource-card-description">
+                        <p>Built on Streamlit, this tool lets you speak like a human ("I want a summary of X with examples and stats"), choose your model, click once, and boom — usable prompt, copy-paste ready. It's natural language to optimized engineering without the headache.</p>
+                        <p>For the "I don't want to learn prompt theory, I just want it to work" crowd.</p>
+                      </div>
+                      <a href="https://llm-system-prompts-vkaxmtjmoxpuvepoowpgby.streamlit.app/" class="btn" target="_blank" rel="noopener">Access Tool</a>
+                    </div>
+                  </div>
+                  <div class="card resource-card">
+                    <div class="resource-card-header">
+                      <h3>Deep Research Prompt Generator (GPT Store)</h3>
+                    </div>
+                    <div class="resource-card-body">
+                      <div class="resource-card-description">
+                        <p>This GPT is designed to help you structure deep research prompts — the kind that ask for citations, studies, actual stats, and no BuzzFeed energy. Perfect for content, strategy, or when you want your AI to fake having a PhD.</p>
+                      </div>
+                      <a href="https://chatgpt.com/g/g-67f893e169b0819186767f75812c77ae-deep-research-prompt-generator" class="btn" target="_blank" rel="noopener">Access Tool</a>
+                    </div>
+                  </div>
+                  <div class="card resource-card">
+                    <div class="resource-card-header">
+                      <h3>Advanced Reasoning Prompt Generator (GPT Store)</h3>
+                    </div>
+                    <div class="resource-card-body">
+                      <div class="resource-card-description">
+                        <p>This one's built for complex thinking. It walks you through creating structured, multi-step prompts that make the AI reason like it has a second brain cell. Ideal for strategy work, comparisons, decisions, or when you're tired of surface-level sludge.</p>
+                      </div>
+                      <a href="https://chatgpt.com/g/g-67f893d21f788191ae0a76089f6f5fcb-advanced-reasoning-prompt-generator" class="btn" target="_blank" rel="noopener">Access Tool</a>
+                    </div>
+                  </div>
+                  <!-- End of direct tool listings -->
                 </div>
                 
                 <div class="section-footer" style="margin-top: 4rem; text-align: center;">
@@ -190,5 +238,7 @@
 
     <script src="../js/main.min.js"></script>
     <script src="../js/components.min.js"></script>
+    <!-- Add loader.min.js for emergency fallback if needed -->
+    <script src="../js/loader.min.js"></script>
 </body>
 </html>

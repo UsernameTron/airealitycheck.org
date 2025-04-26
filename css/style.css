@@ -213,8 +213,8 @@ section {
 /* Home Hero Section */
 .home-hero {
     position: relative;
-    height: 80vh;
-    min-height: 600px;
+    height: 50vh;
+    min-height: 400px;
     background-image: url('../images/hero/hero-background.webp');
     background-size: cover;
     background-position: center;
@@ -965,8 +965,8 @@ footer .container {
     
     /* Hero section improvements for mobile */
     .home-hero {
-        height: 50vh; /* Reduced from 80vh */
-        min-height: 400px; /* Reduced from 600px */
+        height: 40vh; /* Reduced from 50vh */
+        min-height: 300px; /* Reduced from 400px */
     }
     
     .case-studies-hero,
@@ -990,8 +990,8 @@ footer .container {
 @media (max-width: 480px) {
     /* Additional hero adjustments for smaller screens */
     .home-hero {
-        height: 40vh;
-        min-height: 250px;
+        height: 30vh;
+        min-height: 200px;
     }
     
     .case-studies-hero,

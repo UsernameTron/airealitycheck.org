@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="theme-auto">
 <head>
+  <meta charset="UTF-8">
   <!-- Meta Information Setup (REQUIRED for proper SEO) -->
   <script>
     // Define these variables before loading components
@@ -17,220 +18,350 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.min.css">
   
-  <!-- Meta tags component placeholder -->
-  <div id="meta-tags-placeholder"></div>
+  <!-- Meta tags component placeholder (should be a comment, not a div) -->
+  <!-- <div id="meta-tags-placeholder"></div> -->
   
   <style>
     :root {
-      --primary-blue: #4285F4;
-      --primary-red: #EA4335;
-      --primary-yellow: #FBBC05;
-      --primary-green: #34A853;
-      --dark-blue: #1A73E8;
-      --light-blue: #8AB4F8;
+      /* Color Palette */
+      --primary-bg: #fafafa;
+      --primary-text: #202124;
+      --accent-color: #4285F4;
+      --accent-hover: #1a73e8;
       --dark-gray: #202124;
-      --medium-gray: #5F6368;
-      --light-gray: #E8EAED;
-      --background-light: #fafafa;
-      --background-dark: #202124;
-      --text-light: #333;
-      --text-dark: #f4f4f4;
+      --medium-gray: #5f6368;
+      --light-gray: #e8eaed;
+      --card-bg: #f5f5f5;
       --shadow: 0 2px 10px rgba(0,0,0,0.1);
       --transition-speed: 0.25s;
-      /* Custom card background variable */
-      --card-bg: #f5f5f5;
+
+      /* Typography */
+      --font-sans: 'Roboto', 'Product Sans', sans-serif;
+
+      /* Spacing */
+      --spacing-container-padding: 24px;
+      --spacing-header-padding: 24px 24px 20px;
+      --spacing-hero-padding: 80px 24px 60px;
+
+      /* Border Radius */
+      --border-radius: 8px;
+
+      /* Button */
+      --button-bg: var(--accent-color);
+      --button-text: #fff;
+      --button-hover-bg: var(--accent-hover);
+
+      /* Misc */
+      --transition: all 0.3s ease;
     }
-    
+
     /* Dark Mode Support */
     @media (prefers-color-scheme: dark) {
       :root {
-        --background-light: var(--background-dark);
-        --text-light: var(--text-dark);
+        --primary-bg: #202124;
+        --primary-text: #f4f4f4;
+        --accent-color: #8ab4f8;
+        --accent-hover: #1a73e8;
+        --dark-gray: #e8eaed;
+        --medium-gray: #9aa0a6;
+        --light-gray: #3c4043;
         --card-bg: #333333;
+        --shadow: 0 2px 10px rgba(0,0,0,0.5);
       }
     }
-    
-    /* Tools Content Styles */
-    .tools-content {
-      padding-top: 80px; /* Extra padding to account for fixed header */
-      padding-bottom: 60px;
+
+    /* Global Styles */
+    body {
+      margin: 0;
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary-bg);
+      padding: var(--spacing-header-padding);
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    /* Nav and Logo */
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-weight: 500;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--primary-text);
+    }
+
+    .nav a {
+      color: var(--primary-text);
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus {
+      background-color: var(--accent-color);
+      color: var(--button-text);
+      text-decoration: none;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Product Sans', 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--accent-color);
+      user-select: none;
+      cursor: default;
+      gap: 6px;
+    }
+
+    .logo .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+      display: inline-block;
+    }
+
+    .logo .dot:nth-child(2) {
+      background-color: #ea4335; /* red */
+    }
+
+    .logo .dot:nth-child(3) {
+      background-color: #fbbc05; /* yellow */
+    }
+
+    .logo .dot:nth-child(4) {
+      background-color: #34a853; /* green */
+    }
+
+    /* Container */
+    .container {
       max-width: 900px;
       margin: 0 auto;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: var(--spacing-container-padding);
+      padding-right: var(--spacing-container-padding);
     }
-    
-    .tools-content h1 {
-      font-family: 'Roboto', sans-serif;
-      font-size: 2.5rem;
+
+    /* Hero / Main Content */
+    main.tools-content {
+      padding: var(--spacing-hero-padding);
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: var(--spacing-container-padding);
+      padding-right: var(--spacing-container-padding);
+    }
+
+    main.tools-content h1 {
+      font-family: 'Product Sans', 'Roboto', sans-serif;
       font-weight: 700;
-      color: var(--primary-blue);
+      font-size: 2.5rem;
+      color: var(--accent-color);
       text-align: center;
       margin-bottom: 1.5rem;
     }
-    
+
     .tools-intro {
       text-align: center;
       margin-bottom: 2.5rem;
       font-size: 1.1rem;
-      line-height: 1.6;
+      color: var(--primary-text);
     }
-    
+
     .tool-item {
       background-color: var(--card-bg);
       margin-bottom: 30px;
       padding: 25px;
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       box-shadow: var(--shadow);
-      border-left: 5px solid var(--primary-blue);
+      border-left: 5px solid var(--accent-color);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: var(--primary-text);
     }
-    
+
     .tool-item:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 16px rgba(0,0,0,0.15);
     }
-    
+
     .tool-item:nth-child(2) {
-      border-left-color: var(--primary-red);
+      border-left-color: #ea4335;
     }
-    
+
     .tool-item:nth-child(3) {
-      border-left-color: var(--primary-green);
+      border-left-color: #34a853;
     }
-    
+
     .tool-item:nth-child(4) {
-      border-left-color: var(--primary-yellow);
+      border-left-color: #fbbc05;
     }
-    
+
     .tool-item:nth-child(5) {
-      border-left-color: var(--dark-blue);
+      border-left-color: #1a73e8;
     }
-    
+
     .tool-item h2 {
+      font-family: 'Product Sans', 'Roboto', sans-serif;
+      font-weight: 700;
       font-size: 1.6rem;
       margin-top: 0;
       margin-bottom: 0.75rem;
-      color: var(--primary-blue);
+      color: var(--accent-color);
     }
-    
+
     .tool-item em {
       display: block;
       font-style: italic;
-      color: var(--primary-red);
+      color: #ea4335;
       margin-bottom: 1.25rem;
       font-size: 1.1rem;
     }
-    
+
     .tool-item p {
       margin-bottom: 1rem;
       line-height: 1.6;
+      color: var(--primary-text);
     }
-    
+
     .tool-item ul {
       margin-left: 1.5rem;
       margin-bottom: 1.25rem;
+      color: var(--primary-text);
     }
-    
+
     .tool-item li {
       margin-bottom: 0.5rem;
     }
-    
+
     .tool-link {
       display: inline-block;
       padding: 10px 20px;
-      background-color: var(--primary-blue);
-      color: white;
+      background-color: var(--button-bg);
+      color: var(--button-text);
       text-decoration: none;
       border-radius: 50px;
       font-weight: 500;
       margin-top: 0.5rem;
       transition: background-color 0.3s ease, transform 0.3s ease;
+      font-family: var(--font-sans);
     }
-    
+
     .tool-link:hover {
-      background-color: var(--dark-blue);
+      background-color: var(--button-hover-bg);
       transform: translateY(-2px);
     }
-    
+
     .tool-section {
       margin-top: 30px;
       padding-top: 20px;
-      border-top: 1px solid rgba(0,0,0,0.1);
+      border-top: 1px solid var(--light-gray);
     }
-    
+
     .tool-section h3 {
+      font-family: 'Product Sans', 'Roboto', sans-serif;
+      font-weight: 700;
       font-size: 1.3rem;
       margin-bottom: 10px;
-      color: var(--dark-blue);
+      color: var(--accent-color);
     }
-    
+
     .tool-section p em {
       display: block;
       font-style: italic;
-      color: var(--primary-red);
+      color: #ea4335;
       margin-bottom: 1rem;
       font-size: 1rem;
     }
-    
+
     /* Dark mode support for section borders */
     @media (prefers-color-scheme: dark) {
       .tool-section {
         border-top: 1px solid rgba(255,255,255,0.1);
       }
     }
-    
+
     .return-link {
       display: block;
       text-align: center;
       margin-top: 2rem;
-      color: var(--primary-blue);
+      color: var(--accent-color);
       text-decoration: none;
       font-weight: 500;
+      font-family: var(--font-sans);
     }
-    
+
     .return-link:hover {
       text-decoration: underline;
     }
-    
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
-      .tools-content {
+      main.tools-content {
         padding-top: 70px;
       }
-      
-      .tools-content h1 {
+
+      main.tools-content h1 {
         font-size: 2rem;
       }
-      
+
       .tool-item {
         padding: 20px;
       }
-      
+
       .tool-item h2 {
         font-size: 1.4rem;
       }
     }
-    
+
     @media (max-width: 480px) {
-      .tools-content {
+      main.tools-content {
         padding-top: 60px;
         padding-left: 16px;
         padding-right: 16px;
       }
-      
-      .tools-content h1 {
+
+      main.tools-content h1 {
         font-size: 1.8rem;
       }
-      
+
       .tools-intro {
         font-size: 1rem;
       }
-      
+
       .tool-item h2 {
         font-size: 1.3rem;
       }
-      
+
       .tool-item em {
         font-size: 1rem;
       }
@@ -240,7 +371,21 @@
 
 <body>
   <!-- Header Component Placeholder -->
-  <div id="header-placeholder"></div>
+  <header>
+    <div class="logo" aria-label="ARC Logo" role="img" title="ARC Logo">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="dot" aria-hidden="true"></span>
+      ARC
+    </div>
+    <nav class="nav" role="navigation" aria-label="Primary Navigation">
+      <a href="/">Home</a>
+      <a href="/resources/">Resources</a>
+      <a href="/tools.html" aria-current="page">Tools</a>
+      <a href="/about/">About</a>
+    </nav>
+  </header>
   
   <!-- Main Content -->
   <main class="tools-content">
@@ -259,7 +404,7 @@
         <p>Below are tools I actually use — not because they're magical, but because they're not trying to be. They're fast, useful, and don't make you feel like you're hacking into the Pentagon just to write a better prompt.</p>
         
         <div class="tool-section">
-          <h3>🎨 Image Prompt Modifier + Organizer</h3>
+          <h3>Image Prompt Modifier + Organizer</h3>
           <p><em>"Feel like a director without pretending you went to NYU."</em></p>
           <p>A clean, web-based tool that helps you build better image prompts — even if you have no idea what "anamorphic lens" means. Click modifiers, stack up a prompt that actually sounds cinematic, and copy-paste it into your image model of choice.</p>
           <p>No film degree. No guessing. Just results.</p>
@@ -267,7 +412,7 @@
         </div>
         
         <div class="tool-section">
-          <h3>🎥 Video Prompt Optimizer</h3>
+          <h3>Video Prompt Optimizer</h3>
           <p><em>"Make text-to-video prompts that don't suck — no A24 worship required."</em></p>
           <p>This one's for the video generation folks. Click your way through camera movements, moods, and scene styles without pretending you're Spielberg. It generates clean, structured prompts using cinematic terms most people don't even know exist.</p>
           <p>Useful for:</p>
@@ -279,7 +424,7 @@
         </div>
         
         <div class="tool-section">
-          <h3>🧠 Plain English Prompt Builder</h3>
+          <h3>Plain English Prompt Builder</h3>
           <p><em>"Just tell it what you want. It'll do the rest. Like a prompt therapist."</em></p>
           <p>Built on Streamlit, this tool lets you speak like a human ("I want a summary of X with examples and stats"), choose your model, click once, and boom — usable prompt, copy-paste ready. It's natural language to optimized engineering without the headache.</p>
           <p>For the "I don't want to learn prompt theory, I just want it to work" crowd.</p>
@@ -287,14 +432,14 @@
         </div>
         
         <div class="tool-section">
-          <h3>🔍 Deep Research Prompt Generator (GPT Store)</h3>
+          <h3>Deep Research Prompt Generator (GPT Store)</h3>
           <p><em>"Skip the hallucinations. Get research like it matters."</em></p>
           <p>This GPT is designed to help you structure deep research prompts — the kind that ask for citations, studies, actual stats, and no BuzzFeed energy. Perfect for content, strategy, or when you want your AI to fake having a PhD.</p>
           <a class="tool-link" href="https://chatgpt.com/g/g-67f893e169b0819186767f75812c77ae-deep-research-prompt-generator" target="_blank" rel="noopener">👉 Access Tool</a>
         </div>
         
         <div class="tool-section">
-          <h3>🧩 Advanced Reasoning Prompt Generator (GPT Store)</h3>
+          <h3>Advanced Reasoning Prompt Generator (GPT Store)</h3>
           <p><em>"Make your AI actually think, instead of just sounding confident."</em></p>
           <p>This one's built for complex thinking. It walks you through creating structured, multi-step prompts that make the AI reason like it has a second brain cell. Ideal for strategy work, comparisons, decisions, or when you're tired of surface-level sludge.</p>
           <a class="tool-link" href="https://chatgpt.com/g/g-67f893d21f788191ae0a76089f6f5fcb-advanced-reasoning-prompt-generator" target="_blank" rel="noopener">👉 Access Tool</a>
@@ -305,8 +450,8 @@
     <a href="resources/" class="return-link">Return to All Resources</a>
   </main>
   
-  <!-- Footer Component Placeholder -->
-  <div id="footer-placeholder"></div>
+  <!-- Footer Component Placeholder (should be a comment, not a div) -->
+  <!-- <div id="footer-placeholder"></div> -->
   
   <!-- Component loading scripts -->
   <script src="js/main.min.js"></script>

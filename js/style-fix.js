@@ -25,27 +25,8 @@
     }
     
     function injectStyles() {
-        // Try to find the right relative path
-        const pathSegments = window.location.pathname.split('/').filter(s => s.length > 0);
-        let cssPath;
-        
-        if (pathSegments.length === 0) {
-            cssPath = './css/style.min.css'; // Root level
-        } else if (pathSegments.length === 1 && pathSegments[0].endsWith('.html')) {
-            cssPath = './css/style.min.css'; // HTML file at root
-        } else {
-            // Create the right number of "../" based on depth
-            let depth = pathSegments.length;
-            if (pathSegments[pathSegments.length - 1].endsWith('.html')) {
-                depth--;
-            }
-            
-            cssPath = '';
-            for (let i = 0; i < depth; i++) {
-                cssPath += '../';
-            }
-            cssPath += 'css/style.min.css';
-        }
+        // Only use absolute path for emergency CSS
+        const cssPath = '/css/style.min.css';
         
         // Add stylesheet tag
         const styleEl = document.createElement('link');
