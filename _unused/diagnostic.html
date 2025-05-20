@@ -1,0 +1,143 @@
+<!doctypehtml><html lang="en"><script>let PAGE_TITLE="Website Diagnostics",PAGE_DESCRIPTION="Diagnostic page for testing website styling and component loading.",REL_PATH="./",CANONICAL_PATH="/diagnostic.html"</script><div id="meta-tags-placeholder"></div><style>body.diagnostic-fallback{font-family:Arial,sans-serif;line-height:1.6;color:#333;margin:0;padding:20px}.diagnostic-fallback h1{color:#1a73e8}.diagnostic-fallback .container{max-width:1200px;margin:0 auto;padding:20px}.diagnostic-fallback .test-section{margin-bottom:40px;padding:20px;border:1px solid #ddd;border-radius:8px}.diagnostic-fallback .color-swatch{display:inline-block;width:100px;height:100px;margin:10px;border-radius:8px;border:1px solid #ddd}.diagnostic-fallback .btn{display:inline-block;padding:10px 20px;background-color:#1a73e8;color:#fff;text-decoration:none;border-radius:4px;border:none;font-weight:500;cursor:pointer}.diagnostic-fallback .btn:hover{background-color:#0d47a1}.success-result{padding:10px;margin-bottom:10px;background-color:#e6f4ea;border-left:4px solid #34a853;border-radius:4px}.warning-result{padding:10px;margin-bottom:10px;background-color:#fef7e0;border-left:4px solid #fbbc05;border-radius:4px}.error-result{padding:10px;margin-bottom:10px;background-color:#fce8e6;border-left:4px solid #ea4335;border-radius:4px}.code-display{background-color:#f8f9fa;padding:8px;border-radius:4px;font-family:monospace;overflow-x:auto;margin:8px 0}.fix-button{margin-top:10px;background-color:#4285f4;color:#fff;border:none;padding:8px 16px;border-radius:4px;cursor:pointer}</style><body><script>window.addEventListener("load",function(){getComputedStyle(document.body).fontFamily.includes("Roboto")||(document.body.classList.add("diagnostic-fallback"),console.warn("Main stylesheet failed to load, using fallback styles"))})</script><div id="header-placeholder"></div><main><div class="container"><h1>Website Diagnostic Tool</h1><p>This page tests various aspects of the website's styling and components.<section class="test-section"><h2>JavaScript File Integrity Check</h2><div id="js-integrity-check">Running checks...</div></section><section class="test-section"><h2>JavaScript Console Errors</h2><div id="console-error-check">Monitoring for errors...</div></section><section class="test-section"><h2>CSS Variables Test</h2><p>The following color swatches should reflect the site's color scheme:<div><div class="color-swatch"style="background-color:var(--primary-blue)"title="--primary-blue"></div><div class="color-swatch"style="background-color:var(--primary-red)"title="--primary-red"></div><div class="color-swatch"style="background-color:var(--primary-yellow)"title="--primary-yellow"></div><div class="color-swatch"style="background-color:var(--primary-green)"title="--primary-green"></div></div><div><div class="color-swatch"style="background-color:var(--neutral-dark)"title="--neutral-dark"></div><div class="color-swatch"style="background-color:var(--neutral-medium)"title="--neutral-medium"></div><div class="color-swatch"style="background-color:var(--neutral-light)"title="--neutral-light"></div><div class="color-swatch"style="background-color:var(--neutral-lighter)"title="--neutral-lighter"></div><div class="color-swatch"style="background-color:var(--white)"title="--white"></div></div><div id="css-variables-check"></div></section><section class="test-section"><h2>Component Loading Test</h2><p>The following components should be loaded correctly:<ul><li>Header Component: <span id="header-check">Checking...</span><li>Meta Tags Component: <span id="meta-check">Checking...</span><li>Footer Component: <span id="footer-check">Checking...</span></ul></section><section class="test-section"><h2>UI Elements Test</h2><p>The following UI elements should match the site's design:<div style="margin-bottom:20px"><h3>Buttons</h3><button class="btn">Standard Button</button> <a href="#"class="btn">Link Button</a></div><div style="margin-bottom:20px"><h3>Cards</h3><div class="cards"style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px"><div class="card"><h3>Test Card 1</h3><p>This is test content for a card to check styling.</p><a href="#"class="btn">Action</a></div><div class="card"><h3>Test Card 2</h3><p>This is test content for a card to check styling.</p><a href="#"class="btn">Action</a></div></div></div></section><section class="test-section"><h2>Dark Mode Test</h2><p>Test the dark mode toggle functionality:</p><button id="theme-test-btn"class="btn">Toggle Dark Mode</button><p>Current Theme: <span id="current-theme">Checking...</span></section><section class="test-section"><h2>Quick Fix Options</h2><div id="fix-options"></div></section></div></main><div id="footer-placeholder"></div><script>let consoleErrors=[],originalConsoleError=console.error;function checkJsIntegrity(){let r=document.getElementById("js-integrity-check"),a=[{name:"components.min.js",path:"js/components.min.js"},{name:"main.min.js",path:"js/main.min.js"}],l=0;a.forEach(o=>{fetch(o.path).then(e=>{if(e.ok)return e.text();throw new Error(`Failed to load ${o.name} (HTTP ${e.status})`)}).then(e=>{var t=e.trim().slice(-1),t=[";","}",")"].includes(t),n=document.createElement("div");n.className=t?"success-result":"error-result",t?n.innerHTML=`<strong>✅ ${o.name} appears properly formatted</strong>`:(n.innerHTML=`
+                                <strong>❌ ${o.name} appears to be truncated!</strong>
+                                <p>Last 50 characters: </p>
+                                <div class="code-display">${escapeHtml(e.slice(-50))}</div>
+                                <p>The file does not end with a proper JavaScript ending character (;, }, or ))</p>
+                                <p><strong>Fix:</strong> This is causing your styling issues. You need to restore a complete version of this file.</p>`,"components.min.js"===o.name&&((t=document.createElement("button")).className="fix-button",t.textContent="Apply Emergency Fix",t.addEventListener("click",applyEmergencyCompJsFix),n.appendChild(t))),r.appendChild(n),++l===a.length&&((e=document.createElement("div")).innerHTML="<p><strong>All JavaScript file checks complete.</strong></p>",r.appendChild(e))}).catch(e=>{var t=document.createElement("div");t.className="error-result",t.innerHTML=`<strong>❌ Error checking ${o.name}:</strong> `+e.message,r.appendChild(t),++l===a.length&&((e=document.createElement("div")).innerHTML="<p><strong>All JavaScript file checks complete.</strong></p>",r.appendChild(e))})})}function checkCssVariables(){var e=document.getElementById("css-variables-check");let t=getComputedStyle(document.documentElement);var n=["--primary-blue","--primary-red","--primary-yellow","--primary-green","--neutral-dark","--neutral-medium","--neutral-light","--neutral-lighter","--white"].filter(e=>!t.getPropertyValue(e).trim()),o=document.createElement("div");0<n.length?(o.className="error-result",o.innerHTML=`
+                    <strong>❌ Missing CSS variables:</strong>
+                    <div class="code-display">${n.join(", ")}</div>
+                    <p>This indicates that your stylesheet is not loading correctly or CSS variables are not defined.</p>`,(n=document.createElement("button")).className="fix-button",n.textContent="Apply Emergency CSS Variables",n.addEventListener("click",applyEmergencyCssVars),o.appendChild(n)):(o.className="success-result",o.innerHTML="<strong>✅ All expected CSS variables are defined</strong>"),e.appendChild(o)}function updateConsoleErrors(){var e=document.getElementById("console-error-check");if(0<consoleErrors.length){var n=document.createElement("div");n.className="error-result";let t="<strong>❌ JavaScript errors detected:</strong><ul>";consoleErrors.forEach(e=>{t+=`<li>${escapeHtml(e.join(" "))}</li>`}),t+="</ul>",n.innerHTML=t,e.innerHTML="",e.appendChild(n)}else e.innerHTML='<div class="success-result"><strong>✅ No JavaScript errors detected</strong></div>';setTimeout(updateConsoleErrors,2e3)}function checkComponents(){var e=null!==document.querySelector("header"),e=(document.getElementById("header-check").textContent=e?"Loaded Successfully ✓":"Failed to Load ✗",document.getElementById("header-check").style.color=e?"green":"red",null!==document.querySelector('meta[name="description"]')),e=(document.getElementById("meta-check").textContent=e?"Loaded Successfully ✓":"Failed to Load ✗",document.getElementById("meta-check").style.color=e?"green":"red",null!==document.querySelector("footer"));document.getElementById("footer-check").textContent=e?"Loaded Successfully ✓":"Failed to Load ✗",document.getElementById("footer-check").style.color=e?"green":"red"}function setupThemeToggle(){updateThemeDisplay(),document.getElementById("theme-test-btn").addEventListener("click",function(){var e=document.documentElement.className.split(" ").find(e=>e.startsWith("theme-"))||"theme-auto";let t;t="theme-auto"===e?"theme-light":"theme-light"===e?"theme-dark":"theme-auto",document.documentElement.classList.remove("theme-auto","theme-light","theme-dark"),document.documentElement.classList.add(t),localStorage.setItem("theme",t.replace("theme-","")),updateThemeDisplay()})}function updateThemeDisplay(){var e=document.documentElement.className.split(" ").find(e=>e.startsWith("theme-"))||"No theme";document.getElementById("current-theme").textContent=e}function setupQuickFixes(){var e=document.getElementById("fix-options"),t=document.createElement("div");t.innerHTML=`
+                <p>Apply a comprehensive emergency fix to make the website functional:</p>
+                <button id="full-emergency-fix" class="fix-button">Apply Full Emergency Fix</button>
+            `,e.appendChild(t),document.getElementById("full-emergency-fix").addEventListener("click",applyFullEmergencyFix)}function applyEmergencyCompJsFix(){var e=document.createElement("script");e.textContent=`
+                // Basic component loading functionality
+                function loadComponent(placeholderId, componentPath) {
+                    const placeholder = document.getElementById(placeholderId);
+                    if (!placeholder) return;
+                    
+                    fetch(componentPath)
+                        .then(response => response.text())
+                        .then(html => {
+                            placeholder.outerHTML = html;
+                        })
+                        .catch(error => {
+                            console.error('Error loading component:', error);
+                        });
+                }
+                
+                // Load components
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Header
+                    loadComponent('header-placeholder', 'components/header.html');
+                    
+                    // Meta tags if not already loaded
+                    if (document.getElementById('meta-tags-placeholder')) {
+                        loadComponent('meta-tags-placeholder', 'components/meta-tags.html');
+                    }
+                    
+                    // Footer
+                    loadComponent('footer-placeholder', 'components/footer.html');
+                });
+            `,document.head.appendChild(e),alert("Emergency components.min.js fix applied. Please reload the page to see if it works.")}function applyEmergencyCssVars(){var e=document.createElement("style");e.textContent=`
+                :root {
+                    --primary-blue: #4285F4;
+                    --primary-red: #EA4335;
+                    --primary-yellow: #FBBC05;
+                    --primary-green: #34A853;
+                    --neutral-dark: #202124;
+                    --neutral-medium: #5F6368;
+                    --neutral-light: #BDC1C6;
+                    --neutral-lighter: #F1F3F4;
+                    --white: #FFFFFF;
+                }
+            `,document.head.appendChild(e),alert("Emergency CSS variables applied. The color swatches should now show colors."),document.getElementById("css-variables-check").innerHTML="",checkCssVariables()}function applyFullEmergencyFix(){var e=document.createElement("style");e.textContent=`
+                :root {
+                    --primary-blue: #4285F4;
+                    --primary-red: #EA4335;
+                    --primary-yellow: #FBBC05;
+                    --primary-green: #34A853;
+                    --neutral-dark: #202124;
+                    --neutral-medium: #5F6368;
+                    --neutral-light: #BDC1C6;
+                    --neutral-lighter: #F1F3F4;
+                    --white: #FFFFFF;
+                }
+                
+                body {
+                    font-family: 'Roboto', Arial, sans-serif;
+                    line-height: 1.5;
+                    color: #202124;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                }
+                
+                header {
+                    background-color: white;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    padding: 15px 0;
+                }
+                
+                nav ul {
+                    list-style: none;
+                    display: flex;
+                    gap: 20px;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                nav a {
+                    color: #5F6368;
+                    text-decoration: none;
+                    font-weight: 500;
+                }
+                
+                nav a:hover {
+                    color: #4285F4;
+                }
+                
+                .btn {
+                    display: inline-block;
+                    background-color: #4285F4;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 4px;
+                    text-decoration: none;
+                    border: none;
+                    cursor: pointer;
+                }
+                
+                .card {
+                    background-color: white;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+                    padding: 20px;
+                }
+                
+                footer {
+                    background-color: #f8f9fa;
+                    padding: 40px 0;
+                    margin-top: 40px;
+                }
+            `,document.head.appendChild(e),document.querySelector("header")||((e=document.createElement("header")).innerHTML=`
+                    <div class="container">
+                        <nav>
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/case-studies/">Case Studies</a></li>
+                                <li><a href="/articles/">Articles</a></li>
+                                <li><a href="/portfolio/">Portfolio</a></li>
+                                <li><a href="/contact/">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                `,document.body.insertBefore(e,document.body.firstChild)),document.querySelector("footer")||((e=document.createElement("footer")).innerHTML=`
+                    <div class="container">
+                        <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+                    </div>
+                `,document.body.appendChild(e)),applyEmergencyCompJsFix(),alert("Full emergency fix applied. The website should now be functional with basic styling.")}function escapeHtml(e){return e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;")}console.error=function(){consoleErrors.push(Array.from(arguments)),originalConsoleError.apply(this,arguments)},document.addEventListener("DOMContentLoaded",function(){checkJsIntegrity(),checkCssVariables(),updateConsoleErrors(),setTimeout(checkComponents,1e3),setupThemeToggle(),setupQuickFixes()})</script><script src="js/main.min.js"></script><script src="js/components.min.js"></script><script>document.addEventListener("DOMContentLoaded",function(){"function"==typeof loadComponent&&document.getElementById("meta-tags-placeholder")&&loadComponent("meta-tags-placeholder","components/meta-tags.html")})</script>

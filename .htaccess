@@ -1,0 +1,13 @@
+# Enable case-insensitive URL handling
+RewriteEngine On
+
+# Specific rule for RCM.html to rcm.html
+RewriteCond %{REQUEST_URI} ^/case-studies/RCM\.html$ [NC]
+RewriteRule ^case-studies/RCM\.html$ /case-studies/rcm.html [L,R=301]
+
+# General rule for handling case mismatch in file extensions
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteMap lowercase int:tolower
+RewriteCond ${lowercase:%{REQUEST_URI}} -f
+RewriteRule ^(.*)$ ${lowercase:$1} [L,R=301]
