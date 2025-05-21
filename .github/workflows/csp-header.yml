@@ -1,0 +1,32 @@
+name: Update CSP Headers
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  update-csp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Create _headers file for Netlify/GitHub Pages
+        run: |
+          cat > _headers << 'EOL'
+          /*
+            Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'
+          EOL
+          
+          echo "Created _headers file with CSP rules that allow Google Fonts"
+          cat _headers
+          
+      - name: Commit and push if changed
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add _headers
+          git diff --quiet && git diff --staged --quiet || git commit -m "Update CSP headers to allow Google Fonts"
+          git push
