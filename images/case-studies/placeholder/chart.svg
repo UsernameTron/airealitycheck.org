@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400">
-    <rect width="100%" height="100%" fill="#f8f9fa"/>
-    <path fill="#4285f4" d="M150 50h100v300H150z" opacity=".8"/>
-    <path fill="#ea4335" d="M300 100h100v250H300z" opacity=".8"/>
-    <path fill="#fbbc05" d="M450 150h100v200H450z" opacity=".8"/>
-    <path fill="#34a853" d="M600 200h100v150H600z" opacity=".8"/>
-    <path stroke="#333" stroke-width="2" d="M100 350h650M100 50v300"/>
-    <text x="200" y="380" fill="#444" font-family="Arial" font-size="16" text-anchor="middle">Category A</text>
-    <text x="350" y="380" fill="#444" font-family="Arial" font-size="16" text-anchor="middle">Category B</text>
-    <text x="500" y="380" fill="#444" font-family="Arial" font-size="16" text-anchor="middle">Category C</text>
-    <text x="650" y="380" fill="#444" font-family="Arial" font-size="16" text-anchor="middle">Category D</text>
-    <text x="400" y="30" fill="#333" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle">Placeholder Chart</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400"><rect width="100%" height="100%" fill="#f8f9fa"/><path fill="#4285f4" d="M150 50h100v300H150z" opacity=".8"/><path fill="#ea4335" d="M300 100h100v250H300z" opacity=".8"/><path fill="#fbbc05" d="M450 150h100v200H450z" opacity=".8"/><path fill="#34a853" d="M600 200h100v150H600z" opacity=".8"/><path stroke="#333" stroke-width="2" d="M100 350h650M100 50v300"/><text x="200" y="380" fill="#444" font-family="Arial" font-size="16" text-anchor="middle">Category A</text><text x="350" y="380" fill="#444" font-family="Arial" font-size="16" text-anchor="middle">Category B</text><text x="500" y="380" fill="#444" font-family="Arial" font-size="16" text-anchor="middle">Category C</text><text x="650" y="380" fill="#444" font-family="Arial" font-size="16" text-anchor="middle">Category D</text><text x="400" y="30" fill="#333" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle">Placeholder Chart</text></svg>

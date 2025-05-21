@@ -60,8 +60,11 @@ function initThemeToggle() {
  * Enables lazy loading for images and iframes that lack the attribute
  */
 function enableLazyLoading() {
-    document.querySelectorAll('img:not([loading]), iframe:not([loading])').forEach(element => {
-        element.setAttribute('loading', 'lazy');
+    document.querySelectorAll('img:not([loading])').forEach(img => {
+        img.setAttribute('loading', 'lazy');
+    });
+    document.querySelectorAll('iframe:not([loading])').forEach(frame => {
+        frame.setAttribute('loading', 'lazy');
     });
 }
 
