@@ -3,7 +3,7 @@
     "title": "AI Reality Check - Project Gallery",
     "description": "Centralized gallery showcasing images from main project repositories: AI Sauces, Apple Juice, and GI-ERROR Project",
     "generated": "2025-05-25",
-    "total_images": 24
+    "total_images": 22
   },
   "images": [
     {
@@ -103,32 +103,6 @@
         "cinematic",
         "movie",
         "poster"
-      ]
-    },
-    {
-      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/cinematic/Group%20Photo.png",
-      "alt": "GI-ERROR Group Photo",
-      "description": "Group photo scene from the GI-ERROR satirical UX strategy project",
-      "repository": "GI-ERROR Project",
-      "starred": true,
-      "tags": [
-        "gi-error",
-        "cinematic",
-        "group",
-        "photo"
-      ]
-    },
-    {
-      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/cinematic/Battlefield.png",
-      "alt": "GI-ERROR Battlefield Scene",
-      "description": "Battlefield scene from the GI-ERROR satirical UX strategy project",
-      "repository": "GI-ERROR Project",
-      "starred": true,
-      "tags": [
-        "gi-error",
-        "cinematic",
-        "battlefield",
-        "scene"
       ]
     },
     {
