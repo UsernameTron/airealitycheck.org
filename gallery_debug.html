@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery Debug</title>
+</head>
+<body>
+    <div id="test">Debug Test</div>
+    
+    <script>
+        console.log('Script starting...');
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded');
+            
+            // Test basic functionality
+            fetch('images.json')
+                .then(response => {
+                    console.log('Fetch response:', response.status);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Images loaded:', data.images.length);
+                    document.getElementById('test').textContent = `Loaded ${data.images.length} images successfully!`;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('test').textContent = 'Error: ' + error.message;
+                });
+        });
+    </script>
+</body>
+</html>
