@@ -3,7 +3,7 @@
     "title": "AI Reality Check - Project Gallery",
     "description": "Centralized gallery showcasing images from main project repositories: AI Sauces, Apple Juice, and GI-ERROR Project",
     "generated": "2025-05-25",
-    "total_images": 20
+    "total_images": 24
   },
   "images": [
     {
@@ -129,6 +129,58 @@
         "cinematic",
         "battlefield",
         "scene"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/characters/Commander%20Churn.jpeg",
+      "alt": "Commander Churn Character",
+      "description": "Commander Churn character from the GI-ERROR satirical UX strategy project",
+      "repository": "GI-ERROR Project",
+      "starred": true,
+      "tags": [
+        "gi-error",
+        "character",
+        "commander",
+        "churn"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/characters/LtClickbait.png",
+      "alt": "Lt Clickbait Character",
+      "description": "Lieutenant Clickbait character from the GI-ERROR satirical UX strategy project",
+      "repository": "GI-ERROR Project",
+      "starred": true,
+      "tags": [
+        "gi-error",
+        "character",
+        "lieutenant",
+        "clickbait"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/characters/Major%20Cringe.jpeg",
+      "alt": "Major Cringe Character",
+      "description": "Major Cringe character from the GI-ERROR satirical UX strategy project",
+      "repository": "GI-ERROR Project",
+      "starred": true,
+      "tags": [
+        "gi-error",
+        "character",
+        "major",
+        "cringe"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/characters/Private%20DM%20Slide.jpeg",
+      "alt": "Private DM Slide Character",
+      "description": "Private DM Slide character from the GI-ERROR satirical UX strategy project",
+      "repository": "GI-ERROR Project",
+      "starred": true,
+      "tags": [
+        "gi-error",
+        "character",
+        "private",
+        "dm-slide"
       ]
     },
     {
