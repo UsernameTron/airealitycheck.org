@@ -7,7 +7,7 @@
   },
   "images": [
     {
-      "url": "https://github.com/UsernameTron/Apple-Juice/blob/main/IMG_4967.png?raw=true",
+      "url": "https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/IMG_4967.png",
       "alt": "Apple Juice Project - Image 4967",
       "description": "Creative image from the Apple Juice project repository",
       "repository": "Apple Juice",
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/Apple-Juice/blob/main/IMG_5013.png?raw=true",
+      "url": "https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/IMG_5013.png",
       "alt": "Apple Juice Project - Image 5013",
       "description": "Creative image from the Apple Juice project repository",
       "repository": "Apple Juice",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/Apple-Juice/blob/main/IMG_5014.png?raw=true",
+      "url": "https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/IMG_5014.png",
       "alt": "Apple Juice Project - Image 5014",
       "description": "Creative image from the Apple Juice project repository",
       "repository": "Apple Juice",
@@ -43,7 +43,7 @@
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/Apple-Juice/blob/main/IMG_5016.png?raw=true",
+      "url": "https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/IMG_5016.png",
       "alt": "Apple Juice Project - Image 5016",
       "description": "Creative image from the Apple Juice project repository",
       "repository": "Apple Juice",
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/Apple-Juice/blob/main/IMG_5017.png?raw=true",
+      "url": "https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/IMG_5017.png",
       "alt": "Apple Juice Project - Image 5017",
       "description": "Creative image from the Apple Juice project repository",
       "repository": "Apple Juice",
@@ -67,72 +67,72 @@
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/GI-ERROR-Project/blob/cbfdae15630258b50285b14815ce828ea87d43b6/characters/character-01.png?raw=true",
-      "alt": "GI-ERROR Character Design 01",
-      "description": "Character design from the GI-ERROR satirical UX strategy project",
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/characters/Admiral%20Metrics.jpeg",
+      "alt": "Admiral Metrics Character",
+      "description": "Admiral Metrics character from the GI-ERROR satirical UX strategy project",
       "repository": "GI-ERROR Project",
       "starred": true,
       "tags": [
         "gi-error",
         "character",
-        "design",
-        "satire"
+        "admiral",
+        "metrics"
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/GI-ERROR-Project/blob/cbfdae15630258b50285b14815ce828ea87d43b6/characters/character-02.png?raw=true",
-      "alt": "GI-ERROR Character Design 02",
-      "description": "Character design from the GI-ERROR satirical UX strategy project",
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/characters/Baroness%20Bandwidth.jpeg",
+      "alt": "Baroness Bandwidth Character",
+      "description": "Baroness Bandwidth character from the GI-ERROR satirical UX strategy project",
       "repository": "GI-ERROR Project",
       "starred": true,
       "tags": [
         "gi-error",
         "character",
-        "design",
-        "satire"
+        "baroness",
+        "bandwidth"
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/GI-ERROR-Project/blob/cbfdae15630258b50285b14815ce828ea87d43b6/cinematic/scene-01.jpg?raw=true",
-      "alt": "GI-ERROR Cinematic Scene 01",
-      "description": "Cinematic scene from the GI-ERROR satirical UX strategy project",
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/cinematic/Movie%20Poster.png",
+      "alt": "GI-ERROR Movie Poster",
+      "description": "Movie poster from the GI-ERROR satirical UX strategy project",
       "repository": "GI-ERROR Project",
       "starred": true,
       "tags": [
         "gi-error",
         "cinematic",
-        "scene",
-        "satire"
+        "movie",
+        "poster"
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/GI-ERROR-Project/blob/cbfdae15630258b50285b14815ce828ea87d43b6/cinematic/scene-02.jpg?raw=true",
-      "alt": "GI-ERROR Cinematic Scene 02",
-      "description": "Cinematic scene from the GI-ERROR satirical UX strategy project",
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/cinematic/Group%20Photo.png",
+      "alt": "GI-ERROR Group Photo",
+      "description": "Group photo scene from the GI-ERROR satirical UX strategy project",
       "repository": "GI-ERROR Project",
       "starred": true,
       "tags": [
         "gi-error",
         "cinematic",
-        "scene",
-        "satire"
+        "group",
+        "photo"
       ]
     },
     {
-      "url": "https://github.com/UsernameTron/GI-ERROR-Project/blob/cbfdae15630258b50285b14815ce828ea87d43b6/posters/poster-01.png?raw=true",
-      "alt": "GI-ERROR Project Poster 01",
-      "description": "Promotional poster from the GI-ERROR satirical UX strategy project",
+      "url": "https://raw.githubusercontent.com/UsernameTron/GI-ERROR-Project/main/cinematic/Battlefield.png",
+      "alt": "GI-ERROR Battlefield Scene",
+      "description": "Battlefield scene from the GI-ERROR satirical UX strategy project",
       "repository": "GI-ERROR Project",
       "starred": true,
       "tags": [
         "gi-error",
-        "poster",
-        "promotional",
-        "satire"
+        "cinematic",
+        "battlefield",
+        "scene"
       ]
     },
     {
-      "url": "ai-sauces/20250413_2046_AI Sauce Parody_remix_01jrrzhk51eser641tt2tqdhha.png",
+      "url": "/ai-sauces/20250413_2046_AI%20Sauce%20Parody_remix_01jrrzhk51eser641tt2tqdhha.png",
       "alt": "AI Sauce Parody",
       "description": "Satirical AI-generated sauce bottle design with humorous labeling",
       "repository": "AI Sauces",
@@ -144,7 +144,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2052_AI Sauce Mockup_remix_01jrrzwyz0ezqrf4fvnt4k5gf4.png",
+      "url": "/ai-sauces/20250413_2052_AI%20Sauce%20Mockup_remix_01jrrzwyz0ezqrf4fvnt4k5gf4.png",
       "alt": "AI Sauce Mockup",
       "description": "Professional mockup of AI-themed condiment packaging",
       "repository": "AI Sauces",
@@ -156,7 +156,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2109_AI Sauce Mockup_remix_01jrs0w9axe2ervgyew6902xp1.png",
+      "url": "/ai-sauces/20250413_2109_AI%20Sauce%20Mockup_remix_01jrs0w9axe2ervgyew6902xp1.png",
       "alt": "AI Sauce Mockup Alternative",
       "description": "Alternative design for AI-themed sauce bottle",
       "repository": "AI Sauces",
@@ -168,7 +168,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2120_AI Sauce Mockup_remix_01jrs1ffpde0gshteewdrjs3a7.png",
+      "url": "/ai-sauces/20250413_2120_AI%20Sauce%20Mockup_remix_01jrs1ffpde0gshteewdrjs3a7.png",
       "alt": "AI Sauce Mockup Variant",
       "description": "Creative variant of AI sauce packaging design",
       "repository": "AI Sauces",
@@ -180,7 +180,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2153_AI-Themed Steak Sauce_remix_01jrs3cvr3fzkas1wg11hfsbts.png",
+      "url": "/ai-sauces/20250413_2153_AI-Themed%20Steak%20Sauce_remix_01jrs3cvr3fzkas1wg11hfsbts.png",
       "alt": "AI-Themed Steak Sauce",
       "description": "AI-themed steak sauce bottle with technical branding",
       "repository": "AI Sauces",
@@ -192,7 +192,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2215_AI Sauce Mockup_remix_01jrs4kn43f6zbmwc1etxjdweb.png",
+      "url": "/ai-sauces/20250413_2215_AI%20Sauce%20Mockup_remix_01jrs4kn43f6zbmwc1etxjdweb.png",
       "alt": "Evening AI Sauce Design",
       "description": "AI sauce mockup created in evening design session",
       "repository": "AI Sauces",
@@ -204,7 +204,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2234_AI Sauce Bottle_remix_01jrs5q207ex5s6hwa764ss7b6.png",
+      "url": "/ai-sauces/20250413_2234_AI%20Sauce%20Bottle_remix_01jrs5q207ex5s6hwa764ss7b6.png",
       "alt": "AI Sauce Bottle Design",
       "description": "Refined AI sauce bottle with clean design elements",
       "repository": "AI Sauces",
@@ -216,7 +216,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2248_AI Sauce Bottle_remix_01jrs6h32wevvbk2kmpfgqynsy.png",
+      "url": "/ai-sauces/20250413_2248_AI%20Sauce%20Bottle_remix_01jrs6h32wevvbk2kmpfgqynsy.png",
       "alt": "Late Night AI Sauce",
       "description": "AI sauce bottle design from late night creative session",
       "repository": "AI Sauces",
@@ -228,7 +228,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2302_AI Sauce Parody_remix_01jrs7a60sfmmbra579mthjkmw.png",
+      "url": "/ai-sauces/20250413_2302_AI%20Sauce%20Parody_remix_01jrs7a60sfmmbra579mthjkmw.png",
       "alt": "AI Sauce Parody Final",
       "description": "Final version of AI sauce parody design",
       "repository": "AI Sauces",
@@ -240,7 +240,7 @@
       ]
     },
     {
-      "url": "ai-sauces/20250413_2311_AI Steak Sauce Satire_remix_01jrs7vd4kfkvs66nf5r3ksvxm.png",
+      "url": "/ai-sauces/20250413_2311_AI%20Steak%20Sauce%20Satire_remix_01jrs7vd4kfkvs66nf5r3ksvxm.png",
       "alt": "AI Steak Sauce Satire",
       "description": "Satirical take on AI-branded steak sauce",
       "repository": "AI Sauces",
