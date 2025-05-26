@@ -1,9 +1,9 @@
 {
   "metadata": {
     "title": "AI Reality Check - Project Gallery",
-    "description": "Centralized gallery showcasing images from main project repositories: AI Sauces, Apple Juice, and GI-ERROR Project",
+    "description": "Centralized gallery showcasing images from main project repositories: AI Sauces, Apple Juice, GI-ERROR Project, and Fun-With-Sora",
     "generated": "2025-05-25",
-    "total_images": 22
+    "total_images": 41
   },
   "images": [
     {
@@ -275,6 +275,262 @@
         "ai-sauce",
         "steak-sauce",
         "satire"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250404_1905_Breaking%20Crab_simple_compose_01jr1m8dheea0vh65ha5yern9b.png",
+      "alt": "Breaking Crab",
+      "description": "AI-generated video content from Fun-With-Sora: Breaking Crab",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "breaking-bad",
+        "seafood"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250404_2036_Breaking%20Ads%20Parody_remix_01jr1sexxyfcm9ejnd9xmy6yjw%20%281%29.png",
+      "alt": "Breaking Ads Parody",
+      "description": "AI-generated video content from Fun-With-Sora: Breaking Ads Parody",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "parody",
+        "breaking-bad"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250404_2036_Breaking%20Ads%20Parody_remix_01jr1sexxyfcm9ejnd9xmy6yjw.png",
+      "alt": "Breaking Ads Parody",
+      "description": "AI-generated video content from Fun-With-Sora: Breaking Ads Parody",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "parody",
+        "breaking-bad"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250405_0019_Desert%20Showdown_simple_compose_01jr266zr7e1cb2t8z6nmdd0cv.png",
+      "alt": "Desert Showdown",
+      "description": "AI-generated video content from Fun-With-Sora: Desert Showdown",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "western"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250405_0258_Weekend%20at%20Bernies%20Parody_remix_01jr2fbhydfzzs0qgdmjxkdn3n.png",
+      "alt": "Weekend At Bernies Parody",
+      "description": "AI-generated video content from Fun-With-Sora: Weekend At Bernies Parody",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "parody",
+        "movie-reference"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250407_0350_Canine%20Office%20Goals_remix_01jr7q3f7qfc7sc2tygspasdrj.png",
+      "alt": "Canine Office Goals",
+      "description": "AI-generated video content from Fun-With-Sora: Canine Office Goals",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "office",
+        "animals"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250411_2255_Burger%20Joint%20Encounter_remix_01jrm22khbfrta2e74crbhv9xr.png",
+      "alt": "Burger Joint Encounter",
+      "description": "AI-generated video content from Fun-With-Sora: Burger Joint Encounter",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "food"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250421_1515_Reign%20Man%20Poster_simple_compose_01jsczqf6tf5b9ej46k0n5q7rx.png",
+      "alt": "Reign Man Poster",
+      "description": "AI-generated video content from Fun-With-Sora: Reign Man Poster",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "movie-reference"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250511_2128_Google%20Drive-In%20Parody_remix_01jv153ns2ec28wcz0hg64n6wp.png",
+      "alt": "Google Drive-In Parody",
+      "description": "AI-generated video content from Fun-With-Sora: Google Drive-In Parody",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "parody",
+        "google"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250511_2129_Repo%20Repossession%20Drama_simple_compose_01jv154p33fb79zx3s6p3gpggf.png",
+      "alt": "Repo Repossession Drama",
+      "description": "AI-generated video content from Fun-With-Sora: Repo Repossession Drama",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "development"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250511_2208_Gemini%27s%20Unnoticed%20Brilliance_simple_compose_01jv17cme0fyzbxnctz2qawsv3.png",
+      "alt": "Gemini'S Unnoticed Brilliance",
+      "description": "AI-generated video content from Fun-With-Sora: Gemini'S Unnoticed Brilliance",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "ai-tools"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250511_2210_Satirical%20Dev%20Workspace_remix_01jv17g5wrev2a151sj2mm90yb.png",
+      "alt": "Satirical Dev Workspace",
+      "description": "AI-generated video content from Fun-With-Sora: Satirical Dev Workspace",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "satire"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250511_2216_Satirical%20AI%20Ad%20Parody_remix_01jv17vashewa8akh57meevv63.png",
+      "alt": "Satirical Ai Ad Parody",
+      "description": "AI-generated video content from Fun-With-Sora: Satirical Ai Ad Parody",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "parody",
+        "satire"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250512_1909_Mocking%20LinkedIn%20Glove%20Mascot_remix_01jv3fgrh0f2nrxyp1gjab9m7e.png",
+      "alt": "Mocking Linkedin Glove Mascot",
+      "description": "AI-generated video content from Fun-With-Sora: Mocking Linkedin Glove Mascot",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "linkedin"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250515_1908_Festive%20Awkward%20Moment_remix_01jvb6p9veehmvvbzhvccrjtm6.png",
+      "alt": "Festive Awkward Moment",
+      "description": "AI-generated video content from Fun-With-Sora: Festive Awkward Moment",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "holiday"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250523_0240_Historic%20Assassination%20Scene_remix_01jvy18j6weeqsgpq8hny8wkpv.png",
+      "alt": "Historic Assassination Scene",
+      "description": "AI-generated video content from Fun-With-Sora: Historic Assassination Scene",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "historic"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250525_2123_Wargames%20Arcade%20Challenge_remix_01jw56b72pen7r15fjnh8tnsgj.png",
+      "alt": "Wargames Arcade Challenge",
+      "description": "AI-generated video content from Fun-With-Sora: Wargames Arcade Challenge",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "gaming",
+        "movie-reference",
+        "hacking"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250525_2127_Robot%20Selfie%20Moment_remix_01jw56jc2sf49bv8krc4r7w38y.png",
+      "alt": "Robot Selfie Moment",
+      "description": "AI-generated video content from Fun-With-Sora: Robot Selfie Moment",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "robot"
+      ]
+    },
+    {
+      "url": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250525_2136_OJ%20Juice%20Promotion_simple_compose_01jw573cm5fqer846v0cmgmfnx.png",
+      "alt": "Oj Juice Promotion",
+      "description": "AI-generated video content from Fun-With-Sora: Oj Juice Promotion",
+      "repository": "Fun-With-Sora",
+      "starred": true,
+      "tags": [
+        "fun-with-sora",
+        "ai-generated",
+        "video",
+        "advertising"
       ]
     }
   ]
