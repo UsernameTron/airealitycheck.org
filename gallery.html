@@ -169,6 +169,50 @@
             margin: 20px 0;
         }
 
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 20px;
+        }
+
+        .page-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a5568;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            color: #2d3748;
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .page-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #4a5568;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
         .back-link {
             position: fixed;
             top: 20px;
@@ -257,6 +301,12 @@
             <!-- Gallery items will be generated dynamically -->
         </div>
 
+        <div class="pagination" id="pagination" style="display: none;">
+            <button id="prev-page" class="page-btn">‹ Previous</button>
+            <span id="page-info" class="page-info"></span>
+            <button id="next-page" class="page-btn">Next ›</button>
+        </div>
+
         <div class="error" id="error" style="display: none;">
             <h3>Error Loading Gallery</h3>
             <p id="error-message"></p>
@@ -269,6 +319,8 @@
                 this.images = [];
                 this.filteredImages = [];
                 this.currentFilter = 'all';
+                this.currentPage = 1;
+                this.imagesPerPage = 12;
                 
                 this.elements = {
                     stats: document.getElementById('stats'),
@@ -276,7 +328,11 @@
                     gallery: document.getElementById('gallery'),
                     loading: document.getElementById('loading'),
                     error: document.getElementById('error'),
-                    errorMessage: document.getElementById('error-message')
+                    errorMessage: document.getElementById('error-message'),
+                    pagination: document.getElementById('pagination'),
+                    prevBtn: document.getElementById('prev-page'),
+                    nextBtn: document.getElementById('next-page'),
+                    pageInfo: document.getElementById('page-info')
                 };
                 
                 this.init();
@@ -286,8 +342,10 @@
                 try {
                     await this.loadImages();
                     this.createFilters();
+                    this.setupPagination();
                     this.renderGallery();
                     this.updateStats();
+                    this.updatePagination();
                     this.hideLoading();
                 } catch (error) {
                     this.showError('Failed to load gallery: ' + error.message);
@@ -333,6 +391,25 @@
                 });
             }
 
+            setupPagination() {
+                this.elements.prevBtn.addEventListener('click', () => {
+                    if (this.currentPage > 1) {
+                        this.currentPage--;
+                        this.renderGallery();
+                        this.updatePagination();
+                    }
+                });
+
+                this.elements.nextBtn.addEventListener('click', () => {
+                    const totalPages = Math.ceil(this.filteredImages.length / this.imagesPerPage);
+                    if (this.currentPage < totalPages) {
+                        this.currentPage++;
+                        this.renderGallery();
+                        this.updatePagination();
+                    }
+                });
+            }
+
             handleFilterClick(button) {
                 // Update active state
                 document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
@@ -341,6 +418,7 @@
                 // Apply filter
                 const filter = button.dataset.filter;
                 this.currentFilter = filter;
+                this.currentPage = 1; // Reset to first page when filtering
                 
                 if (filter === 'all') {
                     this.filteredImages = [...this.images];
@@ -350,10 +428,16 @@
                 
                 this.renderGallery();
                 this.updateStats();
+                this.updatePagination();
             }
 
             renderGallery() {
-                const galleryHtml = this.filteredImages.map((image, index) => `
+                // Calculate pagination
+                const startIndex = (this.currentPage - 1) * this.imagesPerPage;
+                const endIndex = startIndex + this.imagesPerPage;
+                const currentPageImages = this.filteredImages.slice(startIndex, endIndex);
+                
+                const galleryHtml = currentPageImages.map((image, index) => `
                     <div class="gallery-item fade-in" style="animation-delay: ${index * 0.1}s">
                         <img src="${image.url}" alt="${image.alt}" loading="lazy" 
                              onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;300&quot; height=&quot;200&quot; viewBox=&quot;0 0 300 200&quot;><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;%23f0f0f0&quot;/><text x=&quot;50%&quot; y=&quot;50%&quot; text-anchor=&quot;middle&quot; dy=&quot;.3em&quot; fill=&quot;%23666&quot;>Image not found</text></svg>'"
@@ -374,6 +458,15 @@
                         }
                     }
                 });
+                
+                // Show/hide pagination based on total images
+                const totalPages = Math.ceil(this.filteredImages.length / this.imagesPerPage);
+                if (totalPages > 1) {
+                    this.elements.pagination.style.display = 'flex';
+                    this.updatePagination();
+                } else {
+                    this.elements.pagination.style.display = 'none';
+                }
             }
 
             updateStats() {
@@ -384,6 +477,17 @@
                 this.elements.stats.innerHTML = `
                     <p>Showing ${showing} of ${total} featured images from ${repositories} repositories</p>
                 `;
+            }
+
+            updatePagination() {
+                const totalPages = Math.ceil(this.filteredImages.length / this.imagesPerPage);
+                
+                // Update page info
+                this.elements.pageInfo.textContent = `Page ${this.currentPage} of ${totalPages}`;
+                
+                // Update button states
+                this.elements.prevBtn.disabled = this.currentPage === 1;
+                this.elements.nextBtn.disabled = this.currentPage === totalPages;
             }
 
             hideLoading() {
