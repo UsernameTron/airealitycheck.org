@@ -3,7 +3,7 @@
     "title": "AI Reality Check - Project Gallery",
     "description": "Centralized gallery showcasing images from main project repositories: AI Sauces, Apple Juice, GI-ERROR Project, and Fun-With-Sora",
     "generated": "2025-05-25",
-    "total_images": 41
+    "total_images": 43
   },
   "images": [
     {
@@ -531,6 +531,30 @@
         "ai-generated",
         "video",
         "advertising"
+      ]
+    },
+    {
+      "url": "/ai-sauces/IMG_4536.PNG",
+      "alt": "AI Sauce Additional Image 4536",
+      "description": "Additional AI sauce image from the project collection",
+      "repository": "AI Sauces",
+      "starred": true,
+      "tags": [
+        "ai-sauce",
+        "additional",
+        "collection"
+      ]
+    },
+    {
+      "url": "/ai-sauces/IMG_4537.PNG",
+      "alt": "AI Sauce Additional Image 4537",
+      "description": "Additional AI sauce image from the project collection",
+      "repository": "AI Sauces",
+      "starred": true,
+      "tags": [
+        "ai-sauce",
+        "additional",
+        "collection"
       ]
     }
   ]
