@@ -5,7 +5,6 @@
 
 // Execute when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('🔍 Starting website diagnostics...');
     
     // Create diagnostic container
     const diagnosticContainer = document.createElement('div');

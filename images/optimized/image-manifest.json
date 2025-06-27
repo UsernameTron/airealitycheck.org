@@ -1,0 +1,390 @@
+{
+  "generated": "2025-06-27T00:43:16.542Z",
+  "images": {
+    "articles/image1.jpeg": {
+      "original": "articles/image1.jpeg",
+      "optimized": [
+        {
+          "src": "images/optimized/articles/image1.webp",
+          "width": "original",
+          "size": "169.56",
+          "reduction": "66.1"
+        },
+        {
+          "src": "images/optimized/articles/image1_small.webp",
+          "width": 480,
+          "size": "20.46",
+          "reduction": "95.9"
+        },
+        {
+          "src": "images/optimized/articles/image1_medium.webp",
+          "width": 768,
+          "size": "46.20",
+          "reduction": "90.8"
+        },
+        {
+          "src": "images/optimized/articles/image1_large.webp",
+          "width": 1200,
+          "size": "96.20",
+          "reduction": "80.8"
+        },
+        {
+          "src": "images/optimized/articles/image1_xlarge.webp",
+          "width": 1920,
+          "size": "263.96",
+          "reduction": "47.3"
+        }
+      ]
+    },
+    "creative/featured-ai-image.webp": {
+      "original": "creative/featured-ai-image.webp",
+      "optimized": [
+        {
+          "src": "images/optimized/creative/featured-ai-image.webp",
+          "width": "original",
+          "size": "592.76",
+          "reduction": "59.0"
+        },
+        {
+          "src": "images/optimized/creative/featured-ai-image_small.webp",
+          "width": 480,
+          "size": "13.11",
+          "reduction": "99.1"
+        },
+        {
+          "src": "images/optimized/creative/featured-ai-image_medium.webp",
+          "width": 768,
+          "size": "32.17",
+          "reduction": "97.8"
+        },
+        {
+          "src": "images/optimized/creative/featured-ai-image_large.webp",
+          "width": 1200,
+          "size": "98.76",
+          "reduction": "93.2"
+        },
+        {
+          "src": "images/optimized/creative/featured-ai-image_xlarge.webp",
+          "width": 1920,
+          "size": "397.04",
+          "reduction": "72.5"
+        }
+      ]
+    },
+    "creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw.webp": {
+      "original": "creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw.webp",
+      "optimized": [
+        {
+          "src": "images/optimized/creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw.webp",
+          "width": "original",
+          "size": "592.76",
+          "reduction": "59.0"
+        },
+        {
+          "src": "images/optimized/creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw_small.webp",
+          "width": 480,
+          "size": "13.11",
+          "reduction": "99.1"
+        },
+        {
+          "src": "images/optimized/creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw_medium.webp",
+          "width": 768,
+          "size": "32.17",
+          "reduction": "97.8"
+        },
+        {
+          "src": "images/optimized/creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw_large.webp",
+          "width": 1200,
+          "size": "98.76",
+          "reduction": "93.2"
+        },
+        {
+          "src": "images/optimized/creative/openart-85d6fd79311c4e1faebd34e0c57f2320_raw_xlarge.webp",
+          "width": 1920,
+          "size": "397.04",
+          "reduction": "72.5"
+        }
+      ]
+    },
+    "footer/Dark UI Footer.webp": {
+      "original": "footer/Dark UI Footer.webp",
+      "optimized": [
+        {
+          "src": "images/optimized/footer/Dark UI Footer.webp",
+          "width": "original",
+          "size": "61.16",
+          "reduction": "42.0"
+        },
+        {
+          "src": "images/optimized/footer/Dark UI Footer_small.webp",
+          "width": 480,
+          "size": "13.18",
+          "reduction": "87.5"
+        },
+        {
+          "src": "images/optimized/footer/Dark UI Footer_medium.webp",
+          "width": 768,
+          "size": "33.05",
+          "reduction": "68.7"
+        },
+        {
+          "src": "images/optimized/footer/Dark UI Footer_large.webp",
+          "width": 1200,
+          "size": "86.70",
+          "reduction": "17.8"
+        },
+        {
+          "src": "images/optimized/footer/Dark UI Footer_xlarge.webp",
+          "width": 1920,
+          "size": "114.60",
+          "reduction": "-8.6"
+        }
+      ]
+    },
+    "hero/ARC Hero.png": {
+      "original": "hero/ARC Hero.png",
+      "optimized": [
+        {
+          "src": "images/optimized/hero/ARC Hero.webp",
+          "width": "original",
+          "size": "79.60",
+          "reduction": "98.5"
+        },
+        {
+          "src": "images/optimized/hero/ARC Hero_small.webp",
+          "width": 480,
+          "size": "2.88",
+          "reduction": "99.9"
+        },
+        {
+          "src": "images/optimized/hero/ARC Hero_medium.webp",
+          "width": 768,
+          "size": "6.88",
+          "reduction": "99.9"
+        },
+        {
+          "src": "images/optimized/hero/ARC Hero_large.webp",
+          "width": 1200,
+          "size": "17.36",
+          "reduction": "99.7"
+        },
+        {
+          "src": "images/optimized/hero/ARC Hero_xlarge.webp",
+          "width": 1920,
+          "size": "65.18",
+          "reduction": "98.7"
+        }
+      ]
+    },
+    "hero/ARC Hero.webp": {
+      "original": "hero/ARC Hero.webp",
+      "optimized": [
+        {
+          "src": "images/optimized/hero/ARC Hero.webp",
+          "width": "original",
+          "size": "86.39",
+          "reduction": "41.2"
+        },
+        {
+          "src": "images/optimized/hero/ARC Hero_small.webp",
+          "width": 480,
+          "size": "2.85",
+          "reduction": "98.1"
+        },
+        {
+          "src": "images/optimized/hero/ARC Hero_medium.webp",
+          "width": 768,
+          "size": "6.67",
+          "reduction": "95.5"
+        },
+        {
+          "src": "images/optimized/hero/ARC Hero_large.webp",
+          "width": 1200,
+          "size": "17.16",
+          "reduction": "88.3"
+        },
+        {
+          "src": "images/optimized/hero/ARC Hero_xlarge.webp",
+          "width": 1920,
+          "size": "61.99",
+          "reduction": "57.8"
+        }
+      ]
+    },
+    "hero/ai-cityscape.webp": {
+      "original": "hero/ai-cityscape.webp",
+      "optimized": [
+        {
+          "src": "images/optimized/hero/ai-cityscape.webp",
+          "width": "original",
+          "size": "110.28",
+          "reduction": "40.6"
+        },
+        {
+          "src": "images/optimized/hero/ai-cityscape_small.webp",
+          "width": 480,
+          "size": "15.04",
+          "reduction": "91.9"
+        },
+        {
+          "src": "images/optimized/hero/ai-cityscape_medium.webp",
+          "width": 768,
+          "size": "35.92",
+          "reduction": "80.7"
+        },
+        {
+          "src": "images/optimized/hero/ai-cityscape_large.webp",
+          "width": 1200,
+          "size": "90.99",
+          "reduction": "51.0"
+        },
+        {
+          "src": "images/optimized/hero/ai-cityscape_xlarge.webp",
+          "width": 1920,
+          "size": "216.56",
+          "reduction": "-16.6"
+        }
+      ]
+    },
+    "hero/case-studies-hero.webp": {
+      "original": "hero/case-studies-hero.webp",
+      "optimized": [
+        {
+          "src": "images/optimized/hero/case-studies-hero.webp",
+          "width": "original",
+          "size": "65.21",
+          "reduction": "32.8"
+        },
+        {
+          "src": "images/optimized/hero/case-studies-hero_small.webp",
+          "width": 480,
+          "size": "10.13",
+          "reduction": "89.6"
+        },
+        {
+          "src": "images/optimized/hero/case-studies-hero_medium.webp",
+          "width": 768,
+          "size": "20.84",
+          "reduction": "78.5"
+        },
+        {
+          "src": "images/optimized/hero/case-studies-hero_large.webp",
+          "width": 1200,
+          "size": "43.35",
+          "reduction": "55.3"
+        },
+        {
+          "src": "images/optimized/hero/case-studies-hero_xlarge.webp",
+          "width": 1920,
+          "size": "107.41",
+          "reduction": "-10.6"
+        }
+      ]
+    },
+    "hero/hero-background.webp": {
+      "original": "hero/hero-background.webp",
+      "optimized": [
+        {
+          "src": "images/optimized/hero/hero-background.webp",
+          "width": "original",
+          "size": "110.28",
+          "reduction": "40.6"
+        },
+        {
+          "src": "images/optimized/hero/hero-background_small.webp",
+          "width": 480,
+          "size": "15.04",
+          "reduction": "91.9"
+        },
+        {
+          "src": "images/optimized/hero/hero-background_medium.webp",
+          "width": 768,
+          "size": "35.92",
+          "reduction": "80.7"
+        },
+        {
+          "src": "images/optimized/hero/hero-background_large.webp",
+          "width": 1200,
+          "size": "90.99",
+          "reduction": "51.0"
+        },
+        {
+          "src": "images/optimized/hero/hero-background_xlarge.webp",
+          "width": 1920,
+          "size": "216.56",
+          "reduction": "-16.6"
+        }
+      ]
+    },
+    "hero/portfolio-hero.webp": {
+      "original": "hero/portfolio-hero.webp",
+      "optimized": [
+        {
+          "src": "images/optimized/hero/portfolio-hero.webp",
+          "width": "original",
+          "size": "183.89",
+          "reduction": "33.2"
+        },
+        {
+          "src": "images/optimized/hero/portfolio-hero_small.webp",
+          "width": 480,
+          "size": "11.54",
+          "reduction": "95.8"
+        },
+        {
+          "src": "images/optimized/hero/portfolio-hero_medium.webp",
+          "width": 768,
+          "size": "31.64",
+          "reduction": "88.5"
+        },
+        {
+          "src": "images/optimized/hero/portfolio-hero_large.webp",
+          "width": 1200,
+          "size": "103.38",
+          "reduction": "62.4"
+        },
+        {
+          "src": "images/optimized/hero/portfolio-hero_xlarge.webp",
+          "width": 1920,
+          "size": "302.80",
+          "reduction": "-10.0"
+        }
+      ]
+    },
+    "portfolio/mindmeldgpt-thumb.png": {
+      "original": "portfolio/mindmeldgpt-thumb.png",
+      "optimized": [
+        {
+          "src": "images/optimized/portfolio/mindmeldgpt-thumb.webp",
+          "width": "original",
+          "size": "99.98",
+          "reduction": "93.4"
+        },
+        {
+          "src": "images/optimized/portfolio/mindmeldgpt-thumb_small.webp",
+          "width": 480,
+          "size": "25.85",
+          "reduction": "98.3"
+        },
+        {
+          "src": "images/optimized/portfolio/mindmeldgpt-thumb_medium.webp",
+          "width": 768,
+          "size": "66.20",
+          "reduction": "95.7"
+        },
+        {
+          "src": "images/optimized/portfolio/mindmeldgpt-thumb_large.webp",
+          "width": 1200,
+          "size": "130.51",
+          "reduction": "91.4"
+        },
+        {
+          "src": "images/optimized/portfolio/mindmeldgpt-thumb_xlarge.webp",
+          "width": 1920,
+          "size": "208.54",
+          "reduction": "86.3"
+        }
+      ]
+    }
+  }
+}

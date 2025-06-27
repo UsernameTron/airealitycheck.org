@@ -145,11 +145,13 @@
     <main>
         <section class="content">
             <div class="container">
-                <div class="video-container">
-                    <video controls poster="../images/hero/ARC Hero.webp">
-                        <source src="../videos/oppy.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="video-container" 
+                     data-video-player="true" 
+                     data-video-name="oppy" 
+                     data-poster="../images/hero/ARC Hero.webp"
+                     data-fallback-src="../videos/oppy.mp4"
+                     data-lazy-load="true">
+                    <!-- Video will be dynamically loaded here -->
                 </div>
                 
                 <div class="video-info">
@@ -182,6 +184,7 @@
     <!-- Footer Component Placeholder -->
     <div id="footer-placeholder"></div>
 
+    <script src="../js/video-player.js"></script>
     <script src="../js/main.min.js"></script>
     <script src="../js/components.min.js"></script>
     
