@@ -26,7 +26,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.12.0",
+    "@lhci/cli": "^0.15.1",
     "axe-core": "^4.8.4",
     "broken-link-checker": "^0.7.8",
     "eslint": "^8.57.0",
@@ -42,7 +42,7 @@
     "imagemin-pngquant": "^9.0.2",
     "imagemin-webp": "^7.0.0",
     "lint-staged": "^15.2.0",
-    "puppeteer": "^21.11.0",
+    "puppeteer": "^24.10.2",
     "sharp": "^0.32.0",
     "stylelint": "^16.2.1",
     "stylelint-config-css-modules": "^4.4.0",
