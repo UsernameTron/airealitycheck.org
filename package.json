@@ -26,7 +26,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "@lhci/cli": "^0.12.0",
+    "@lhci/cli": "^0.15.1",
     "axe-core": "^4.8.4",
     "broken-link-checker": "^0.7.8",
     "eslint": "^8.57.0",
