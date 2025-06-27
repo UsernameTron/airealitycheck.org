@@ -4,92 +4,89 @@
  * to ensure basic styling and theme functionality even if other scripts fail to load
  */
 (function() {
-    // Ensure theme is initialized
-    function initializeTheme() {
-        // Get theme from HTML or localStorage - page-level setting overrides localStorage
-        const htmlElement = document.documentElement;
-        const currentThemeClass = Array.from(htmlElement.classList)
-            .find(cls => cls.startsWith('theme-'));
-            
-        if (currentThemeClass) {
-            // If a specific theme class is already set in HTML, respect it
-            console.log('Respecting HTML theme class:', currentThemeClass);
-        } else {
-            // Otherwise use the saved theme from localStorage
-            const savedTheme = localStorage.getItem('theme') || 'auto';
-            console.log('Using localStorage theme:', savedTheme);
-            // Remove any existing theme classes and add the saved one
-            htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
-            htmlElement.classList.add(`theme-${savedTheme}`);
-        }
+  // Ensure theme is initialized
+  function initializeTheme() {
+    // Get theme from HTML or localStorage - page-level setting overrides localStorage
+    const htmlElement = document.documentElement;
+    const currentThemeClass = Array.from(htmlElement.classList)
+      .find(cls => cls.startsWith('theme-'));
+
+    if (currentThemeClass) {
+      // If a specific theme class is already set in HTML, respect it
+    } else {
+      // Otherwise use the saved theme from localStorage
+      const savedTheme = localStorage.getItem('theme') || 'auto';
+      // Remove any existing theme classes and add the saved one
+      htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+      htmlElement.classList.add(`theme-${savedTheme}`);
     }
-    
-    // Ensure styles are loaded
-    function ensureCriticalStyles() {
-        // Check if main stylesheet is loaded
-        function isStylesheetLoaded() {
-            return Array.from(document.styleSheets).some(sheet => {
-                try {
-                    return sheet.href && (
-                        sheet.href.includes('/style.min.css') || 
+  }
+
+  // Ensure styles are loaded
+  function ensureCriticalStyles() {
+    // Check if main stylesheet is loaded
+    function isStylesheetLoaded() {
+      return Array.from(document.styleSheets).some(sheet => {
+        try {
+          return sheet.href && (
+            sheet.href.includes('/style.min.css') ||
                         sheet.href.includes('/style.css')
-                    );
-                } catch(e) {
-                    return false;
-                }
-            });
+          );
+        } catch (e) {
+          return false;
         }
-        
-        // Load emergency stylesheet if needed
-        if (!isStylesheetLoaded()) {
-            // Try possible paths to CSS file
-            const paths = [
-                './css/style.min.css',
-                '../css/style.min.css', 
-                '../../css/style.min.css',
-                '/css/style.min.css'
-            ];
-            
-            // Load Google Fonts as a fallback
-            if (!document.querySelector('link[href*="fonts.googleapis.com"]')) {
-                const fontLink = document.createElement('link');
-                fontLink.rel = 'stylesheet';
-                fontLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap';
-                document.head.appendChild(fontLink);
-            }
-            
-            // Try each path to find the stylesheet
-            let styleLoaded = false;
-            for (const path of paths) {
-                if (!styleLoaded) {
-                    const link = document.createElement('link');
-                    link.rel = 'stylesheet';
-                    link.href = path;
-                    link.id = 'emergency-stylesheet';
-                    document.head.appendChild(link);
-                    
-                    // Check if it worked
-                    link.onload = function() {
-                        styleLoaded = true;
-                        console.log('Emergency stylesheet loaded from:', path);
-                    };
-                }
-            }
-        }
+      });
     }
-    
-    // Load emergency fallback components if needed
-    function loadEmergencyComponents() {
-        // Wait a few seconds to see if normal components load
-        setTimeout(function() {
-            // Check if header and footer are present
-            const hasHeader = document.querySelector('header') !== null;
-            const hasFooter = document.querySelector('footer') !== null;
-            
-            // Create emergency header if missing
-            if (!hasHeader && document.getElementById('header-placeholder')) {
-                const headerPlaceholder = document.getElementById('header-placeholder');
-                headerPlaceholder.innerHTML = `
+
+    // Load emergency stylesheet if needed
+    if (!isStylesheetLoaded()) {
+      // Try possible paths to CSS file
+      const paths = [
+        './css/style.min.css',
+        '../css/style.min.css',
+        '../../css/style.min.css',
+        '/css/style.min.css'
+      ];
+
+      // Load Google Fonts as a fallback
+      if (!document.querySelector('link[href*="fonts.googleapis.com"]')) {
+        const fontLink = document.createElement('link');
+        fontLink.rel = 'stylesheet';
+        fontLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap';
+        document.head.appendChild(fontLink);
+      }
+
+      // Try each path to find the stylesheet
+      let styleLoaded = false;
+      for (const path of paths) {
+        if (!styleLoaded) {
+          const link = document.createElement('link');
+          link.rel = 'stylesheet';
+          link.href = path;
+          link.id = 'emergency-stylesheet';
+          document.head.appendChild(link);
+
+          // Check if it worked
+          link.onload = function() {
+            styleLoaded = true;
+          };
+        }
+      }
+    }
+  }
+
+  // Load emergency fallback components if needed
+  function loadEmergencyComponents() {
+    // Wait a few seconds to see if normal components load
+    setTimeout(() => {
+      // Check if header and footer are present
+      const hasHeader = document.querySelector('header') !== null;
+      const hasFooter = document.querySelector('footer') !== null;
+
+      // Create emergency header if missing
+      if (!hasHeader && document.getElementById('header-placeholder')) {
+        const headerPlaceholder = document.getElementById('header-placeholder');
+        headerPlaceholder.innerHTML = `
                     <header class="emergency-header" role="banner">
                         <div class="container">
                             <div class="logo">
@@ -107,13 +104,12 @@
                         </div>
                     </header>
                 `;
-                console.warn('Emergency header loaded');
-            }
-            
-            // Create emergency footer if missing
-            if (!hasFooter && document.getElementById('footer-placeholder')) {
-                const footerPlaceholder = document.getElementById('footer-placeholder');
-                footerPlaceholder.innerHTML = `
+      }
+
+      // Create emergency footer if missing
+      if (!hasFooter && document.getElementById('footer-placeholder')) {
+        const footerPlaceholder = document.getElementById('footer-placeholder');
+        footerPlaceholder.innerHTML = `
                     <footer class="emergency-footer">
                         <div class="container">
                             <div class="footer-content">
@@ -133,28 +129,27 @@
                         </div>
                     </footer>
                 `;
-                console.warn('Emergency footer loaded');
-            }
-        }, 3000); // Wait 3 seconds to see if normal components load
-    }
-    
-    // Run all critical functions
-    initializeTheme();
-    
-    // Load critical styles when DOM content is loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        ensureCriticalStyles();
-        loadEmergencyComponents();
-    });
-    
-    // Also run immediately in case DOMContentLoaded already fired
-    if (document.readyState === 'interactive' || document.readyState === 'complete') {
-        ensureCriticalStyles();
-    }
-    
-    // Create emergency stylesheet with critical styles
-    const criticalStyles = document.createElement('style');
-    criticalStyles.textContent = `
+      }
+    }, 3000); // Wait 3 seconds to see if normal components load
+  }
+
+  // Run all critical functions
+  initializeTheme();
+
+  // Load critical styles when DOM content is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    ensureCriticalStyles();
+    loadEmergencyComponents();
+  });
+
+  // Also run immediately in case DOMContentLoaded already fired
+  if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    ensureCriticalStyles();
+  }
+
+  // Create emergency stylesheet with critical styles
+  const criticalStyles = document.createElement('style');
+  criticalStyles.textContent = `
         body {
             font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, sans-serif;
             line-height: 1.5;
@@ -247,12 +242,12 @@
             font-size: 14px;
         }
     `;
-    document.head.appendChild(criticalStyles);
-    
-    // Create a loader status indicator
-    window.loaderStatus = {
-        theme: 'initialized',
-        styles: 'pending',
-        components: 'pending'
-    };
+  document.head.appendChild(criticalStyles);
+
+  // Create a loader status indicator
+  window.loaderStatus = {
+    theme: 'initialized',
+    styles: 'pending',
+    components: 'pending'
+  };
 })();

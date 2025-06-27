@@ -3,49 +3,47 @@
  * Add this script directly to pages experiencing style issues
  */
 (function() {
-    console.log("Style fix script running...");
-    
-    // Set page theme class
-    const savedTheme = localStorage.getItem('theme') || 'auto';
-    document.documentElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
-    document.documentElement.classList.add(`theme-${savedTheme}`);
-    
-    // Functions to check for styling
-    function hasStylesheet() {
-        return Array.from(document.styleSheets).some(sheet => {
-            try {
-                return sheet.href && (
-                    sheet.href.includes('/style.min.css') || 
+  // Set page theme class
+  const savedTheme = localStorage.getItem('theme') || 'auto';
+  document.documentElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+  document.documentElement.classList.add(`theme-${savedTheme}`);
+
+  // Functions to check for styling
+  function hasStylesheet() {
+    return Array.from(document.styleSheets).some(sheet => {
+      try {
+        return sheet.href && (
+          sheet.href.includes('/style.min.css') ||
                     sheet.href.includes('/style.css')
-                );
-            } catch(e) {
-                return false;
-            }
-        });
+        );
+      } catch (e) {
+        return false;
+      }
+    });
+  }
+
+  function injectStyles() {
+    // Only use absolute path for emergency CSS
+    const cssPath = '/css/style.min.css';
+
+    // Add stylesheet tag
+    const styleEl = document.createElement('link');
+    styleEl.rel = 'stylesheet';
+    styleEl.href = cssPath;
+    styleEl.id = 'emergency-style';
+    document.head.appendChild(styleEl);
+
+    // Add Google Fonts
+    if (!document.querySelector('link[href*="fonts.googleapis.com"]')) {
+      const fontLink = document.createElement('link');
+      fontLink.rel = 'stylesheet';
+      fontLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap';
+      document.head.appendChild(fontLink);
     }
-    
-    function injectStyles() {
-        // Only use absolute path for emergency CSS
-        const cssPath = '/css/style.min.css';
-        
-        // Add stylesheet tag
-        const styleEl = document.createElement('link');
-        styleEl.rel = 'stylesheet';
-        styleEl.href = cssPath;
-        styleEl.id = 'emergency-style';
-        document.head.appendChild(styleEl);
-        
-        // Add Google Fonts
-        if (!document.querySelector('link[href*="fonts.googleapis.com"]')) {
-            const fontLink = document.createElement('link');
-            fontLink.rel = 'stylesheet';
-            fontLink.href = 'https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap';
-            document.head.appendChild(fontLink);
-        }
-        
-        // Add critical inline styles
-        const inlineStyle = document.createElement('style');
-        inlineStyle.textContent = `
+
+    // Add critical inline styles
+    const inlineStyle = document.createElement('style');
+    inlineStyle.textContent = `
             body {
                 font-family: 'Roboto', sans-serif;
                 margin: 0;
@@ -128,52 +126,48 @@
                 margin-top: 48px;
             }
         `;
-        document.head.appendChild(inlineStyle);
-    }
-    
-    // Try to detect and fix style issues
+    document.head.appendChild(inlineStyle);
+  }
+
+  // Try to detect and fix style issues
+  if (!hasStylesheet()) {
+    injectStyles();
+  }
+
+  // Check again after a short delay for race condition
+  setTimeout(() => {
     if (!hasStylesheet()) {
-        console.warn("Styles not found, injecting emergency styles");
-        injectStyles();
+      injectStyles();
     }
-    
-    // Check again after a short delay for race condition
-    setTimeout(function() {
-        if (!hasStylesheet()) {
-            console.warn("Styles still not loaded after delay, injecting emergency styles");
-            injectStyles();
+  }, 500);
+
+  // Fix theme toggle if present
+  setTimeout(() => {
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const htmlElement = document.documentElement;
+        const currentThemeClass = Array.from(htmlElement.classList)
+          .find(cls => cls.startsWith('theme-')) || 'theme-auto';
+        const currentTheme = currentThemeClass.replace('theme-', '');
+        let newTheme;
+
+        // Cycle through themes
+        if (currentTheme === 'auto') {
+          newTheme = 'light';
+        } else if (currentTheme === 'light') {
+          newTheme = 'dark';
+        } else {
+          newTheme = 'auto';
         }
-    }, 500);
-    
-    // Fix theme toggle if present
-    setTimeout(function() {
-        const themeToggle = document.querySelector('.theme-toggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', function() {
-                const htmlElement = document.documentElement;
-                const currentThemeClass = Array.from(htmlElement.classList)
-                    .find(cls => cls.startsWith('theme-')) || 'theme-auto';
-                const currentTheme = currentThemeClass.replace('theme-', '');
-                let newTheme;
-                
-                // Cycle through themes
-                if (currentTheme === 'auto') {
-                    newTheme = 'light';
-                } else if (currentTheme === 'light') {
-                    newTheme = 'dark';
-                } else {
-                    newTheme = 'auto';
-                }
-                
-                // Apply new theme
-                htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
-                htmlElement.classList.add(`theme-${newTheme}`);
-                
-                // Save preference
-                localStorage.setItem('theme', newTheme);
-                
-                console.log(`Theme changed to: ${newTheme}`);
-            });
-        }
-    }, 1000);
+
+        // Apply new theme
+        htmlElement.classList.remove('theme-auto', 'theme-light', 'theme-dark');
+        htmlElement.classList.add(`theme-${newTheme}`);
+
+        // Save preference
+        localStorage.setItem('theme', newTheme);
+      });
+    }
+  }, 1000);
 })();
