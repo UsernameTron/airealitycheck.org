@@ -71,7 +71,7 @@ function inlineComponents(htmlFile) {
   );
 
   // Create dist directory structure
-  const distPath = htmlFile.replace(/^\.\//, './dist/');
+  const distPath = path.join('./dist', htmlFile);
   const distDir = path.dirname(distPath);
 
   if (!fs.existsSync(distDir)) {

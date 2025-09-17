@@ -19,21 +19,14 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: |
-          npm install -g html-minifier
-          npm install -g svgo
+        run: npm install
 
-      - name: Optimize Assets
-        run: |
-          # Minify HTML files
-          find . -type f -name "*.html" -exec html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true {} -o {} \;
-          
-          # Optimize SVG files
-          find ./images -type f -name "*.svg" -exec svgo {} \;
+      - name: Build Production Files
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
           branch: gh-pages
-          folder: .
+          folder: ./dist
           clean: true
