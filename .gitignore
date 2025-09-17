@@ -19,4 +19,4 @@ node_modules/
 
 # Build output if added in the future
 dist/
-build/
+build//.lighthouseci/
