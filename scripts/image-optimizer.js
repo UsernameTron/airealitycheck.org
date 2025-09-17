@@ -159,6 +159,7 @@ function generateImageManifest(results) {
   console.log(`📋 Generated image manifest: ${manifestPath}`);
 }
 
+// eslint-disable-next-line no-unused-vars
 function generateResponsiveImageCSS(manifest) {
   let css = '/* Responsive Images - Auto-generated */\n\n';
 

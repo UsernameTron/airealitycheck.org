@@ -56,22 +56,12 @@
         document.head.appendChild(fontLink);
       }
 
-      // Try each path to find the stylesheet
-      let styleLoaded = false;
-      for (const path of paths) {
-        if (!styleLoaded) {
-          const link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = path;
-          link.id = 'emergency-stylesheet';
-          document.head.appendChild(link);
-
-          // Check if it worked
-          link.onload = function() {
-            styleLoaded = true;
-          };
-        }
-      }
+      // Try the first path to find the stylesheet
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = paths[0]; // Try the first path
+      link.id = 'emergency-stylesheet';
+      document.head.appendChild(link);
     }
   }
 

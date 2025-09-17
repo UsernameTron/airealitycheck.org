@@ -5,7 +5,7 @@
  * Orchestrates all linting, testing, and validation processes
  */
 
-const { execSync, spawn } = require('child_process');
+const { execSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 
@@ -207,7 +207,7 @@ class QualityAssuranceRunner {
     console.log();
 
     // Suite-by-suite breakdown
-    Object.entries(this.results).forEach(([suiteKey, suite]) => {
+    Object.entries(this.results).forEach(([, suite]) => {
       const suiteScore = suite.maxScore > 0 ? ((suite.score / suite.maxScore) * 100).toFixed(1) : 0;
       const status = suite.failed === 0 ? '✅' : '❌';
 

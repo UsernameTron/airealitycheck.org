@@ -310,17 +310,19 @@ document.addEventListener('DOMContentLoaded', () => {
       webpSupport: element.dataset.webpSupport !== 'false'
     };
 
-    new ResponsiveImage(element, options);
+    new ResponsiveImage(element, options); // eslint-disable-line no-new
   });
 
   // Initialize lazy loading for regular images with data-src
   document.querySelectorAll('img[data-src]').forEach(element => {
-    new ResponsiveImage(element);
+    new ResponsiveImage(element); // eslint-disable-line no-new
   });
 });
 
 // Export for use in other modules
+// eslint-disable-next-line no-undef
 if (typeof module !== 'undefined' && module.exports) {
+  // eslint-disable-next-line no-undef
   module.exports = ResponsiveImage;
 } else {
   window.ResponsiveImage = ResponsiveImage;

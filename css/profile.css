@@ -4,6 +4,7 @@
   --red: #EA4335;
   --yellow: #FBBC05;
   --green: #34A853;
+
   /* Additional Theming */
   --light-bg: #F8F9FA;
   --dark-text: #212121;
@@ -68,6 +69,7 @@ h2 {
   position: relative;
   display: inline-block;
 }
+
 h2::after {
   content: "";
   position: absolute;
@@ -100,7 +102,7 @@ p {
 }
 
 .highlight {
-  background-color: rgba(66,133,244,0.1);
+  background-color: rgb(66 133 244 / 10%);
   border-left: 4px solid var(--blue);
   padding: 1rem;
   border-radius: 4px;
@@ -114,6 +116,7 @@ p {
   gap: 1.5rem;
   margin-top: 1rem;
 }
+
 .metric-item {
   flex: 1 1 200px;
   display: flex;
@@ -121,19 +124,22 @@ p {
   align-items: flex-start;
   background: #fff;
   border-radius: 6px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 5%);
   padding: 1rem;
   transition: transform 0.3s;
   color: #333; /* Ensures visible text on white background */
 }
+
 .metric-item:hover {
   transform: translateY(-3px);
 }
+
 .metric-label {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: #333; /* Darker text for visibility */
 }
+
 .metric-bar-container {
   width: 100%;
   height: 10px;
@@ -142,6 +148,7 @@ p {
   position: relative;
   margin-bottom: 0.5rem;
 }
+
 .metric-bar {
   height: 100%;
   border-radius: 5px;
@@ -149,6 +156,7 @@ p {
   width: 0%;
   transition: width 0.6s ease;
 }
+
 .metric-value {
   font-weight: 500;
   font-size: 0.9rem;
@@ -162,34 +170,40 @@ p {
   gap: 1.5rem;
   margin-top: 1rem;
 }
+
 .project-card {
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgb(0 0 0 / 10%);
   padding: 1rem;
   transition: transform 0.3s;
   color: #333; /* Ensures text is visible */
 }
+
 .project-card:hover {
   transform: translateY(-5px);
 }
+
 .project-card h3 {
   color: var(--blue);
   margin-bottom: 0.5rem;
   font-size: 1.2rem;
   font-family: var(--heading-font);
 }
+
 .project-card p {
   margin-bottom: 1rem;
   font-size: 0.95rem;
   color: #333;
 }
+
 .project-card a {
   color: var(--blue);
   font-weight: 500;
   text-decoration: none;
   position: relative;
 }
+
 .project-card a::after {
   content: "";
   position: absolute;
@@ -200,6 +214,7 @@ p {
   background-color: var(--blue);
   transition: width 0.3s;
 }
+
 .project-card a:hover::after {
   width: 100%;
 }
@@ -213,10 +228,11 @@ p {
   color: #666;
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
   header h1 {
     font-size: 2rem;
   }
+
   header p {
     font-size: 1rem;
   }

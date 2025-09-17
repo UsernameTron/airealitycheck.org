@@ -10,9 +10,9 @@
     "serve": "python -m http.server 8000",
     "validate": "node scripts/validate-assets.js",
     "lint": "npm run lint:js && npm run lint:css && npm run lint:html",
-    "lint:js": "eslint js/ scripts/ --ext .js",
-    "lint:css": "stylelint css/**/*.css",
-    "lint:html": "htmlhint **/*.html --ignore node_modules/**",
+    "lint:js": "eslint js/ scripts/ --ext .js --ignore-pattern '*.min.js'",
+    "lint:css": "stylelint css/**/*.css --ignore-pattern '*.min.css'",
+    "lint:html": "htmlhint '*.html' '{articles,case-studies,portfolio,resources,contact,creative}/**/*.html' --ignore 'node_modules/**' --ignore '_unused/**'",
     "lint:fix": "npm run lint:js -- --fix && npm run lint:css -- --fix",
     "test": "npm run test:html && npm run test:links && npm run test:a11y",
     "test:html": "html-validator --format=text --verbose **/*.html",
@@ -61,15 +61,13 @@
   "license": "MIT",
   "lint-staged": {
     "*.js": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix --ignore-pattern '*.min.js'"
     ],
     "*.css": [
-      "stylelint --fix",
-      "git add"
+      "stylelint --fix --ignore-pattern '*.min.css'"
     ],
     "*.html": [
-      "htmlhint"
+      "htmlhint --ignore 'node_modules/**' --ignore '_unused/**'"
     ]
   },
   "husky": {

@@ -32,9 +32,9 @@
     --neutral-medium: #5F6368;
     --neutral-light: #9AA0A6; /* Darkened for better contrast */
     --neutral-lighter: #F1F3F4;
-    --white: #FFFFFF;
-    --black: #000000;
-    --surface: #FFFFFF;
+    --white: #FFF;
+    --black: #000;
+    --surface: #FFF;
     
     /* For semi-transparent backgrounds with accessible contrast */
     --blue-bg: #e8f0fe; /* Solid color replacement for rgba(66, 133, 244, 0.1) */
@@ -44,9 +44,9 @@
     
     /* Footer & overlay colors with better contrast */
     --footer-link: #E8EAED; /* Light gray with good contrast on dark backgrounds */
-    --footer-text: #FFFFFF; /* Full white for text on dark backgrounds */
-    --footer-overlay: rgba(0, 0, 0, 0.95); /* Even darker overlay for better text contrast */
-    --footer-secondary: #FFFFFF; /* Full white for better contrast */
+    --footer-text: #FFF; /* Full white for text on dark backgrounds */
+    --footer-overlay: rgb(0 0 0 / 95%); /* Even darker overlay for better text contrast */
+    --footer-secondary: #FFF; /* Full white for better contrast */
     
     /* Border radius */
     --radius-sm: 4px;
@@ -54,18 +54,18 @@
     --radius-lg: 16px;
     
     /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(60, 64, 67, 0.3);
-    --shadow-md: 0 2px 6px rgba(60, 64, 67, 0.15);
-    --shadow-lg: 0 4px 12px rgba(60, 64, 67, 0.15);
+    --shadow-sm: 0 1px 2px rgb(60 64 67 / 30%);
+    --shadow-md: 0 2px 6px rgb(60 64 67 / 15%);
+    --shadow-lg: 0 4px 12px rgb(60 64 67 / 15%);
     
     /* Dark mode variables */
     --dark-surface: #121212;
     --dark-surface-elevated-1: #1E1E1E;
-    --dark-surface-elevated-2: #222222;
+    --dark-surface-elevated-2: #222;
     --dark-surface-elevated-3: #252525;
-    --dark-text-high: rgba(255, 255, 255, 0.87); /* ~4.5:1 contrast ratio */
-    --dark-text-medium: rgba(255, 255, 255, 0.6); /* For less important text */
-    --dark-border: #333333;
+    --dark-text-high: rgb(255 255 255 / 87%); /* ~4.5:1 contrast ratio */
+    --dark-text-medium: rgb(255 255 255 / 60%); /* For less important text */
+    --dark-border: #333;
     
     /* Dark mode color equivalents */
     --dark-primary-blue: #64B5F6; /* Lighter blue for dark mode with 4.5:1+ contrast */
@@ -73,15 +73,15 @@
     --dark-primary-red: #E57373; /* Lighter red for dark mode */
     --dark-primary-yellow: #FFD54F; /* Adjusted yellow for dark mode */
     --dark-primary-green: #81C784; /* Lighter green for dark mode */
-    --dark-blue-bg: rgba(25, 118, 210, 0.15); /* Dark mode blue background */
-    --dark-green-bg: rgba(67, 160, 71, 0.15); /* Dark mode green background */
-    --dark-yellow-bg: rgba(251, 140, 0, 0.15); /* Dark mode yellow background */
-    --dark-red-bg: rgba(211, 47, 47, 0.15); /* Dark mode red background */
+    --dark-blue-bg: rgb(25 118 210 / 15%); /* Dark mode blue background */
+    --dark-green-bg: rgb(67 160 71 / 15%); /* Dark mode green background */
+    --dark-yellow-bg: rgb(251 140 0 / 15%); /* Dark mode yellow background */
+    --dark-red-bg: rgb(211 47 47 / 15%); /* Dark mode red background */
     
     /* Shadows for dark mode */
-    --dark-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.9);
-    --dark-shadow-md: 0 2px 6px rgba(0, 0, 0, 0.9);
-    --dark-shadow-lg: 0 4px 12px rgba(0, 0, 0, 0.9);
+    --dark-shadow-sm: 0 1px 2px rgb(0 0 0 / 90%);
+    --dark-shadow-md: 0 2px 6px rgb(0 0 0 / 90%);
+    --dark-shadow-lg: 0 4px 12px rgb(0 0 0 / 90%);
     
     /* Spacing system (8px grid) */
     --space-xs: 4px;
@@ -251,6 +251,7 @@ section {
     0% {
         transform: scale(1) translateZ(0);
     }
+
     100% {
         transform: scale(1.05) translateZ(0);
     }
@@ -265,7 +266,7 @@ section {
     right: 0;
     height: 50%;
     background: linear-gradient(to top,
-        rgba(0, 0, 0, 0.7) 0%,
+        rgb(0 0 0 / 70%) 0%,
         transparent 100%);
     pointer-events: none;
 }
@@ -533,7 +534,7 @@ nav a:hover::after {
 .card {
     background: var(--white);
     border-radius: var(--radius-md);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 8%);
     padding: var(--space-lg);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -566,7 +567,7 @@ nav a:hover::after {
 
 .card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 12px 32px rgb(0 0 0 / 12%);
 }
 
 .card h3 {
@@ -597,6 +598,7 @@ nav a:hover::after {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -690,6 +692,7 @@ nav a:hover::after {
 }
 
 /* ===== 5.5 FORM COMPONENTS ===== */
+
 /* Contact Form Components */
 .contact-form {
     max-width: 600px;
@@ -835,7 +838,7 @@ input[type="checkbox"] {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
+    background: rgb(255 255 255 / 30%);
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
 }
@@ -843,7 +846,7 @@ input[type="checkbox"] {
 .btn:hover {
     background: var(--primary-blue-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(26, 115, 232, 0.3);
+    box-shadow: 0 8px 24px rgb(26 115 232 / 30%);
     color: white;
     text-decoration: none;
 }
@@ -860,13 +863,15 @@ input[type="checkbox"] {
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 rgba(26, 115, 232, 0.4);
+        box-shadow: 0 0 0 0 rgb(26 115 232 / 40%);
     }
+
     70% {
-        box-shadow: 0 0 0 10px rgba(26, 115, 232, 0);
+        box-shadow: 0 0 0 10px rgb(26 115 232 / 0%);
     }
+
     100% {
-        box-shadow: 0 0 0 0 rgba(26, 115, 232, 0);
+        box-shadow: 0 0 0 0 rgb(26 115 232 / 0%);
     }
 }
 
@@ -883,10 +888,7 @@ footer {
 footer::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
     background-image: url('../images/footer/Dark UI Footer.webp');
     background-size: cover;
     background-position: center;
@@ -1009,7 +1011,7 @@ footer .container {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(255, 255, 255, 0.2); /* Increased opacity for better contrast */
+    background-color: rgb(255 255 255 / 20%); /* Increased opacity for better contrast */
     border-radius: 50%;
     box-shadow: var(--shadow-sm);
     transition: transform 0.2s ease, background-color 0.2s ease;
@@ -1017,14 +1019,14 @@ footer .container {
 
 .social-icons a:hover {
     transform: translateY(-2px);
-    background-color: rgba(255, 255, 255, 0.3); /* Increased opacity for better contrast */
+    background-color: rgb(255 255 255 / 30%); /* Increased opacity for better contrast */
 }
 
 .copyright {
     text-align: center;
     color: var(--footer-secondary); /* Brighter text for better contrast */
     font-size: var(--font-size-sm);
-    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Increased opacity for better visibility */
+    border-top: 1px solid rgb(255 255 255 / 20%); /* Increased opacity for better visibility */
     padding-top: var(--space-lg);
 }
 
@@ -1041,6 +1043,7 @@ footer .container {
 }
 
 /* ===== RESPONSIVE STYLES ===== */
+
 /* Mobile Navigation Toggle */
 .mobile-nav-toggle {
     display: none;
@@ -1075,7 +1078,7 @@ footer .container {
 }
 
 /* Enhanced mobile navigation system with backdrop blur */
-@media (max-width: 768px) {
+@media (width <= 768px) {
     header {
         padding: var(--space-sm) 0;
     }
@@ -1101,7 +1104,7 @@ footer .container {
         height: 100vh;
         background: linear-gradient(135deg, var(--white) 0%, var(--neutral-lighter) 100%);
         transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+        box-shadow: -4px 0 24px rgb(0 0 0 / 15%);
         overflow-y: auto;
         padding-top: 80px;
         z-index: 1000;
@@ -1119,7 +1122,7 @@ footer .container {
         left: -100vw;
         width: 100vw;
         height: 100vh;
-        background: rgba(0, 0, 0, 0.4);
+        background: rgb(0 0 0 / 40%);
         backdrop-filter: blur(4px);
         opacity: 0;
         transition: opacity 0.3s ease;
@@ -1160,7 +1163,7 @@ footer .container {
     }
 }
 
-@media (max-width: 768px) {
+@media (width <= 768px) {
     /* Typography adjustments */
     h1 {
         font-size: var(--font-size-xxl);
@@ -1203,7 +1206,7 @@ footer .container {
 }
 
 /* Small mobile screens */
-@media (max-width: 480px) {
+@media (width <= 480px) {
     /* Additional hero adjustments for smaller screens */
     .home-hero {
         height: 30vh;
@@ -1224,6 +1227,7 @@ footer .container {
 }
 
 /* ===== 6. CASE STUDY SPECIFIC STYLES ===== */
+
 /* Case Study Components */
 .case-study-container {
     display: grid;
@@ -1266,7 +1270,7 @@ footer .container {
     border-left: 4px solid var(--primary-blue);
 }
 
-@media (max-width: 992px) {
+@media (width <= 992px) {
     .case-study-container {
         grid-template-columns: 1fr;
     }
@@ -1276,6 +1280,7 @@ footer .container {
         margin-bottom: var(--space-lg);
     }
 }
+
 .case-study-section {
     margin-bottom: 2.5rem;
 }
@@ -1440,7 +1445,9 @@ footer .container {
 }
 
 /* ===== 7. UTILITIES ===== */
+
 /* Iframe container for embedded content */
+
 /* Portfolio Summary (replaced iframe) */
 .portfolio-summary {
     background-color: var(--white);
@@ -1497,6 +1504,7 @@ footer .container {
 }
 
 /* ===== DARK MODE ===== */
+
 /* Theme toggle button */
 .theme-toggle {
     display: flex;
@@ -1545,16 +1553,14 @@ footer .container {
         --primary-green: var(--dark-primary-green);
         --neutral-dark: var(--dark-text-high);
         --neutral-medium: var(--dark-text-medium);
-        --neutral-light: rgba(255, 255, 255, 0.3);
+        --neutral-light: rgb(255 255 255 / 30%);
         --neutral-lighter: var(--dark-surface-elevated-1);
         --white: var(--dark-surface);
         --surface: var(--dark-surface);
-        
         --blue-bg: var(--dark-blue-bg);
         --green-bg: var(--dark-green-bg);
         --yellow-bg: var(--dark-yellow-bg);
         --red-bg: var(--dark-red-bg);
-        
         --shadow-sm: var(--dark-shadow-sm);
         --shadow-md: var(--dark-shadow-md);
         --shadow-lg: var(--dark-shadow-lg);
@@ -1570,16 +1576,14 @@ footer .container {
     --primary-green: var(--dark-primary-green);
     --neutral-dark: var(--dark-text-high);
     --neutral-medium: var(--dark-text-medium);
-    --neutral-light: rgba(255, 255, 255, 0.3);
+    --neutral-light: rgb(255 255 255 / 30%);
     --neutral-lighter: var(--dark-surface-elevated-1);
     --white: var(--dark-surface);
     --surface: var(--dark-surface);
-    
     --blue-bg: var(--dark-blue-bg);
     --green-bg: var(--dark-green-bg);
     --yellow-bg: var(--dark-yellow-bg);
     --red-bg: var(--dark-red-bg);
-    
     --shadow-sm: var(--dark-shadow-sm);
     --shadow-md: var(--dark-shadow-md);
     --shadow-lg: var(--dark-shadow-lg);
@@ -1617,7 +1621,7 @@ footer .container {
 
 :root.theme-dark footer::before, 
 :root.theme-auto footer::before {
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgb(0 0 0 / 95%);
 }
 
 :root.theme-dark .mobile-nav-toggle .bar, 
