@@ -1,7 +1,8 @@
 /**
  * Highlights the current page in navigation
  */
-function highlightCurrentPage() {
+// Make function available globally for components.js
+window.highlightCurrentPage = function highlightCurrentPage() {
   const currentPath = window.location.pathname;
   const navLinks = document.querySelectorAll('nav a');
 
@@ -11,12 +12,13 @@ function highlightCurrentPage() {
       link.classList.add('active');
     }
   });
-}
+};
 
 /**
  * Initializes mobile navigation toggle functionality
  */
-function initMobileNav() {
+// Make function available globally for components.js
+window.initMobileNav = function initMobileNav() {
   // Check if mobile nav toggle already exists
   if (document.querySelector('.mobile-nav-toggle')) {
     const mobileToggle = document.querySelector('.mobile-nav-toggle');
@@ -83,7 +85,7 @@ function initMobileNav() {
       });
     }
   }
-}
+};
 
 /**
  * Initializes smooth scrolling for anchor links
@@ -192,7 +194,7 @@ function initThemeToggle() {
 
   // Listen for system preference changes when in auto mode
   const mq = window.matchMedia('(prefers-color-scheme: dark)');
-  mq.addEventListener('change', e => {
+  mq.addEventListener('change', _e => {
     if (localStorage.getItem('theme') === 'auto') {
       // Don't call applyTheme here to avoid infinite loops
       updateToggleUI('auto');
@@ -200,10 +202,65 @@ function initThemeToggle() {
   });
 }
 
+/**
+ * Add subtle parallax effect to hero sections
+ */
+function initParallaxHero() {
+  const heroes = document.querySelectorAll('.home-hero, .case-studies-hero, .portfolio-hero, .articles-hero');
+
+  if (window.innerWidth > 768) { // Only on desktop for performance
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+
+      heroes.forEach(hero => {
+        const speed = 0.5; // Parallax speed
+        const yPos = -(scrolled * speed);
+        hero.style.transform = `translateY(${yPos}px)`;
+      });
+    }, { passive: true });
+  }
+}
+
+/**
+ * Progressive Image Loading Class
+ * Implements blur-up image loading for better perceived performance
+ */
+class ProgressiveImage {
+  constructor(element) {
+    this.element = element;
+    this.img = element.querySelector('img');
+    this.src = this.img.dataset.src;
+    this.placeholder = this.img.src;
+
+    this.load();
+  }
+
+  load() {
+    const fullImage = new Image();
+    fullImage.src = this.src;
+    fullImage.onload = () => {
+      this.img.src = this.src;
+      this.img.classList.add('loaded');
+    };
+  }
+}
+
+/**
+ * Initialize progressive image loading for all images with data-src
+ */
+function initProgressiveImages() {
+  const progressiveImages = document.querySelectorAll('.progressive-image');
+  progressiveImages.forEach(container => {
+    new ProgressiveImage(container);
+  });
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  highlightCurrentPage();
-  initMobileNav();
+  window.highlightCurrentPage();
+  // initMobileNav(); // Moved to components.js - called after header loads
   initSmoothScroll();
   initThemeToggle();
+  initParallaxHero();
+  initProgressiveImages();
 });
