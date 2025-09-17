@@ -133,6 +133,7 @@ function initThemeToggle() {
   const autoIcon = themeToggle.querySelector('.auto-icon');
 
   if (!lightIcon || !darkIcon) {
+    // eslint-disable-next-line no-console
     console.warn('Theme toggle icons (light, dark) not found');
     return;
   }
@@ -251,6 +252,7 @@ class ProgressiveImage {
 function initProgressiveImages() {
   const progressiveImages = document.querySelectorAll('.progressive-image');
   progressiveImages.forEach(container => {
+    // eslint-disable-next-line no-new
     new ProgressiveImage(container);
   });
 }

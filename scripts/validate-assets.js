@@ -10,16 +10,16 @@ const path = require('path');
 
 // Configuration
 const BASE_DIR = path.join(__dirname, '..');
-const EXPECTED_FORMATS = {
-  video: ['.mp4', '.webm'],
-  image: ['.webp', '.jpg', '.png']
-};
+// const EXPECTED_FORMATS = {
+//   video: ['.mp4', '.webm'],
+//   image: ['.webp', '.jpg', '.png']
+// };
 
 function validateVideoAssets() {
   console.log('🎥 Validating video assets...\n');
 
   const manifestPath = path.join(BASE_DIR, 'videos/optimized/video-manifest.json');
-  const originalVideosPath = path.join(BASE_DIR, 'videos');
+  // const originalVideosPath = path.join(BASE_DIR, 'videos');
 
   if (!fs.existsSync(manifestPath)) {
     console.warn('⚠️  Video manifest not found. Run `npm run optimize-videos` first.');

@@ -18,13 +18,13 @@ const SERVER_URL = `http://localhost:${SERVER_PORT}`;
 // WCAG levels to test
 const ACCESSIBILITY_TAGS = ['wcag2a', 'wcag2aa', 'wcag21aa', 'best-practice'];
 
-// Severity levels
-const SEVERITY_LEVELS = {
-  critical: 4,
-  serious: 3,
-  moderate: 2,
-  minor: 1
-};
+// Severity levels - commented out as currently unused but may be needed for future scoring
+// const SEVERITY_LEVELS = {
+//   critical: 4,
+//   serious: 3,
+//   moderate: 2,
+//   minor: 1
+// };
 
 function findHtmlFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);

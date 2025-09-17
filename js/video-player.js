@@ -416,12 +416,14 @@ document.addEventListener('DOMContentLoaded', () => {
       lazyLoad: container.dataset.lazyLoad !== 'false'
     };
 
-    new VideoPlayer(container, options);
+    new VideoPlayer(container, options); // eslint-disable-line no-new
   });
 });
 
 // Export for use in other modules
+// eslint-disable-next-line no-undef
 if (typeof module !== 'undefined' && module.exports) {
+  // eslint-disable-next-line no-undef
   module.exports = VideoPlayer;
 } else {
   window.VideoPlayer = VideoPlayer;

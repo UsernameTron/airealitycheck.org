@@ -164,7 +164,7 @@ function main() {
     console.log(`\n🎬 Processing: ${path.basename(videoFile)}`);
     totalOriginalSize += parseFloat(getFileSize(videoFile));
 
-    Object.entries(QUALITY_PROFILES).forEach(([qualityName, profile]) => {
+    Object.entries(QUALITY_PROFILES).forEach(([, profile]) => {
       FORMATS.forEach(format => {
         const result = compressVideo(videoFile, OUTPUT_DIR, profile, format);
         if (result) {
