@@ -31,67 +31,6 @@ const ComponentConfig = {
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-            <link rel="stylesheet" href="css/style.min.css">
-            <link rel="stylesheet" href="../css/style.min.css">
-            <link rel="stylesheet" href="../../css/style.min.css">
-            <script>
-                // Emergency stylesheet loading
-                (function() {
-                    function loadEmergencyStyles() {
-                        const isStyleLoaded = Array.from(document.styleSheets).some(sheet => {
-                            try {
-                                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
-                            } catch(e) {
-                                return false;
-                            }
-                        });
-                        
-                        if (!isStyleLoaded) {
-                            console.warn('Main stylesheet not detected, attempting to load emergency styles');
-                            // Try different relative paths to find the stylesheet
-                            const paths = ['./css/style.min.css', '../css/style.min.css', '../../css/style.min.css', '/css/style.min.css'];
-                            
-                            // Create emergency style element
-                            const emergencyStyle = document.createElement('link');
-                            emergencyStyle.rel = 'stylesheet';
-                            emergencyStyle.id = 'emergency-styles';
-                            
-                            // Try first path
-                            emergencyStyle.href = paths[0];
-                            document.head.appendChild(emergencyStyle);
-                            
-                            // Check if it worked after a short delay
-                            setTimeout(function() {
-                                const computed = getComputedStyle(document.body);
-                                const fontFamily = computed.fontFamily;
-                                
-                                // If we don't have Roboto, try the next path
-                                if (!fontFamily.includes('Roboto')) {
-                                    console.warn('First stylesheet path failed, trying alternatives');
-                                    // Try each path
-                                    let pathIndex = 1;
-                                    const tryNextPath = function() {
-                                        if (pathIndex < paths.length) {
-                                            emergencyStyle.href = paths[pathIndex];
-                                            pathIndex++;
-                                            setTimeout(tryNextPath, 100);
-                                        } else {
-                                            console.error('All stylesheet paths failed');
-                                        }
-                                    };
-                                    tryNextPath();
-                                }
-                            }, 100);
-                        }
-                    }
-                    
-                    // Check styles on load
-                    window.addEventListener('load', loadEmergencyStyles);
-                    
-                    // Also check after a short delay in case load event already fired
-                    setTimeout(loadEmergencyStyles, 1000);
-                })();
-            </script>
         `
   },
   // Default CSS class for the whole site (ensuring theme consistency)
@@ -303,12 +242,6 @@ function loadComponent(placeholderId, componentPath, fallbackHtml) {
       html = html.replace(/\{\{REL_PATH\}\}/g, relPath);
       html = html.replace(/\{\{CANONICAL_PATH\}\}/g, canonicalPath);
 
-      // Legacy placeholders for backward compatibility
-      html = html.replace(/\[ROOT_URL\]/g, relPath);
-      html = html.replace(/\[CURRENT_PATH\]/g, canonicalPath);
-      html = html.replace(/\[PAGE_TITLE\]/g, pageTitle);
-      html = html.replace(/\[PAGE_DESCRIPTION\]/g, pageDescription);
-
       // Insert the component into the placeholder
       placeholder.innerHTML = html;
 
@@ -318,18 +251,18 @@ function loadComponent(placeholderId, componentPath, fallbackHtml) {
       // Perform any necessary post-load initialization
       if (placeholderId === ComponentConfig.placeholders.header) {
         // Execute header-specific initialization if window.initMobileNav exists
-        if (typeof initMobileNav === 'function') {
+        if (typeof window.initMobileNav === 'function') {
           try {
-            initMobileNav();
+            window.initMobileNav();
           } catch (error) {
             console.warn('Error initializing mobile navigation:', error);
           }
         }
 
         // Execute header-specific initialization if window.highlightCurrentPage exists
-        if (typeof highlightCurrentPage === 'function') {
+        if (typeof window.highlightCurrentPage === 'function') {
           try {
-            highlightCurrentPage();
+            window.highlightCurrentPage();
           } catch (error) {
             console.warn('Error highlighting current page:', error);
           }
@@ -365,11 +298,18 @@ function handleComponentError(error, placeholder, fallbackHtml, placeholderId, c
     error: error.message
   });
 
-  // Insert fallback content
+  // Insert fallback content with retry option
   if (fallbackHtml && placeholder) {
     placeholder.innerHTML = fallbackHtml;
   } else if (placeholder) {
-    placeholder.innerHTML = '<div class="component-error">Component could not be loaded</div>';
+    placeholder.innerHTML = `
+      <div class="component-error">
+        <p>Content temporarily unavailable</p>
+        <button onclick="location.reload()" style="padding: 8px 16px; margin-top: 8px; border: 1px solid #ccc; background: #f5f5f5; cursor: pointer; border-radius: 4px;">
+          Retry
+        </button>
+      </div>
+    `;
   }
 
   // Add error class to body to allow styling adjustments
@@ -392,42 +332,62 @@ function logComponentError(message, placeholderId, componentPath) {
 
 /**
  * Determines the relative path to the site root directory based on current URL
- * Handles various edge cases for consistent path resolution
+ * Robust implementation that handles all edge cases and deployment structures
  * @returns {string} The relative path to the root (e.g., '', '../', '../../', etc.)
  */
 function getPathToRoot() {
   // Get the pathname from the current URL
   let path = window.location.pathname;
 
-  // Handle development environments with missing trailing slashes
-  if (!path.endsWith('/') && !path.endsWith('.html')) {
-    path += '/';
+  // Remove any query parameters or hash
+  path = path.split('?')[0].split('#')[0];
+
+  // Normalize path separators and remove trailing slash for consistent processing
+  path = path.replace(/\\/g, '/').replace(/\/+/g, '/');
+  if (path.endsWith('/') && path.length > 1) {
+    path = path.slice(0, -1);
   }
 
-  // Split path into segments and filter out empty segments
+  // Split path into segments, filtering out empty segments
   const segments = path.split('/').filter(segment => segment.length > 0);
 
-  // Special handling for root or direct HTML files under root
+  // Handle special cases
   if (segments.length === 0) {
-    return ''; // At root
+    return ''; // At root directory
   }
 
+  // Check if we're at an HTML file at root level
   if (segments.length === 1 && segments[0].endsWith('.html')) {
     return ''; // HTML file at root level
   }
 
-  // Count how many directories deep we are for proper path calculation
-  let depth = segments.length;
-
-  // If the last segment is an HTML file, reduce the depth by 1
-  if (segments.length > 0 && segments[segments.length - 1].endsWith('.html')) {
-    depth--;
+  // Calculate directory depth
+  let depth = 0;
+  for (let i = 0; i < segments.length; i++) {
+    const segment = segments[i];
+    // If this segment is an HTML file, we don't count it as a directory level
+    if (!segment.endsWith('.html')) {
+      depth++;
+    }
   }
 
-  // Generate the appropriate number of "../" based on depth
+  // Handle edge case where we have nested directories but end with HTML file
+  // Example: /articles/subfolder/page.html should be depth 2, not 3
+  if (segments.length > 0 && segments[segments.length - 1].endsWith('.html')) {
+    // The HTML file itself doesn't add to depth, only the directories before it
+    // depth already calculated correctly above
+  }
+
+  // Generate relative path string
   let rootPath = '';
   for (let i = 0; i < depth; i++) {
     rootPath += '../';
+  }
+
+  // Fallback check - if we can't determine the path reliably, use absolute path
+  if (depth > 5) { // Sanity check - if depth seems excessive, use root-relative path
+    console.warn('Unusual path depth detected, using root-relative path');
+    return '/';
   }
 
   return rootPath;

@@ -12,474 +12,152 @@
     
     <!-- Loader script ensures theme and critical styling works -->
     <script src="../js/loader.min.js"></script>
-    
+
+    <!-- Resource hints for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="../css/style.min.css" as="style">
+    <link rel="preload" href="../js/main.min.js" as="script">
+
     <!-- Meta tags component placeholder -->
-    <div id="meta-tags-placeholder"></div>
+    <!-- 
+  Standard Meta Tags Component
+  This component should be included in the <head> section of all pages.
+  
+  IMPORTANT: You must manually set these variables at the top of each page:
+  - const PAGE_TITLE = "Your Page Title";
+  - const PAGE_DESCRIPTION = "Your page description";
+  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
+  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
+-->
+
+<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+<script src="{{REL_PATH}}js/loader.min.js"></script>
+
+<!-- Core Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="C. Pete Conner">
+<meta name="robots" content="index, follow">
+<meta name="description" content="{{PAGE_DESCRIPTION}}">
+<title>AI Reality Check | {{PAGE_TITLE}}</title>
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+
+<!-- Canonical URL (static for SEO reliability) -->
+<link rel="canonical" href="https://airealitycheck.org{{CANONICAL_PATH}}">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Reality Check">
+<meta property="og:title" content="AI Reality Check | {{PAGE_TITLE}}">
+<meta property="og:description" content="{{PAGE_DESCRIPTION}}">
+<meta property="og:url" content="https://airealitycheck.org{{CANONICAL_PATH}}">
+<meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+<meta property="og:image:alt" content="AI Reality Check banner">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@connor_pet68383">
+<meta name="twitter:creator" content="@connor_pet68383">
+<meta name="twitter:title" content="AI Reality Check | {{PAGE_TITLE}}">
+<meta name="twitter:description" content="{{PAGE_DESCRIPTION}}">
+<meta name="twitter:url" content="https://airealitycheck.org{{CANONICAL_PATH}}">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="{{REL_PATH}}css/style.min.css">
+<link rel="stylesheet" href="{{REL_PATH}}css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="{{REL_PATH}}images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{REL_PATH}}images/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{{REL_PATH}}images/favicon/apple-touch-icon.png">
+<link rel="manifest" href="{{REL_PATH}}site.webmanifest">
+
+<!-- Error Recovery Script -->
+<script>
+    // Check if styles are loaded correctly after a short delay
+    setTimeout(function() {
+        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+            try {
+                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+            } catch(e) {
+                return false;
+            }
+        });
+        
+        if (!hasStylesheet) {
+            console.warn('Stylesheet not detected, trying emergency load');
+            const emergencyStyle = document.createElement('link');
+            emergencyStyle.rel = 'stylesheet';
+            emergencyStyle.href = '{{REL_PATH}}css/style.min.css';
+            document.head.appendChild(emergencyStyle);
+        }
+    }, 500);
+</script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.min.css">
-    <style>
-        /* Fix for SVG path display issues */
-        .theme-toggle svg path {
-            fill: currentColor;
-        }
-        
-        /* Ensure proper display for theme toggle icons */
-        .theme-toggle .light-icon,
-        .theme-toggle .dark-icon {
-            display: inline-block;
-            width: 24px;
-            height: 24px;
-        }
-        
-        /* Hide SVGs that might be causing display issues */
-        svg:not(.light-icon):not(.dark-icon) path {
-            fill: currentColor;
-        }
-        /* Google-inspired Color Palette */
-        :root {
-            --blue: #4285F4;
-            --red: #EA4335;
-            --yellow: #FBBC05;
-            --green: #34A853;
-            --dark-blue: #1A73E8;
-            --light-blue: #8AB4F8;
-            --dark-gray: #202124;
-            --medium-gray: #5F6368;
-            --light-gray: #E8EAED;
-            --white: #FFFFFF;
-        }
-
-        /* Base Styles */
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: var(--dark-gray);
-            background-color: var(--white);
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Product Sans', 'Roboto', sans-serif;
-            margin-top: 0;
-            font-weight: 500;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark-blue);
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 0.75rem;
-            color: var(--dark-gray);
-            position: relative;
-        }
-
-        h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, var(--blue), var(--red), var(--yellow), var(--green));
-            margin-top: 8px;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--medium-gray);
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-        
-        /* Header image */
-        .header-img {
-            max-width: 600px;
-            width: 100%;
-            height: auto;
-            margin-bottom: 1.25rem;
-        }
-        
-        /* Layout */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            gap: 2rem;
-        }
-
-        .cover-page {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            text-align: center;
-            background-color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cover-page::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 10% 20%, rgba(66, 133, 244, 0.03) 0%, rgba(0, 0, 0, 0) 80%),
-                        radial-gradient(circle at 90% 80%, rgba(251, 188, 5, 0.03) 0%, rgba(0, 0, 0, 0) 80%),
-                        radial-gradient(circle at 80% 10%, rgba(234, 67, 53, 0.03) 0%, rgba(0, 0, 0, 0) 80%),
-                        radial-gradient(circle at 20% 90%, rgba(52, 168, 83, 0.03) 0%, rgba(0, 0, 0, 0) 80%);
-            z-index: -1;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-
-        .logo-dot {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            margin: 0 3px;
-            opacity: 0;
-            animation: fadeIn 0.5s forwards;
-        }
-
-        .logo-dot:nth-child(1) {
-            background-color: var(--blue);
-            animation-delay: 0.1s;
-        }
-
-        .logo-dot:nth-child(2) {
-            background-color: var(--red);
-            animation-delay: 0.2s;
-        }
-
-        .logo-dot:nth-child(3) {
-            background-color: var(--yellow);
-            animation-delay: 0.3s;
-        }
-
-        .logo-dot:nth-child(4) {
-            background-color: var(--green);
-            animation-delay: 0.4s;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .title {
-            margin-bottom: 1rem;
-        }
-
-        .subtitle {
-            color: var(--medium-gray);
-            font-weight: 300;
-            font-size: 1.25rem;
-            margin-bottom: 2rem;
-        }
-
-        .author {
-            font-weight: 400;
-            color: var(--medium-gray);
-            margin-bottom: 0.5rem;
-        }
-
-        .date {
-            font-weight: 300;
-            color: var(--medium-gray);
-        }
-
-        .section {
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 8px;
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-
-        .section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        .executive-summary {
-            border-left: 4px solid var(--blue);
-        }
-
-        .introduction {
-            border-left: 4px solid var(--red);
-        }
-
-        .counterfactual-a {
-            border-left: 4px solid var(--yellow);
-        }
-
-        .counterfactual-b {
-            border-left: 4px solid var(--green);
-        }
-
-        .observed-reality {
-            border-left: 4px solid var(--dark-blue);
-        }
-
-        .causal-insights {
-            border-left: 4px solid var(--light-blue);
-        }
-
-        .summary {
-            border-left: 4px solid var(--blue);
-        }
-
-        .about-author {
-            border-left: 4px solid var(--red);
-        }
-
-        .sources {
-            border-left: 4px solid var(--yellow);
-        }
-
-        /* Tables */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        th {
-            background-color: var(--light-gray);
-            color: var(--dark-gray);
-            font-weight: 500;
-            text-align: left;
-            padding: 0.75rem 1rem;
-        }
-
-        td {
-            padding: 0.75rem 1rem;
-            border-top: 1px solid var(--light-gray);
-        }
-
-        tr:hover {
-            background-color: rgba(66, 133, 244, 0.05);
-        }
-
-        /* Lists */
-        ul, ol {
-            padding-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Emphasis */
-        /* Hyperlink styling */
-        a {
-            color: var(--dark-blue);
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        .highlight {
-            background-color: rgba(251, 188, 5, 0.2);
-            padding: 0.2rem 0.4rem;
-            border-radius: 4px;
-        }
-
-        .data-point {
-            font-weight: 500;
-            color: var(--dark-blue);
-        }
-
-        /* Sources */
-        .source-list {
-            padding-left: 0;
-            list-style-type: none;
-        }
-
-        .source-item {
-            margin-bottom: 1rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .source-item::before {
-            content: '[' attr(data-number) ']';
-            position: absolute;
-            left: 0;
-            color: var(--dark-blue);
-            font-weight: 500;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .section {
-                padding: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            h3 {
-                font-size: 1.25rem;
-            }
-        }
-
-        /* Dark mode support */
-        @media (prefers-color-scheme: dark) {
-            body {
-                background-color: var(--dark-gray);
-                color: var(--light-gray);
-            }
-            
-            .section, .cover-page {
-                background-color: #2c2c2e;
-            }
-            
-            h1 {
-                color: var(--light-blue);
-            }
-            
-            h2 {
-                color: var(--light-gray);
-            }
-            
-            h3 {
-                color: #bdc1c6;
-            }
-            
-            p, li {
-                color: var(--light-gray);
-            }
-            
-            .data-point {
-                color: var(--light-blue);
-            }
-            
-            .subtitle, .author, .date {
-                color: #9aa0a6;
-            }
-            
-            th {
-                background-color: #3c4043;
-                color: var(--light-gray);
-            }
-            
-            td {
-                color: var(--light-gray);
-                border-top: 1px solid #3c4043;
-            }
-            
-            tr:hover {
-                background-color: rgba(138, 180, 248, 0.1);
-            }
-            
-            a {
-                color: var(--light-blue);
-            }
-            
-            blockquote {
-                background-color: #3c4043 !important;
-            }
-            
-            blockquote p {
-                color: var(--light-gray) !important;
-            }
-            
-            blockquote footer {
-                color: var(--light-blue) !important;
-                background: transparent !important;
-            }
-            
-            blockquote footer a {
-                color: var(--light-blue) !important;
-            }
-            
-            blockquote footer span {
-                color: rgba(184, 198, 245, 0.8) !important;
-            }
-            
-            .source-item::before {
-                color: var(--light-blue);
-            }
-        }
-
-        /* Divider */
-        .divider {
-            height: 1px;
-            background: linear-gradient(to right, var(--blue), var(--red), var(--yellow), var(--green));
-            margin: 2rem 0;
-        }
-        
-        /* Blockquote Styling */
-        blockquote {
-            margin: 1.5rem 0; 
-            padding: 1rem 1.25rem; 
-            background: var(--light-gray); 
-            border-left: 4px solid var(--blue);
-        }
-        
-        blockquote p {
-            margin: 0; 
-            font-style: italic; 
-            color: var(--dark-gray); 
-            line-height: 1.6;
-        }
-        
-        blockquote footer {
-            margin-top: 0.75rem;
-            font-weight: 600;
-            font-family: 'Product Sans', 'Roboto', sans-serif;
-            background: transparent !important;
-            padding: 0;
-        }
-        
-        blockquote footer a {
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/style.min.css">
+    <link rel="stylesheet" href="../css/article-overrides.css">
 </head>
-<body>
+<body class="article-page">
     <!-- Header Component Placeholder -->
-    <div id="header-placeholder"></div>
+    <!-- Standard Header Component with proper ARIA landmarks -->
+<header role="banner">
+    <div class="container">
+        <div class="logo">
+            <a href="[ROOT_URL]" aria-label="AI Reality Check - Home">
+                <span class="visually-hidden">AI Reality Check</span>
+                <span aria-hidden="true">AI Reality Check</span>
+            </a>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)" aria-pressed="false">
+          <span class="light-icon">☀️</span>
+          <span class="dark-icon" style="display:none">🌙</span>
+          <span class="auto-icon" style="display:none">⟲</span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="main-navigation" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="[ROOT_URL]case-studies/">Case Studies</a></li>
+                <li><a href="[ROOT_URL]articles/">Articles</a></li>
+                <li><a href="[ROOT_URL]portfolio/">Portfolio</a></li>
+                <li><a href="[ROOT_URL]resources/">Resources</a></li>
+                <li><a href="[ROOT_URL]resources/tools.html">Tools</a></li>
+                <li><a href="[ROOT_URL]creative/">Creative</a></li>
+                <li><a href="[ROOT_URL]contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero section template - pages should add this after the header placeholder -->
+<!-- 
+<section class="hero" role="region" aria-labelledby="page-title">
+    <div class="container">
+        <h1 id="page-title">Page Title</h1>
+        <p class="subtitle">Page subtitle or description</p>
+    </div>
+</section>
+-->
+
+<!-- Visually-hidden class has been added to style.css -->
+<!-- This template helps maintain proper heading hierarchy with h1 in main content -->
     
     <!-- Cover Page -->
     <section class="cover-page" id="cover">
@@ -804,52 +482,42 @@
     </div>
     
     <!-- Footer Component Placeholder -->
-    <div id="footer-placeholder"></div>
+    <!-- Standard Footer Component -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="[ROOT_URL]">Home</a></li>
+                    <li><a href="[ROOT_URL]case-studies/">Case Studies</a></li>
+                    <li><a href="[ROOT_URL]articles/">Articles</a></li>
+                    <li><a href="[ROOT_URL]portfolio/">Portfolio</a></li>
+                    <li><a href="[ROOT_URL]contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+        </div>
+    </div>
+</footer>
     
     <script src="../js/main.min.js"></script>
-    <script src="../js/components.min.js"></script>
+    
     
     <!-- Load components -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Use the loadComponent function from components.js
-            if (typeof loadComponent === 'function') {
-                // Load meta tags first (if not already loaded by components.js)
-                if (document.getElementById('meta-tags-placeholder')) {
-                    loadComponent('meta-tags-placeholder', '../components/meta-tags.html');
-                }
-                
-                // Load header component
-                if (document.getElementById('header-placeholder')) {
-                    loadComponent('header-placeholder', '../components/header.html');
-                }
-                
-                // Load footer component
-                if (document.getElementById('footer-placeholder')) {
-                    loadComponent('footer-placeholder', '../components/footer.html');
-                }
-                
-                // Fix SVG path display issues that cause Google Chrome warnings
-                setTimeout(function() {
-                    // Fix any SVG paths by ensuring proper attributes
-                    const svgElements = document.querySelectorAll('svg');
-                    svgElements.forEach(function(svg) {
-                        // Ensure viewBox is properly set
-                        if (!svg.getAttribute('viewBox')) {
-                            svg.setAttribute('viewBox', '0 0 24 24');
-                        }
-                        
-                        // Ensure path elements have proper attributes
-                        const paths = svg.querySelectorAll('path');
-                        paths.forEach(function(path) {
-                            if (!path.getAttribute('fill')) {
-                                path.setAttribute('fill', 'currentColor');
-                            }
-                        });
-                    });
-                }, 1000); // Wait for components to load
-            }
-        });
-    </script>
+    
 </body>
 </html>

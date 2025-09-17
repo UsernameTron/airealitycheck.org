@@ -9,10 +9,98 @@
         const REL_PATH = "../"; // Creative is one level down from root
         const CANONICAL_PATH = "/creative/"; // Path after domain
     </script>
-    
+
+    <!-- Resource hints for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="../css/style.min.css" as="style">
+    <link rel="preload" href="../js/main.min.js" as="script">
+
     <!-- Meta tags component placeholder -->
-    <div id="meta-tags-placeholder"></div>
-    
+    <!-- 
+  Standard Meta Tags Component
+  This component should be included in the <head> section of all pages.
+  
+  IMPORTANT: You must manually set these variables at the top of each page:
+  - const PAGE_TITLE = "Your Page Title";
+  - const PAGE_DESCRIPTION = "Your page description";
+  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
+  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
+-->
+
+<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+<script src="{{REL_PATH}}js/loader.min.js"></script>
+
+<!-- Core Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="C. Pete Conner">
+<meta name="robots" content="index, follow">
+<meta name="description" content="{{PAGE_DESCRIPTION}}">
+<title>AI Reality Check | {{PAGE_TITLE}}</title>
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+
+<!-- Canonical URL (static for SEO reliability) -->
+<link rel="canonical" href="https://airealitycheck.org{{CANONICAL_PATH}}">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Reality Check">
+<meta property="og:title" content="AI Reality Check | {{PAGE_TITLE}}">
+<meta property="og:description" content="{{PAGE_DESCRIPTION}}">
+<meta property="og:url" content="https://airealitycheck.org{{CANONICAL_PATH}}">
+<meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+<meta property="og:image:alt" content="AI Reality Check banner">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@connor_pet68383">
+<meta name="twitter:creator" content="@connor_pet68383">
+<meta name="twitter:title" content="AI Reality Check | {{PAGE_TITLE}}">
+<meta name="twitter:description" content="{{PAGE_DESCRIPTION}}">
+<meta name="twitter:url" content="https://airealitycheck.org{{CANONICAL_PATH}}">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="{{REL_PATH}}css/style.min.css">
+<link rel="stylesheet" href="{{REL_PATH}}css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="{{REL_PATH}}images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{REL_PATH}}images/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{{REL_PATH}}images/favicon/apple-touch-icon.png">
+<link rel="manifest" href="{{REL_PATH}}site.webmanifest">
+
+<!-- Error Recovery Script -->
+<script>
+    // Check if styles are loaded correctly after a short delay
+    setTimeout(function() {
+        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+            try {
+                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+            } catch(e) {
+                return false;
+            }
+        });
+        
+        if (!hasStylesheet) {
+            console.warn('Stylesheet not detected, trying emergency load');
+            const emergencyStyle = document.createElement('link');
+            emergencyStyle.rel = 'stylesheet';
+            emergencyStyle.href = '{{REL_PATH}}css/style.min.css';
+            document.head.appendChild(emergencyStyle);
+        }
+    }, 500);
+</script>
+
     <link rel="stylesheet" href="../css/style.css">
     <style>
         /* Page-specific styles */
@@ -251,7 +339,51 @@
 </head>
 <body>
     <!-- Header Component Placeholder -->
-    <div id="header-placeholder"></div>
+    <!-- Standard Header Component with proper ARIA landmarks -->
+<header role="banner">
+    <div class="container">
+        <div class="logo">
+            <a href="[ROOT_URL]" aria-label="AI Reality Check - Home">
+                <span class="visually-hidden">AI Reality Check</span>
+                <span aria-hidden="true">AI Reality Check</span>
+            </a>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)" aria-pressed="false">
+          <span class="light-icon">☀️</span>
+          <span class="dark-icon" style="display:none">🌙</span>
+          <span class="auto-icon" style="display:none">⟲</span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="main-navigation" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="[ROOT_URL]case-studies/">Case Studies</a></li>
+                <li><a href="[ROOT_URL]articles/">Articles</a></li>
+                <li><a href="[ROOT_URL]portfolio/">Portfolio</a></li>
+                <li><a href="[ROOT_URL]resources/">Resources</a></li>
+                <li><a href="[ROOT_URL]resources/tools.html">Tools</a></li>
+                <li><a href="[ROOT_URL]creative/">Creative</a></li>
+                <li><a href="[ROOT_URL]contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero section template - pages should add this after the header placeholder -->
+<!-- 
+<section class="hero" role="region" aria-labelledby="page-title">
+    <div class="container">
+        <h1 id="page-title">Page Title</h1>
+        <p class="subtitle">Page subtitle or description</p>
+    </div>
+</section>
+-->
+
+<!-- Visually-hidden class has been added to style.css -->
+<!-- This template helps maintain proper heading hierarchy with h1 in main content -->
 
     <main>
         <section class="content">
@@ -356,111 +488,42 @@
     </main>
 
     <!-- Footer Component Placeholder -->
-    <div id="footer-placeholder"></div>
+    <!-- Standard Footer Component -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="[ROOT_URL]">Home</a></li>
+                    <li><a href="[ROOT_URL]case-studies/">Case Studies</a></li>
+                    <li><a href="[ROOT_URL]articles/">Articles</a></li>
+                    <li><a href="[ROOT_URL]portfolio/">Portfolio</a></li>
+                    <li><a href="[ROOT_URL]contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+        </div>
+    </div>
+</footer>
 
     <script src="../js/main.min.js"></script>
-    <script src="../js/components.min.js"></script>
+    
     
     <!-- Load components -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Use the loadComponent function from components.js
-            if (typeof loadComponent === 'function') {
-                // Load meta tags first (if not already loaded by components.js)
-                if (document.getElementById('meta-tags-placeholder')) {
-                    loadComponent('meta-tags-placeholder', '../components/meta-tags.html');
-                }
-                
-                // Load header component
-                if (document.getElementById('header-placeholder')) {
-                    loadComponent('header-placeholder', '../components/header.html');
-                }
-                
-                // Load footer component
-                if (document.getElementById('footer-placeholder')) {
-                    loadComponent('footer-placeholder', '../components/footer.html');
-                }
-            }
-            
-            // Initialize gallery functionality
-            initImageGallery();
-        });
-        
-        function initImageGallery() {
-            // AI Sauce Carousel Functionality
-            initSauceCarousel();
-        }
-        
-        function initSauceCarousel() {
-            const slides = document.querySelectorAll('.sauce-slide');
-            const dots = document.querySelectorAll('.sauce-dot');
-            const prevBtn = document.getElementById('sauce-prev-btn');
-            const nextBtn = document.getElementById('sauce-next-btn');
-            
-            if (!slides.length || !dots.length || !prevBtn || !nextBtn) return;
-            
-            let currentIndex = 0;
-            
-            // Function to show a specific slide
-            function showSlide(index) {
-                // Hide all slides
-                slides.forEach(slide => {
-                    slide.classList.remove('active');
-                });
-                
-                // Show the selected slide
-                slides[index].classList.add('active');
-                
-                // Update dots
-                dots.forEach(dot => {
-                    dot.classList.remove('active');
-                });
-                dots[index].classList.add('active');
-                
-                currentIndex = index;
-            }
-            
-            // Event listeners for navigation buttons
-            prevBtn.addEventListener('click', () => {
-                const newIndex = (currentIndex - 1 + slides.length) % slides.length;
-                showSlide(newIndex);
-            });
-            
-            nextBtn.addEventListener('click', () => {
-                const newIndex = (currentIndex + 1) % slides.length;
-                showSlide(newIndex);
-            });
-            
-            // Event listeners for dots
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => {
-                    showSlide(index);
-                });
-            });
-            
-            // Auto-advance carousel every 5 seconds
-            let interval = setInterval(() => {
-                const newIndex = (currentIndex + 1) % slides.length;
-                showSlide(newIndex);
-            }, 5000);
-            
-            // Pause auto-advance when mouse hovers over carousel
-            const carouselContainer = document.querySelector('.sauce-carousel-container');
-            carouselContainer.addEventListener('mouseenter', () => {
-                clearInterval(interval);
-            });
-            
-            // Resume auto-advance when mouse leaves carousel
-            carouselContainer.addEventListener('mouseleave', () => {
-                interval = setInterval(() => {
-                    const newIndex = (currentIndex + 1) % slides.length;
-                    showSlide(newIndex);
-                }, 5000);
-            });
-            
-            // Initialize the first slide
-            showSlide(0);
-        }
-    </script>
+    
 </body>
 </html>
