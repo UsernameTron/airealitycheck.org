@@ -216,7 +216,7 @@ export const MotionAnimations = {
   slideInUp(target, options = {}) {
     return animate(
       target,
-      { 
+      {
         opacity: [0, 1],
         transform: ['translateY(50px)', 'translateY(0)']
       },
@@ -234,11 +234,11 @@ export const MotionAnimations = {
     return animate(
       target,
       properties,
-      { 
-        easing: spring({ 
-          stiffness: 300, 
-          damping: 20, 
-          ...options 
+      {
+        easing: spring({
+          stiffness: 300,
+          damping: 20,
+          ...options
         })
       }
     );
@@ -254,10 +254,10 @@ export const MotionAnimations = {
     return animate(
       target,
       properties,
-      { 
+      {
         delay: stagger(0.1),
         duration: 0.6,
-        ...options 
+        ...options
       }
     );
   },
@@ -284,14 +284,14 @@ export const MotionAnimations = {
   scaleIn(target, options = {}) {
     return animate(
       target,
-      { 
+      {
         opacity: [0, 1],
         transform: ['scale(0)', 'scale(1)']
       },
-      { 
+      {
         duration: 0.6,
         easing: spring({ stiffness: 300, damping: 15 }),
-        ...options 
+        ...options
       }
     );
   },
@@ -319,8 +319,8 @@ export function initAnimations() {
   document.querySelectorAll('[data-animate]').forEach(el => {
     const animationType = el.dataset.animate;
     const delay = parseFloat(el.dataset.delay || 0);
-    
-    switch(animationType) {
+
+    switch (animationType) {
       case 'fade-in':
         GSAPAnimations.fadeIn(el, { delay });
         break;
@@ -346,7 +346,7 @@ export function initAnimations() {
 
   // Add hover effects to cards
   GSAPAnimations.hoverScale('.card');
-  
+
   // Animate cards on scroll
   GSAPAnimations.scrollAnimation('.card', {
     opacity: 0,

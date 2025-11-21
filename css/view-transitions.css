@@ -125,6 +125,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -134,6 +135,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -144,6 +146,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(calc(-1 * var(--transition-slide-distance)));
   }
@@ -153,6 +156,7 @@
   from {
     transform: translateX(var(--transition-slide-distance));
   }
+
   to {
     transform: translateX(0);
   }
@@ -162,6 +166,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(var(--transition-slide-distance));
   }
@@ -171,6 +176,7 @@
   from {
     transform: translateX(calc(-1 * var(--transition-slide-distance)));
   }
+
   to {
     transform: translateX(0);
   }
@@ -181,6 +187,7 @@
   from {
     transform: scale(1);
   }
+
   to {
     transform: scale(var(--transition-scale-start));
   }
@@ -190,6 +197,7 @@
   from {
     transform: scale(var(--transition-scale-start));
   }
+
   to {
     transform: scale(1);
   }
@@ -200,6 +208,7 @@
   from {
     filter: blur(0);
   }
+
   to {
     filter: blur(var(--transition-blur-amount));
   }
@@ -209,6 +218,7 @@
   from {
     filter: blur(var(--transition-blur-amount));
   }
+
   to {
     filter: blur(0);
   }
@@ -219,6 +229,7 @@
   from {
     transform: translateY(0) scale(1);
   }
+
   to {
     transform: translateY(-20px) scale(0.95);
   }
@@ -228,6 +239,7 @@
   from {
     transform: translateY(20px) scale(0.95);
   }
+
   to {
     transform: translateY(0) scale(1);
   }
@@ -373,7 +385,7 @@ main {
    ============================================ */
 
 /* Faster transitions on mobile for better performance */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   :root {
     --transition-duration: 0.2s;
     --transition-slide-distance: 20px;
@@ -381,7 +393,7 @@ main {
 }
 
 /* Richer transitions on larger screens */
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   :root {
     --transition-duration: 0.35s;
     --transition-slide-distance: 40px;

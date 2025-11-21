@@ -24,7 +24,9 @@ module.exports = {
     'selector-pseudo-element-no-unknown': true,
     'selector-type-no-unknown': true,
     'media-feature-name-no-unknown': true,
-    'at-rule-no-unknown': true,
+    'at-rule-no-unknown': [true, {
+      'ignoreAtRules': ['tailwind', 'apply', 'layer', 'variants', 'responsive', 'screen']
+    }],
     'no-duplicate-at-import-rules': true,
     'no-empty-source': true,
     'no-invalid-double-slash-comments': true
@@ -33,6 +35,7 @@ module.exports = {
     'node_modules/**/*.css',
     'videos/**/*.css',
     'images/**/*.css',
-    'css/*.min.css'
+    'css/*.min.css',
+    'css/tailwind.css' // Generated file with intentional duplicates for browser compatibility
   ]
 };

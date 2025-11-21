@@ -13,61 +13,66 @@ module.exports = {
   },
   globals: {
     // Browser globals
-    'window': 'readonly',
-    'document': 'readonly',
-    'navigator': 'readonly',
-    'console': 'readonly',
-    'localStorage': 'readonly',
-    'sessionStorage': 'readonly',
-    'fetch': 'readonly',
-    'URL': 'readonly',
-    'URLSearchParams': 'readonly',
-    'Image': 'readonly',
-    'IntersectionObserver': 'readonly',
-    
+    window: 'readonly',
+    document: 'readonly',
+    navigator: 'readonly',
+    console: 'readonly',
+    localStorage: 'readonly',
+    sessionStorage: 'readonly',
+    fetch: 'readonly',
+    URL: 'readonly',
+    URLSearchParams: 'readonly',
+    Image: 'readonly',
+    IntersectionObserver: 'readonly',
+
+    // Third-party libraries
+    gsap: 'readonly',
+    module: 'readonly',
+
     // Custom globals for our components
-    'VideoPlayer': 'writable',
-    'ResponsiveImage': 'writable',
-    'loadComponent': 'readonly',
-    
+    VideoPlayer: 'writable',
+    ResponsiveImage: 'writable',
+    loadComponent: 'readonly',
+    initProgressiveImages: 'readonly',
+
     // Page-specific globals
-    'PAGE_TITLE': 'readonly',
-    'PAGE_DESCRIPTION': 'readonly',
-    'REL_PATH': 'readonly',
-    'CANONICAL_PATH': 'readonly'
+    PAGE_TITLE: 'readonly',
+    PAGE_DESCRIPTION: 'readonly',
+    REL_PATH: 'readonly',
+    CANONICAL_PATH: 'readonly'
   },
   rules: {
     // Code quality rules
     'no-console': 'warn',
     'no-debugger': 'error',
     'no-alert': 'warn',
-    'no-unused-vars': ['error', { 'argsIgnorePattern': '^_' }],
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'no-undef': 'error',
-    
+
     // Style consistency
-    'indent': ['error', 2],
-    'quotes': ['error', 'single'],
-    'semi': ['error', 'always'],
+    indent: ['error', 2, { SwitchCase: 1 }],
+    quotes: ['error', 'single'],
+    semi: ['error', 'always'],
     'comma-dangle': ['error', 'never'],
     'space-before-function-paren': ['error', 'never'],
-    
+
     // Best practices
-    'eqeqeq': ['error', 'always'],
-    'curly': ['error', 'all'],
+    eqeqeq: ['error', 'always'],
+    curly: ['error', 'all'],
     'brace-style': ['error', '1tbs'],
-    'camelcase': ['error', { 'properties': 'always' }],
-    
+    camelcase: ['error', { properties: 'always' }],
+
     // Modern JavaScript
     'prefer-const': 'error',
     'prefer-arrow-callback': 'error',
     'prefer-template': 'error',
     'no-var': 'error',
-    
+
     // Performance considerations
     'no-loop-func': 'error',
     'no-new-wrappers': 'error',
     'no-implied-eval': 'error',
-    
+
     // Security
     'no-eval': 'error',
     'no-new-func': 'error',
@@ -100,7 +105,7 @@ module.exports = {
       // More lenient rules for inline scripts in HTML
       files: ['**/*.html'],
       rules: {
-        'quotes': 'off',
+        quotes: 'off',
         'no-undef': 'off'
       }
     }
