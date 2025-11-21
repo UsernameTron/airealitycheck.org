@@ -46,10 +46,6 @@
     "html-validator": "^6.0.1",
     "htmlhint": "^1.1.4",
     "husky": "^8.0.3",
-    "imagemin": "^8.0.1",
-    "imagemin-mozjpeg": "^10.0.0",
-    "imagemin-pngquant": "^9.0.2",
-    "imagemin-webp": "^7.0.0",
     "lint-staged": "^15.2.0",
     "puppeteer": "^21.11.0",
     "sharp": "^0.34.5",
@@ -91,8 +87,22 @@
   },
   "dependencies": {
     "@axe-core/puppeteer": "^4.10.2",
-    "glob": "^11.0.3",
+    "glob": "^13.0.0",
     "gsap": "^3.12.5",
     "motion": "^10.18.0"
+  },
+  "overrides": {
+    "axios": "^1.7.9",
+    "cross-spawn": "^7.0.6",
+    "http-cache-semantics": "^4.1.1",
+    "semver-regex": "^4.0.5",
+    "tar-fs": "^3.0.6",
+    "ws": "^8.18.0",
+    "tough-cookie": "^5.0.0",
+    "robots-txt-guard": "^1.0.2",
+    "tmp": "^0.2.3",
+    "cookie": "^1.0.2",
+    "got": "^14.4.5",
+    "useragent": "^2.3.0"
   }
 }
