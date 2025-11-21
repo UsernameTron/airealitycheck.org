@@ -15,13 +15,15 @@
 <!-- Core Meta Tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a73e8">
 <meta name="author" content="C. Pete Conner">
 <meta name="robots" content="index, follow">
 <meta name="description" content="{{PAGE_DESCRIPTION}}">
 <title>AI Reality Check | {{PAGE_TITLE}}</title>
 
 <!-- Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
 
 <!-- Canonical URL (static for SEO reliability) -->
 <link rel="canonical" href="https://airealitycheck.org{{CANONICAL_PATH}}">
@@ -53,6 +55,7 @@
 <!-- Main Stylesheet -->
 <link rel="stylesheet" href="{{REL_PATH}}css/style.min.css">
 <link rel="stylesheet" href="{{REL_PATH}}css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+<link rel="stylesheet" href="{{REL_PATH}}css/tailwind.css">
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" sizes="32x32" href="{{REL_PATH}}images/favicon/favicon-32x32.png">
@@ -63,15 +66,15 @@
 <!-- Error Recovery Script -->
 <script>
     // Check if styles are loaded correctly after a short delay
-    setTimeout(function() {
+    setTimeout(function () {
         const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
             try {
                 return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
-            } catch(e) {
+            } catch (e) {
                 return false;
             }
         });
-        
+
         if (!hasStylesheet) {
             console.warn('Stylesheet not detected, trying emergency load');
             const emergencyStyle = document.createElement('link');

@@ -65,3 +65,142 @@ This is a static website for AI Reality Check with a focus on simplicity, perfor
 - Alt text required for images
 - Unique IDs, dash-case for classes
 - Proper tag pairing and nesting
+
+## Analytics & Monitoring
+
+### Current Analytics Infrastructure
+
+**Status:** Partially Configured
+
+**Content Security Policy:** Allows Google Tag Manager
+- CSP header permits: `https://www.googletagmanager.com`
+- Connect source restricted to `'self'` only
+- [REVIEW NEEDED] Google Analytics script not found in codebase
+
+### Performance Monitoring
+
+**Lighthouse CI Integration:**
+- Automated performance budgets via `lighthouserc.js`
+- Tests URLs: homepage, case-studies, articles, portfolio, contact
+- Device: Mobile (375x667, 2x device scale)
+- Network: Simulated 3G (150ms RTT, 1.6 Mbps)
+- Runs: 3 runs per URL for statistical significance
+
+**Performance Budgets:**
+- Performance: ≥80%
+- Accessibility: ≥90%
+- Best Practices: ≥85%
+- SEO: ≥90%
+- FCP: <2000ms
+- LCP: <4000ms
+- CLS: <0.1
+- TBT: <300ms
+
+**Reports Location:** `.lighthouseci/` directory
+- LHR files with full audit results
+- Stored locally (can integrate with remote services)
+
+**Image & Video Optimization Metrics:**
+- Unused CSS/JavaScript warnings tracked
+- WebP and modern format usage enforced
+- Responsive image implementation required
+- Optimized image format assertions active
+
+### Code Quality Metrics
+
+**Tracked via quality-assurance.js:**
+- Test execution times
+- Pass/fail status by suite
+- Critical vs. non-critical test categorization
+- QA reports saved to `qa-reports/` directory
+
+**Linting Compliance:**
+- ESLint: 0 errors before deployment
+- Stylelint: Core validation rules enforced
+- HTMLHint: Alt text, IDs, doctype verified
+
+**Accessibility Compliance:**
+- Axe-core automated testing
+- WCAG 2.1 Level AA target
+- Color contrast verification
+- ARIA attribute validation
+- Keyboard navigation checks
+
+### Custom Instrumentation
+
+**Window Object Tracking:**
+```javascript
+// Component loading status
+window.componentLoadingStatus = {
+  total: number,        // Components to load
+  loaded: number,       // Successfully loaded
+  failed: number,       // Failed loads
+  errors: Array        // Error messages
+}
+```
+
+**Theme Tracking:**
+- User theme preference stored in localStorage
+- Options: 'auto' (default), 'light', 'dark'
+- Persisted across sessions
+
+### Recommended Analytics Implementation
+
+If you choose to enable Google Analytics:
+
+1. Add Google Analytics 4 tag to header component
+2. Configure events for:
+   - Page views (automatic)
+   - Article engagement (scroll depth, time on page)
+   - Case study downloads (if added)
+   - Navigation interactions
+   - Theme preference changes
+
+3. Set up custom dimensions:
+   - User theme preference
+   - Browser capabilities (WebP support, etc.)
+   - Device type (mobile, tablet, desktop)
+
+**Note:** Before implementing, review privacy regulations (GDPR, CCPA) and update privacy policy accordingly.
+
+### Build-Time Analytics
+
+**Image Optimization Logging:**
+- Compression ratios tracked per image
+- File size reductions logged
+- WebP conversion success rates
+- Responsive size generation verified
+
+**Video Optimization Logging:**
+- Format conversion status
+- Quality tier generation
+- File size reduction metrics
+
+**Build Performance:**
+- Build process execution time tracked
+- Component inlining time
+- Asset optimization time
+- Report generation time
+
+---
+
+## Deployment Metrics
+
+### GitHub Pages Performance
+
+- Custom domain: airealitycheck.org (via CNAME)
+- Deployment: Automatic on push to main
+- Build process: npm run build (components + optimization)
+- Serves from: /dist directory
+- CDN: GitHub Pages global CDN
+
+### Build Frequency
+
+- Typical: On-demand (push to main)
+- Last successful build: Check .github/workflows/deploy.yml runs
+- Build time: ~2-5 minutes (includes optimization)
+
+---
+
+**Last Updated:** 2025-11-21
+**Documentation Version:** 2.0

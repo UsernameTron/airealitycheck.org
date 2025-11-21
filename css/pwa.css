@@ -1,0 +1,337 @@
+/**
+ * PWA Styles
+ * Styles for install button, notifications, and PWA-specific UI elements
+ */
+
+/* ========================================
+   PWA Install Button
+   ======================================== */
+
+.pwa-install-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 0.875rem 1.5rem;
+    background: var(--primary-blue, #1a73e8);
+    color: var(--white, #FFF);
+    border: none;
+    border-radius: 50px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgb(26 115 232 / 30%);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: slideInUp 0.5s ease-out;
+}
+
+.pwa-install-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgb(26 115 232 / 40%);
+}
+
+.pwa-install-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   PWA Notifications
+   ======================================== */
+
+.pwa-notification {
+    position: fixed;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    width: calc(100% - 2rem);
+    background: var(--white, #FFF);
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgb(60 64 67 / 30%);
+    padding: 1.25rem;
+    z-index: 10000;
+    transition: top 0.3s ease-out;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.theme-dark .pwa-notification {
+    background: #2D2D2D;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 50%);
+}
+
+.pwa-notification--visible {
+    top: 2rem;
+}
+
+.pwa-notification__content {
+    flex: 1;
+}
+
+.pwa-notification__title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--neutral-dark, #202124);
+    margin-bottom: 0.5rem;
+}
+
+.theme-dark .pwa-notification__title {
+    color: var(--dark-text-high, #E8EAED);
+}
+
+.pwa-notification__message {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--neutral-light, #5F6368);
+    margin: 0;
+}
+
+.theme-dark .pwa-notification__message {
+    color: var(--dark-text-medium, #9AA0A6);
+}
+
+.pwa-notification__actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.pwa-notification__btn {
+    padding: 0.5rem 1rem;
+    background: var(--primary-blue, #1a73e8);
+    color: var(--white, #FFF);
+    border: none;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.pwa-notification__btn:hover {
+    background: #1557b0;
+}
+
+.pwa-notification__btn:last-child {
+    background: transparent;
+    color: var(--primary-blue, #1a73e8);
+    border: 1px solid var(--primary-blue, #1a73e8);
+}
+
+.theme-dark .pwa-notification__btn:last-child {
+    color: #64B5F6;
+    border-color: #64B5F6;
+}
+
+.pwa-notification__btn:last-child:hover {
+    background: rgb(26 115 232 / 10%);
+}
+
+.pwa-notification__close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--neutral-light, #5F6368);
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.pwa-notification__close:hover {
+    background: rgb(95 99 104 / 10%);
+    color: var(--neutral-dark, #202124);
+}
+
+.theme-dark .pwa-notification__close:hover {
+    background: rgb(232 234 237 / 10%);
+    color: var(--dark-text-high, #E8EAED);
+}
+
+/* Notification Types */
+.pwa-notification--success {
+    border-left: 4px solid #188038;
+}
+
+.pwa-notification--warning {
+    border-left: 4px solid #ea8600;
+}
+
+.pwa-notification--error {
+    border-left: 4px solid #d93025;
+}
+
+.pwa-notification--info {
+    border-left: 4px solid #1a73e8;
+}
+
+/* ========================================
+   iOS Standalone Mode Adjustments
+   ======================================== */
+
+@media (display-mode: standalone) {
+    /* Add safe area padding for iOS notch */
+    body {
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+
+    /* Hide install button when already installed */
+    .pwa-install-btn {
+        display: none !important;
+    }
+
+    /* Adjust header for standalone mode */
+    header {
+        padding-top: calc(1rem + env(safe-area-inset-top));
+    }
+}
+
+/* ========================================
+   Connection Status Indicator
+   ======================================== */
+
+.connection-status {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    background: #d93025;
+    color: #FFF;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    box-shadow: 0 2px 8px rgb(217 48 37 / 30%);
+    z-index: 9998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.connection-status--visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.connection-status--online {
+    background: #188038;
+    box-shadow: 0 2px 8px rgb(24 128 56 / 30%);
+}
+
+/* ========================================
+   Loading Spinner for PWA
+   ======================================== */
+
+.pwa-loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgb(255 255 255 / 30%);
+    border-radius: 50%;
+    border-top-color: #FFF;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ========================================
+   Responsive Adjustments
+   ======================================== */
+
+@media (width <= 768px) {
+    .pwa-install-btn {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.875rem;
+    }
+
+    .pwa-notification {
+        width: calc(100% - 1rem);
+        padding: 1rem;
+    }
+
+    .pwa-notification--visible {
+        top: 1rem;
+    }
+
+    .pwa-notification__actions {
+        flex-direction: column;
+    }
+
+    .pwa-notification__btn {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   Print Styles
+   ======================================== */
+
+@media print {
+    .pwa-install-btn,
+    .pwa-notification,
+    .connection-status {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   Accessibility Improvements
+   ======================================== */
+
+/* Focus visible for keyboard navigation */
+.pwa-install-btn:focus-visible,
+.pwa-notification__btn:focus-visible,
+.pwa-notification__close:focus-visible {
+    outline: 2px solid var(--primary-blue, #1a73e8);
+    outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .pwa-install-btn,
+    .pwa-notification,
+    .connection-status {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .pwa-notification {
+        border: 2px solid currentcolor;
+    }
+
+    .pwa-install-btn {
+        border: 2px solid var(--white, #FFF);
+    }
+}

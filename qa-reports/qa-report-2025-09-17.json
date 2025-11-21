@@ -1,9 +1,9 @@
 {
-  "timestamp": "2025-09-17T14:25:45.691Z",
+  "timestamp": "2025-09-17T18:00:23.582Z",
   "overallScore": 21,
   "maxScore": 21,
   "percentage": "100.0",
-  "duration": 889,
+  "duration": 902,
   "suites": {
     "lint": {
       "name": "Code Linting",
@@ -12,7 +12,7 @@
           "name": "ESLint (JavaScript)",
           "command": "npm run lint:js",
           "passed": true,
-          "duration": 449,
+          "duration": 448,
           "critical": true,
           "output": null,
           "error": null
@@ -21,7 +21,7 @@
           "name": "Stylelint (CSS)",
           "command": "npm run lint:css",
           "passed": true,
-          "duration": 313,
+          "duration": 334,
           "critical": true,
           "output": null,
           "error": null
@@ -30,7 +30,7 @@
           "name": "HTMLHint (HTML)",
           "command": "npm run lint:html",
           "passed": true,
-          "duration": 125,
+          "duration": 119,
           "critical": false,
           "output": null,
           "error": null
