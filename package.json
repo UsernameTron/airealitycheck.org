@@ -91,7 +91,7 @@
   },
   "dependencies": {
     "@axe-core/puppeteer": "^4.10.2",
-    "glob": "^11.0.3",
+    "glob": "^11.1.0",
     "gsap": "^3.12.5",
     "motion": "^10.18.0"
   }
