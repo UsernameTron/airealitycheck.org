@@ -26,7 +26,7 @@ jobs:
         run: npm ci
 
       - name: Build Production Files
-        run: npm run build
+        run: npm run build:vite
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.6.8
