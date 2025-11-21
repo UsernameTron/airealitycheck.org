@@ -5,7 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ### Development & Testing
-- **Run locally**: `npm run serve` or `python -m http.server 8000`
+- **Dev Server**: `npm run dev` - Start Vite dev server with hot module replacement
+- **Run Locally**: `npm run preview` - Preview production build locally
+- **Run HTTP Server**: `python -m http.server 8000` - Serve dist/ directory directly
 - **Quality Assurance**: `npm run qa` - Run comprehensive quality checks (lint, HTML validation, accessibility)
 - **Quick Fix**: `npm run qa:fix` - Automatically fix linting issues
 - **Lint All**: `npm run lint` (runs JS, CSS, and HTML linting)
@@ -15,20 +17,31 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Run Tests**: `npm run test` (includes HTML validation, link checking, accessibility)
 - **Lighthouse Performance**: `npm run test:lighthouse` - Run performance audits
 
-### Asset Optimization
+### Build & Deployment
+- **Build Production**: `npm run build` - Vite build with HTML preprocessing, asset optimization, and compression (gzip + brotli)
+- **Build Vite Only**: `npm run build:vite` - Run Vite build without optimizations
+- **Build Tailwind CSS**: `npm run build:css` - Generate minified Tailwind CSS
+- **Watch Tailwind**: `npm run watch:css` - Watch and rebuild Tailwind CSS on changes
+
+### Asset Optimization (Legacy)
 - **Optimize Images**: `npm run optimize-images` - Compress and convert images to WebP
 - **Optimize Videos**: `npm run optimize-videos` - Compress video files
-- **Build**: `npm run build` - Run all optimizations
 
 ## Architecture Overview
 
 This is a static website for AI Reality Check with a focus on simplicity, performance, and Google-inspired design. Key architectural decisions:
 
+### Build System (Vite)
+- **Bundler**: Vite 5.4.11 with HTML processing for multi-page static sites
+- **Compression**: Automatic gzip and brotli compression of all assets
+- **Output**: Production files output to `dist/` directory for GitHub Pages deployment
+- **Node.js**: Requires Node.js 20+ for GitHub Actions CI/CD
+
 ### Asset Loading Strategy
 - **Component System**: Modular JavaScript components loaded on-demand (js/components.js)
 - **Lazy Loading**: Images use IntersectionObserver for viewport-based loading
 - **Progressive Enhancement**: Site works without JavaScript, enhanced features load progressively
-- **Minified Assets**: All CSS/JS has minified versions for production (*.min.css, *.min.js)
+- **Bundled Assets**: Vite handles minification and bundling of CSS/JS automatically
 
 ### Quality Assurance Pipeline
 - **Pre-commit Hooks**: Husky + lint-staged for automated code quality checks
@@ -188,17 +201,20 @@ If you choose to enable Google Analytics:
 
 ### GitHub Pages Performance
 
-- Custom domain: airealitycheck.org (via CNAME)
-- Deployment: Automatic on push to main
-- Build process: npm run build (components + optimization)
-- Serves from: /dist directory
-- CDN: GitHub Pages global CDN
+- **Custom domain**: airealitycheck.org (via CNAME)
+- **Deployment**: Automatic on push to main via GitHub Actions
+- **Build process**: `npm run build` (Vite bundling + gzip/brotli compression)
+- **Deployment action**: JamesIves/github-pages-deploy-action v4.4.1
+- **Serves from**: `/dist` directory on gh-pages branch
+- **CDN**: GitHub Pages global CDN
+- **Node.js requirement**: 20+ (set in .github/workflows/deploy.yml)
 
-### Build Frequency
+### Build Performance
 
-- Typical: On-demand (push to main)
-- Last successful build: Check .github/workflows/deploy.yml runs
-- Build time: ~2-5 minutes (includes optimization)
+- **Typical frequency**: On-demand (push to main)
+- **Build time**: ~5-6 minutes (Vite build + compression + deployment)
+- **Output compression**: All assets automatically compressed with gzip and brotli
+- **Status**: View recent builds with `gh run list` or check GitHub Actions dashboard
 
 ---
 
