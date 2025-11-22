@@ -1,0 +1,114 @@
+{
+    "name": "AI Reality Check - Fact-Based AI Perspective",
+    "short_name": "AI Reality Check",
+    "description": "Objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.",
+    "start_url": "/",
+    "scope": "/",
+    "display": "standalone",
+    "orientation": "any",
+    "theme_color": "#1a73e8",
+    "background_color": "#ffffff",
+    "lang": "en-US",
+    "dir": "ltr",
+    "categories": [
+        "education",
+        "technology",
+        "productivity",
+        "news"
+    ],
+    "icons": [
+        {
+            "src": "/images/favicon/favicon-16x16.png",
+            "sizes": "16x16",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/favicon/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "/images/favicon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/favicon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/images/favicon/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Case Studies",
+            "short_name": "Cases",
+            "description": "View AI implementation case studies",
+            "url": "/case-studies/",
+            "icons": [
+                {
+                    "src": "/images/favicon/favicon-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Articles",
+            "short_name": "Articles",
+            "description": "Read AI analysis articles",
+            "url": "/articles/",
+            "icons": [
+                {
+                    "src": "/images/favicon/favicon-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        },
+        {
+            "name": "Portfolio",
+            "short_name": "Portfolio",
+            "description": "View professional portfolio",
+            "url": "/portfolio/",
+            "icons": [
+                {
+                    "src": "/images/favicon/favicon-96x96.png",
+                    "sizes": "96x96",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/images/hero/ARC-Hero.webp",
+            "sizes": "1920x1080",
+            "type": "image/webp",
+            "form_factor": "wide",
+            "label": "AI Reality Check Homepage"
+        }
+    ],
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "iarc_rating_id": "",
+    "share_target": {
+        "action": "/contact/",
+        "method": "GET",
+        "enctype": "application/x-www-form-urlencoded",
+        "params": {
+            "title": "title",
+            "text": "text",
+            "url": "url"
+        }
+    }
+}

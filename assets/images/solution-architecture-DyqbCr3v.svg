@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+    }
+    .box {
+      rx: 8;
+      ry: 8;
+      stroke-width: 2;
+    }
+    .arrow {
+      stroke-width: 2;
+      fill: none;
+      marker-end: url(#arrowhead);
+    }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .subtitle {
+      font-size: 14px;
+      fill: #5F6368;
+    }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5F6368" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="#F8F9FA" />
+  
+  <!-- Title -->
+  <text x="400" y="40" class="title" text-anchor="middle">Turnover Prediction Solution Architecture</text>
+  <text x="400" y="65" class="subtitle" text-anchor="middle">Alignment with BPO requirements and technical implementation</text>
+  
+  <!-- Data Sources Layer -->
+  <rect x="100" y="100" width="600" height="60" class="box" fill="#E8F0FE" stroke="#4285F4" />
+  <text x="400" y="130" text-anchor="middle" font-weight="bold">Data Sources</text>
+  
+  <rect x="120" y="115" width="100" height="30" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="170" y="135" text-anchor="middle" font-size="12">HR System</text>
+  
+  <rect x="240" y="115" width="100" height="30" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="290" y="135" text-anchor="middle" font-size="12">Survey Tools</text>
+  
+  <rect x="360" y="115" width="100" height="30" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="410" y="135" text-anchor="middle" font-size="12">WFM System</text>
+  
+  <rect x="480" y="115" width="100" height="30" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="530" y="135" text-anchor="middle" font-size="12">CRM Data</text>
+  
+  <rect x="600" y="115" width="80" height="30" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="640" y="135" text-anchor="middle" font-size="12">External</text>
+  
+  <!-- Data Processing Layer -->
+  <rect x="100" y="180" width="600" height="60" class="box" fill="#FCE8E6" stroke="#EA4335" />
+  <text x="400" y="210" text-anchor="middle" font-weight="bold">Data Processing</text>
+  
+  <rect x="130" y="195" width="120" height="30" rx="4" ry="4" fill="white" stroke="#EA4335" />
+  <text x="190" y="215" text-anchor="middle" font-size="12">ETL Pipeline</text>
+  
+  <rect x="270" y="195" width="120" height="30" rx="4" ry="4" fill="white" stroke="#EA4335" />
+  <text x="330" y="215" text-anchor="middle" font-size="12">Feature Engineering</text>
+  
+  <rect x="410" y="195" width="120" height="30" rx="4" ry="4" fill="white" stroke="#EA4335" />
+  <text x="470" y="215" text-anchor="middle" font-size="12">Privacy Controls</text>
+  
+  <rect x="550" y="195" width="120" height="30" rx="4" ry="4" fill="white" stroke="#EA4335" />
+  <text x="610" y="215" text-anchor="middle" font-size="12">Data Validation</text>
+  
+  <!-- ML Layer -->
+  <rect x="100" y="260" width="600" height="60" class="box" fill="#FEF7E0" stroke="#FBBC05" />
+  <text x="400" y="290" text-anchor="middle" font-weight="bold">Machine Learning</text>
+  
+  <rect x="130" y="275" width="120" height="30" rx="4" ry="4" fill="white" stroke="#FBBC05" />
+  <text x="190" y="295" text-anchor="middle" font-size="12">Model Training</text>
+  
+  <rect x="270" y="275" width="120" height="30" rx="4" ry="4" fill="white" stroke="#FBBC05" />
+  <text x="330" y="295" text-anchor="middle" font-size="12">Explainability</text>
+  
+  <rect x="410" y="275" width="120" height="30" rx="4" ry="4" fill="white" stroke="#FBBC05" />
+  <text x="470" y="295" text-anchor="middle" font-size="12">Prediction API</text>
+  
+  <rect x="550" y="275" width="120" height="30" rx="4" ry="4" fill="white" stroke="#FBBC05" />
+  <text x="610" y="295" text-anchor="middle" font-size="12">Model Monitoring</text>
+  
+  <!-- Application Layer -->
+  <rect x="100" y="340" width="600" height="60" class="box" fill="#E6F4EA" stroke="#34A853" />
+  <text x="400" y="370" text-anchor="middle" font-weight="bold">Applications</text>
+  
+  <rect x="130" y="355" width="170" height="30" rx="4" ry="4" fill="white" stroke="#34A853" />
+  <text x="215" y="375" text-anchor="middle" font-size="12">HR Dashboard</text>
+  
+  <rect x="330" y="355" width="170" height="30" rx="4" ry="4" fill="white" stroke="#34A853" />
+  <text x="415" y="375" text-anchor="middle" font-size="12">Intervention Management</text>
+  
+  <rect x="530" y="355" width="140" height="30" rx="4" ry="4" fill="white" stroke="#34A853" />
+  <text x="600" y="375" text-anchor="middle" font-size="12">Analytics Portal</text>
+  
+  <!-- Arrows -->
+  <path d="M400,160 L400,180" class="arrow" stroke="#5F6368" />
+  <path d="M400,240 L400,260" class="arrow" stroke="#5F6368" />
+  <path d="M400,320 L400,340" class="arrow" stroke="#5F6368" />
+</svg>

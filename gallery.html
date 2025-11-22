@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Resource hints for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="./assets/main.min-BsgWE8x1.js" as="script">
+
+    <title>Project Gallery - AI Reality Check</title>
+    <meta name="description" content="Explore featured images from AI Reality Check projects including AI Sauces, creative work, and portfolio pieces.">
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .stats {
+            text-align: center;
+            margin-bottom: 30px;
+            color: white;
+            opacity: 0.8;
+        }
+
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            border-color: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            font-size: 1.2rem;
+            margin: 40px 0;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-item {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.02);
+        }
+
+        .repository-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            z-index: 2;
+        }
+
+        .error {
+            text-align: center;
+            color: white;
+            background: rgba(255, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin: 40px 0;
+            padding: 20px;
+        }
+
+        .page-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4a5568;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .page-btn:hover:not(:disabled) {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            color: #2d3748;
+        }
+
+        .page-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .page-info {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            color: #4a5568;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.95);
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .gallery {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .filters {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .back-link {
+                position: static;
+                display: inline-block;
+                margin-bottom: 20px;
+            }
+
+            .repository-tag {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+  <script async type="module" crossorigin src="./assets/js/gallery-DkZz-S69.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/style-DlSV9Txc.css">
+  <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Home</a>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Project Gallery</h1>
+            <p>Explore featured images from AI Reality Check projects, creative work, and portfolio pieces</p>
+        </div>
+
+        <div class="stats" id="stats">
+            <div class="spinner"></div>
+            <p>Loading gallery...</p>
+        </div>
+
+        <div class="filters" id="filters" style="display: none;">
+            <!-- Filter buttons will be generated dynamically -->
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p>Loading images...</p>
+        </div>
+
+        <div class="gallery" id="gallery">
+            <!-- Gallery items will be generated dynamically -->
+        </div>
+
+        <div class="pagination" id="pagination" style="display: none;">
+            <button id="prev-page" class="page-btn">‹ Previous</button>
+            <span id="page-info" class="page-info"></span>
+            <button id="next-page" class="page-btn">Next ›</button>
+        </div>
+
+        <div class="error" id="error" style="display: none;">
+            <h3>Error Loading Gallery</h3>
+            <p id="error-message"></p>
+        </div>
+    </div>
+
+    <script>
+        class GalleryManager {
+            constructor() {
+                this.images = [];
+                this.filteredImages = [];
+                this.currentFilter = 'all';
+                this.currentPage = 1;
+                this.imagesPerPage = 12;
+                
+                this.elements = {
+                    stats: document.getElementById('stats'),
+                    filters: document.getElementById('filters'),
+                    gallery: document.getElementById('gallery'),
+                    loading: document.getElementById('loading'),
+                    error: document.getElementById('error'),
+                    errorMessage: document.getElementById('error-message'),
+                    pagination: document.getElementById('pagination'),
+                    prevBtn: document.getElementById('prev-page'),
+                    nextBtn: document.getElementById('next-page'),
+                    pageInfo: document.getElementById('page-info')
+                };
+                
+                this.init();
+            }
+
+            async init() {
+                try {
+                    await this.loadImages();
+                    this.createFilters();
+                    this.setupPagination();
+                    this.renderGallery();
+                    this.updateStats();
+                    this.updatePagination();
+                    this.hideLoading();
+                } catch (error) {
+                    this.showError('Failed to load gallery: ' + error.message);
+                }
+            }
+
+            async loadImages() {
+                try {
+                    const response = await fetch('images.json');
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                    }
+                    
+                    const data = await response.json();
+                    this.images = data.images.filter(img => img.starred);
+                    this.filteredImages = [...this.images];
+                    
+                    console.log(`Loaded ${this.images.length} starred images`);
+                } catch (error) {
+                    console.error('Error loading images:', error);
+                    throw error;
+                }
+            }
+
+            createFilters() {
+                const repositories = [...new Set(this.images.map(img => img.repository))];
+                const filtersHtml = `
+                    <button class="filter-btn active" data-filter="all">All (${this.images.length})</button>
+                    ${repositories.map(repo => {
+                        const count = this.images.filter(img => img.repository === repo).length;
+                        return `<button class="filter-btn" data-filter="${repo}">${repo} (${count})</button>`;
+                    }).join('')}
+                `;
+                
+                this.elements.filters.innerHTML = filtersHtml;
+                this.elements.filters.style.display = 'flex';
+                
+                // Add click handlers
+                this.elements.filters.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('filter-btn')) {
+                        this.handleFilterClick(e.target);
+                    }
+                });
+            }
+
+            setupPagination() {
+                this.elements.prevBtn.addEventListener('click', () => {
+                    if (this.currentPage > 1) {
+                        this.currentPage--;
+                        this.renderGallery();
+                        this.updatePagination();
+                    }
+                });
+
+                this.elements.nextBtn.addEventListener('click', () => {
+                    const totalPages = Math.ceil(this.filteredImages.length / this.imagesPerPage);
+                    if (this.currentPage < totalPages) {
+                        this.currentPage++;
+                        this.renderGallery();
+                        this.updatePagination();
+                    }
+                });
+            }
+
+            handleFilterClick(button) {
+                // Update active state
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // Apply filter
+                const filter = button.dataset.filter;
+                this.currentFilter = filter;
+                this.currentPage = 1; // Reset to first page when filtering
+                
+                if (filter === 'all') {
+                    this.filteredImages = [...this.images];
+                } else {
+                    this.filteredImages = this.images.filter(img => img.repository === filter);
+                }
+                
+                this.renderGallery();
+                this.updateStats();
+                this.updatePagination();
+            }
+
+            renderGallery() {
+                // Calculate pagination
+                const startIndex = (this.currentPage - 1) * this.imagesPerPage;
+                const endIndex = startIndex + this.imagesPerPage;
+                const currentPageImages = this.filteredImages.slice(startIndex, endIndex);
+                
+                const galleryHtml = currentPageImages.map((image, index) => `
+                    <div class="gallery-item fade-in" style="animation-delay: ${index * 0.1}s">
+                        <img src="${image.url}" alt="${image.alt}" loading="lazy" 
+                             onerror="this.src='data:image/svg+xml,<svg xmlns=&quot;http://www.w3.org/2000/svg&quot; width=&quot;300&quot; height=&quot;200&quot; viewBox=&quot;0 0 300 200&quot;><rect width=&quot;100%&quot; height=&quot;100%&quot; fill=&quot;%23f0f0f0&quot;/><text x=&quot;50%&quot; y=&quot;50%&quot; text-anchor=&quot;middle&quot; dy=&quot;.3em&quot; fill=&quot;%23666&quot;>Image not found</text></svg>'"
+                        />
+                        <span class="repository-tag">${image.repository}</span>
+                    </div>
+                `).join('');
+                
+                this.elements.gallery.innerHTML = galleryHtml;
+                
+                // Add click handlers for full-size viewing
+                this.elements.gallery.addEventListener('click', (e) => {
+                    const item = e.target.closest('.gallery-item');
+                    if (item) {
+                        const img = item.querySelector('img');
+                        if (img && img.src && !img.src.includes('data:image/svg+xml')) {
+                            window.open(img.src, '_blank');
+                        }
+                    }
+                });
+                
+                // Show/hide pagination based on total images
+                const totalPages = Math.ceil(this.filteredImages.length / this.imagesPerPage);
+                if (totalPages > 1) {
+                    this.elements.pagination.style.display = 'flex';
+                    this.updatePagination();
+                } else {
+                    this.elements.pagination.style.display = 'none';
+                }
+            }
+
+            updateStats() {
+                const total = this.images.length;
+                const showing = this.filteredImages.length;
+                const repositories = [...new Set(this.images.map(img => img.repository))].length;
+                
+                this.elements.stats.innerHTML = `
+                    <p>Showing ${showing} of ${total} featured images from ${repositories} repositories</p>
+                `;
+            }
+
+            updatePagination() {
+                const totalPages = Math.ceil(this.filteredImages.length / this.imagesPerPage);
+                
+                // Update page info
+                this.elements.pageInfo.textContent = `Page ${this.currentPage} of ${totalPages}`;
+                
+                // Update button states
+                this.elements.prevBtn.disabled = this.currentPage === 1;
+                this.elements.nextBtn.disabled = this.currentPage === totalPages;
+            }
+
+            hideLoading() {
+                this.elements.loading.style.display = 'none';
+            }
+
+            showError(message) {
+                this.elements.loading.style.display = 'none';
+                this.elements.error.style.display = 'block';
+                this.elements.errorMessage.textContent = message;
+                
+                console.error('Gallery Error:', message);
+            }
+        }
+
+        // Initialize gallery when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new GalleryManager();
+        });
+
+        // Add some helper functions for enhanced user experience
+        window.addEventListener('load', () => {
+            // Preload some images for better performance
+            const preloadImages = (urls) => {
+                urls.forEach(url => {
+                    const img = new Image();
+                    img.src = url;
+                });
+            };
+        });
+    </script>
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="./assets/js/polyfills-legacy-DLgEdCom.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="./assets/js/gallery-legacy-D_ncZpY2.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+</html>

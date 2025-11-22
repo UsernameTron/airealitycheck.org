@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+    }
+    .box {
+      rx: 8;
+      ry: 8;
+      stroke-width: 2;
+    }
+    .arrow {
+      stroke-width: 2;
+      fill: none;
+      marker-end: url(#arrowhead);
+    }
+    .title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .subtitle {
+      font-size: 14px;
+      fill: #5F6368;
+    }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#5F6368" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="#F8F9FA" />
+  
+  <!-- Title -->
+  <text x="400" y="40" class="title" text-anchor="middle">Employee Turnover Prediction System</text>
+  <text x="400" y="65" class="subtitle" text-anchor="middle">Three-stage process: Data Collection, ML Processing, and Actionable Insights</text>
+  
+  <!-- Data Collection Box -->
+  <rect x="100" y="100" width="180" height="180" class="box" fill="#E8F0FE" stroke="#4285F4" />
+  <text x="190" y="130" text-anchor="middle" font-weight="bold" fill="#4285F4">Data Collection</text>
+  
+  <!-- Data Collection Items -->
+  <rect x="120" y="150" width="140" height="25" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="190" y="167" text-anchor="middle" font-size="12">HR Records</text>
+  
+  <rect x="120" y="185" width="140" height="25" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="190" y="202" text-anchor="middle" font-size="12">Engagement Surveys</text>
+  
+  <rect x="120" y="220" width="140" height="25" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="190" y="237" text-anchor="middle" font-size="12">Team Metrics</text>
+  
+  <rect x="120" y="255" width="140" height="25" rx="4" ry="4" fill="white" stroke="#4285F4" />
+  <text x="190" y="272" text-anchor="middle" font-size="12">Compensation Data</text>
+  
+  <!-- ML Processing Box -->
+  <rect x="320" y="100" width="180" height="180" class="box" fill="#FCE8E6" stroke="#EA4335" />
+  <text x="410" y="130" text-anchor="middle" font-weight="bold" fill="#EA4335">ML Processing</text>
+  
+  <!-- ML Processing Items -->
+  <rect x="340" y="150" width="140" height="25" rx="4" ry="4" fill="white" stroke="#EA4335" />
+  <text x="410" y="167" text-anchor="middle" font-size="12">Random Forest</text>
+  
+  <rect x="340" y="185" width="140" height="25" rx="4" ry="4" fill="white" stroke="#EA4335" />
+  <text x="410" y="202" text-anchor="middle" font-size="12">XGBoost</text>
+  
+  <rect x="340" y="220" width="140" height="25" rx="4" ry="4" fill="white" stroke="#EA4335" />
+  <text x="410" y="237" text-anchor="middle" font-size="12">SHAP Analysis</text>
+  
+  <rect x="340" y="255" width="140" height="25" rx="4" ry="4" fill="white" stroke="#EA4335" />
+  <text x="410" y="272" text-anchor="middle" font-size="12">Feature Importance</text>
+  
+  <!-- Actionable Insights Box -->
+  <rect x="540" y="100" width="180" height="180" class="box" fill="#E6F4EA" stroke="#34A853" />
+  <text x="630" y="130" text-anchor="middle" font-weight="bold" fill="#34A853">Actionable Insights</text>
+  
+  <!-- Actionable Insights Items -->
+  <rect x="560" y="150" width="140" height="25" rx="4" ry="4" fill="white" stroke="#34A853" />
+  <text x="630" y="167" text-anchor="middle" font-size="12">At-Risk Employees</text>
+  
+  <rect x="560" y="185" width="140" height="25" rx="4" ry="4" fill="white" stroke="#34A853" />
+  <text x="630" y="202" text-anchor="middle" font-size="12">Risk Factors</text>
+  
+  <rect x="560" y="220" width="140" height="25" rx="4" ry="4" fill="white" stroke="#34A853" />
+  <text x="630" y="237" text-anchor="middle" font-size="12">Retention Strategies</text>
+  
+  <rect x="560" y="255" width="140" height="25" rx="4" ry="4" fill="white" stroke="#34A853" />
+  <text x="630" y="272" text-anchor="middle" font-size="12">Intervention Timing</text>
+  
+  <!-- Arrows -->
+  <path d="M280,190 H320" class="arrow" stroke="#5F6368" />
+  <path d="M500,190 H540" class="arrow" stroke="#5F6368" />
+  
+  <!-- Results -->
+  <rect x="240" y="320" width="320" height="40" rx="20" ry="20" fill="#FEF7E0" stroke="#FBBC05" />
+  <text x="400" y="345" text-anchor="middle">15-30% Reduction in Employee Turnover</text>
+</svg>
