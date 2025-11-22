@@ -1,9 +1,9 @@
 {
-  "timestamp": "2025-11-22T17:52:25.142Z",
+  "timestamp": "2025-11-22T18:11:14.447Z",
   "overallScore": 21,
   "maxScore": 21,
   "percentage": "100.0",
-  "duration": 1901,
+  "duration": 2136,
   "suites": {
     "lint": {
       "name": "Code Linting",
@@ -12,7 +12,7 @@
           "name": "ESLint (JavaScript)",
           "command": "npm run lint:js",
           "passed": true,
-          "duration": 1060,
+          "duration": 1263,
           "critical": true,
           "output": null,
           "error": null
@@ -30,7 +30,7 @@
           "name": "HTMLHint (HTML)",
           "command": "npm run lint:html",
           "passed": true,
-          "duration": 187,
+          "duration": 220,
           "critical": false,
           "output": null,
           "error": null
