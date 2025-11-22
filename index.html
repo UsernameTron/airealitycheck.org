@@ -158,6 +158,10 @@
                     <span aria-hidden="true">AI Reality Check</span>
                 </a>
             </div>
+            <button id="searchTrigger" class="search-trigger" aria-label="Open search"
+                style="background:none;border:none;cursor:pointer;margin-right:1rem;font-size:1.2rem;color:var(--text-main);">
+                <span aria-hidden="true">🔍</span>
+            </button>
             <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)"
                 aria-pressed="false">
                 <span class="light-icon">☀️</span>
@@ -207,8 +211,17 @@
                 <div class="portfolio-summary">
                     <div class="profile-header">
                         <h3>C. Pete Conner</h3>
-                        <p class="profile-subtitle">Seasoned leader in AI/ML strategy and customer experience
-                            transformation</p>
+                        <div data-component="read-more" style="max-width: 700px; margin: 0 auto;">
+                            <p class="profile-subtitle">Seasoned leader in AI/ML strategy and customer experience
+                                transformation</p>
+                            <p>With a proven track record of driving innovation across enterprise organizations, I
+                                specialize in bridging the gap between cutting-edge AI technologies and practical
+                                business applications. My approach combines technical depth with strategic vision to
+                                deliver measurable results.</p>
+                            <p>From architecting scalable ML pipelines to leading cross-functional teams in delivering
+                                high-impact digital products, I am passionate about leveraging technology to solve
+                                complex problems and enhance user experiences.</p>
+                        </div>
                     </div>
                     <div class="profile-highlights">
                         <div class="highlight-item">
@@ -253,6 +266,11 @@
                         </a>
                         <p>Discover MindMeldGPT: a sovereign, modular, local-first LLM platform for advanced
                             intelligence workflows. Click the image to explore the full details and architecture.</p>
+                        <button class="btn" style="margin-top: 1rem;" data-share data-share-title="MindMeldGPT"
+                            data-share-text="Check out MindMeldGPT: a sovereign, modular, local-first LLM platform."
+                            data-share-url="https://airealitycheck.org/MindMeld.html">
+                            Share Project
+                        </button>
                     </div>
                     <!-- YouTube Video 1 -->
                     <div class="card">
@@ -350,6 +368,8 @@
     <script src="js/main.min.js"></script>
 
     <!-- View Transitions API -->
+    <script type="module" src="js/search.js"></script>
+    <script type="module" src="js/share.js"></script>
     <script src="js/view-transitions.min.js"></script>
 
     <!-- PWA Registration -->

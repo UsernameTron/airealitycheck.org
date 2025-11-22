@@ -23,66 +23,125 @@
 /* ===== BASE STYLES ===== */
 :root {
     /* Google-inspired color palette (with enhanced contrast values) */
-    --primary-blue: #1a73e8; /* Adjusted for better contrast */
-    --primary-blue-dark: #0d47a1; /* Darker blue for hover states */
-    --primary-red: #d93025; /* Adjusted red for better contrast */
-    --primary-yellow: #ea8600; /* Darkened yellow for better contrast */
-    --primary-green: #188038; /* Adjusted green for better contrast */
+    --primary-blue: #1a73e8;
+
+    /* Adjusted for better contrast */
+    --primary-blue-dark: #0d47a1;
+
+    /* Darker blue for hover states */
+    --primary-red: #d93025;
+
+    /* Adjusted red for better contrast */
+    --primary-yellow: #ea8600;
+
+    /* Darkened yellow for better contrast */
+    --primary-green: #188038;
+
+    /* Adjusted green for better contrast */
     --neutral-dark: #202124;
     --neutral-medium: #5F6368;
-    --neutral-light: #9AA0A6; /* Darkened for better contrast */
+    --neutral-light: #9AA0A6;
+
+    /* Darkened for better contrast */
     --neutral-lighter: #F1F3F4;
     --white: #FFF;
     --black: #000;
     --surface: #FFF;
-    
+
     /* For semi-transparent backgrounds with accessible contrast */
-    --blue-bg: #e8f0fe; /* Solid color replacement for rgba(66, 133, 244, 0.1) */
-    --green-bg: #e6f4ea; /* Solid color replacement for rgba(52, 168, 83, 0.1) */
-    --yellow-bg: #fef7e0; /* Solid color replacement for rgba(251, 188, 5, 0.1) */
-    --red-bg: #fce8e6; /* Solid color replacement for rgba(234, 67, 53, 0.1) */
-    
+    --blue-bg: #e8f0fe;
+
+    /* Solid color replacement for rgba(66, 133, 244, 0.1) */
+    --green-bg: #e6f4ea;
+
+    /* Solid color replacement for rgba(52, 168, 83, 0.1) */
+    --yellow-bg: #fef7e0;
+
+    /* Solid color replacement for rgba(251, 188, 5, 0.1) */
+    --red-bg: #fce8e6;
+
+    /* Solid color replacement for rgba(234, 67, 53, 0.1) */
+
     /* Footer & overlay colors with better contrast */
-    --footer-link: #E8EAED; /* Light gray with good contrast on dark backgrounds */
-    --footer-text: #FFF; /* Full white for text on dark backgrounds */
-    --footer-overlay: rgb(0 0 0 / 95%); /* Even darker overlay for better text contrast */
-    --footer-secondary: #FFF; /* Full white for better contrast */
-    
+    --footer-link: #E8EAED;
+
+    /* Light gray with good contrast on dark backgrounds */
+    --footer-text: #FFF;
+
+    /* Full white for text on dark backgrounds */
+    --footer-overlay: rgb(0 0 0 / 95%);
+
+    /* Even darker overlay for better text contrast */
+    --footer-secondary: #FFF;
+
+    /* Full white for better contrast */
+
     /* Border radius */
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 16px;
-    
+
     /* Shadows */
     --shadow-sm: 0 1px 2px rgb(60 64 67 / 30%);
     --shadow-md: 0 2px 6px rgb(60 64 67 / 15%);
     --shadow-lg: 0 4px 12px rgb(60 64 67 / 15%);
-    
+
+    /* Semantic Variables for Theming */
+    --bg-body: var(--white);
+    --bg-surface: var(--white);
+    --bg-header: var(--white);
+    --text-main: var(--neutral-dark);
+    --text-muted: var(--neutral-medium);
+    --border-color: var(--neutral-lighter);
+    --card-bg: var(--white);
+
     /* Dark mode variables */
     --dark-surface: #121212;
     --dark-surface-elevated-1: #1E1E1E;
     --dark-surface-elevated-2: #222;
     --dark-surface-elevated-3: #252525;
-    --dark-text-high: rgb(255 255 255 / 87%); /* ~4.5:1 contrast ratio */
-    --dark-text-medium: rgb(255 255 255 / 60%); /* For less important text */
+    --dark-text-high: rgb(255 255 255 / 87%);
+
+    /* ~4.5:1 contrast ratio */
+    --dark-text-medium: rgb(255 255 255 / 60%);
+
+    /* For less important text */
     --dark-border: #333;
-    
+
     /* Dark mode color equivalents */
-    --dark-primary-blue: #64B5F6; /* Lighter blue for dark mode with 4.5:1+ contrast */
-    --dark-primary-blue-dark: #90CAF9; /* Even lighter for hover in dark mode */
-    --dark-primary-red: #E57373; /* Lighter red for dark mode */
-    --dark-primary-yellow: #FFD54F; /* Adjusted yellow for dark mode */
-    --dark-primary-green: #81C784; /* Lighter green for dark mode */
-    --dark-blue-bg: rgb(25 118 210 / 15%); /* Dark mode blue background */
-    --dark-green-bg: rgb(67 160 71 / 15%); /* Dark mode green background */
-    --dark-yellow-bg: rgb(251 140 0 / 15%); /* Dark mode yellow background */
-    --dark-red-bg: rgb(211 47 47 / 15%); /* Dark mode red background */
-    
+    --dark-primary-blue: #64B5F6;
+
+    /* Lighter blue for dark mode with 4.5:1+ contrast */
+    --dark-primary-blue-dark: #90CAF9;
+
+    /* Even lighter for hover in dark mode */
+    --dark-primary-red: #E57373;
+
+    /* Lighter red for dark mode */
+    --dark-primary-yellow: #FFD54F;
+
+    /* Adjusted yellow for dark mode */
+    --dark-primary-green: #81C784;
+
+    /* Lighter green for dark mode */
+    --dark-blue-bg: rgb(25 118 210 / 15%);
+
+    /* Dark mode blue background */
+    --dark-green-bg: rgb(67 160 71 / 15%);
+
+    /* Dark mode green background */
+    --dark-yellow-bg: rgb(251 140 0 / 15%);
+
+    /* Dark mode yellow background */
+    --dark-red-bg: rgb(211 47 47 / 15%);
+
+    /* Dark mode red background */
+
     /* Shadows for dark mode */
     --dark-shadow-sm: 0 1px 2px rgb(0 0 0 / 90%);
     --dark-shadow-md: 0 2px 6px rgb(0 0 0 / 90%);
     --dark-shadow-lg: 0 4px 12px rgb(0 0 0 / 90%);
-    
+
     /* Spacing system (8px grid) */
     --space-xs: 4px;
     --space-sm: 8px;
@@ -90,7 +149,7 @@
     --space-lg: 24px;
     --space-xl: 32px;
     --space-xxl: 48px;
-    
+
     /* Typography - Fluid system with clamp() for responsive scaling */
     --font-family: 'Roboto', sans-serif;
     --font-size-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
@@ -107,6 +166,20 @@
     --line-height-relaxed: 1.75;
 }
 
+:root.theme-dark {
+    --bg-body: var(--dark-surface);
+    --bg-surface: var(--dark-surface-elevated-1);
+    --bg-header: var(--dark-surface-elevated-1);
+    --text-main: var(--dark-text-high);
+    --text-muted: var(--dark-text-medium);
+    --border-color: var(--dark-border);
+    --card-bg: var(--dark-surface-elevated-1);
+    --primary-blue: var(--dark-primary-blue);
+    --neutral-dark: var(--dark-text-high);
+
+    /* Override for legacy usage */
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -121,9 +194,10 @@ html {
 
 body {
     font-family: var(--font-family);
-    color: var(--neutral-dark);
+    color: var(--text-main);
     line-height: var(--line-height-base);
-    background-color: var(--white);
+    background-color: var(--bg-body);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 img {
@@ -143,7 +217,12 @@ a:hover {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 500;
     line-height: var(--line-height-tight);
     margin-bottom: var(--space-md);
@@ -237,7 +316,9 @@ section {
 .case-studies-hero {
     background-image: url('../images/hero/case-studies-hero.webp');
     filter: brightness(1.1) contrast(1.05);
-    background-color: #0a0a17; /* Dark background for letterboxing */
+    background-color: #0a0a17;
+
+    /* Dark background for letterboxing */
 }
 
 .portfolio-hero {
@@ -266,14 +347,14 @@ section {
     right: 0;
     height: 50%;
     background: linear-gradient(to top,
-        rgb(0 0 0 / 70%) 0%,
-        transparent 100%);
+            rgb(0 0 0 / 70%) 0%,
+            transparent 100%);
     pointer-events: none;
 }
 
 /* Header and Navigation */
 header {
-    background-color: var(--white);
+    background-color: var(--bg-header);
     box-shadow: var(--shadow-sm);
     position: sticky;
     top: 0;
@@ -290,7 +371,7 @@ header .container {
 .logo a {
     font-size: var(--font-size-xl);
     font-weight: 500;
-    color: var(--neutral-dark);
+    color: var(--text-main);
     text-decoration: none;
 }
 
@@ -304,7 +385,9 @@ nav li {
 }
 
 nav a {
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--text-main);
+
+    /* Improved contrast from medium to dark */
     font-weight: 500;
     text-decoration: none;
     padding: var(--space-xs) 0;
@@ -340,10 +423,10 @@ nav a:hover::after {
 
 /* Profile Section */
 .profile {
-    background-color: var(--white);
+    background-color: var(--bg-surface);
     padding: var(--space-xxl) 0;
-    border-top: 1px solid var(--neutral-lighter);
-    border-bottom: 1px solid var(--neutral-lighter);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .profile-content {
@@ -358,7 +441,9 @@ nav a:hover::after {
 }
 
 .profile-highlight {
-    background-color: var(--blue-bg); /* Using solid color instead of rgba */
+    background-color: var(--blue-bg);
+
+    /* Using solid color instead of rgba */
     border-left: 4px solid var(--primary-blue);
     padding: var(--space-md);
     border-radius: 4px;
@@ -420,7 +505,9 @@ nav a:hover::after {
 
 .case-study-content p {
     line-height: var(--line-height-relaxed);
-    max-width: 70ch; /* Optimal reading width */
+    max-width: 70ch;
+
+    /* Optimal reading width */
 }
 
 .problem-solution-container {
@@ -430,7 +517,8 @@ nav a:hover::after {
     margin: var(--space-lg) 0;
 }
 
-.problem-section, .solution-section {
+.problem-section,
+.solution-section {
     background-color: var(--neutral-lighter);
     padding: var(--space-lg);
     border-radius: var(--radius-md);
@@ -491,7 +579,9 @@ nav a:hover::after {
 }
 
 .highlight-box {
-    background-color: var(--blue-bg); /* Using solid color instead of rgba */
+    background-color: var(--blue-bg);
+
+    /* Using solid color instead of rgba */
     border-left: 4px solid var(--primary-blue);
     padding: var(--space-lg);
     margin: var(--space-lg) 0;
@@ -499,12 +589,16 @@ nav a:hover::after {
 }
 
 .highlight-box.success {
-    background-color: var(--green-bg); /* Using solid color instead of rgba */
+    background-color: var(--green-bg);
+
+    /* Using solid color instead of rgba */
     border-left-color: var(--primary-green);
 }
 
 .highlight-box.warning {
-    background-color: var(--yellow-bg); /* Using solid color instead of rgba */
+    background-color: var(--yellow-bg);
+
+    /* Using solid color instead of rgba */
     border-left-color: var(--primary-yellow);
 }
 
@@ -552,11 +646,11 @@ nav a:hover::after {
     right: 0;
     height: 3px;
     background: linear-gradient(90deg,
-        var(--primary-blue) 0%,
-        var(--primary-red) 25%,
-        var(--primary-yellow) 50%,
-        var(--primary-green) 75%,
-        var(--primary-blue) 100%);
+            var(--primary-blue) 0%,
+            var(--primary-red) 25%,
+            var(--primary-yellow) 50%,
+            var(--primary-green) 75%,
+            var(--primary-blue) 100%);
     transform: translateY(-100%);
     transition: transform 0.3s ease;
 }
@@ -575,11 +669,15 @@ nav a:hover::after {
 }
 
 .card p {
-    flex-grow: 1; /* Make paragraphs take up available space */
+    flex-grow: 1;
+
+    /* Make paragraphs take up available space */
 }
 
 .card .btn {
-    align-self: flex-start; /* Align buttons at the bottom */
+    align-self: flex-start;
+
+    /* Align buttons at the bottom */
     margin-top: auto;
 }
 
@@ -588,10 +686,21 @@ nav a:hover::after {
     animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 
-.cards .card:nth-child(1) { animation-delay: 0.1s; }
-.cards .card:nth-child(2) { animation-delay: 0.2s; }
-.cards .card:nth-child(3) { animation-delay: 0.3s; }
-.cards .card:nth-child(4) { animation-delay: 0.4s; }
+.cards .card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.cards .card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.cards .card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.cards .card:nth-child(4) {
+    animation-delay: 0.4s;
+}
 
 @keyframes fadeInUp {
     from {
@@ -651,13 +760,17 @@ nav a:hover::after {
     flex-wrap: wrap;
     gap: var(--space-md);
     margin-bottom: var(--space-lg);
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
     font-size: var(--font-size-sm);
 }
 
 .article-introduction {
     font-size: var(--font-size-lg);
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
     margin-bottom: var(--space-xl);
     padding-bottom: var(--space-md);
     border-bottom: 1px solid var(--neutral-light);
@@ -678,10 +791,12 @@ nav a:hover::after {
 .article-content p {
     margin-bottom: var(--space-md);
     line-height: var(--line-height-relaxed);
-    max-width: 70ch; /* Optimal reading width */
+    max-width: 70ch;
+
+    /* Optimal reading width */
 }
 
-.article-content ul, 
+.article-content ul,
 .article-content ol {
     margin-bottom: var(--space-lg);
     padding-left: var(--space-xl);
@@ -709,7 +824,8 @@ label {
     font-weight: 500;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
     padding: var(--space-sm);
     border: 1px solid var(--neutral-light);
@@ -719,13 +835,17 @@ input, textarea {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
     border-color: var(--primary-blue);
-    box-shadow: 0 0 0 3px var(--blue-bg); /* Using solid color instead of rgba */
+    box-shadow: 0 0 0 3px var(--blue-bg);
+
+    /* Using solid color instead of rgba */
 }
 
-input.invalid, textarea.invalid {
+input.invalid,
+textarea.invalid {
     border-color: var(--primary-red);
 }
 
@@ -747,7 +867,9 @@ input[type="checkbox"] {
 
 .checkbox-label {
     font-size: var(--font-size-sm);
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
 }
 
 .form-status {
@@ -763,17 +885,23 @@ input[type="checkbox"] {
 
 .status-message.loading {
     background-color: var(--neutral-lighter);
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
 }
 
 .status-message.success {
-    background-color: var(--green-bg); /* Using solid color instead of rgba */
+    background-color: var(--green-bg);
+
+    /* Using solid color instead of rgba */
     color: var(--primary-green);
     border-left: 4px solid var(--primary-green);
 }
 
 .status-message.error {
-    background-color: var(--red-bg); /* Using solid color instead of rgba */
+    background-color: var(--red-bg);
+
+    /* Using solid color instead of rgba */
     color: var(--primary-red);
     border-left: 4px solid var(--primary-red);
 }
@@ -892,7 +1020,9 @@ footer::before {
     background-image: url('../images/footer/Dark UI Footer.webp');
     background-size: cover;
     background-position: center;
-    opacity: 0.15; /* Much lighter overlay for artistic visibility */
+    opacity: 0.15;
+
+    /* Much lighter overlay for artistic visibility */
     z-index: 0;
 }
 
@@ -905,11 +1035,11 @@ footer::after {
     right: 0;
     height: 2px;
     background: linear-gradient(90deg,
-        var(--primary-blue) 0%,
-        var(--primary-red) 25%,
-        var(--primary-yellow) 50%,
-        var(--primary-green) 75%,
-        var(--primary-blue) 100%);
+            var(--primary-blue) 0%,
+            var(--primary-red) 25%,
+            var(--primary-yellow) 50%,
+            var(--primary-green) 75%,
+            var(--primary-blue) 100%);
     background-size: 200% 100%;
     animation: gradientShift 3s ease infinite;
     z-index: 2;
@@ -921,25 +1051,38 @@ footer .container {
 }
 
 @keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* Skeleton loading animation for better perceived performance */
 .skeleton {
     background: linear-gradient(90deg,
-        var(--neutral-lighter) 25%,
-        var(--neutral-light) 50%,
-        var(--neutral-lighter) 75%);
+            var(--neutral-lighter) 25%,
+            var(--neutral-light) 50%,
+            var(--neutral-lighter) 75%);
     background-size: 200% 100%;
     animation: loading 1.5s infinite;
     border-radius: var(--radius-sm);
 }
 
 @keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
 }
 
 .skeleton-text {
@@ -991,7 +1134,9 @@ footer .container {
 }
 
 .footer-links a {
-    color: var(--footer-link); /* Brighter color for better contrast */
+    color: var(--footer-link);
+
+    /* Brighter color for better contrast */
     transition: color 0.2s ease;
 }
 
@@ -1011,7 +1156,9 @@ footer .container {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgb(255 255 255 / 20%); /* Increased opacity for better contrast */
+    background-color: rgb(255 255 255 / 20%);
+
+    /* Increased opacity for better contrast */
     border-radius: 50%;
     box-shadow: var(--shadow-sm);
     transition: transform 0.2s ease, background-color 0.2s ease;
@@ -1019,14 +1166,20 @@ footer .container {
 
 .social-icons a:hover {
     transform: translateY(-2px);
-    background-color: rgb(255 255 255 / 30%); /* Increased opacity for better contrast */
+    background-color: rgb(255 255 255 / 30%);
+
+    /* Increased opacity for better contrast */
 }
 
 .copyright {
     text-align: center;
-    color: var(--footer-secondary); /* Brighter text for better contrast */
+    color: var(--footer-secondary);
+
+    /* Brighter text for better contrast */
     font-size: var(--font-size-sm);
-    border-top: 1px solid rgb(255 255 255 / 20%); /* Increased opacity for better visibility */
+    border-top: 1px solid rgb(255 255 255 / 20%);
+
+    /* Increased opacity for better visibility */
     padding-top: var(--space-lg);
 }
 
@@ -1060,7 +1213,9 @@ footer .container {
     width: 25px;
     height: 3px;
     margin: 5px 0;
-    background-color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    background-color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
     border-radius: 3px;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -1078,7 +1233,7 @@ footer .container {
 }
 
 /* Enhanced mobile navigation system with backdrop blur */
-@media (width <= 768px) {
+@media (width <=768px) {
     header {
         padding: var(--space-sm) 0;
     }
@@ -1163,38 +1318,46 @@ footer .container {
     }
 }
 
-@media (width <= 768px) {
+@media (width <=768px) {
     /* Typography adjustments */
     h1 {
         font-size: var(--font-size-xxl);
     }
-    
+
     h2 {
         font-size: var(--font-size-xl);
     }
-    
+
     h3 {
         font-size: var(--font-size-lg);
     }
-    
+
     /* Layout adjustments */
     section {
         padding: var(--space-xl) 0;
     }
-    
+
     /* Hero section improvements for mobile */
     .home-hero {
-        height: 40vh; /* Reduced from 50vh */
-        min-height: 300px; /* Reduced from 400px */
+        height: 40vh;
+
+        /* Reduced from 50vh */
+        min-height: 300px;
+
+        /* Reduced from 400px */
     }
-    
+
     .case-studies-hero,
     .portfolio-hero,
     .articles-hero {
-        height: 40vh; /* Reduced from 50vh */
-        min-height: 300px; /* Reduced from 400px */
+        height: 40vh;
+
+        /* Reduced from 50vh */
+        min-height: 300px;
+
+        /* Reduced from 400px */
     }
-    
+
     .footer-content {
         grid-template-columns: 1fr;
         gap: var(--space-lg);
@@ -1206,20 +1369,20 @@ footer .container {
 }
 
 /* Small mobile screens */
-@media (width <= 480px) {
+@media (width <=480px) {
     /* Additional hero adjustments for smaller screens */
     .home-hero {
         height: 30vh;
         min-height: 200px;
     }
-    
+
     .case-studies-hero,
     .portfolio-hero,
     .articles-hero {
         height: 30vh;
         min-height: 200px;
     }
-    
+
     /* Ensure hero image content is visible */
     .hero-image {
         object-position: center top;
@@ -1252,7 +1415,9 @@ footer .container {
     flex-wrap: wrap;
     gap: var(--space-lg);
     margin-bottom: var(--space-xl);
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
     font-size: var(--font-size-sm);
 }
 
@@ -1264,17 +1429,19 @@ footer .container {
 
 .content-lead {
     font-size: var(--font-size-lg);
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
     margin-bottom: var(--space-lg);
     padding-left: var(--space-md);
     border-left: 4px solid var(--primary-blue);
 }
 
-@media (width <= 992px) {
+@media (width <=992px) {
     .case-study-container {
         grid-template-columns: 1fr;
     }
-    
+
     .sidebar .toc {
         position: static;
         margin-bottom: var(--space-lg);
@@ -1286,7 +1453,9 @@ footer .container {
 }
 
 .highlight-box {
-    background-color: var(--blue-bg); /* Using solid color instead of rgba */
+    background-color: var(--blue-bg);
+
+    /* Using solid color instead of rgba */
     border-left: 4px solid var(--primary-blue);
     padding: var(--space-lg);
     margin: var(--space-lg) 0;
@@ -1294,17 +1463,23 @@ footer .container {
 }
 
 .highlight-box.success {
-    background-color: var(--green-bg); /* Using solid color instead of rgba */
+    background-color: var(--green-bg);
+
+    /* Using solid color instead of rgba */
     border-left-color: var(--primary-green);
 }
 
 .highlight-box.warning {
-    background-color: var(--yellow-bg); /* Using solid color instead of rgba */
+    background-color: var(--yellow-bg);
+
+    /* Using solid color instead of rgba */
     border-left-color: var(--primary-yellow);
 }
 
 .highlight-box.error {
-    background-color: var(--red-bg); /* Using solid color instead of rgba */
+    background-color: var(--red-bg);
+
+    /* Using solid color instead of rgba */
     border-left-color: var(--primary-red);
 }
 
@@ -1362,16 +1537,21 @@ footer .container {
     margin: var(--space-xl) auto;
     position: relative;
     text-align: center;
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
     padding: 0 var(--space-lg);
 }
 
-.quote::before, .quote::after {
+.quote::before,
+.quote::after {
     content: '"';
     font-size: 3rem;
     position: absolute;
     color: var(--primary-blue);
-    opacity: 0.5; /* Increased opacity for better visibility */
+    opacity: 0.5;
+
+    /* Increased opacity for better visibility */
 }
 
 .quote::before {
@@ -1409,7 +1589,9 @@ footer .container {
 }
 
 .toc-link {
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
     transition: all 0.2s ease;
     display: block;
     padding: var(--space-xs) 0;
@@ -1417,7 +1599,8 @@ footer .container {
     padding-left: var(--space-md);
 }
 
-.toc-link:hover, .toc-link.active {
+.toc-link:hover,
+.toc-link.active {
     color: var(--primary-blue);
     border-left-color: var(--primary-blue);
     padding-left: var(--space-lg);
@@ -1440,7 +1623,9 @@ footer .container {
     background-color: var(--neutral-lighter);
     padding: var(--space-md);
     font-size: var(--font-size-sm);
-    color: var(--neutral-dark); /* Improved contrast from medium to dark */
+    color: var(--neutral-dark);
+
+    /* Improved contrast from medium to dark */
     text-align: center;
 }
 
@@ -1590,41 +1775,41 @@ footer .container {
 }
 
 /* Dark mode specific overrides */
-:root.theme-dark body, 
+:root.theme-dark body,
 :root.theme-auto body {
     background-color: var(--dark-surface);
     color: var(--dark-text-high);
 }
 
-:root.theme-dark header, 
+:root.theme-dark header,
 :root.theme-auto header {
     background-color: var(--dark-surface-elevated-1);
     box-shadow: var(--dark-shadow-sm);
 }
 
-:root.theme-dark .logo a, 
+:root.theme-dark .logo a,
 :root.theme-auto .logo a,
-:root.theme-dark nav a, 
+:root.theme-dark nav a,
 :root.theme-auto nav a {
     color: var(--dark-text-high);
 }
 
-:root.theme-dark .card, 
+:root.theme-dark .card,
 :root.theme-auto .card,
-:root.theme-dark .result-card, 
+:root.theme-dark .result-card,
 :root.theme-auto .result-card,
-:root.theme-dark .metric-card, 
+:root.theme-dark .metric-card,
 :root.theme-auto .metric-card {
     background-color: var(--dark-surface-elevated-1);
     box-shadow: var(--dark-shadow-md);
 }
 
-:root.theme-dark footer::before, 
+:root.theme-dark footer::before,
 :root.theme-auto footer::before {
     background-color: rgb(0 0 0 / 95%);
 }
 
-:root.theme-dark .mobile-nav-toggle .bar, 
+:root.theme-dark .mobile-nav-toggle .bar,
 :root.theme-auto .mobile-nav-toggle .bar {
     background-color: var(--dark-text-high);
 }
@@ -1643,7 +1828,9 @@ footer .container {
     background-repeat: no-repeat;
     background-size: contain;
     content: '';
-    filter: brightness(1.5); /* Make icons brighter for dark footer */
+    filter: brightness(1.5);
+
+    /* Make icons brighter for dark footer */
 }
 
 .icon-linkedin::before {
@@ -1668,4 +1855,116 @@ footer .container {
 
 .icon-youtube::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23FFFFFF' d='M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z'/%3E%3C/svg%3E");
+}
+
+/* Search Modal Styles */
+.search-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0 0 0 / 50%);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 10vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+}
+
+.search-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-modal-content {
+    background: var(--card-bg);
+    width: 90%;
+    max-width: 600px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh;
+}
+
+.search-modal-header {
+    padding: var(--space-md);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.search-input-wrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--text-muted);
+}
+
+.search-input {
+    width: 100%;
+    border: none;
+    background: none;
+    font-size: var(--font-size-lg);
+    color: var(--text-main);
+    outline: none;
+}
+
+.search-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: var(--space-xs);
+}
+
+.search-close:hover {
+    color: var(--text-main);
+}
+
+.search-results {
+    padding: var(--space-md);
+    overflow-y: auto;
+}
+
+.search-result-item {
+    display: block;
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    text-decoration: none;
+    transition: background-color 0.2s;
+}
+
+.search-result-item:hover {
+    background-color: var(--bg-body);
+    text-decoration: none;
+}
+
+.search-result-title {
+    font-weight: 500;
+    color: var(--primary-blue);
+    margin-bottom: var(--space-xs);
+}
+
+.search-result-description {
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+}
+
+.search-loading,
+.search-no-results,
+.search-error {
+    text-align: center;
+    padding: var(--space-lg);
+    color: var(--text-muted);
 }

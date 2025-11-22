@@ -87,6 +87,7 @@
   },
   "dependencies": {
     "@axe-core/puppeteer": "^4.10.2",
+    "fuse.js": "^7.1.0",
     "glob": "^13.0.0",
     "gsap": "^3.12.5",
     "motion": "^10.18.0"

@@ -19,6 +19,7 @@ class UIComponent {
     this.listeners = [];
 
     if (!this.element) {
+      // eslint-disable-next-line no-console
       console.error('UIComponent: Element not found');
       return;
     }
@@ -74,6 +75,7 @@ class Dropdown extends UIComponent {
     this.items = Array.from(this.element.querySelectorAll(this.options.items));
 
     if (!this.trigger || !this.menu) {
+      // eslint-disable-next-line no-console
       console.error('Dropdown: Missing trigger or menu element');
       return;
     }
@@ -471,6 +473,7 @@ class Tabs extends UIComponent {
     this.panels = Array.from(this.element.querySelectorAll(this.options.panels));
 
     if (!this.tabList || this.tabs.length === 0 || this.panels.length === 0) {
+      // eslint-disable-next-line no-console
       console.error('Tabs: Missing required elements');
       return;
     }
@@ -594,6 +597,7 @@ class Accordion extends UIComponent {
     this.items = Array.from(this.element.querySelectorAll(this.options.items));
 
     if (this.items.length === 0) {
+      // eslint-disable-next-line no-console
       console.error('Accordion: No items found');
       return;
     }
@@ -926,6 +930,85 @@ class Tooltip extends UIComponent {
 }
 
 // =============================================================================
+// ReadMore Component
+// =============================================================================
+
+class ReadMore extends UIComponent {
+  static defaults = {
+    collapsedHeight: '4.5em', // Approx 3 lines
+    moreText: 'Read More',
+    lessText: 'Read Less',
+    animation: true,
+    animationDuration: 300
+  };
+
+  init() {
+    this.content = this.element.querySelector('[data-read-more-content]') || this.element;
+    this.trigger = this.element.querySelector('[data-read-more-trigger]');
+
+    if (!this.trigger) {
+      this.createTrigger();
+    }
+
+    this.setState({ isExpanded: false });
+    this.setupStyles();
+    this.attachEventListeners();
+
+    // Re-check on resize
+    window.addEventListener('resize', () => this.checkOverflow());
+  }
+
+  createTrigger() {
+    this.trigger = document.createElement('button');
+    this.trigger.className = 'btn-link read-more-trigger';
+    this.trigger.style.marginTop = '0.5rem';
+    this.trigger.style.padding = '0';
+    this.trigger.style.border = 'none';
+    this.trigger.style.background = 'none';
+    this.trigger.style.color = 'var(--primary-blue)';
+    this.trigger.style.cursor = 'pointer';
+    this.trigger.style.fontWeight = '500';
+    this.trigger.textContent = this.options.moreText;
+    this.element.appendChild(this.trigger);
+  }
+
+  setupStyles() {
+    this.content.style.overflow = 'hidden';
+    this.content.style.transition = `max-height ${this.options.animationDuration}ms ease`;
+    this.content.style.maxHeight = this.options.collapsedHeight;
+  }
+
+  checkOverflow() {
+    // Logic to hide trigger if content is short would go here
+  }
+
+  attachEventListeners() {
+    this.trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      this.toggle();
+    });
+  }
+
+  toggle() {
+    this.state.isExpanded ? this.collapse() : this.expand();
+  }
+
+  expand() {
+    this.setState({ isExpanded: true });
+    this.content.style.maxHeight = `${this.content.scrollHeight}px`;
+    this.trigger.textContent = this.options.lessText;
+    this.element.classList.add('expanded');
+  }
+
+  collapse() {
+    this.setState({ isExpanded: false });
+    this.content.style.maxHeight = this.options.collapsedHeight;
+    this.trigger.textContent = this.options.moreText;
+    this.element.classList.remove('expanded');
+  }
+}
+
+// =============================================================================
 // Auto-initialization
 // =============================================================================
 
@@ -955,6 +1038,11 @@ function initUIComponents() {
   document.querySelectorAll('[data-tooltip]').forEach(el => {
     new Tooltip(el);
   });
+
+  // Auto-init read more
+  document.querySelectorAll('[data-component="read-more"]').forEach(el => {
+    new ReadMore(el);
+  });
 }
 /* eslint-enable no-new */
 
@@ -967,7 +1055,7 @@ if (document.readyState === 'loading') {
 
 // Export for manual initialization
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { Dropdown, Modal, Tabs, Accordion, Tooltip, initUIComponents };
+  module.exports = { Dropdown, Modal, Tabs, Accordion, Tooltip, ReadMore, initUIComponents };
 } else {
-  window.UIComponents = { Dropdown, Modal, Tabs, Accordion, Tooltip, initUIComponents };
+  window.UIComponents = { Dropdown, Modal, Tabs, Accordion, Tooltip, ReadMore, initUIComponents };
 }
