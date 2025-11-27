@@ -1968,3 +1968,227 @@ footer .container {
     padding: var(--space-lg);
     color: var(--text-muted);
 }
+
+/* ===== CREATIVE SECTION ENHANCEMENTS ===== */
+
+/* Featured Video Hero */
+.creative-featured {
+    margin-bottom: var(--space-xxl);
+}
+
+.creative-featured .video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+}
+
+.creative-featured .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.creative-featured .video-thumbnail:hover img {
+    transform: scale(1.02);
+}
+
+/* Play Button Overlay */
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    z-index: 2;
+}
+
+.video-thumbnail:hover .play-button {
+    transform: translate(-50%, -50%) scale(1.1);
+    opacity: 1;
+}
+
+.video-thumbnail.playing .play-button {
+    display: none;
+}
+
+/* Video Grid Cards */
+.video-item .video-thumbnail {
+    position: relative;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.video-item .video-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Category Filter Tabs */
+.creative-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+
+.filter-tab {
+    padding: 10px 20px;
+    border: 2px solid var(--primary-blue);
+    border-radius: 25px;
+    background: transparent;
+    color: var(--primary-blue);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-tab:hover,
+.filter-tab.active {
+    background: var(--primary-blue);
+    color: white;
+}
+
+/* Image Showcase Carousel */
+.image-showcase {
+    margin: var(--space-xxl) 0;
+    padding: var(--space-xl) 0;
+    background-color: var(--neutral-lighter);
+    border-radius: var(--radius-lg);
+}
+
+.image-carousel {
+    display: flex;
+    gap: var(--space-md);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: var(--space-md);
+    scrollbar-width: none;
+}
+
+.image-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease;
+    background: var(--white);
+}
+
+.carousel-item:hover {
+    transform: translateY(-4px);
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.carousel-item .image-info {
+    padding: var(--space-md);
+}
+
+.carousel-item .repo-badge {
+    display: inline-block;
+    font-size: var(--font-size-xs);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.repo-badge.apple-juice {
+    background: #a8e6cf;
+    color: #1b5e20;
+}
+
+.repo-badge.gi-error {
+    background: #ffd3b6;
+    color: #e65100;
+}
+
+.repo-badge.ai-sauces {
+    background: #e9b965;
+    color: #5d4037;
+}
+
+.repo-badge.fun-with-sora {
+    background: #d4a5ff;
+    color: #4a148c;
+}
+
+/* YouTube Channel CTA */
+.youtube-cta {
+    text-align: center;
+    padding: var(--space-xxl);
+    background: linear-gradient(135deg, #f00 0%, #c00 100%);
+    border-radius: var(--radius-lg);
+    margin: var(--space-xxl) 0;
+}
+
+.youtube-cta h3 {
+    color: white;
+    margin-bottom: var(--space-md);
+}
+
+.youtube-cta p {
+    color: rgb(255 255 255 / 90%);
+    margin-bottom: var(--space-lg);
+}
+
+.youtube-cta .btn {
+    background: white;
+    color: #c00;
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.youtube-cta .btn:hover {
+    background: #f5f5f5;
+    transform: translateY(-2px);
+}
+
+/* Dark Mode Adjustments */
+:root.theme-dark .image-showcase {
+    background-color: var(--dark-surface-elevated-1);
+}
+
+:root.theme-dark .carousel-item {
+    background: var(--dark-surface-elevated-2);
+}
+
+/* Responsive Adjustments */
+@media (width <=768px) {
+    .creative-featured .video-thumbnail {
+        border-radius: var(--radius-md);
+    }
+
+    .carousel-item {
+        flex: 0 0 240px;
+    }
+
+    .filter-tab {
+        padding: 8px 16px;
+        font-size: var(--font-size-sm);
+    }
+}
