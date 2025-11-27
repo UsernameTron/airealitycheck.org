@@ -1,0 +1,45 @@
+{
+  "timestamp": "2025-11-27T17:35:50.322Z",
+  "overallScore": 21,
+  "maxScore": 21,
+  "percentage": "100.0",
+  "duration": 4593,
+  "suites": {
+    "lint": {
+      "name": "Code Linting",
+      "tests": [
+        {
+          "name": "ESLint (JavaScript)",
+          "command": "npm run lint:js",
+          "passed": true,
+          "duration": 2717,
+          "critical": true,
+          "output": null,
+          "error": null
+        },
+        {
+          "name": "Stylelint (CSS)",
+          "command": "npm run lint:css",
+          "passed": true,
+          "duration": 1529,
+          "critical": true,
+          "output": null,
+          "error": null
+        },
+        {
+          "name": "HTMLHint (HTML)",
+          "command": "npm run lint:html",
+          "passed": true,
+          "duration": 342,
+          "critical": false,
+          "output": null,
+          "error": null
+        }
+      ],
+      "passed": 3,
+      "failed": 0,
+      "score": 21,
+      "maxScore": 21
+    }
+  }
+}
