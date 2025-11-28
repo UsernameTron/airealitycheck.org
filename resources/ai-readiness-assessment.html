@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Readiness Assessment | AI Reality Check</title>
+  <meta name="description" content="Evaluate your organization's AI readiness across data infrastructure, team skills, process maturity, strategic alignment, and technology stack">
+  <style>
+    /* CSS Variables - ARC Brand Colors */
+    :root {
+      --arc-blue: #1a73e8;
+      --arc-teal: #2d8b8b;
+      --arc-warm: #ea8600;
+      --arc-dark: #0a0a17;
+      --arc-gray-50: #f8f9fa;
+      --arc-gray-100: #e8eaed;
+      --arc-gray-200: #dadce0;
+      --arc-gray-700: #5f6368;
+      --arc-gray-900: #202124;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: var(--arc-dark);
+      --bg-secondary: #1a1a2e;
+      --bg-card: #16213e;
+      --text-primary: #ffffff;
+      --text-secondary: #b0b0b0;
+      --border-color: #2a2a40;
+      --accent-primary: var(--arc-blue);
+      --accent-secondary: var(--arc-teal);
+    }
+
+    [data-theme="light"] {
+      --bg-primary: var(--arc-gray-50);
+      --bg-secondary: #ffffff;
+      --bg-card: #ffffff;
+      --text-primary: var(--arc-gray-900);
+      --text-secondary: var(--arc-gray-700);
+      --border-color: var(--arc-gray-200);
+      --accent-primary: var(--arc-blue);
+      --accent-secondary: var(--arc-teal);
+    }
+
+    /* Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 2rem 1rem;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent-primary);
+      color: white;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* Container */
+    .assessment-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header */
+    .assessment-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .assessment-header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--arc-blue), var(--arc-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .assessment-header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    /* Progress Bar */
+    .progress-container {
+      margin: 2rem 0;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 8px;
+      background: var(--border-color);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--arc-blue), var(--arc-teal));
+      border-radius: 4px;
+      transition: width 0.3s ease;
+    }
+
+    /* Question Step */
+    .step {
+      display: none;
+    }
+
+    .step.active {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+    }
+
+    .question {
+      margin-bottom: 2.5rem;
+    }
+
+    .question-text {
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .option {
+      position: relative;
+    }
+
+    .option input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .option label {
+      display: block;
+      padding: 1rem 1.25rem;
+      background: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .option label:hover {
+      border-color: var(--accent-primary);
+      background: var(--bg-card);
+    }
+
+    .option input[type="radio"]:checked + label {
+      border-color: var(--accent-primary);
+      background: var(--bg-card);
+      box-shadow: 0 0 0 1px var(--accent-primary);
+    }
+
+    .option input[type="radio"]:focus + label {
+      outline: 2px solid var(--accent-primary);
+      outline-offset: 2px;
+    }
+
+    /* Navigation */
+    .navigation {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent-primary);
+      color: white;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background: #1557b0;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 2px solid var(--border-color);
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      border-color: var(--accent-primary);
+      background: var(--bg-card);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    /* Results Page */
+    .results-container {
+      display: none;
+      text-align: center;
+    }
+
+    .results-container.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .score-ring-container {
+      margin: 2rem auto;
+      width: 250px;
+      height: 250px;
+    }
+
+    .score-ring {
+      transform: rotate(-90deg);
+    }
+
+    .score-ring-bg {
+      fill: none;
+      stroke: var(--border-color);
+      stroke-width: 12;
+    }
+
+    .score-ring-progress {
+      fill: none;
+      stroke-width: 12;
+      stroke-linecap: round;
+      transition: stroke-dashoffset 1s ease;
+    }
+
+    .score-text {
+      font-size: 3rem;
+      font-weight: 700;
+      fill: var(--text-primary);
+    }
+
+    .phase-badge {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 24px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1rem 0 2rem;
+    }
+
+    .phase-foundation { background: rgba(234, 134, 0, 0.2); color: var(--arc-warm); }
+    .phase-exploration { background: rgba(26, 115, 232, 0.2); color: var(--arc-blue); }
+    .phase-implementation { background: rgba(45, 139, 139, 0.2); color: var(--arc-teal); }
+    .phase-optimization { background: rgba(52, 168, 83, 0.2); color: #34a853; }
+
+    .recommendations {
+      text-align: left;
+      margin: 2rem 0;
+      padding: 2rem;
+      background: var(--bg-secondary);
+      border-radius: 12px;
+    }
+
+    .recommendations h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .recommendations ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .recommendations li {
+      padding: 0.75rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--text-secondary);
+    }
+
+    .recommendations li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+      font-weight: bold;
+    }
+
+    .results-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .results-actions {
+        flex-direction: row;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .assessment-container {
+        padding: 2rem 1.5rem;
+      }
+
+      .assessment-header h1 {
+        font-size: 1.5rem;
+      }
+
+      .step-title {
+        font-size: 1.25rem;
+      }
+
+      .question-text {
+        font-size: 1rem;
+      }
+
+      .navigation {
+        flex-direction: column;
+      }
+    }
+
+    /* Hidden */
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <main id="main" class="assessment-container">
+    <!-- Header -->
+    <header class="assessment-header">
+      <h1>AI Readiness Assessment</h1>
+      <p>Evaluate your organization's preparedness for AI implementation</p>
+    </header>
+
+    <!-- Progress Bar -->
+    <div class="progress-container">
+      <div class="progress-label">
+        <span id="progress-text">Step 1 of 5</span>
+        <span id="progress-percent">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div id="steps-container">
+      <!-- Step 1: Data Infrastructure -->
+      <div class="step active" data-step="1">
+        <h2 class="step-title">Data Infrastructure</h2>
+
+        <div class="question">
+          <div class="question-text">How would you describe your organization's data collection and storage capabilities?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q1-0" name="q1" value="0">
+              <label for="q1-0">No centralized data storage; data is scattered across systems</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q1-25" name="q1" value="25">
+              <label for="q1-25">Basic data storage exists but lacks organization and accessibility</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q1-50" name="q1" value="50">
+              <label for="q1-50">Centralized data storage with some governance policies in place</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q1-75" name="q1" value="75">
+              <label for="q1-75">Well-organized data infrastructure with clear governance and quality standards</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q1-100" name="q1" value="100">
+              <label for="q1-100">Advanced data platform with real-time processing, high quality, and comprehensive governance</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">What is the quality and accessibility of your organization's data?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q2-0" name="q2" value="0">
+              <label for="q2-0">Data is siloed, inconsistent, and difficult to access</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q2-25" name="q2" value="25">
+              <label for="q2-25">Data exists but requires significant cleaning and integration efforts</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q2-50" name="q2" value="50">
+              <label for="q2-50">Data is moderately clean and accessible with some integration tools</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q2-75" name="q2" value="75">
+              <label for="q2-75">High-quality data with established pipelines and accessibility tools</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q2-100" name="q2" value="100">
+              <label for="q2-100">Enterprise-grade data quality with automated validation, lineage tracking, and self-service access</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">How mature is your data analytics capability?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q3-0" name="q3" value="0">
+              <label for="q3-0">Limited to basic reporting; no advanced analytics</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q3-25" name="q3" value="25">
+              <label for="q3-25">Descriptive analytics with standard dashboards and reports</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q3-50" name="q3" value="50">
+              <label for="q3-50">Diagnostic analytics with some predictive modeling capabilities</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q3-75" name="q3" value="75">
+              <label for="q3-75">Advanced predictive analytics integrated into business processes</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q3-100" name="q3" value="100">
+              <label for="q3-100">Prescriptive analytics with AI/ML models driving automated decision-making</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Team Skills -->
+      <div class="step" data-step="2">
+        <h2 class="step-title">Team Skills & Capabilities</h2>
+
+        <div class="question">
+          <div class="question-text">What is the current level of AI/ML expertise within your organization?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q4-0" name="q4" value="0">
+              <label for="q4-0">No AI/ML expertise; would need to hire or train from scratch</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q4-25" name="q4" value="25">
+              <label for="q4-25">A few individuals with basic AI/ML knowledge or interest</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q4-50" name="q4" value="50">
+              <label for="q4-50">Small team with practical AI/ML experience on pilot projects</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q4-75" name="q4" value="75">
+              <label for="q4-75">Established AI/ML team with proven track record on production systems</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q4-100" name="q4" value="100">
+              <label for="q4-100">Center of excellence with deep expertise across multiple AI disciplines</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">How would you characterize your organization's data literacy across teams?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q5-0" name="q5" value="0">
+              <label for="q5-0">Very low; most teams don't work with data regularly</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q5-25" name="q5" value="25">
+              <label for="q5-25">Limited to specific analytical roles; basic spreadsheet usage elsewhere</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q5-50" name="q5" value="50">
+              <label for="q5-50">Moderate; most teams can interpret reports and dashboards</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q5-75" name="q5" value="75">
+              <label for="q5-75">High; teams actively use data for decision-making and hypothesis testing</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q5-100" name="q5" value="100">
+              <label for="q5-100">Advanced; data-driven culture with widespread analytical capabilities</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">What resources are available for AI training and development?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q6-0" name="q6" value="0">
+              <label for="q6-0">No formal training programs or development budget</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q6-25" name="q6" value="25">
+              <label for="q6-25">Ad-hoc training opportunities; limited budget allocation</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q6-50" name="q6" value="50">
+              <label for="q6-50">Dedicated training budget with some structured programs</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q6-75" name="q6" value="75">
+              <label for="q6-75">Comprehensive training program with external partnerships and certifications</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q6-100" name="q6" value="100">
+              <label for="q6-100">Strategic learning initiatives with innovation time, conferences, and continuous development</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Process Maturity -->
+      <div class="step" data-step="3">
+        <h2 class="step-title">Process Maturity</h2>
+
+        <div class="question">
+          <div class="question-text">How mature are your organization's software development and deployment processes?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q7-0" name="q7" value="0">
+              <label for="q7-0">Ad-hoc development with manual deployment processes</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q7-25" name="q7" value="25">
+              <label for="q7-25">Basic version control and deployment scripts</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q7-50" name="q7" value="50">
+              <label for="q7-50">CI/CD pipelines with automated testing for most projects</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q7-75" name="q7" value="75">
+              <label for="q7-75">Advanced DevOps practices with infrastructure as code and monitoring</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q7-100" name="q7" value="100">
+              <label for="q7-100">MLOps capabilities with automated model training, validation, and deployment</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">What governance and compliance measures are in place for AI systems?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q8-0" name="q8" value="0">
+              <label for="q8-0">No specific AI governance framework or policies</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q8-25" name="q8" value="25">
+              <label for="q8-25">Awareness of AI ethics but no formal policies or oversight</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q8-50" name="q8" value="50">
+              <label for="q8-50">Basic AI governance policies with review processes for new projects</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q8-75" name="q8" value="75">
+              <label for="q8-75">Comprehensive AI governance framework with dedicated oversight committee</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q8-100" name="q8" value="100">
+              <label for="q8-100">Enterprise-wide AI governance with automated compliance checks and regular audits</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">How does your organization approach experimentation and innovation?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q9-0" name="q9" value="0">
+              <label for="q9-0">Risk-averse culture with no formal innovation processes</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q9-25" name="q9" value="25">
+              <label for="q9-25">Occasional innovation initiatives but limited support or resources</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q9-50" name="q9" value="50">
+              <label for="q9-50">Structured innovation program with dedicated time and small budgets</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q9-75" name="q9" value="75">
+              <label for="q9-75">Strong innovation culture with fail-fast mentality and pilot frameworks</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q9-100" name="q9" value="100">
+              <label for="q9-100">Innovation lab or R&D function with systematic experimentation and scaled deployment pathways</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Strategic Alignment -->
+      <div class="step" data-step="4">
+        <h2 class="step-title">Strategic Alignment</h2>
+
+        <div class="question">
+          <div class="question-text">How aligned is AI with your organization's strategic objectives?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q10-0" name="q10" value="0">
+              <label for="q10-0">AI is not mentioned in strategic plans or executive discussions</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q10-25" name="q10" value="25">
+              <label for="q10-25">AI is recognized as important but not formally prioritized</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q10-50" name="q10" value="50">
+              <label for="q10-50">AI is part of digital transformation roadmap with identified use cases</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q10-75" name="q10" value="75">
+              <label for="q10-75">AI is a strategic priority with dedicated budget and executive sponsorship</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q10-100" name="q10" value="100">
+              <label for="q10-100">AI is central to business strategy with C-suite ownership and organizational transformation</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">What level of leadership understanding and support exists for AI initiatives?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q11-0" name="q11" value="0">
+              <label for="q11-0">Leadership has limited understanding of AI capabilities and implications</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q11-25" name="q11" value="25">
+              <label for="q11-25">Leadership is aware of AI trends but unsure how to apply them</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q11-50" name="q11" value="50">
+              <label for="q11-50">Leadership understands AI potential and supports exploratory projects</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q11-75" name="q11" value="75">
+              <label for="q11-75">Leadership actively champions AI with clear vision and resource commitment</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q11-100" name="q11" value="100">
+              <label for="q11-100">Leadership demonstrates deep AI literacy and drives organizational AI transformation</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">How clear is your organization's AI value proposition and ROI measurement?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q12-0" name="q12" value="0">
+              <label for="q12-0">No defined value metrics or ROI framework for AI projects</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q12-25" name="q12" value="25">
+              <label for="q12-25">General business case development but inconsistent measurement</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q12-50" name="q12" value="50">
+              <label for="q12-50">Defined KPIs for AI projects with post-deployment tracking</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q12-75" name="q12" value="75">
+              <label for="q12-75">Comprehensive value framework with proven ROI on deployed AI solutions</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q12-100" name="q12" value="100">
+              <label for="q12-100">Portfolio-level AI value management with continuous optimization and benefit realization</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Technology Stack -->
+      <div class="step" data-step="5">
+        <h2 class="step-title">Technology Stack</h2>
+
+        <div class="question">
+          <div class="question-text">What is the state of your organization's cloud infrastructure and scalability?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q13-0" name="q13" value="0">
+              <label for="q13-0">Primarily on-premise with limited cloud presence</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q13-25" name="q13" value="25">
+              <label for="q13-25">Basic cloud adoption for some applications; limited scalability</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q13-50" name="q13" value="50">
+              <label for="q13-50">Hybrid cloud environment with moderate scalability capabilities</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q13-75" name="q13" value="75">
+              <label for="q13-75">Cloud-native architecture with auto-scaling and containerization</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q13-100" name="q13" value="100">
+              <label for="q13-100">Advanced cloud infrastructure with GPU/TPU access and distributed computing capabilities</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">What AI/ML tools and platforms are currently available to your teams?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q14-0" name="q14" value="0">
+              <label for="q14-0">No AI/ML tools or platforms; would need to start from scratch</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q14-25" name="q14" value="25">
+              <label for="q14-25">Open-source tools used by individual developers on local machines</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q14-50" name="q14" value="50">
+              <label for="q14-50">Basic ML platform with experiment tracking and model registry</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q14-75" name="q14" value="75">
+              <label for="q14-75">Enterprise ML platform with automated pipelines and collaboration features</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q14-100" name="q14" value="100">
+              <label for="q14-100">Comprehensive AI platform ecosystem with MLOps, feature stores, and production monitoring</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="question">
+          <div class="question-text">How integrated are your systems and data sources?</div>
+          <div class="options">
+            <div class="option">
+              <input type="radio" id="q15-0" name="q15" value="0">
+              <label for="q15-0">Siloed systems with no integration layer</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q15-25" name="q15" value="25">
+              <label for="q15-25">Point-to-point integrations for critical workflows</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q15-50" name="q15" value="50">
+              <label for="q15-50">API layer connecting major systems with some data integration tools</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q15-75" name="q15" value="75">
+              <label for="q15-75">Enterprise service bus or modern integration platform connecting most systems</label>
+            </div>
+            <div class="option">
+              <input type="radio" id="q15-100" name="q15" value="100">
+              <label for="q15-100">Event-driven architecture with real-time data streaming and comprehensive API management</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div class="results-container" id="results">
+      <h2 class="step-title">Your AI Readiness Score</h2>
+
+      <div class="score-ring-container">
+        <svg class="score-ring" viewBox="0 0 200 200">
+          <circle class="score-ring-bg" cx="100" cy="100" r="85"></circle>
+          <circle id="score-ring-progress" class="score-ring-progress" cx="100" cy="100" r="85" stroke-dasharray="534.07" stroke-dashoffset="534.07"></circle>
+          <text id="score-value" class="score-text" x="100" y="110" text-anchor="middle">0</text>
+        </svg>
+      </div>
+
+      <div id="phase-badge" class="phase-badge">Loading...</div>
+
+      <div class="recommendations" id="recommendations">
+        <h3>Personalized Recommendations</h3>
+        <ul id="recommendations-list"></ul>
+      </div>
+
+      <div class="results-actions">
+        <button class="btn btn-secondary" onclick="handleDownloadPDF()">Download PDF</button>
+        <button class="btn btn-secondary" onclick="handleShare()">Share Results</button>
+        <button class="btn btn-primary" onclick="handleRetake()">Retake Assessment</button>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navigation" id="navigation">
+      <button class="btn btn-secondary" id="prev-btn" onclick="handlePrevious()" disabled>Previous</button>
+      <button class="btn btn-primary" id="next-btn" onclick="handleNext()" disabled>Next</button>
+    </div>
+  </main>
+
+  <script>
+    // State Management
+    let currentStep = 1;
+    const totalSteps = 5;
+    const answers = {};
+
+    // Category weights (must sum to 1.0)
+    const categoryWeights = {
+      'data-infrastructure': 0.20,
+      'team-skills': 0.20,
+      'process-maturity': 0.20,
+      'strategic-alignment': 0.20,
+      'technology-stack': 0.20
+    };
+
+    // Question to category mapping
+    const questionCategories = {
+      'q1': 'data-infrastructure',
+      'q2': 'data-infrastructure',
+      'q3': 'data-infrastructure',
+      'q4': 'team-skills',
+      'q5': 'team-skills',
+      'q6': 'team-skills',
+      'q7': 'process-maturity',
+      'q8': 'process-maturity',
+      'q9': 'process-maturity',
+      'q10': 'strategic-alignment',
+      'q11': 'strategic-alignment',
+      'q12': 'strategic-alignment',
+      'q13': 'technology-stack',
+      'q14': 'technology-stack',
+      'q15': 'technology-stack'
+    };
+
+    // Recommendations by phase
+    const recommendations = {
+      foundation: [
+        'Establish baseline data inventory and quality assessment',
+        'Build foundational data governance policies and standards',
+        'Identify quick-win AI use cases aligned with business pain points',
+        'Invest in AI literacy training for leadership and key stakeholders',
+        'Start with low-code AI platforms to demonstrate value quickly'
+      ],
+      exploration: [
+        'Develop comprehensive data strategy with clear ownership and accountability',
+        'Launch pilot AI projects in controlled environments with measurable KPIs',
+        'Build cross-functional AI working group to share learnings',
+        'Establish MLOps practices for model versioning and deployment',
+        'Create AI ethics framework and governance committee'
+      ],
+      implementation: [
+        'Scale successful pilots to production with proper monitoring and support',
+        'Develop center of excellence for AI with dedicated resources',
+        'Implement advanced MLOps pipelines with automated retraining',
+        'Build feature stores and reusable ML components across projects',
+        'Establish AI value tracking system to measure business impact'
+      ],
+      optimization: [
+        'Continuously optimize model performance with A/B testing and experimentation',
+        'Expand AI capabilities into new business domains and use cases',
+        'Develop proprietary AI assets and competitive differentiation',
+        'Foster innovation through AI research partnerships and thought leadership',
+        'Build organizational AI culture with embedded data scientists in business units'
+      ]
+    };
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      setupEventListeners();
+      updateProgress();
+      updateNavigationState();
+    });
+
+    function setupEventListeners() {
+      // Radio button change listeners
+      const radios = document.querySelectorAll('input[type="radio"]');
+      radios.forEach(radio => {
+        radio.addEventListener('change', (e) => {
+          answers[e.target.name] = parseInt(e.target.value);
+          updateNavigationState();
+        });
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !document.getElementById('next-btn').disabled) {
+          handleNext();
+        }
+      });
+    }
+
+    function updateProgress() {
+      const progressPercent = ((currentStep - 1) / totalSteps) * 100;
+      document.getElementById('progress-fill').style.width = `${progressPercent}%`;
+      document.getElementById('progress-text').textContent = `Step ${currentStep} of ${totalSteps}`;
+      document.getElementById('progress-percent').textContent = `${Math.round(progressPercent)}%`;
+    }
+
+    function updateNavigationState() {
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+
+      // Previous button
+      prevBtn.disabled = currentStep === 1;
+
+      // Next button - check if current step questions are answered
+      const currentStepQuestions = getCurrentStepQuestions();
+      const allAnswered = currentStepQuestions.every(q => answers[q] !== undefined);
+      nextBtn.disabled = !allAnswered;
+
+      // Update button text for last step
+      if (currentStep === totalSteps) {
+        nextBtn.textContent = 'View Results';
+      } else {
+        nextBtn.textContent = 'Next';
+      }
+    }
+
+    function getCurrentStepQuestions() {
+      const questionsPerStep = {
+        1: ['q1', 'q2', 'q3'],
+        2: ['q4', 'q5', 'q6'],
+        3: ['q7', 'q8', 'q9'],
+        4: ['q10', 'q11', 'q12'],
+        5: ['q13', 'q14', 'q15']
+      };
+      return questionsPerStep[currentStep];
+    }
+
+    function handleNext() {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        showStep(currentStep);
+        updateProgress();
+        updateNavigationState();
+        scrollToTop();
+      } else {
+        // Show results
+        calculateAndShowResults();
+      }
+    }
+
+    function handlePrevious() {
+      if (currentStep > 1) {
+        currentStep--;
+        showStep(currentStep);
+        updateProgress();
+        updateNavigationState();
+        scrollToTop();
+      }
+    }
+
+    function showStep(stepNumber) {
+      const steps = document.querySelectorAll('.step');
+      steps.forEach(step => {
+        step.classList.remove('active');
+        if (parseInt(step.dataset.step) === stepNumber) {
+          step.classList.add('active');
+        }
+      });
+    }
+
+    function scrollToTop() {
+      document.getElementById('main').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function calculateAndShowResults() {
+      // Calculate category scores
+      const categoryScores = {};
+
+      Object.keys(categoryWeights).forEach(category => {
+        const categoryQuestions = Object.keys(questionCategories).filter(
+          q => questionCategories[q] === category
+        );
+        const categoryAnswers = categoryQuestions.map(q => answers[q]);
+        const categoryAverage = categoryAnswers.reduce((sum, val) => sum + val, 0) / categoryAnswers.length;
+        categoryScores[category] = categoryAverage;
+      });
+
+      // Calculate weighted overall score
+      let overallScore = 0;
+      Object.keys(categoryWeights).forEach(category => {
+        overallScore += categoryScores[category] * categoryWeights[category];
+      });
+      overallScore = Math.round(overallScore);
+
+      // Determine phase
+      let phase, phaseClass, phaseColor;
+      if (overallScore <= 25) {
+        phase = 'Foundation';
+        phaseClass = 'phase-foundation';
+        phaseColor = '#ea8600';
+      } else if (overallScore <= 50) {
+        phase = 'Exploration';
+        phaseClass = 'phase-exploration';
+        phaseColor = '#1a73e8';
+      } else if (overallScore <= 75) {
+        phase = 'Implementation';
+        phaseClass = 'phase-implementation';
+        phaseColor = '#2d8b8b';
+      } else {
+        phase = 'Optimization';
+        phaseClass = 'phase-optimization';
+        phaseColor = '#34a853';
+      }
+
+      // Hide steps and navigation, show results
+      document.getElementById('steps-container').style.display = 'none';
+      document.getElementById('navigation').style.display = 'none';
+      document.querySelector('.progress-container').style.display = 'none';
+      document.getElementById('results').classList.add('active');
+
+      // Animate score ring
+      const circumference = 2 * Math.PI * 85;
+      const offset = circumference - (overallScore / 100) * circumference;
+      const scoreRing = document.getElementById('score-ring-progress');
+      scoreRing.style.stroke = phaseColor;
+
+      setTimeout(() => {
+        scoreRing.style.strokeDashoffset = offset;
+        animateScore(overallScore);
+      }, 100);
+
+      // Update phase badge
+      const phaseBadge = document.getElementById('phase-badge');
+      phaseBadge.textContent = phase;
+      phaseBadge.className = `phase-badge ${phaseClass}`;
+
+      // Show recommendations
+      const phaseKey = phase.toLowerCase();
+      const recommendationsList = document.getElementById('recommendations-list');
+      recommendationsList.innerHTML = '';
+      recommendations[phaseKey].forEach(rec => {
+        const li = document.createElement('li');
+        li.textContent = rec;
+        recommendationsList.appendChild(li);
+      });
+
+      scrollToTop();
+    }
+
+    function animateScore(targetScore) {
+      const scoreElement = document.getElementById('score-value');
+      let currentScore = 0;
+      const duration = 1000;
+      const increment = targetScore / (duration / 16);
+
+      const timer = setInterval(() => {
+        currentScore += increment;
+        if (currentScore >= targetScore) {
+          currentScore = targetScore;
+          clearInterval(timer);
+        }
+        scoreElement.textContent = Math.round(currentScore);
+      }, 16);
+    }
+
+    function handleDownloadPDF() {
+      window.print();
+    }
+
+    function handleShare() {
+      const shareData = {
+        title: 'AI Readiness Assessment Results',
+        text: 'I just completed my AI Readiness Assessment. Find out your organization\'s AI maturity level!',
+        url: window.location.href
+      };
+
+      if (navigator.share) {
+        navigator.share(shareData)
+          .catch(err => console.log('Error sharing:', err));
+      } else {
+        // Fallback: copy to clipboard
+        navigator.clipboard.writeText(shareData.url)
+          .then(() => alert('Link copied to clipboard!'))
+          .catch(err => console.error('Failed to copy:', err));
+      }
+    }
+
+    function handleRetake() {
+      // Reset state
+      currentStep = 1;
+      Object.keys(answers).forEach(key => delete answers[key]);
+
+      // Reset UI
+      const radios = document.querySelectorAll('input[type="radio"]');
+      radios.forEach(radio => radio.checked = false);
+
+      // Show first step
+      document.getElementById('steps-container').style.display = 'block';
+      document.getElementById('navigation').style.display = 'flex';
+      document.querySelector('.progress-container').style.display = 'block';
+      document.getElementById('results').classList.remove('active');
+
+      showStep(1);
+      updateProgress();
+      updateNavigationState();
+      scrollToTop();
+    }
+  </script>
+</body>
+</html>

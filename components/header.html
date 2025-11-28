@@ -1,5 +1,5 @@
 <!-- Standard Header Component with proper ARIA landmarks -->
-<header role="banner">
+<header class="site-header" role="banner">
     <div class="container">
         <div class="logo">
             <a href="/" aria-label="AI Reality Check - Home">
@@ -7,29 +7,109 @@
                 <span aria-hidden="true">AI Reality Check</span>
             </a>
         </div>
+
+        <!-- Search Trigger Button -->
+        <button class="search-trigger" data-search-trigger aria-label="Open search">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <kbd class="search-hint" aria-hidden="true">⌘K</kbd>
+        </button>
+
+        <!-- Theme Toggle -->
         <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)" aria-pressed="false">
             <span class="light-icon">☀️</span>
             <span class="dark-icon" style="display:none">🌙</span>
             <span class="auto-icon" style="display:none">⟲</span>
         </button>
+
+        <!-- Mobile Navigation Toggle -->
         <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
             aria-controls="main-navigation">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
         </button>
-        <nav id="main-navigation" role="navigation" aria-label="Main navigation">
-            <ul>
-                <li><a href="/case-studies/">Case Studies</a></li>
-                <li><a href="/articles/">Articles</a></li>
-                <li><a href="/portfolio/">Portfolio</a></li>
-                <li><a href="/resources/">Resources</a></li>
-                <li><a href="/resources/tools.html">Tools</a></li>
-                <li><a href="/creative/">Creative</a></li>
-                <li><a href="/contact/">Contact</a></li>
+
+        <!-- Main Navigation with Mega Menus -->
+        <nav id="main-navigation" class="main-nav" role="navigation" aria-label="Main navigation">
+            <ul class="nav-list">
+                <!-- Case Studies with Mega Menu -->
+                <li class="nav-item has-dropdown">
+                    <a href="/case-studies/" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                        Case Studies
+                        <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="mega-menu" role="menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-section">
+                                <h3 class="mega-menu-title">Featured</h3>
+                                <ul class="mega-menu-list">
+                                    <li><a href="/case-studies/" role="menuitem">All Case Studies</a></li>
+                                    <li><a href="/case-studies/#ai-implementation" role="menuitem">AI Implementation</a></li>
+                                    <li><a href="/case-studies/#strategy" role="menuitem">Strategy & Planning</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-section">
+                                <h3 class="mega-menu-title">By Industry</h3>
+                                <ul class="mega-menu-list">
+                                    <li><a href="/case-studies/#technology" role="menuitem">Technology</a></li>
+                                    <li><a href="/case-studies/#healthcare" role="menuitem">Healthcare</a></li>
+                                    <li><a href="/case-studies/#finance" role="menuitem">Finance</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Articles with Mega Menu -->
+                <li class="nav-item has-dropdown">
+                    <a href="/articles/" class="nav-link" aria-haspopup="true" aria-expanded="false">
+                        Articles
+                        <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                    </a>
+                    <div class="mega-menu" role="menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-menu-section">
+                                <h3 class="mega-menu-title">Browse</h3>
+                                <ul class="mega-menu-list">
+                                    <li><a href="/articles/" role="menuitem">All Articles</a></li>
+                                    <li><a href="/articles/#latest" role="menuitem">Latest Posts</a></li>
+                                    <li><a href="/articles/#popular" role="menuitem">Most Popular</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-menu-section">
+                                <h3 class="mega-menu-title">Topics</h3>
+                                <ul class="mega-menu-list">
+                                    <li><a href="/articles/#ai-ethics" role="menuitem">AI Ethics</a></li>
+                                    <li><a href="/articles/#technology" role="menuitem">Technology Trends</a></li>
+                                    <li><a href="/articles/#implementation" role="menuitem">Implementation</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Other Navigation Items -->
+                <li class="nav-item">
+                    <a href="/portfolio/" class="nav-link">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/resources/" class="nav-link">Resources</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/resources/tools.html" class="nav-link">Tools</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/creative/" class="nav-link">Creative</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/contact/" class="nav-link">Contact</a>
+                </li>
             </ul>
         </nav>
     </div>
+
+    <!-- Breadcrumb Container -->
+    <div class="breadcrumb-container"></div>
 </header>
 
 <!-- Hero section template - pages should add this after the header placeholder -->

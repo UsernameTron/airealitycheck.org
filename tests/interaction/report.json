@@ -1,0 +1,49 @@
+{
+  "timestamp": "2025-11-28T20:12:54.017Z",
+  "summary": {
+    "total": 7,
+    "passed": 1,
+    "failed": 2,
+    "skipped": 4,
+    "passRate": "33.33"
+  },
+  "results": [
+    {
+      "name": "Command Palette",
+      "status": "skipped",
+      "message": "Command palette not implemented yet"
+    },
+    {
+      "name": "Mobile Menu Toggle",
+      "status": "failed",
+      "message": "Mobile menu button not found",
+      "screenshot": "/Users/cpconnor/airealitycheck.org copy/tests/interaction/screenshots/mobile_menu_1764360770196.png"
+    },
+    {
+      "name": "Theme Toggle",
+      "status": "passed",
+      "message": "Theme cycled from auto to light"
+    },
+    {
+      "name": "Content Filters",
+      "status": "skipped",
+      "message": "No filter buttons found on articles page"
+    },
+    {
+      "name": "Assessment Tool",
+      "status": "skipped",
+      "message": "Assessment tool not implemented yet"
+    },
+    {
+      "name": "ROI Calculator",
+      "status": "skipped",
+      "message": "ROI calculator not implemented yet"
+    },
+    {
+      "name": "Navigation Links",
+      "status": "failed",
+      "message": "Found 5 broken links: [{\"href\":\"case-studies/\",\"error\":\"page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\\nCall log:\\n  - navigating to \\\"http://localhost:3000case-studies/\\\", waiting until \\\"networkidle\\\"\\n\"},{\"href\":\"articles/\",\"error\":\"page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\\nCall log:\\n  - navigating to \\\"http://localhost:3000articles/\\\", waiting until \\\"networkidle\\\"\\n\"},{\"href\":\"portfolio/\",\"error\":\"page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\\nCall log:\\n  - navigating to \\\"http://localhost:3000portfolio/\\\", waiting until \\\"networkidle\\\"\\n\"},{\"href\":\"resources/\",\"error\":\"page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\\nCall log:\\n  - navigating to \\\"http://localhost:3000resources/\\\", waiting until \\\"networkidle\\\"\\n\"},{\"href\":\"resources/tools.html\",\"error\":\"page.goto: Protocol error (Page.navigate): Cannot navigate to invalid URL\\nCall log:\\n  - navigating to \\\"http://localhost:3000resources/tools.html\\\", waiting until \\\"networkidle\\\"\\n\"}]",
+      "screenshot": "/Users/cpconnor/airealitycheck.org copy/tests/interaction/screenshots/navigation_links_1764360773917.png"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="theme-auto">
+
 <head>
     <!-- Meta Information Setup (REQUIRED for proper SEO) -->
     <script>
@@ -9,10 +10,10 @@
         const REL_PATH = "../"; // Articles is one level down from root
         const CANONICAL_PATH = "/articles/"; // Path after domain
     </script>
-    
+
     <!-- Theme initialization (essential for preventing FOUC) -->
     <script>
-        (function() {
+        (function () {
             const savedTheme = localStorage.getItem('theme') || 'auto';
             document.documentElement.className = 'theme-' + savedTheme;
         })();
@@ -21,13 +22,13 @@
     <!-- Resource hints for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="../css/style.min.css" as="style">
+    <link rel="preload" href="../css/theme-variables.css" as="style">
+    <link rel="preload" href="../css/style.css" as="style">
     <link rel="preload" href="../js/main.min.js" as="script">
 
     <!-- Direct stylesheet references to ensure they load -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.min.css">
-    
+
     <!-- Meta tags component placeholder -->
     <!-- 
   Standard Meta Tags Component
@@ -40,119 +41,124 @@
   - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
 -->
 
-<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
-<script src="../js/loader.min.js"></script>
+    <!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+    <script src="../js/loader.min.js"></script>
 
-<!-- Core Meta Tags -->
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="C. Pete Conner">
-<meta name="robots" content="index, follow">
-<meta name="description" content="In-depth articles about AI technology, implementation strategies, and industry insights.">
-<title>AI Reality Check | Articles</title>
+    <!-- Core Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="C. Pete Conner">
+    <meta name="robots" content="index, follow">
+    <meta name="description"
+        content="In-depth articles about AI technology, implementation strategies, and industry insights.">
+    <title>AI Reality Check | Articles</title>
 
-<!-- Content Security Policy -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
 
-<!-- Canonical URL (static for SEO reliability) -->
-<link rel="canonical" href="https://airealitycheck.org/articles/">
+    <!-- Canonical URL (static for SEO reliability) -->
+    <link rel="canonical" href="https://airealitycheck.org/articles/">
 
-<!-- Open Graph / Facebook Meta Tags -->
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="AI Reality Check">
-<meta property="og:title" content="AI Reality Check | Articles">
-<meta property="og:description" content="In-depth articles about AI technology, implementation strategies, and industry insights.">
-<meta property="og:url" content="https://airealitycheck.org/articles/">
-<meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
-<meta property="og:image:alt" content="AI Reality Check banner">
-<meta property="og:locale" content="en_US">
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AI Reality Check">
+    <meta property="og:title" content="AI Reality Check | Articles">
+    <meta property="og:description"
+        content="In-depth articles about AI technology, implementation strategies, and industry insights.">
+    <meta property="og:url" content="https://airealitycheck.org/articles/">
+    <meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+    <meta property="og:image:alt" content="AI Reality Check banner">
+    <meta property="og:locale" content="en_US">
 
-<!-- Twitter Meta Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@connor_pet68383">
-<meta name="twitter:creator" content="@connor_pet68383">
-<meta name="twitter:title" content="AI Reality Check | Articles">
-<meta name="twitter:description" content="In-depth articles about AI technology, implementation strategies, and industry insights.">
-<meta name="twitter:url" content="https://airealitycheck.org/articles/">
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@connor_pet68383">
+    <meta name="twitter:creator" content="@connor_pet68383">
+    <meta name="twitter:title" content="AI Reality Check | Articles">
+    <meta name="twitter:description"
+        content="In-depth articles about AI technology, implementation strategies, and industry insights.">
+    <meta name="twitter:url" content="https://airealitycheck.org/articles/">
 
-<!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
-<!-- Main Stylesheet -->
-<link rel="stylesheet" href="../css/style.min.css">
-<link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+    <!-- Theme Variables (must load before main stylesheet) -->
+    <link rel="stylesheet" href="../css/theme-variables.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
 
-<!-- Favicon -->
-<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
-<link rel="manifest" href="../site.webmanifest">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
 
-<!-- Error Recovery Script -->
-<script>
-    // Check if styles are loaded correctly after a short delay
-    setTimeout(function() {
-        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
-            try {
-                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
-            } catch(e) {
-                return false;
+    <!-- Error Recovery Script -->
+    <script>
+        // Check if styles are loaded correctly after a short delay
+        setTimeout(function () {
+            const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+                try {
+                    return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+                } catch (e) {
+                    return false;
+                }
+            });
+
+            if (!hasStylesheet) {
+                console.warn('Stylesheet not detected, trying emergency load');
+                const emergencyStyle = document.createElement('link');
+                emergencyStyle.rel = 'stylesheet';
+                emergencyStyle.href = '../css/style.min.css';
+                document.head.appendChild(emergencyStyle);
             }
-        });
-        
-        if (!hasStylesheet) {
-            console.warn('Stylesheet not detected, trying emergency load');
-            const emergencyStyle = document.createElement('link');
-            emergencyStyle.rel = 'stylesheet';
-            emergencyStyle.href = '../css/style.min.css';
-            document.head.appendChild(emergencyStyle);
-        }
-    }, 500);
-</script>
-    
-    <link rel="stylesheet" href="../css/style.min.css">
+        }, 500);
+    </script>
+
     <link rel="stylesheet" href="../css/article-overrides.css">
 </head>
+
 <body class="article-page">
     <!-- Header Component Placeholder -->
     <!-- Standard Header Component with proper ARIA landmarks -->
-<header role="banner">
-    <div class="container">
-        <div class="logo">
-            <a href="../" aria-label="AI Reality Check - Home">
-                <span class="visually-hidden">AI Reality Check</span>
-                <span aria-hidden="true">AI Reality Check</span>
-            </a>
+    <header role="banner">
+        <div class="container">
+            <div class="logo">
+                <a href="../" aria-label="AI Reality Check - Home">
+                    <span class="visually-hidden">AI Reality Check</span>
+                    <span aria-hidden="true">AI Reality Check</span>
+                </a>
+            </div>
+            <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)"
+                aria-pressed="false">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon" style="display:none">🌙</span>
+                <span class="auto-icon" style="display:none">⟲</span>
+            </button>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+                aria-controls="main-navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav id="main-navigation" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="../case-studies/">Case Studies</a></li>
+                    <li><a href="../articles/">Articles</a></li>
+                    <li><a href="../portfolio/">Portfolio</a></li>
+                    <li><a href="../creative/">Creative</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)" aria-pressed="false">
-          <span class="light-icon">☀️</span>
-          <span class="dark-icon" style="display:none">🌙</span>
-          <span class="auto-icon" style="display:none">⟲</span>
-        </button>
-        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </button>
-        <nav id="main-navigation" role="navigation" aria-label="Main navigation">
-            <ul>
-                <li><a href="../case-studies/">Case Studies</a></li>
-                <li><a href="../articles/">Articles</a></li>
-                <li><a href="../portfolio/">Portfolio</a></li>
-                <li><a href="../resources/">Resources</a></li>
-                <li><a href="../resources/tools.html">Tools</a></li>
-                <li><a href="../creative/">Creative</a></li>
-                <li><a href="../contact/">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+    </header>
 
-<!-- Hero section template - pages should add this after the header placeholder -->
-<!-- 
+    <!-- Hero section template - pages should add this after the header placeholder -->
+    <!-- 
 <section class="hero" role="region" aria-labelledby="page-title">
     <div class="container">
         <h1 id="page-title">Page Title</h1>
@@ -161,49 +167,62 @@
 </section>
 -->
 
-<!-- Visually-hidden class has been added to style.css -->
-<!-- This template helps maintain proper heading hierarchy with h1 in main content -->
-    
+    <!-- Visually-hidden class has been added to style.css -->
+    <!-- This template helps maintain proper heading hierarchy with h1 in main content -->
+
     <!-- Hero Section with Image (No Text Overlay) -->
     <section class="articles-hero" role="region" aria-labelledby="page-title">
         <!-- No text overlay -->
         <h1 id="page-title" class="visually-hidden">Articles</h1>
-        
+
         <!-- Primary image with fallback -->
         <picture>
             <source srcset="./images/articleshero.webp" type="image/webp"> <!-- Correct path in articles/images -->
             <source srcset="../images/hero/articleshero.webp" type="image/webp"> <!-- Fallback to root path -->
             <source srcset="../images/hero/ARC Hero.webp" type="image/webp"> <!-- Second fallback -->
-            <img class="hero-image" src="../images/hero/ARC Hero.png" alt="AI Reality Check Articles"> <!-- Final fallback -->
+            <img class="hero-image" src="../images/hero/ARC Hero.png" alt="AI Reality Check Articles">
+            <!-- Final fallback -->
         </picture>
     </section>
 
     <main>
         <section class="content">
-            <h2 class="section-title">Featured Articles</h2>
+            <h2 class="section-title" data-scroll-reveal="fade-up">Featured Articles</h2>
             <div class="container">
-                <div class="cards">
-                    <div class="card featured-card">
+                <!-- Filter Controls -->
+                <div class="filter-controls" aria-label="Content filters"></div>
+
+                <!-- Articles Grid with Data Attributes -->
+                <div class="cards" data-content-grid data-scroll-reveal-stagger>
+                    <div class="card featured-card" data-content-item id="article-1"
+                        data-title="You Can't Detect Content Created by AI" data-date="2024-03-15"
+                        data-tags="ai,detection,content-creation">
                         <h3>You Can't Detect Content Created by AI</h3>
-                        <p>Why AI detection tools fail and what's really needed to address the challenges of AI-generated content.</p>
+                        <p>Why AI detection tools fail and what's really needed to address the challenges of
+                            AI-generated content.</p>
                         <a href="detection.html" class="btn">Read Article</a>
                     </div>
-                
-                    <div class="card">
+
+                    <div class="card" data-content-item id="article-2" data-title="CX and Counterfactual Reasoning"
+                        data-date="2024-02-20" data-tags="customer-experience,ai,reasoning">
                         <h3>CX and Counterfactual Reasoning</h3>
-                        <p>How counterfactual thinking can transform customer experience and contact center operations.</p>
+                        <p>How counterfactual thinking can transform customer experience and contact center operations.
+                        </p>
                         <a href="counterfactual-reasoning-html.html" class="btn">Read Article</a>
                     </div>
-                
-                    <div class="card">
+
+                    <div class="card" data-content-item id="article-3" data-title="CX and Fine-Tuned Open Source LLMs"
+                        data-date="2024-01-30" data-tags="customer-experience,llm,open-source">
                         <h3>CX and Fine-Tuned Open Source LLMs</h3>
                         <p>Exploring the synergies between customer experience and fine-tuned language models.</p>
                         <a href="cx-and-the-fine-tuned-open-source-llm.html" class="btn">Read Article</a>
                     </div>
-                    
-                    <div class="card">
+
+                    <div class="card" data-content-item id="article-4" data-title="Automation Strategy"
+                        data-date="2024-01-15" data-tags="automation,strategy,ai">
                         <h3>Automation Strategy</h3>
-                        <p>Building effective automation strategies that balance human expertise and AI capabilities.</p>
+                        <p>Building effective automation strategies that balance human expertise and AI capabilities.
+                        </p>
                         <a href="automation-strategy-article.html" class="btn">Read Article</a>
                     </div>
                 </div>
@@ -213,38 +232,47 @@
 
     <!-- Footer Component Placeholder -->
     <!-- Standard Footer Component -->
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="../">Home</a></li>
-                    <li><a href="../case-studies/">Case Studies</a></li>
-                    <li><a href="../articles/">Articles</a></li>
-                    <li><a href="../portfolio/">Portfolio</a></li>
-                    <li><a href="../contact/">Contact</a></li>
-                </ul>
-            </div>
-            <div class="social-media">
-                <h3>Connect</h3>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
-                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
-                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
-                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
-                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
-                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../">Home</a></li>
+                        <li><a href="../case-studies/">Case Studies</a></li>
+                        <li><a href="../articles/">Articles</a></li>
+                        <li><a href="../portfolio/">Portfolio</a></li>
+                        <li><a href="../contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-media">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i
+                                class="icon-linkedin"></i></a>
+                        <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i
+                                class="icon-twitter"></i></a>
+                        <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i
+                                class="icon-github"></i></a>
+                        <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i
+                                class="icon-medium"></i></a>
+                        <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i
+                                class="icon-substack"></i></a>
+                        <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i
+                                class="icon-youtube"></i></a>
+                    </div>
                 </div>
             </div>
+            <div class="copyright">
+                <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+            </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="../js/main.min.js"></script>
-    
+    <script src="../js/scroll-animations.js"></script>
+    <script src="../js/content-filter.js"></script>
+
 </body>
+
 </html>

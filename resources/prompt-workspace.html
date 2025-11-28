@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Engineering Workspace | AI Reality Check</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg-primary: #1e1e1e;
+      --bg-secondary: #252526;
+      --bg-tertiary: #2d2d30;
+      --bg-hover: #37373d;
+      --text-primary: #cccccc;
+      --text-secondary: #808080;
+      --accent: #007acc;
+      --accent-hover: #0098ff;
+      --border: #3e3e42;
+      --variable: #ce9178;
+      --success: #4ec9b0;
+      --warning: #dcdcaa;
+      --font-mono: 'JetBrains Mono', monospace;
+      --font-sans: 'Inter', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow: hidden;
+    }
+
+    .workspace-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--bg-secondary);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .sidebar-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .sidebar-header h1 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-header p {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    .search-box {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 8px 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 13px;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .category-filters {
+      padding: 12px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .category-btn {
+      padding: 4px 10px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-secondary);
+      font-size: 11px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .category-btn:hover {
+      background: var(--bg-hover);
+    }
+
+    .category-btn.active {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .templates-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 0;
+    }
+
+    .template-item {
+      padding: 12px 20px;
+      cursor: pointer;
+      border-left: 3px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .template-item:hover {
+      background: var(--bg-hover);
+      border-left-color: var(--accent);
+    }
+
+    .template-item.active {
+      background: var(--bg-tertiary);
+      border-left-color: var(--accent);
+    }
+
+    .template-name {
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 2px;
+    }
+
+    .template-category {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    /* Main Area */
+    .main-area {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .toolbar {
+      padding: 12px 20px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .mode-toggle {
+      display: flex;
+      gap: 0;
+      background: var(--bg-tertiary);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .mode-btn {
+      padding: 6px 14px;
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .mode-btn.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    .model-selector {
+      padding: 6px 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .action-btn {
+      padding: 6px 14px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-primary);
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-left: auto;
+    }
+
+    .action-btn:hover {
+      background: var(--bg-hover);
+      border-color: var(--accent);
+    }
+
+    .action-btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .action-btn.primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .action-btn.success {
+      background: var(--success);
+      border-color: var(--success);
+      color: white;
+    }
+
+    .content-area {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      overflow: hidden;
+    }
+
+    .content-area.single-mode {
+      grid-template-columns: 1fr 300px;
+    }
+
+    .content-area.compare-mode {
+      grid-template-columns: 1fr 1fr 300px;
+    }
+
+    .editor-panel {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .editor-header {
+      padding: 8px 16px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-secondary);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .editor-wrapper {
+      flex: 1;
+      position: relative;
+      overflow: auto;
+    }
+
+    .editor {
+      width: 100%;
+      height: 100%;
+      padding: 16px;
+      background: var(--bg-primary);
+      border: none;
+      color: var(--text-primary);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.8;
+      resize: none;
+      outline: none;
+    }
+
+    .variables-panel {
+      padding: 20px;
+      overflow-y: auto;
+    }
+
+    .variables-panel h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--warning);
+    }
+
+    .variable-input {
+      margin-bottom: 16px;
+    }
+
+    .variable-input label {
+      display: block;
+      font-size: 11px;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+      font-family: var(--font-mono);
+    }
+
+    .variable-input input,
+    .variable-input textarea {
+      width: 100%;
+      padding: 8px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 12px;
+    }
+
+    .variable-input textarea {
+      min-height: 60px;
+      resize: vertical;
+      font-family: var(--font-mono);
+    }
+
+    .variable-input input:focus,
+    .variable-input textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    .preview-section {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .preview-section h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--success);
+    }
+
+    .preview-box {
+      padding: 12px;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.6;
+      max-height: 200px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+
+    .tips-section {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .tips-section h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--accent);
+    }
+
+    .tip-item {
+      padding: 8px 12px;
+      background: var(--bg-tertiary);
+      border-left: 3px solid var(--accent);
+      margin-bottom: 8px;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .stats {
+      font-size: 11px;
+      color: var(--text-secondary);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--bg-tertiary);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--bg-hover);
+    }
+  </style>
+</head>
+<body>
+  <div class="workspace-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+        <h1>Templates</h1>
+        <p>Pre-built prompt patterns</p>
+      </div>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search templates...">
+      </div>
+      <div class="category-filters">
+        <button class="category-btn active" data-category="all">All</button>
+        <button class="category-btn" data-category="analysis">Analysis</button>
+        <button class="category-btn" data-category="generation">Generate</button>
+        <button class="category-btn" data-category="code">Code</button>
+        <button class="category-btn" data-category="data">Data</button>
+      </div>
+      <div class="templates-list" id="templatesList"></div>
+    </div>
+
+    <!-- Main Area -->
+    <div class="main-area">
+      <div class="toolbar">
+        <div class="mode-toggle">
+          <button class="mode-btn active" data-mode="single">Single</button>
+          <button class="mode-btn" data-mode="compare">Compare</button>
+        </div>
+        <select class="model-selector" id="modelSelector">
+          <option value="claude">Claude (Anthropic)</option>
+          <option value="gpt">ChatGPT (OpenAI)</option>
+          <option value="gemini">Gemini (Google)</option>
+        </select>
+        <button class="action-btn" id="clearBtn">Clear</button>
+        <button class="action-btn" id="saveTemplateBtn">Save Template</button>
+        <button class="action-btn primary" id="copyBtn">Copy to Clipboard</button>
+      </div>
+
+      <div class="content-area single-mode" id="contentArea">
+        <!-- Editor Panel 1 -->
+        <div class="editor-panel" id="editorPanel1">
+          <div class="editor-header">
+            <span>Prompt Editor</span>
+            <span class="stats" id="stats1">0 chars | ~0 tokens</span>
+          </div>
+          <div class="editor-wrapper">
+            <textarea class="editor" id="editor1" placeholder="Start typing your prompt... Use {{variable_name}} for dynamic values."></textarea>
+          </div>
+        </div>
+
+        <!-- Editor Panel 2 (Compare Mode) -->
+        <div class="editor-panel hidden" id="editorPanel2">
+          <div class="editor-header">
+            <span>Variant B</span>
+            <span class="stats" id="stats2">0 chars | ~0 tokens</span>
+          </div>
+          <div class="editor-wrapper">
+            <textarea class="editor" id="editor2" placeholder="Alternative version for A/B testing..."></textarea>
+          </div>
+        </div>
+
+        <!-- Variables & Tips Panel -->
+        <div class="variables-panel">
+          <div id="variablesSection">
+            <h3>Variables</h3>
+            <div id="variableInputs">
+              <p style="font-size: 12px; color: var(--text-secondary);">Use {{variable_name}} in your prompt to create dynamic inputs.</p>
+            </div>
+          </div>
+
+          <div class="preview-section" id="previewSection">
+            <h3>Preview</h3>
+            <div class="preview-box" id="previewBox">Variables will be substituted here...</div>
+          </div>
+
+          <div class="tips-section">
+            <h3 id="tipsTitle">Model Tips</h3>
+            <div id="tipsContainer"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Templates Database
+    const TEMPLATES = [
+      {
+        id: 1,
+        name: 'Document Analysis',
+        category: 'analysis',
+        content: `Analyze the following document and provide insights:
+
+Document: {{document_text}}
+
+Focus on:
+1. Key themes and main arguments
+2. Strengths and weaknesses
+3. Notable patterns or trends
+4. Actionable recommendations
+
+Format your response with clear headings and bullet points.`
+      },
+      {
+        id: 2,
+        name: 'Email Generator',
+        category: 'generation',
+        content: `Write a professional email with the following details:
+
+To: {{recipient_name}}
+Subject: {{subject}}
+Purpose: {{purpose}}
+Tone: {{tone}}
+Key Points: {{key_points}}
+
+Requirements:
+- Professional and courteous
+- Clear and concise
+- Include appropriate greeting and closing
+- Action items if applicable`
+      },
+      {
+        id: 3,
+        name: 'Code Review',
+        category: 'code',
+        content: `Review the following code and provide feedback:
+
+\`\`\`{{language}}
+{{code}}
+\`\`\`
+
+Evaluate:
+1. Code quality and readability
+2. Potential bugs or edge cases
+3. Performance considerations
+4. Best practices adherence
+5. Security concerns
+6. Suggested improvements
+
+Provide specific examples and code snippets where applicable.`
+      },
+      {
+        id: 4,
+        name: 'Data Extraction',
+        category: 'data',
+        content: `Extract structured data from the following text:
+
+Text: {{source_text}}
+
+Extract and format as JSON:
+- {{field1}}
+- {{field2}}
+- {{field3}}
+
+Requirements:
+- Validate extracted data
+- Handle missing values
+- Return valid JSON only`
+      },
+      {
+        id: 5,
+        name: 'Content Summarization',
+        category: 'analysis',
+        content: `Summarize the following content:
+
+Content: {{content}}
+
+Summary requirements:
+- Length: {{length}} (brief/medium/detailed)
+- Focus: {{focus_area}}
+- Audience: {{target_audience}}
+
+Include:
+1. Main points (3-5 bullets)
+2. Key takeaways
+3. Notable details or statistics`
+      },
+      {
+        id: 6,
+        name: 'Sentiment Analysis',
+        category: 'analysis',
+        content: `Analyze the sentiment of the following text:
+
+Text: {{text}}
+
+Provide:
+1. Overall sentiment (positive/negative/neutral/mixed)
+2. Confidence score (0-100%)
+3. Key emotional indicators
+4. Tone analysis
+5. Context-specific insights
+
+Be specific about language cues that inform your analysis.`
+      },
+      {
+        id: 7,
+        name: 'Code Explanation',
+        category: 'code',
+        content: `Explain the following code in plain language:
+
+\`\`\`{{language}}
+{{code}}
+\`\`\`
+
+Audience: {{audience_level}} (beginner/intermediate/advanced)
+
+Explain:
+1. What the code does (high-level)
+2. How it works (step-by-step)
+3. Key concepts or patterns used
+4. Potential use cases
+5. Any important considerations
+
+Use analogies where helpful for clarity.`
+      },
+      {
+        id: 8,
+        name: 'Translation Request',
+        category: 'generation',
+        content: `Translate the following text:
+
+Source Language: {{source_lang}}
+Target Language: {{target_lang}}
+Context: {{context}}
+
+Text:
+{{text}}
+
+Requirements:
+- Maintain original meaning and tone
+- Adapt idioms and cultural references appropriately
+- Note any ambiguities or translation challenges
+- Provide natural, fluent output`
+      },
+      {
+        id: 9,
+        name: 'Technical Documentation',
+        category: 'generation',
+        content: `Create technical documentation for:
+
+Feature/Component: {{feature_name}}
+Purpose: {{purpose}}
+Target Audience: {{audience}}
+
+Include:
+1. Overview and purpose
+2. Key features and capabilities
+3. Usage instructions with examples
+4. Configuration options
+5. Common issues and troubleshooting
+6. API reference (if applicable)
+
+Use clear headings, code blocks, and examples.`
+      },
+      {
+        id: 10,
+        name: 'Comparison Analysis',
+        category: 'analysis',
+        content: `Compare and contrast the following:
+
+Option A: {{option_a}}
+Option B: {{option_b}}
+Criteria: {{criteria}}
+
+Analyze:
+1. Key similarities
+2. Major differences
+3. Pros and cons of each
+4. Use cases where each excels
+5. Recommendation based on {{context}}
+
+Present findings in a structured format (table or sections).`
+      },
+      {
+        id: 11,
+        name: 'Action Items Extraction',
+        category: 'data',
+        content: `Extract action items from the following:
+
+Source: {{source}}
+
+For each action item, identify:
+- Task description
+- Owner/assignee (if mentioned)
+- Deadline (if mentioned)
+- Priority (high/medium/low)
+- Dependencies
+
+Format as a structured list or table.`
+      },
+      {
+        id: 12,
+        name: 'Bug Report Generator',
+        category: 'code',
+        content: `Create a detailed bug report:
+
+Issue: {{issue_summary}}
+Environment: {{environment}}
+Steps to Reproduce: {{steps}}
+Expected Behavior: {{expected}}
+Actual Behavior: {{actual}}
+
+Include:
+1. Clear, concise title
+2. Detailed description
+3. Reproduction steps
+4. Screenshots/logs (if applicable)
+5. System information
+6. Severity assessment
+7. Possible workarounds`
+      },
+      {
+        id: 13,
+        name: 'Creative Brief',
+        category: 'generation',
+        content: `Generate creative content:
+
+Type: {{content_type}} (blog post/social media/ad copy/etc.)
+Topic: {{topic}}
+Audience: {{target_audience}}
+Tone: {{tone}}
+Length: {{length}}
+Key Message: {{key_message}}
+
+Requirements:
+- Engaging and original
+- On-brand voice
+- Clear call-to-action
+- SEO considerations (if applicable)`
+      },
+      {
+        id: 14,
+        name: 'Data Validation',
+        category: 'data',
+        content: `Validate the following data:
+
+Data Type: {{data_type}}
+Data: {{data}}
+Validation Rules: {{rules}}
+
+Check for:
+1. Format compliance
+2. Required fields
+3. Data type correctness
+4. Range/constraint violations
+5. Consistency issues
+
+Provide:
+- Validation status (pass/fail)
+- Specific errors found
+- Suggested corrections`
+      },
+      {
+        id: 15,
+        name: 'Meeting Notes Summary',
+        category: 'analysis',
+        content: `Summarize the following meeting notes:
+
+Meeting: {{meeting_title}}
+Date: {{date}}
+Attendees: {{attendees}}
+Raw Notes: {{notes}}
+
+Create structured summary:
+1. Key Discussion Points
+2. Decisions Made
+3. Action Items (with owners)
+4. Follow-up Required
+5. Next Steps
+
+Format for easy scanning and follow-up.`
+      }
+    ];
+
+    // Model Tips Database
+    const MODEL_TIPS = {
+      claude: [
+        'Use XML tags like <document>, <instructions> for structured sections',
+        'Be explicit about output format and structure',
+        'Provide examples for complex tasks to guide responses',
+        'Use "Think step-by-step" for complex reasoning tasks',
+        'Chain-of-thought prompting improves accuracy'
+      ],
+      gpt: [
+        'Use markdown formatting for clear structure',
+        'System prompts effectively set behavior and tone',
+        'Temperature affects creativity (0=focused, 2=creative)',
+        'Break complex tasks into smaller steps',
+        'Use "Let\'s work this out step by step" for reasoning'
+      ],
+      gemini: [
+        'Supports multimodal inputs (text, images, video)',
+        'Chain-of-thought prompting enhances performance',
+        'Be specific about constraints and requirements',
+        'Use examples to demonstrate desired output',
+        'Explicitly request structured formats (JSON, tables)'
+      ]
+    };
+
+    // State Management
+    let currentMode = 'single';
+    let currentModel = 'claude';
+    let currentTemplate = null;
+    let variables = {};
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      renderTemplates();
+      setupEventListeners();
+      updateModelTips();
+    });
+
+    // Render Templates
+    function renderTemplates(filter = '') {
+      const container = document.getElementById('templatesList');
+      const activeCategory = document.querySelector('.category-btn.active').dataset.category;
+
+      let filtered = TEMPLATES;
+
+      if (activeCategory !== 'all') {
+        filtered = filtered.filter(t => t.category === activeCategory);
+      }
+
+      if (filter) {
+        filtered = filtered.filter(t =>
+          t.name.toLowerCase().includes(filter.toLowerCase()) ||
+          t.category.toLowerCase().includes(filter.toLowerCase())
+        );
+      }
+
+      container.innerHTML = filtered.map(template => `
+        <div class="template-item" data-id="${template.id}">
+          <div class="template-name">${template.name}</div>
+          <div class="template-category">${template.category}</div>
+        </div>
+      `).join('');
+
+      // Add click listeners
+      document.querySelectorAll('.template-item').forEach(item => {
+        item.addEventListener('click', () => loadTemplate(parseInt(item.dataset.id)));
+      });
+    }
+
+    // Load Template
+    function loadTemplate(id) {
+      const template = TEMPLATES.find(t => t.id === id);
+      if (!template) return;
+
+      currentTemplate = template;
+      document.getElementById('editor1').value = template.content;
+
+      // Remove active class from all templates
+      document.querySelectorAll('.template-item').forEach(item => {
+        item.classList.remove('active');
+      });
+
+      // Add active class to selected template
+      document.querySelector(`.template-item[data-id="${id}"]`).classList.add('active');
+
+      updateStats('editor1');
+      detectVariables();
+    }
+
+    // Detect Variables
+    function detectVariables() {
+      const editor1 = document.getElementById('editor1');
+      const text = editor1.value;
+      const regex = /\{\{(\w+)\}\}/g;
+      const matches = [...text.matchAll(regex)];
+      const uniqueVars = [...new Set(matches.map(m => m[1]))];
+
+      const container = document.getElementById('variableInputs');
+
+      if (uniqueVars.length === 0) {
+        container.innerHTML = '<p style="font-size: 12px; color: var(--text-secondary);">Use {{variable_name}} in your prompt to create dynamic inputs.</p>';
+        document.getElementById('previewSection').classList.add('hidden');
+        return;
+      }
+
+      container.innerHTML = uniqueVars.map(varName => `
+        <div class="variable-input">
+          <label>{{${varName}}}</label>
+          <textarea
+            data-var="${varName}"
+            placeholder="Enter value for ${varName}..."
+          >${variables[varName] || ''}</textarea>
+        </div>
+      `).join('');
+
+      // Add input listeners
+      document.querySelectorAll('.variable-input textarea').forEach(input => {
+        input.addEventListener('input', (e) => {
+          variables[e.target.dataset.var] = e.target.value;
+          updatePreview();
+        });
+      });
+
+      document.getElementById('previewSection').classList.remove('hidden');
+      updatePreview();
+    }
+
+    // Update Preview
+    function updatePreview() {
+      const editor1 = document.getElementById('editor1');
+      let text = editor1.value;
+
+      Object.keys(variables).forEach(varName => {
+        const regex = new RegExp(`\\{\\{${varName}\\}\\}`, 'g');
+        text = text.replace(regex, variables[varName] || `{{${varName}}}`);
+      });
+
+      document.getElementById('previewBox').textContent = text;
+    }
+
+    // Update Stats
+    function updateStats(editorId) {
+      const editor = document.getElementById(editorId);
+      const text = editor.value;
+      const chars = text.length;
+      const tokens = Math.ceil(chars / 4); // Rough estimate
+
+      const statsId = editorId === 'editor1' ? 'stats1' : 'stats2';
+      document.getElementById(statsId).textContent = `${chars.toLocaleString()} chars | ~${tokens.toLocaleString()} tokens`;
+    }
+
+    // Update Model Tips
+    function updateModelTips() {
+      const tips = MODEL_TIPS[currentModel];
+      const container = document.getElementById('tipsContainer');
+      const modelNames = { claude: 'Claude', gpt: 'ChatGPT', gemini: 'Gemini' };
+
+      document.getElementById('tipsTitle').textContent = `${modelNames[currentModel]} Tips`;
+
+      container.innerHTML = tips.map(tip => `
+        <div class="tip-item">${tip}</div>
+      `).join('');
+    }
+
+    // Copy to Clipboard
+    async function copyToClipboard() {
+      const editor1 = document.getElementById('editor1');
+      const text = currentMode === 'single'
+        ? document.getElementById('previewBox').textContent
+        : editor1.value;
+
+      try {
+        await navigator.clipboard.writeText(text);
+        const btn = document.getElementById('copyBtn');
+        const originalText = btn.textContent;
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('success');
+
+        setTimeout(() => {
+          btn.textContent = originalText;
+          btn.classList.remove('success');
+        }, 2000);
+      } catch (err) {
+        alert('Failed to copy to clipboard');
+      }
+    }
+
+    // Save Template
+    function saveTemplate() {
+      const name = prompt('Enter template name:');
+      if (!name) return;
+
+      const category = prompt('Enter category (analysis/generation/code/data):');
+      if (!category) return;
+
+      const editor1 = document.getElementById('editor1');
+
+      const newTemplate = {
+        id: Date.now(),
+        name,
+        category,
+        content: editor1.value
+      };
+
+      TEMPLATES.push(newTemplate);
+
+      // Save to localStorage
+      const saved = JSON.parse(localStorage.getItem('customTemplates') || '[]');
+      saved.push(newTemplate);
+      localStorage.setItem('customTemplates', JSON.stringify(saved));
+
+      renderTemplates();
+      alert('Template saved successfully!');
+    }
+
+    // Clear Editor
+    function clearEditor() {
+      if (confirm('Clear current content?')) {
+        document.getElementById('editor1').value = '';
+        document.getElementById('editor2').value = '';
+        variables = {};
+        updateStats('editor1');
+        updateStats('editor2');
+        detectVariables();
+
+        // Remove active class from templates
+        document.querySelectorAll('.template-item').forEach(item => {
+          item.classList.remove('active');
+        });
+      }
+    }
+
+    // Toggle Mode
+    function toggleMode(mode) {
+      currentMode = mode;
+      const contentArea = document.getElementById('contentArea');
+      const editorPanel2 = document.getElementById('editorPanel2');
+
+      if (mode === 'compare') {
+        contentArea.classList.remove('single-mode');
+        contentArea.classList.add('compare-mode');
+        editorPanel2.classList.remove('hidden');
+      } else {
+        contentArea.classList.add('single-mode');
+        contentArea.classList.remove('compare-mode');
+        editorPanel2.classList.add('hidden');
+      }
+    }
+
+    // Event Listeners
+    function setupEventListeners() {
+      // Search
+      document.getElementById('searchInput').addEventListener('input', (e) => {
+        renderTemplates(e.target.value);
+      });
+
+      // Category Filters
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderTemplates();
+        });
+      });
+
+      // Mode Toggle
+      document.querySelectorAll('.mode-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          toggleMode(btn.dataset.mode);
+        });
+      });
+
+      // Model Selector
+      document.getElementById('modelSelector').addEventListener('change', (e) => {
+        currentModel = e.target.value;
+        updateModelTips();
+      });
+
+      // Editor Input
+      document.getElementById('editor1').addEventListener('input', () => {
+        updateStats('editor1');
+        detectVariables();
+      });
+
+      document.getElementById('editor2').addEventListener('input', () => {
+        updateStats('editor2');
+      });
+
+      // Action Buttons
+      document.getElementById('copyBtn').addEventListener('click', copyToClipboard);
+      document.getElementById('saveTemplateBtn').addEventListener('click', saveTemplate);
+      document.getElementById('clearBtn').addEventListener('click', clearEditor);
+
+      // Load custom templates from localStorage
+      const saved = JSON.parse(localStorage.getItem('customTemplates') || '[]');
+      TEMPLATES.push(...saved);
+    }
+  </script>
+</body>
+</html>

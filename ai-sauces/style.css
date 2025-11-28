@@ -1,10 +1,14 @@
+/* Import shared theme variables */
+@import url('../css/theme-variables.css');
+
 :root {
-    --primary-color: #2a2a2a;
-    --secondary-color: #4a4a4a;
-    --accent-color: #0088ff;
-    --text-color: #f8f8f8;
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+    /* AI Sauces specific overrides */
+    --gallery-primary: #2a2a2a;
+    --gallery-secondary: #4a4a4a;
+    --gallery-accent: var(--arc-blue);
+    --gallery-text: #f8f8f8;
+    --gallery-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+    --gallery-transition: all 0.3s ease;
 }
 
 * {
@@ -15,8 +19,8 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: var(--primary-color);
-    color: var(--text-color);
+    background-color: var(--gallery-primary);
+    color: var(--gallery-text);
     line-height: 1.6;
 }
 
@@ -34,7 +38,7 @@ header {
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
-    color: var(--accent-color);
+    color: var(--gallery-accent);
 }
 
 header p {
@@ -52,21 +56,21 @@ header p {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: var(--shadow);
+    box-shadow: var(--gallery-shadow);
     cursor: pointer;
-    transition: var(--transition);
+    transition: var(--gallery-transition);
 }
 
 .gallery-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgb(0 0 0 / 20%);
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
+    transition: var(--gallery-transition);
     display: block;
 }
 
@@ -79,11 +83,11 @@ header p {
     bottom: 0;
     left: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgb(0 0 0 / 70%);
     color: white;
     padding: 10px;
     transform: translateY(100%);
-    transition: var(--transition);
+    transition: var(--gallery-transition);
 }
 
 .gallery-item:hover .caption {
@@ -99,7 +103,7 @@ header p {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgb(0 0 0 / 90%);
     justify-content: center;
     align-items: center;
 }
@@ -121,7 +125,7 @@ header p {
     display: block;
     margin: 0 auto;
     border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgb(0 0 0 / 30%);
 }
 
 .close {
@@ -150,14 +154,14 @@ header p {
 }
 
 .lightbox-controls button {
-    background-color: var(--accent-color);
+    background-color: var(--gallery-accent);
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
-    transition: var(--transition);
+    transition: var(--gallery-transition);
 }
 
 .lightbox-controls button:hover {
@@ -165,7 +169,7 @@ header p {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (width <= 768px) {
     .gallery {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1rem;
@@ -176,7 +180,7 @@ header p {
     }
 }
 
-@media (max-width: 480px) {
+@media (width <= 480px) {
     .gallery {
         grid-template-columns: 1fr;
     }
