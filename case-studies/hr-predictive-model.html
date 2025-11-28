@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HR Predictive Model & Job Opening Analysis">
+  <meta property="og:title" content="AI Reality Check | HR Predictive Model">
+  <meta property="og:description" content="Comprehensive visualization, strategic synthesis, and key achievements in HR predictive analytics">
+  <title>AI Reality Check | HR Predictive Model & Job Opening Analysis</title>
+  
+  <!-- Resource hints for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../assets/main.min-BsgWE8x1.js" as="script">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Google-inspired Color Palette */
+    :root {
+      --blue: #4285F4;
+      --red: #EA4335;
+      --yellow: #FBBC05;
+      --green: #34A853;
+      --dark-blue: #1A73E8;
+      --light-blue: #8AB4F8;
+      --dark-gray: #202124;
+      --medium-gray: #5F6368;
+      --light-gray: #E8EAED;
+      --white: #FFFFFF;
+      
+      /* Theme Variables */
+      --primary-bg: var(--white);
+      --secondary-bg: var(--light-gray);
+      --tertiary-bg: #F8F9FA;
+      --primary-text: var(--dark-gray);
+      --secondary-text: var(--medium-gray);
+      --accent-color: var(--blue);
+      --secondary-accent: var(--green);
+      --highlight-color: var(--yellow);
+      --cta-color: var(--red);
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --transition-speed: 0.25s;
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-bg: var(--dark-gray);
+        --secondary-bg: #303134;
+        --tertiary-bg: #404144;
+        --primary-text: var(--white);
+        --secondary-text: #BDC1C6;
+        --accent-color: var(--light-blue);
+      }
+    }
+    
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Product Sans', sans-serif;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+    
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    
+    a:hover {
+      color: var(--dark-blue);
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-bg);
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all var(--transition-speed);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Product Sans', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-left: 3px;
+    }
+    
+    .logo-dot-1 {
+      background-color: var(--blue);
+    }
+    
+    .logo-dot-2 {
+      background-color: var(--red);
+    }
+    
+    .logo-dot-3 {
+      background-color: var(--yellow);
+    }
+    
+    .logo-dot-4 {
+      background-color: var(--green);
+    }
+    
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      color: var(--primary-text);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--accent-color);
+      transition: width var(--transition-speed);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-button {
+      background-color: var(--cta-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      box-shadow: 0 2px 5px rgba(234, 67, 53, 0.3);
+      transition: all var(--transition-speed);
+    }
+    
+    .nav-button:hover {
+      background-color: #D33426;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(234, 67, 53, 0.3);
+    }
+    
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-title {
+      margin-bottom: 1.5rem;
+      color: var(--primary-text);
+    }
+    
+    .hero-title span {
+      color: var(--accent-color);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--secondary-text);
+    }
+    
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: all var(--transition-speed);
+    }
+    
+    .btn-primary {
+      background-color: var(--accent-color);
+      color: white;
+      box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--dark-blue);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+    }
+    
+    .btn-outline {
+      border: 2px solid var(--accent-color);
+      color: var(--accent-color);
+      background-color: transparent;
+    }
+    
+    .btn-outline:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: translateY(-2px);
+    }
+    
+    .hero-pattern {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      z-index: 1;
+      opacity: 0.1;
+      background-image: radial-gradient(var(--blue) 1px, transparent 1px), 
+                        radial-gradient(var(--red) 1px, transparent 1px),
+                        radial-gradient(var(--yellow) 1px, transparent 1px),
+                        radial-gradient(var(--green) 1px, transparent 1px);
+      background-size: 60px 60px;
+      background-position: 0 0, 30px 30px, 15px 15px, 45px 45px;
+    }
+    
+    /* Content Section */
+    .content-section {
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .content-section:nth-child(even) {
+      background-color: var(--secondary-bg);
+    }
+    
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 25%;
+      width: 50%;
+      height: 4px;
+      background: linear-gradient(to right, var(--blue), var(--red), var(--yellow), var(--green));
+      border-radius: 2px;
+    }
+    
+    .section-subtitle {
+      color: var(--secondary-text);
+      font-size: 1.2rem;
+    }
+    
+    /* Dashboard Section */
+    .dashboard-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    @media (max-width: 1100px) {
+      .dashboard-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .dashboard-card {
+      background-color: var(--primary-bg);
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      transition: transform var(--transition-speed);
+    }
+    
+    .dashboard-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .dashboard-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem;
+      background-color: var(--accent-color);
+      color: white;
+    }
+    
+    .dashboard-title {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin: 0;
+    }
+    
+    .dashboard-value {
+      font-weight: 700;
+    }
+    
+    .dashboard-content {
+      padding: 1.5rem;
+    }
+    
+    /* Pattern Detection Chart */
+    .pattern-chart {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      height: 180px;
+      margin-top: 1.5rem;
+    }
+    
+    .pattern-bar {
+      width: 30px;
+      border-radius: 3px 3px 0 0;
+      position: relative;
+      transition: height 1s ease;
+    }
+    
+    .pattern-bar:nth-child(1) {
+      background-color: var(--blue);
+    }
+    
+    .pattern-bar:nth-child(2) {
+      background-color: var(--red);
+    }
+    
+    .pattern-bar:nth-child(3) {
+      background-color: var(--yellow);
+    }
+    
+    .pattern-bar:nth-child(4) {
+      background-color: var(--green);
+    }
+    
+    .pattern-bar:nth-child(5) {
+      background-color: var(--dark-blue);
+    }
+    
+    .pattern-bar:nth-child(6) {
+      background-color: var(--accent-color);
+    }
+    
+    .pattern-bar::after {
+      content: attr(data-category);
+      position: absolute;
+      bottom: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.8rem;
+      color: var(--secondary-text);
+      white-space: nowrap;
+    }
+    
+    /* Signal Strength Bar */
+    .signal-container {
+      margin-bottom: 1.5rem;
+    }
+    
+    .signal-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    
+    .signal-name {
+      color: var(--primary-text);
+      font-weight: 500;
+    }
+    
+    .signal-value {
+      color: var(--secondary-text);
+    }
+    
+    .signal-bar {
+      height: 8px;
+      background-color: var(--secondary-bg);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .signal-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1s ease;
+    }
+    
+    .signal-fill-blue {
+      background: linear-gradient(to right, var(--blue), var(--light-blue));
+    }
+    
+    .signal-fill-red {
+      background: linear-gradient(to right, var(--red), #FF8A80);
+    }
+    
+    .signal-fill-green {
+      background: linear-gradient(to right, var(--green), #8BC34A);
+    }
+    
+    /* Timeline Comparison */
+    .timeline-container {
+      margin-top: 2rem;
+    }
+    
+    .timeline-comparison {
+      display: flex;
+      margin-top: 2rem;
+      position: relative;
+    }
+    
+    .timeline-stage {
+      height: 8px;
+      flex: 1;
+      margin: 0 1rem;
+      position: relative;
+    }
+    
+    .timeline-traditional {
+      background-color: var(--secondary-text);
+      border-radius: 4px;
+    }
+    
+    .timeline-optimized {
+      background-color: var(--accent-color);
+      border-radius: 4px;
+    }
+    
+    .timeline-stage::before {
+      content: attr(data-label);
+      position: absolute;
+      top: -25px;
+      left: 0;
+      font-size: 0.9rem;
+      color: var(--secondary-text);
+      white-space: nowrap;
+    }
+    
+    .pulse-effect {
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Accuracy Evolution */
+    .accuracy-container {
+      margin-top: 2rem;
+      position: relative;
+      height: 200px;
+      background-color: var(--tertiary-bg);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    
+    .accuracy-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 86.4%;
+      background: linear-gradient(to right, var(--accent-color), var(--light-blue));
+      transition: width 1s ease;
+    }
+    
+    .accuracy-label {
+      position: absolute;
+      top: 50%;
+      left: 43.2%;
+      transform: translate(-50%, -50%);
+      color: white;
+      font-weight: 700;
+      font-size: 1.5rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Highlight Box */
+    .highlight-box {
+      background-color: rgba(66, 133, 244, 0.1);
+      border-left: 4px solid var(--blue);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      border-radius: 0 10px 10px 0;
+    }
+    
+    .highlight-title {
+      font-size: 1.2rem;
+      color: var(--accent-color);
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+    
+    th, td {
+      padding: 1rem;
+      text-align: left;
+    }
+    
+    th {
+      background-color: var(--accent-color);
+      color: white;
+      font-weight: 500;
+    }
+    
+    tr:nth-child(even) {
+      background-color: var(--tertiary-bg);
+    }
+    
+    /* Lists */
+    ul, ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary-bg);
+      padding: 2rem 0;
+      text-align: center;
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--secondary-bg);
+    }
+    
+    /* Tech Stack Pills */
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+    
+    .tech-pill {
+      background-color: var(--tertiary-bg);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent-color);
+    }
+    
+    .tech-pill:nth-child(2) {
+      color: var(--red);
+    }
+    
+    .tech-pill:nth-child(3) {
+      color: var(--green);
+    }
+    
+    .tech-pill:nth-child(4) {
+      color: var(--yellow);
+    }
+    
+    .tech-pill:nth-child(5) {
+      color: var(--dark-blue);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 4rem 0;
+        min-height: auto;
+      }
+      
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .nav {
+        display: none;
+      }
+      
+      .hero-cta {
+        flex-direction: column;
+      }
+      
+      .pattern-chart {
+        height: 150px;
+      }
+      
+      .timeline-stage::before {
+        font-size: 0.8rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .dashboard-value {
+        margin-top: 0.5rem;
+      }
+      
+      .pattern-bar {
+        width: 20px;
+      }
+      
+      .pattern-bar::after {
+        font-size: 0.7rem;
+      }
+    }
+  </style>
+  <script async type="module" crossorigin src="../assets/js/case-studies-hr-predictive-model-DnytC-dL.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/style-DpZAS_Ll.css">
+  <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        ARC
+        <span class="logo-dot logo-dot-1"></span>
+        <span class="logo-dot logo-dot-2"></span>
+        <span class="logo-dot logo-dot-3"></span>
+        <span class="logo-dot logo-dot-4"></span>
+      </a>
+      
+      <nav class="nav" id="mainNav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="#dashboard" class="nav-link">Dashboard</a>
+        <a href="#analysis" class="nav-link">Analysis</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#contact" class="nav-button">Contact</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">HR & Candidate <span>Job Opening</span> Predictive Model</h1>
+        <p class="hero-subtitle">Comprehensive visualization, strategic synthesis, and key achievements</p>
+        <div class="hero-cta">
+          <a href="#dashboard" class="btn btn-primary">View Dashboard</a>
+          <a href="#analysis" class="btn btn-outline">Explore Analysis</a>
+        </div>
+      </div>
+      <div class="hero-pattern"></div>
+    </div>
+  </section>
+  
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Visualization Dashboard</h2>
+        <p class="section-subtitle">Advanced analytics and predictive metrics</p>
+      </div>
+      
+      <div class="dashboard-container">
+        <!-- Pattern Detection Accuracy -->
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Pattern Detection Accuracy</h3>
+            <span class="dashboard-value">92% Accuracy</span>
+          </div>
+          <div class="dashboard-content">
+            <div class="pattern-chart">
+              <div class="pattern-bar" style="height: 94%;" data-category="Growth"></div>
+              <div class="pattern-bar" style="height: 91%;" data-category="Urgency"></div>
+              <div class="pattern-bar" style="height: 93%;" data-category="Stability"></div>
+              <div class="pattern-bar" style="height: 95%;" data-category="Benefits"></div>
+              <div class="pattern-bar" style="height: 92%;" data-category="Tech"></div>
+              <div class="pattern-bar" style="height: 90%;" data-category="Culture"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Signal Strength Evaluation -->
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Signal Strength Evaluation</h3>
+            <span class="dashboard-value">86% Strength</span>
+          </div>
+          <div class="dashboard-content">
+            <div class="signal-container">
+              <div class="signal-label">
+                <span class="signal-name">Recency Score</span>
+                <span class="signal-value">90%</span>
+              </div>
+              <div class="signal-bar">
+                <div class="signal-fill signal-fill-blue" style="width: 90%;"></div>
+              </div>
+            </div>
+            <div class="signal-container">
+              <div class="signal-label">
+                <span class="signal-name">Specificity Score</span>
+                <span class="signal-value">85%</span>
+              </div>
+              <div class="signal-bar">
+                <div class="signal-fill signal-fill-red" style="width: 85%;"></div>
+              </div>
+            </div>
+            <div class="signal-container">
+              <div class="signal-label">
+                <span class="signal-name">Source Credibility</span>
+                <span class="signal-value">95%</span>
+              </div>
+              <div class="signal-bar">
+                <div class="signal-fill signal-fill-green" style="width: 95%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Predictive Timeline -->
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Predictive Timeline</h3>
+            <span class="dashboard-value">3-Week Advantage</span>
+          </div>
+          <div class="dashboard-content">
+            <p>Our predictive model identifies job opportunities 3 weeks earlier than traditional methods, providing a significant competitive advantage.</p>
+            <div class="timeline-container pulse-effect">
+              <div class="timeline-comparison">
+                <div class="timeline-stage timeline-traditional" data-label="Traditional Process"></div>
+              </div>
+              <div class="timeline-comparison" style="margin-top: 2rem;">
+                <div class="timeline-stage timeline-optimized" data-label="Optimized Process"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Accuracy Evolution -->
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Accuracy Evolution</h3>
+            <span class="dashboard-value">86.4% Current</span>
+          </div>
+          <div class="dashboard-content">
+            <p>Our model accuracy has steadily improved through continuous optimization and training.</p>
+            <div class="accuracy-container">
+              <div class="accuracy-fill"></div>
+              <div class="accuracy-label">86.4%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Analysis Section -->
+  <section id="analysis" class="content-section" style="background-color: var(--secondary-bg);">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Problem Solving & Strategic Synthesis</h2>
+        <p class="section-subtitle">Innovative approaches to complex challenges</p>
+      </div>
+      
+      <div class="highlight-box">
+        <h4 class="highlight-title">Project Highlight</h4>
+        <p>This solution represents one of my most creative and innovative approaches. Faced with incomplete data, I synthesized verified insights with strategic estimates to deliver a directionally accurate analysis—demonstrating the ability to solve complex problems and produce actionable, data-driven recommendations. This perfectly aligns with the AI and Automation Consultant role.</p>
+      </div>
+      
+      <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 2rem; box-shadow: var(--box-shadow);">
+        <h3 style="color: var(--accent-color);">Project Overview</h3>
+        <p>Tasked with analyzing customer experience challenges for TikTok Shop with partial data, I merged authenticated data with carefully synthesized estimates to create a comprehensive, strategic analysis. This framework addressed immediate gaps and laid the groundwork for future optimizations.</p>
+        
+        <h3 style="color: var(--accent-color); margin-top: 2rem;">Innovative Approach & Creative Problem Solving</h3>
+        <p>My approach integrated:</p>
+        <ul>
+          <li><strong>Data Authentication & Synthesis:</strong> Consolidated multiple verified data sources while intelligently estimating missing elements.</li>
+          <li><strong>Predictive Analytics:</strong> Applied advanced ML techniques (Random Forest, SHAP) to forecast trends and derive actionable insights.</li>
+          <li><strong>Dashboard Creation:</strong> Developed interactive dashboards that translate complex data into clear, executive-level insights.</li>
+        </ul>
+        <p>This methodology underscores my ability to innovate under uncertainty and deliver strategic, actionable solutions.</p>
+        
+        <h3 style="color: var(--accent-color); margin-top: 2rem;">Strategic Analysis & Actionable Insights</h3>
+        <p>Key outcomes include:</p>
+        <ul>
+          <li><strong>Operational Gaps:</strong> Identified critical inefficiencies ripe for automation.</li>
+          <li><strong>Customer Behavior Forecasts:</strong> Developed models predicting churn and guiding retention strategies.</li>
+          <li><strong>Actionable Recommendations:</strong> Delivered clear, data-backed strategies to improve customer experience and operational efficiency.</li>
+        </ul>
+        
+        <h3 style="color: var(--accent-color); margin-top: 2rem;">Results & Impact</h3>
+        <p>This project produced:</p>
+        <ul>
+          <li>A robust framework for synthesizing incomplete data without sacrificing accuracy.</li>
+          <li>Strategic insights that directly inform automation opportunities and CX enhancements.</li>
+          <li>Interactive dashboards that empower executives to rapidly implement improvements.</li>
+        </ul>
+        
+        <h3 style="color: var(--accent-color); margin-top: 2rem;">Conclusion</h3>
+        <p>This initiative exemplifies my proactive, innovative, and strategic approach to problem solving. By integrating incomplete data with verified insights, I delivered an analysis that drives operational excellence and enhances customer experience. This work aligns with the vision for an AI and Automation Consultant who thrives in ambiguity, innovates under pressure, and delivers measurable impact.</p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Achievements Section -->
+  <section id="achievements" class="content-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Key Achievements</h2>
+        <p class="section-subtitle">Technical performance metrics and innovation highlights</p>
+      </div>
+      
+      <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 2rem; box-shadow: var(--box-shadow); margin-bottom: 2rem;">
+        <h3 style="color: var(--accent-color);">1. Pattern Detection System</h3>
+        
+        <h4 style="color: var(--secondary-text); margin-top: 1.5rem;">Accuracy Metrics</h4>
+        <ul>
+          <li>Overall Pattern Detection Accuracy: 92%</li>
+          <li>False Positive Rate: &lt; 2%</li>
+          <li>False Negative Rate: &lt; 5%</li>
+          <li>Pattern Match Speed: &lt; 10ms per pattern</li>
+        </ul>
+        
+        <h4 style="color: var(--secondary-text); margin-top: 1.5rem;">Pattern Categories</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Precision</th>
+              <th>Recall</th>
+              <th>F1 Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Growth</td>
+              <td>0.94</td>
+              <td>0.92</td>
+              <td>0.93</td>
+            </tr>
+            <tr>
+              <td>Urgency</td>
+              <td>0.91</td>
+              <td>0.89</td>
+              <td>0.90</td>
+            </tr>
+            <tr>
+              <td>Stability</td>
+              <td>0.93</td>
+              <td>0.90</td>
+              <td>0.91</td>
+            </tr>
+            <tr>
+              <td>Benefits</td>
+              <td>0.95</td>
+              <td>0.93</td>
+              <td>0.94</td>
+            </tr>
+            <tr>
+              <td>Tech Stack</td>
+              <td>0.92</td>
+              <td>0.88</td>
+              <td>0.90</td>
+            </tr>
+            <tr>
+              <td>Culture</td>
+              <td>0.90</td>
+              <td>0.87</td>
+              <td>0.88</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 2rem; box-shadow: var(--box-shadow); margin-bottom: 2rem;">
+        <h3 style="color: var(--accent-color);">2. Performance Optimizations</h3>
+        
+        <h4 style="color: var(--secondary-text); margin-top: 1.5rem;">Processing Speed</h4>
+        <ul>
+          <li>Average Job Post Analysis: ~100ms</li>
+          <li>Batch Processing: 1000 posts/second</li>
+          <li>Model Loading (Cold Start): &lt; 3s</li>
+          <li>Model Loading (Cached): &lt; 500ms</li>
+        </ul>
+        
+        <h4 style="color: var(--secondary-text); margin-top: 1.5rem;">Resource Usage</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Operation</th>
+              <th>CPU Usage</th>
+              <th>Memory</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Model Loading</td>
+              <td>25%</td>
+              <td>150MB</td>
+              <td>2.8s</td>
+            </tr>
+            <tr>
+              <td>Pattern Detection</td>
+              <td>5%</td>
+              <td>25MB</td>
+              <td>8ms</td>
+            </tr>
+            <tr>
+              <td>Sentiment Analysis</td>
+              <td>15%</td>
+              <td>75MB</td>
+              <td>85ms</td>
+            </tr>
+            <tr>
+              <td>Trend Analysis</td>
+              <td>3%</td>
+              <td>15MB</td>
+              <td>5ms</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 2rem; box-shadow: var(--box-shadow); margin-bottom: 2rem;">
+        <h3 style="color: var(--accent-color);">3. Technical Innovations</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+          <div>
+            <h4 style="color: var(--blue);">Fuzzy Pattern Matching</h4>
+            <ul>
+              <li>Multi-algorithm approach combining:
+                <ul>
+                  <li>Token Sort Ratio</li>
+                  <li>Token Set Ratio</li>
+                  <li>Partial Ratio</li>
+                </ul>
+              </li>
+              <li>Weighted scoring system</li>
+              <li>Optimized thresholds (70% baseline)</li>
+              <li>Pattern diversity scoring</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: var(--red);">Caching System</h4>
+            <ul>
+              <li>Model and tokenizer caching</li>
+              <li>LRU cache for pattern matching</li>
+              <li>Efficient memory management</li>
+              <li>Automatic cache invalidation</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: var(--green);">Hardware Optimization</h4>
+            <ul>
+              <li>Apple Silicon (M-series) optimization</li>
+              <li>MPS acceleration support</li>
+              <li>Efficient memory utilization</li>
+              <li>Batch processing optimization</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 2rem; box-shadow: var(--box-shadow); margin-bottom: 2rem;">
+        <h3 style="color: var(--accent-color);">4. Data Processing Capabilities</h3>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.5rem;">
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--blue); color: white; display: flex; justify-content: center; align-items: center; font-weight: bold;">1</div>
+            <div>
+              <h4 style="margin-top: 0;">Input Sources</h4>
+              <ul>
+                <li>Job Postings</li>
+                <li>Company Reviews</li>
+                <li>Market Trends</li>
+                <li>Industry Reports</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--red); color: white; display: flex; justify-content: center; align-items: center; font-weight: bold;">2</div>
+            <div>
+              <h4 style="margin-top: 0;">Processing Pipeline</h4>
+              <p>Raw Data → Preprocessing → Pattern Detection → Sentiment Analysis → Signal Generation</p>
+            </div>
+          </div>
+          
+          <div style="display: flex; align-items: flex-start; gap: 1rem;">
+            <div style="min-width: 40px; height: 40px; border-radius: 50%; background-color: var(--green); color: white; display: flex; justify-content: center; align-items: center; font-weight: bold;">3</div>
+            <div>
+              <h4 style="margin-top: 0;">Output Metrics</h4>
+              <ul>
+                <li>Hiring Signal Score (0-1)</li>
+                <li>Confidence Level</li>
+                <li>Pattern Matches</li>
+                <li>Sentiment Analysis</li>
+                <li>Trend Indicators</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 2rem; box-shadow: var(--box-shadow); margin-bottom: 2rem;">
+        <h3 style="color: var(--accent-color);">5. Performance Benchmarks</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+          <div>
+            <h4 style="color: var(--blue);">Accuracy</h4>
+            <ul>
+              <li>Overall System Accuracy: 91%</li>
+              <li>Pattern Detection Precision: 93%</li>
+              <li>Sentiment Analysis Accuracy: 89%</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: var(--yellow);">Scalability</h4>
+            <ul>
+              <li>Concurrent Requests: 1000+</li>
+              <li>Linear Scaling: Up to 10,000 posts</li>
+              <li>Memory Usage: &lt; 200MB baseline</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: var(--green);">Reliability</h4>
+            <ul>
+              <li>Error Rate: &lt; 0.1%</li>
+              <li>System Uptime: 99.9%</li>
+              <li>Recovery Time: &lt; 1s</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div style="background-color: var(--primary-bg); border-radius: 10px; padding: 2rem; box-shadow: var(--box-shadow);">
+        <h3 style="color: var(--accent-color);">6. Future Improvements & Technical Stack</h3>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
+          <div>
+            <h4 style="color: var(--secondary-text);">Phase 2 Improvements</h4>
+            <ul>
+              <li>Model Fine-tuning</li>
+              <li>Extended Pattern Categories</li>
+              <li>Real-time Analysis Pipeline</li>
+              <li>Advanced Trend Detection</li>
+              <li>API Service Scaling</li>
+            </ul>
+          </div>
+          
+          <div>
+            <h4 style="color: var(--secondary-text);">Technical Stack</h4>
+            <div class="tech-stack">
+              <div class="tech-pill">Python 3.8+</div>
+              <div class="tech-pill">PyTorch</div>
+              <div class="tech-pill">FastAPI</div>
+              <div class="tech-pill">Redis</div>
+              <div class="tech-pill">Prometheus/Grafana</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+    </div>
+  </footer>
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="../assets/js/polyfills-legacy-C4RL5ki6.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="../assets/js/case-studies-hr-predictive-model-legacy-C6Gy-4tl.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+</html>

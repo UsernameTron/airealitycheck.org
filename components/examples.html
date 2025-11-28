@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Components Examples - AI Reality Check</title>
+    <meta name="description" content="Interactive examples of modern UI components library">
+
+    <!-- Styles -->
+
+    <style>
+        /* Page-specific styles */
+        .examples-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .example-section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: var(--ui-surface);
+            border: 1px solid var(--ui-border);
+            border-radius: var(--ui-radius-lg);
+        }
+
+        .example-section h2 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: var(--ui-text-primary);
+            font-size: 28px;
+        }
+
+        .example-section p {
+            margin-top: 0;
+            margin-bottom: 24px;
+            color: var(--ui-text-secondary);
+        }
+
+        .example-demo {
+            padding: 32px;
+            background: var(--ui-surface-elevated);
+            border-radius: var(--ui-radius-md);
+            margin-bottom: 24px;
+        }
+
+        .example-code {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: var(--ui-radius-md);
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #1a73e8 0%, #ea8600 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .demo-card {
+            padding: 20px;
+            background: var(--ui-surface);
+            border: 1px solid var(--ui-border);
+            border-radius: var(--ui-radius-md);
+        }
+
+        .demo-card h4 {
+            margin-top: 0;
+            color: var(--ui-text-primary);
+        }
+    </style>
+  <script async type="module" crossorigin src="../assets/js/components-examples-BP2QIkO3.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/components-examples-CE6QXPBB.css">
+  <link rel="stylesheet" crossorigin href="../assets/style-suYLZ0dz.css">
+  <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+
+<body>
+    <div class="examples-container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>🎨 UI Components Library</h1>
+            <p style="font-size: 18px; color: var(--ui-text-secondary);">
+                Modern, accessible components inspired by Headless UI and Radix UI
+            </p>
+        </div>
+
+        <!-- Dropdown Example -->
+        <section class="example-section">
+            <h2>1. Dropdown Menu</h2>
+            <p>Fully accessible dropdown with keyboard navigation and ARIA support</p>
+
+            <div class="example-demo">
+                <div class="demo-grid">
+                    <!-- Basic Dropdown -->
+                    <div>
+                        <h4>Basic Dropdown</h4>
+                        <div data-component="dropdown">
+                            <button data-dropdown-trigger>
+                                Options ▼
+                            </button>
+                            <div data-dropdown-menu hidden>
+                                <a href="#" data-dropdown-item>👤 Profile</a>
+                                <a href="#" data-dropdown-item>⚙️ Settings</a>
+                                <a href="#" data-dropdown-item>📊 Dashboard</a>
+                                <a href="#" data-dropdown-item>🚪 Sign out</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown with placement -->
+                    <div>
+                        <h4>Bottom-End Placement</h4>
+                        <div data-component="dropdown" data-placement="bottom-end">
+                            <button data-dropdown-trigger>
+                                Actions ▼
+                            </button>
+                            <div data-dropdown-menu hidden>
+                                <a href="#" data-dropdown-item>✏️ Edit</a>
+                                <a href="#" data-dropdown-item>📋 Duplicate</a>
+                                <a href="#" data-dropdown-item>🗑️ Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-code">
+                &lt;div data-component="dropdown"&gt;
+                &lt;button data-dropdown-trigger&gt;Options ▼&lt;/button&gt;
+                &lt;div data-dropdown-menu hidden&gt;
+                &lt;a href="#" data-dropdown-item&gt;Profile&lt;/a&gt;
+                &lt;a href="#" data-dropdown-item&gt;Settings&lt;/a&gt;
+                &lt;a href="#" data-dropdown-item&gt;Sign out&lt;/a&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Modal Example -->
+        <section class="example-section">
+            <h2>2. Modal/Dialog</h2>
+            <p>Accessible modal with focus trapping and scroll locking</p>
+
+            <div class="example-demo">
+                <div class="demo-grid">
+                    <div>
+                        <h4>Basic Modal</h4>
+                        <button class="btn" data-modal-trigger="#example-modal">
+                            Open Modal
+                        </button>
+                    </div>
+
+                    <div>
+                        <h4>Small Modal</h4>
+                        <button class="btn btn-secondary" data-modal-trigger="#small-modal">
+                            Open Small Modal
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-code">
+                &lt;button data-modal-trigger="#my-modal"&gt;Open Modal&lt;/button&gt;
+
+                &lt;div id="my-modal" data-component="modal" hidden&gt;
+                &lt;div data-modal-overlay&gt;&lt;/div&gt;
+                &lt;div data-modal-content&gt;
+                &lt;div class="modal-header"&gt;
+                &lt;h2 class="modal-title"&gt;Modal Title&lt;/h2&gt;
+                &lt;button data-modal-close&gt;×&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class="modal-body"&gt;
+                &lt;p&gt;Modal content...&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="modal-footer"&gt;
+                &lt;button class="btn-secondary" data-modal-close&gt;Cancel&lt;/button&gt;
+                &lt;button class="btn"&gt;Confirm&lt;/button&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Tabs Example -->
+        <section class="example-section">
+            <h2>3. Tabs</h2>
+            <p>Accessible tabs with keyboard navigation</p>
+
+            <div class="example-demo">
+                <h4>Default Tabs</h4>
+                <div data-component="tabs">
+                    <div data-tabs-list role="tablist">
+                        <button data-tab>Overview</button>
+                        <button data-tab>Features</button>
+                        <button data-tab>Documentation</button>
+                    </div>
+
+                    <div data-tab-panel>
+                        <h3>Overview</h3>
+                        <p>This is a modern UI components library built for vanilla JavaScript with full accessibility
+                            support.</p>
+                    </div>
+                    <div data-tab-panel>
+                        <h3>Features</h3>
+                        <ul>
+                            <li>✅ Full keyboard navigation</li>
+                            <li>✅ ARIA attributes</li>
+                            <li>✅ GSAP animations</li>
+                            <li>✅ Dark mode support</li>
+                        </ul>
+                    </div>
+                    <div data-tab-panel>
+                        <h3>Documentation</h3>
+                        <p>Check out the README.md file for complete documentation and API reference.</p>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 40px;">Pill Variant</h4>
+                <div data-component="tabs" data-variant="pills">
+                    <div data-tabs-list role="tablist">
+                        <button data-tab>Tab 1</button>
+                        <button data-tab>Tab 2</button>
+                        <button data-tab>Tab 3</button>
+                    </div>
+
+                    <div data-tab-panel>
+                        <p>Content for tab 1 with pill variant styling.</p>
+                    </div>
+                    <div data-tab-panel>
+                        <p>Content for tab 2 with pill variant styling.</p>
+                    </div>
+                    <div data-tab-panel>
+                        <p>Content for tab 3 with pill variant styling.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-code">
+                &lt;div data-component="tabs"&gt;
+                &lt;div data-tabs-list role="tablist"&gt;
+                &lt;button data-tab&gt;Tab 1&lt;/button&gt;
+                &lt;button data-tab&gt;Tab 2&lt;/button&gt;
+                &lt;/div&gt;
+
+                &lt;div data-tab-panel&gt;Content 1&lt;/div&gt;
+                &lt;div data-tab-panel&gt;Content 2&lt;/div&gt;
+                &lt;/div&gt;
+            </div>
+        </section>
+
+        <!-- Accordion Example -->
+        <section class="example-section">
+            <h2>4. Accordion</h2>
+            <p>Accessible accordion with single or multiple open panels</p>
+
+            <div class="example-demo">
+                <h4>Single Open (Default)</h4>
+                <div data-component="accordion" style="margin-bottom: 40px;">
+                    <div data-accordion-item>
+                        <button data-accordion-trigger>What is AI Reality Check?</button>
+                        <div data-accordion-panel>
+                            <p>AI Reality Check provides objective analysis of artificial intelligence capabilities,
+                                limitations, and implications.</p>
+                        </div>
+                    </div>
+
+                    <div data-accordion-item>
+                        <button data-accordion-trigger>How do I use these components?</button>
+                        <div data-accordion-panel>
+                            <p>Simply add the data attributes to your HTML elements and the components will
+                                auto-initialize. Check the documentation for manual initialization options.</p>
+                        </div>
+                    </div>
+
+                    <div data-accordion-item>
+                        <button data-accordion-trigger>Are these components accessible?</button>
+                        <div data-accordion-panel>
+                            <p>Yes! All components follow WAI-ARIA best practices with full keyboard navigation, proper
+                                ARIA attributes, and screen reader support.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Multiple Open</h4>
+                <div data-component="accordion" id="multi-accordion">
+                    <div data-accordion-item>
+                        <button data-accordion-trigger>Section 1</button>
+                        <div data-accordion-panel>
+                            <p>This accordion allows multiple panels to be open at the same time.</p>
+                        </div>
+                    </div>
+
+                    <div data-accordion-item>
+                        <button data-accordion-trigger>Section 2</button>
+                        <div data-accordion-panel>
+                            <p>Try opening multiple sections to see the difference!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-code">
+                &lt;div data-component="accordion"&gt;
+                &lt;div data-accordion-item&gt;
+                &lt;button data-accordion-trigger&gt;Section 1&lt;/button&gt;
+                &lt;div data-accordion-panel&gt;
+                &lt;p&gt;Content for section 1&lt;/p&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;!-- Allow multiple open --&gt;
+                &lt;script&gt;
+                new UIComponents.Accordion('#my-accordion', {
+                allowMultiple: true
+                });
+                &lt;/script&gt;
+            </div>
+        </section>
+
+        <!-- Tooltip Example -->
+        <section class="example-section">
+            <h2>5. Tooltip</h2>
+            <p>Accessible tooltips with smart positioning</p>
+
+            <div class="example-demo">
+                <div class="demo-grid">
+                    <div>
+                        <h4>Top Placement</h4>
+                        <button class="btn" data-tooltip="This tooltip appears on top" style="margin: 10px;">
+                            Hover me
+                        </button>
+                    </div>
+
+                    <div>
+                        <h4>Bottom Placement</h4>
+                        <button class="btn btn-secondary" title="This tooltip appears on bottom" style="margin: 10px;">
+                            Hover me
+                        </button>
+                    </div>
+
+                    <div>
+                        <h4>With Icon</h4>
+                        <button class="btn btn-ghost" data-tooltip="Helpful information about this feature"
+                            style="margin: 10px;">
+                            ℹ️ Info
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example-code">
+                &lt;!-- Using data-tooltip attribute --&gt;
+                &lt;button data-tooltip="Helpful text"&gt;Hover me&lt;/button&gt;
+
+                &lt;!-- Using title attribute (auto-converted) --&gt;
+                &lt;button title="Helpful text"&gt;Hover me&lt;/button&gt;
+
+                &lt;!-- Manual initialization --&gt;
+                &lt;script&gt;
+                new UIComponents.Tooltip('#my-button', {
+                content: 'Custom tooltip',
+                placement: 'top',
+                delay: 200
+                });
+                &lt;/script&gt;
+            </div>
+        </section>
+
+        <!-- Button Utilities -->
+        <section class="example-section">
+            <h2>6. Button Utilities</h2>
+            <p>Pre-styled button classes for use with components</p>
+
+            <div class="example-demo">
+                <div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+                    <button class="btn">Primary Button</button>
+                    <button class="btn btn-secondary">Secondary Button</button>
+                    <button class="btn btn-ghost">Ghost Button</button>
+                    <button class="btn btn-sm">Small Button</button>
+                    <button class="btn btn-lg">Large Button</button>
+                    <button class="btn" disabled>Disabled Button</button>
+                </div>
+            </div>
+
+            <div class="example-code">
+                &lt;button class="btn"&gt;Primary&lt;/button&gt;
+                &lt;button class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+                &lt;button class="btn btn-ghost"&gt;Ghost&lt;/button&gt;
+                &lt;button class="btn btn-sm"&gt;Small&lt;/button&gt;
+                &lt;button class="btn btn-lg"&gt;Large&lt;/button&gt;
+                &lt;button class="btn" disabled&gt;Disabled&lt;/button&gt;
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Definitions -->
+    <div id="example-modal" data-component="modal" hidden>
+        <div data-modal-overlay></div>
+        <div data-modal-content>
+            <div class="modal-header">
+                <h2 class="modal-title">Example Modal</h2>
+                <button data-modal-close aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+                <p>This is a fully accessible modal dialog with focus trapping and scroll locking.</p>
+                <p>Try pressing the <kbd>Tab</kbd> key to see focus management in action, or press <kbd>Escape</kbd> to
+                    close.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" data-modal-close>Cancel</button>
+                <button class="btn">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="small-modal" data-component="modal" data-size="sm" hidden>
+        <div data-modal-overlay></div>
+        <div data-modal-content>
+            <div class="modal-header">
+                <h2 class="modal-title">Small Modal</h2>
+                <button data-modal-close aria-label="Close">×</button>
+            </div>
+            <div class="modal-body">
+                <p>This is a smaller modal, perfect for confirmations.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" data-modal-close>Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../js/ui-components.js"></script>
+
+    <script>
+        // Initialize multi-accordion with allowMultiple option
+        new UIComponents.Accordion('#multi-accordion', {
+            allowMultiple: true
+        });
+
+        // Event listeners for demonstration
+        document.querySelectorAll('[data-component="dropdown"]').forEach(dropdown => {
+            dropdown.addEventListener('dropdown:select', (e) => {
+                console.log('Dropdown selected:', e.detail.value);
+            });
+        });
+
+        document.querySelectorAll('[data-component="modal"]').forEach(modal => {
+            modal.addEventListener('modal:open', () => {
+                console.log('Modal opened');
+            });
+            modal.addEventListener('modal:close', () => {
+                console.log('Modal closed');
+            });
+        });
+
+        document.querySelectorAll('[data-component="tabs"]').forEach(tabs => {
+            tabs.addEventListener('tabs:change', (e) => {
+                console.log('Active tab:', e.detail.index);
+            });
+        });
+    </script>
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="../assets/js/polyfills-legacy-C4RL5ki6.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="../assets/js/components-examples-legacy-pgnVNMo6.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+
+</html>

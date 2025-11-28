@@ -1,0 +1,92 @@
+<script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+<script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+<script async type="module" crossorigin src="../assets/js/components-meta-tags-6F3hq9O7.js"></script>
+<!-- 
+  Standard Meta Tags Component
+  This component should be included in the <head> section of all pages.
+  
+  IMPORTANT: You must manually set these variables at the top of each page:
+  - const PAGE_TITLE = "Your Page Title";
+  - const PAGE_DESCRIPTION = "Your page description";
+  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
+  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
+-->
+
+<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+<script src="{{REL_PATH}}js/loader.min.js"></script>
+
+<!-- Core Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1a73e8">
+<meta name="author" content="C. Pete Conner">
+<meta name="robots" content="index, follow">
+<meta name="description" content="{{PAGE_DESCRIPTION}}">
+<title>AI Reality Check | {{PAGE_TITLE}}</title>
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+
+<!-- Canonical URL (static for SEO reliability) -->
+<link rel="canonical" href="https://airealitycheck.org{{CANONICAL_PATH}}">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Reality Check">
+<meta property="og:title" content="AI Reality Check | {{PAGE_TITLE}}">
+<meta property="og:description" content="{{PAGE_DESCRIPTION}}">
+<meta property="og:url" content="https://airealitycheck.org{{CANONICAL_PATH}}">
+<meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+<meta property="og:image:alt" content="AI Reality Check banner">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@connor_pet68383">
+<meta name="twitter:creator" content="@connor_pet68383">
+<meta name="twitter:title" content="AI Reality Check | {{PAGE_TITLE}}">
+<meta name="twitter:description" content="{{PAGE_DESCRIPTION}}">
+<meta name="twitter:url" content="https://airealitycheck.org{{CANONICAL_PATH}}">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="{{REL_PATH}}css/style.min.css">
+<link rel="stylesheet" href="{{REL_PATH}}css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+<link rel="stylesheet" href="{{REL_PATH}}css/tailwind.css">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="{{REL_PATH}}images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{{REL_PATH}}images/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="{{REL_PATH}}images/favicon/apple-touch-icon.png">
+<link rel="manifest" href="{{REL_PATH}}site.webmanifest">
+
+<!-- Error Recovery Script -->
+<script>
+    // Check if styles are loaded correctly after a short delay
+    setTimeout(function () {
+        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+            try {
+                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+            } catch (e) {
+                return false;
+            }
+        });
+
+        if (!hasStylesheet) {
+            console.warn('Stylesheet not detected, trying emergency load');
+            const emergencyStyle = document.createElement('link');
+            emergencyStyle.rel = 'stylesheet';
+            emergencyStyle.href = '{{REL_PATH}}css/style.min.css';
+            document.head.appendChild(emergencyStyle);
+        }
+    }, 500);
+</script>
+<script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+<script nomodule crossorigin id="vite-legacy-polyfill" src="../assets/js/polyfills-legacy-C4RL5ki6.js"></script>
+<script nomodule crossorigin id="vite-legacy-entry" data-src="../assets/js/components-meta-tags-legacy-CnvmjJHj.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>

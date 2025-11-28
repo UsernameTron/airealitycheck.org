@@ -1,0 +1,1 @@
+System.register(["./theme-variables-legacy-C-O4rzZ4.js","./style-legacy-ERC5LaP_.js","./article-overrides-legacy-C39MIIsi.js"],function(e,t){"use strict";return{setters:[null,null,null],execute:function(){}}});

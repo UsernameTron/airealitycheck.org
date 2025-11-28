@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Implementation ROI Calculator | AI Reality Check</title>
+  <meta name="description" content="Calculate the return on investment for AI implementation in your organization">
+  <style>
+    :root {
+      --arc-blue: #1a73e8;
+      --arc-teal: #2d8b8b;
+      --arc-warm: #ea8600;
+      --bg-primary: #0f1419;
+      --bg-secondary: #1a1f2e;
+      --bg-tertiary: #252d3d;
+      --text-primary: #e4e6eb;
+      --text-secondary: #b0b3b8;
+      --border-color: #3a3f4b;
+      --success: #00d084;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .calculator-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--arc-blue), var(--arc-teal));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .panel {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .panel h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: var(--arc-blue);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.75rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--text-primary);
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--arc-blue);
+    }
+
+    input[type="range"] {
+      padding: 0;
+      height: 6px;
+      background: var(--bg-tertiary);
+      border: none;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--arc-blue);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      background: var(--arc-blue);
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .slider-value {
+      display: inline-block;
+      margin-left: 1rem;
+      font-weight: 600;
+      color: var(--arc-teal);
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .kpi-card {
+      background: var(--bg-tertiary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--arc-blue);
+    }
+
+    .kpi-card.highlight {
+      border-left-color: var(--success);
+    }
+
+    .kpi-label {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .kpi-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .chart-container {
+      background: var(--bg-tertiary);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      height: 300px;
+      position: relative;
+    }
+
+    .actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    button, .button {
+      padding: 0.875rem 2rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: var(--arc-blue);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1557b0;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-secondary);
+      border-color: var(--arc-teal);
+    }
+
+    .btn-accent {
+      background: var(--arc-warm);
+      color: white;
+    }
+
+    .btn-accent:hover {
+      background: #d17700;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(234, 134, 0, 0.4);
+    }
+
+    @media (max-width: 968px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .kpi-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      .actions {
+        display: none;
+      }
+    }
+  </style>
+  <script async type="module" crossorigin src="../assets/js/resources-roi-calculator-6F3hq9O7.js"></script>
+  <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+<body>
+  <main class="calculator-container">
+    <header>
+      <h1>AI Implementation ROI Calculator</h1>
+      <p class="subtitle">Calculate your return on investment with data-driven industry benchmarks</p>
+    </header>
+
+    <div class="grid">
+      <!-- Input Panel -->
+      <div class="panel">
+        <h2>Your Organization</h2>
+        <form id="roi-form">
+          <div class="form-group">
+            <label for="industry">Industry</label>
+            <select id="industry" required>
+              <option value="healthcare">Healthcare</option>
+              <option value="bpo">Business Process Outsourcing</option>
+              <option value="hr">Human Resources</option>
+              <option value="social">Social Media Management</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="teamSize">Team Size</label>
+            <input type="number" id="teamSize" min="1" max="10000" value="50" required>
+          </div>
+
+          <div class="form-group">
+            <label for="hourlyRate">Average Hourly Cost ($)</label>
+            <input type="number" id="hourlyRate" min="10" max="500" value="45" step="1" required>
+          </div>
+
+          <div class="form-group">
+            <label for="hoursSaved">Hours Saved per Employee/Week
+              <span class="slider-value" id="hoursSavedValue">5</span>
+            </label>
+            <input type="range" id="hoursSaved" min="1" max="20" value="5" step="0.5">
+          </div>
+
+          <div class="form-group">
+            <label for="implementationCost">Implementation Cost ($)</label>
+            <input type="number" id="implementationCost" min="0" max="10000000" value="100000" step="1000" required>
+          </div>
+
+          <div class="form-group">
+            <label for="maintenanceCost">Annual Maintenance Cost ($) <em>(optional)</em></label>
+            <input type="number" id="maintenanceCost" min="0" max="1000000" value="20000" step="1000">
+          </div>
+        </form>
+      </div>
+
+      <!-- Results Panel -->
+      <div class="panel">
+        <h2>ROI Projection</h2>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Year 1 Savings</div>
+            <div class="kpi-value" id="year1Savings">$0</div>
+          </div>
+          <div class="kpi-card highlight">
+            <div class="kpi-label">5-Year ROI</div>
+            <div class="kpi-value" id="roi5Year">0%</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Payback Period</div>
+            <div class="kpi-value" id="paybackPeriod">-- months</div>
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="cumulativeChart"></canvas>
+        </div>
+
+        <div class="chart-container">
+          <canvas id="comparisonChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button type="button" class="btn-secondary" id="resetBtn">Reset to Defaults</button>
+      <button type="button" class="btn-primary" id="downloadBtn">Download Report</button>
+      <a href="/contact.html" class="button btn-accent">Schedule Consultation</a>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script>
+    const INDUSTRY_DATA = {
+      healthcare: { rampMonths: 6, productivityMultiplier: 1.2 },
+      bpo: { rampMonths: 4, productivityMultiplier: 1.4 },
+      hr: { rampMonths: 3, productivityMultiplier: 1.3 },
+      social: { rampMonths: 2, productivityMultiplier: 1.5 }
+    };
+
+    const DEFAULTS = {
+      industry: 'healthcare',
+      teamSize: 50,
+      hourlyRate: 45,
+      hoursSaved: 5,
+      implementationCost: 100000,
+      maintenanceCost: 20000
+    };
+
+    let cumulativeChart, comparisonChart;
+    let debounceTimer;
+
+    const $ = (id) => document.getElementById(id);
+
+    function formatCurrency(value) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+
+    function formatPercent(value) {
+      return new Intl.NumberFormat('en-US', {
+        style: 'percent',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+      }).format(value / 100);
+    }
+
+    function getRampFactor(month, rampMonths) {
+      if (month <= 0) return 0;
+      if (month >= rampMonths) return 1;
+      return month / rampMonths;
+    }
+
+    function calculateROI() {
+      const industry = $('industry').value;
+      const teamSize = parseInt($('teamSize').value) || 0;
+      const hourlyRate = parseFloat($('hourlyRate').value) || 0;
+      const hoursSaved = parseFloat($('hoursSaved').value) || 0;
+      const implementationCost = parseFloat($('implementationCost').value) || 0;
+      const maintenanceCost = parseFloat($('maintenanceCost').value) || 0;
+
+      const { rampMonths, productivityMultiplier } = INDUSTRY_DATA[industry];
+
+      const weeklySavings = teamSize * hoursSaved * hourlyRate;
+      const baseAnnualSavings = weeklySavings * 52;
+
+      const yearlyData = [];
+      let cumulativeSavings = -implementationCost;
+      let paybackMonth = null;
+
+      for (let year = 1; year <= 5; year++) {
+        let yearSavings = 0;
+
+        for (let month = 1; month <= 12; month++) {
+          const totalMonths = (year - 1) * 12 + month;
+          const rampFactor = getRampFactor(totalMonths, rampMonths);
+          const monthlySavings = (baseAnnualSavings / 12) * productivityMultiplier * rampFactor;
+          yearSavings += monthlySavings;
+
+          cumulativeSavings += monthlySavings - (maintenanceCost / 12);
+
+          if (paybackMonth === null && cumulativeSavings >= 0) {
+            paybackMonth = totalMonths;
+          }
+        }
+
+        yearlyData.push({
+          year,
+          savings: yearSavings - maintenanceCost,
+          cumulative: cumulativeSavings
+        });
+      }
+
+      const totalSavings = yearlyData.reduce((sum, y) => sum + y.savings, 0);
+      const totalCost = implementationCost + (maintenanceCost * 5);
+      const roi5Year = ((totalSavings - totalCost) / totalCost) * 100;
+
+      return {
+        yearlyData,
+        year1Savings: yearlyData[0].savings,
+        roi5Year,
+        paybackMonth,
+        baseAnnualSavings,
+        totalSavings,
+        totalCost
+      };
+    }
+
+    function updateDisplay() {
+      const results = calculateROI();
+
+      $('year1Savings').textContent = formatCurrency(results.year1Savings);
+      $('roi5Year').textContent = formatPercent(results.roi5Year);
+
+      if (results.paybackMonth === null) {
+        $('paybackPeriod').textContent = '> 60 months';
+      } else {
+        $('paybackPeriod').textContent = `${results.paybackMonth} months`;
+      }
+
+      updateCharts(results);
+    }
+
+    function updateCharts(results) {
+      const years = results.yearlyData.map(d => `Year ${d.year}`);
+      const cumulativeData = results.yearlyData.map(d => d.cumulative);
+      const savingsData = results.yearlyData.map(d => d.savings);
+
+      if (cumulativeChart) {
+        cumulativeChart.data.labels = years;
+        cumulativeChart.data.datasets[0].data = cumulativeData;
+        cumulativeChart.update('none');
+      } else {
+        cumulativeChart = new Chart($('cumulativeChart'), {
+          type: 'line',
+          data: {
+            labels: years,
+            datasets: [{
+              label: 'Cumulative Savings',
+              data: cumulativeData,
+              borderColor: '#1a73e8',
+              backgroundColor: 'rgba(26, 115, 232, 0.1)',
+              borderWidth: 3,
+              fill: true,
+              tension: 0.4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (context) => formatCurrency(context.parsed.y)
+                }
+              }
+            },
+            scales: {
+              y: {
+                ticks: {
+                  callback: (value) => formatCurrency(value),
+                  color: '#b0b3b8'
+                },
+                grid: { color: '#3a3f4b' }
+              },
+              x: {
+                ticks: { color: '#b0b3b8' },
+                grid: { display: false }
+              }
+            }
+          }
+        });
+      }
+
+      if (comparisonChart) {
+        comparisonChart.data.datasets[0].data = [results.baseAnnualSavings];
+        comparisonChart.data.datasets[1].data = [results.year1Savings];
+        comparisonChart.update('none');
+      } else {
+        comparisonChart = new Chart($('comparisonChart'), {
+          type: 'bar',
+          data: {
+            labels: ['Annual Cost Comparison'],
+            datasets: [
+              {
+                label: 'Before AI',
+                data: [results.baseAnnualSavings],
+                backgroundColor: '#ea8600'
+              },
+              {
+                label: 'After AI (Year 1)',
+                data: [results.year1Savings],
+                backgroundColor: '#00d084'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              tooltip: {
+                callbacks: {
+                  label: (context) => `${context.dataset.label}: ${formatCurrency(context.parsed.y)}`
+                }
+              }
+            },
+            scales: {
+              y: {
+                ticks: {
+                  callback: (value) => formatCurrency(value),
+                  color: '#b0b3b8'
+                },
+                grid: { color: '#3a3f4b' }
+              },
+              x: {
+                ticks: { color: '#b0b3b8' },
+                grid: { display: false }
+              }
+            }
+          }
+        });
+      }
+    }
+
+    function debounceCalculate() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(updateDisplay, 200);
+    }
+
+    function initializeForm() {
+      Object.entries(DEFAULTS).forEach(([key, value]) => {
+        const input = $(key);
+        if (input) input.value = value;
+      });
+
+      $('hoursSavedValue').textContent = DEFAULTS.hoursSaved;
+      updateDisplay();
+    }
+
+    function setupEventListeners() {
+      const inputs = ['industry', 'teamSize', 'hourlyRate', 'hoursSaved', 'implementationCost', 'maintenanceCost'];
+      inputs.forEach(id => {
+        $(id).addEventListener('input', (e) => {
+          if (id === 'hoursSaved') {
+            $('hoursSavedValue').textContent = e.target.value;
+          }
+          debounceCalculate();
+        });
+      });
+
+      $('resetBtn').addEventListener('click', initializeForm);
+
+      $('downloadBtn').addEventListener('click', () => {
+        window.print();
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      initializeForm();
+      setupEventListeners();
+    });
+  </script>
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="../assets/js/polyfills-legacy-C4RL5ki6.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="../assets/js/resources-roi-calculator-legacy-CnvmjJHj.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+</html>

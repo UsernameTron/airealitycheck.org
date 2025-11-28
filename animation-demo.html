@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-auto">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Demo | AI Reality Check</title>
+    <meta name="description" content="Demonstration of GSAP and Motion One animations">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+
+    <style>
+        /* Demo-specific styles */
+        .demo-section {
+            padding: 80px 0;
+            min-height: 100vh;
+        }
+
+        .demo-section:nth-child(even) {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .demo-section:nth-child(odd) {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .demo-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .demo-box:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-box h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .demo-box p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .demo-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .hero-demo {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+
+        .hero-demo h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-demo p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .btn-demo {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 30px 10px;
+            background: white;
+            color: #1e3c72;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-demo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .parallax-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 100%;
+            height: 140%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            z-index: -1;
+        }
+
+        .parallax-content {
+            text-align: center;
+            color: white;
+            z-index: 1;
+        }
+
+        .stagger-demo {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .stagger-item {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .interactive-demo {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .interactive-box {
+            width: 200px;
+            height: 200px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+    </style>
+  <script type="module" crossorigin src="./assets/js/animation-demo-Cf21matw.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/js/modulepreload-polyfill-YP0FEG5d.js">
+  <link rel="stylesheet" crossorigin href="./assets/style-DpZAS_Ll.css">
+  <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero-demo" data-animate="fade-in">
+        <h1 data-animate="fade-in-up" data-delay="0.2">Animation Showcase</h1>
+        <p data-animate="fade-in-up" data-delay="0.4">Powered by GSAP & Motion One</p>
+        <div>
+            <a href="#gsap-demos" class="btn-demo" data-animate="scale-in" data-delay="0.6">GSAP Demos</a>
+            <a href="#motion-demos" class="btn-demo" data-animate="scale-in" data-delay="0.8">Motion One Demos</a>
+        </div>
+    </section>
+
+    <!-- GSAP Fade Animations -->
+    <section id="gsap-demos" class="demo-section">
+        <div class="container">
+            <h2 data-animate="fade-in-up">GSAP Fade Animations</h2>
+            <div class="demo-grid">
+                <div class="demo-box" data-animate="fade-in" data-delay="0.1">
+                    <div class="demo-icon">✨</div>
+                    <h3>Fade In</h3>
+                    <p>Simple opacity transition from 0 to 1</p>
+                </div>
+                <div class="demo-box" data-animate="fade-in-up" data-delay="0.2">
+                    <div class="demo-icon">⬆️</div>
+                    <h3>Fade In Up</h3>
+                    <p>Slides up while fading in</p>
+                </div>
+                <div class="demo-box" data-animate="fade-in-left" data-delay="0.3">
+                    <div class="demo-icon">⬅️</div>
+                    <h3>Fade In Left</h3>
+                    <p>Slides from left while fading</p>
+                </div>
+                <div class="demo-box" data-animate="fade-in-right" data-delay="0.4">
+                    <div class="demo-icon">➡️</div>
+                    <h3>Fade In Right</h3>
+                    <p>Slides from right while fading</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GSAP Scale & Transform -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 data-animate="fade-in-up">GSAP Scale & Transform</h2>
+            <div class="demo-grid">
+                <div class="demo-box" data-animate="scale-in" data-delay="0.1">
+                    <div class="demo-icon">🎯</div>
+                    <h3>Scale In</h3>
+                    <p>Grows from 0 to full size with bounce</p>
+                </div>
+                <div class="demo-box" data-animate="scale-in" data-delay="0.3">
+                    <div class="demo-icon">🚀</div>
+                    <h3>Scale In</h3>
+                    <p>Perfect for attention-grabbing elements</p>
+                </div>
+                <div class="demo-box" data-animate="scale-in" data-delay="0.5">
+                    <div class="demo-icon">💫</div>
+                    <h3>Scale In</h3>
+                    <p>Elastic easing creates playful effect</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stagger Animation -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 data-animate="fade-in-up">Stagger Animation</h2>
+            <p data-animate="fade-in-up" data-delay="0.2">Elements animate in sequence with a delay between each</p>
+            <div class="stagger-demo" id="stagger-container">
+                <div class="stagger-item">1</div>
+                <div class="stagger-item">2</div>
+                <div class="stagger-item">3</div>
+                <div class="stagger-item">4</div>
+                <div class="stagger-item">5</div>
+                <div class="stagger-item">6</div>
+                <div class="stagger-item">7</div>
+                <div class="stagger-item">8</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll-Triggered Animations -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 data-animate="scroll">Scroll-Triggered Animations</h2>
+            <p data-animate="scroll">These elements animate when they come into view</p>
+            <div class="demo-grid">
+                <div class="demo-box" data-animate="scroll">
+                    <div class="demo-icon">👁️</div>
+                    <h3>Scroll Trigger</h3>
+                    <p>Animates when entering viewport</p>
+                </div>
+                <div class="demo-box" data-animate="scroll">
+                    <div class="demo-icon">📜</div>
+                    <h3>Scroll Trigger</h3>
+                    <p>Great for long pages</p>
+                </div>
+                <div class="demo-box" data-animate="scroll">
+                    <div class="demo-icon">🎬</div>
+                    <h3>Scroll Trigger</h3>
+                    <p>Improves user engagement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Section -->
+    <section class="parallax-section">
+        <div class="parallax-bg" id="parallax-bg"></div>
+        <div class="parallax-content">
+            <h2 data-animate="fade-in-up">Parallax Scrolling</h2>
+            <p data-animate="fade-in-up" data-delay="0.2">Background moves at different speed than content</p>
+        </div>
+    </section>
+
+    <!-- Interactive Demo -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="interactive-demo">
+                <h2 data-animate="fade-in-up">Interactive Animations</h2>
+                <p data-animate="fade-in-up" data-delay="0.2">Click the box below to trigger animations</p>
+                <div class="interactive-box" id="interactive-box">
+                    Click Me!
+                </div>
+                <div style="margin-top: 30px;">
+                    <button class="btn-demo" id="rotate-btn">Rotate</button>
+                    <button class="btn-demo" id="scale-btn">Scale</button>
+                    <button class="btn-demo" id="bounce-btn">Bounce</button>
+                    <button class="btn-demo" id="flip-btn">Flip</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motion One Demos -->
+    <section id="motion-demos" class="demo-section">
+        <div class="container">
+            <h2 data-animate="fade-in-up">Motion One Spring Animations</h2>
+            <p data-animate="fade-in-up" data-delay="0.2">Physics-based animations with natural motion</p>
+            <div class="demo-grid">
+                <div class="demo-box" id="spring-demo-1">
+                    <div class="demo-icon">🌊</div>
+                    <h3>Spring Physics</h3>
+                    <p>Natural, bouncy motion</p>
+                </div>
+                <div class="demo-box" id="spring-demo-2">
+                    <div class="demo-icon">🎪</div>
+                    <h3>Elastic Effect</h3>
+                    <p>Overshoots and settles</p>
+                </div>
+                <div class="demo-box" id="spring-demo-3">
+                    <div class="demo-icon">🎨</div>
+                    <h3>Smooth Motion</h3>
+                    <p>Feels more organic</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Performance Info -->
+    <section class="demo-section">
+        <div class="container">
+            <h2 data-animate="fade-in-up">Why These Libraries?</h2>
+            <div class="demo-grid">
+                <div class="demo-box" data-animate="scroll">
+                    <div class="demo-icon">⚡</div>
+                    <h3>High Performance</h3>
+                    <p>Hardware-accelerated animations using GPU</p>
+                </div>
+                <div class="demo-box" data-animate="scroll">
+                    <div class="demo-icon">🎯</div>
+                    <h3>Precise Control</h3>
+                    <p>Fine-tune timing, easing, and sequencing</p>
+                </div>
+                <div class="demo-box" data-animate="scroll">
+                    <div class="demo-icon">📱</div>
+                    <h3>Cross-Browser</h3>
+                    <p>Works consistently across all browsers</p>
+                </div>
+                <div class="demo-box" data-animate="scroll">
+                    <div class="demo-icon">🔧</div>
+                    <h3>Developer Friendly</h3>
+                    <p>Clean API and excellent documentation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Load GSAP and Motion from node_modules -->
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="./assets/js/polyfills-legacy-C4RL5ki6.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="./assets/js/animation-demo-legacy-BQ3Jj8df.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+
+</html>

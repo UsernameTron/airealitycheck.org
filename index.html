@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-auto">
+
+<head>
+    <!-- Theme initialization (essential for preventing FOUC) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'auto';
+            document.documentElement.className = 'theme-' + savedTheme;
+        })();
+    </script>
+
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "A Fact-Based Perspective on AI";
+        const PAGE_DESCRIPTION = "AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.";
+        const REL_PATH = "./"; // Home page is at root level
+        const CANONICAL_PATH = "/"; // Home page canonical path
+    </script>
+
+    <!-- Resource hints for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="./assets/main.min-BsgWE8x1.js" as="script">
+
+    <!-- Direct stylesheet references to ensure they load -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Critical meta tags (loaded directly for SEO) -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a73e8">
+    <title>A Fact-Based Perspective on AI | AI Reality Check</title>
+    <meta name="description"
+        content="AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.">
+    <link rel="canonical" href="https://airealitycheck.org/">
+
+    <!-- Meta tags component placeholder (for additional meta tags) -->
+    <!-- 
+  Standard Meta Tags Component
+  This component should be included in the <head> section of all pages.
+  
+  IMPORTANT: You must manually set these variables at the top of each page:
+  - const PAGE_TITLE = "Your Page Title";
+  - const PAGE_DESCRIPTION = "Your page description";
+  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
+  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
+-->
+
+    <!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+    <script src="./js/loader.min.js"></script>
+
+    <!-- Core Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="C. Pete Conner">
+    <meta name="robots" content="index, follow">
+    <meta name="description"
+        content="AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.">
+    <title>AI Reality Check | A Fact-Based Perspective on AI</title>
+
+    <!-- Content Security Policy -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+
+    <!-- Canonical URL (static for SEO reliability) -->
+    <link rel="canonical" href="https://airealitycheck.org/">
+
+    <!-- Open Graph / Facebook Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="AI Reality Check">
+    <meta property="og:title" content="AI Reality Check | A Fact-Based Perspective on AI">
+    <meta property="og:description"
+        content="AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.">
+    <meta property="og:url" content="https://airealitycheck.org/">
+    <meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+    <meta property="og:image:alt" content="AI Reality Check banner">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@connor_pet68383">
+    <meta name="twitter:creator" content="@connor_pet68383">
+    <meta name="twitter:title" content="AI Reality Check | A Fact-Based Perspective on AI">
+    <meta name="twitter:description"
+        content="AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.">
+    <meta name="twitter:url" content="https://airealitycheck.org/">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Theme Variables (must load before main stylesheet) -->
+    <!-- Main Stylesheet -->
+
+    <!-- View Transitions removed - was causing navigation issues -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32-D8t2B8MI.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon-16x16-CsAxnf-Z.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/apple-touch-icon-RgEOaXkQ.png">
+    <meta name="msapplication-TileColor" content="#1a73e8">
+    <meta name="msapplication-config" content="/browserconfig.xml">
+
+    <!-- Error Recovery Script -->
+    <script>
+        // Check if styles are loaded correctly after a short delay
+        setTimeout(function () {
+            const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+                try {
+                    return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+                } catch (e) {
+                    return false;
+                }
+            });
+
+            if (!hasStylesheet) {
+                console.warn('Stylesheet not detected, trying emergency load');
+                const emergencyStyle = document.createElement('link');
+                emergencyStyle.rel = 'stylesheet';
+                emergencyStyle.href = './css/style.min.css';
+                document.head.appendChild(emergencyStyle);
+            }
+        }, 500);
+    </script>
+
+    <!-- Additional keywords (not used by Google but may be used by other search engines) -->
+    <meta name="keywords"
+        content="AI, artificial intelligence, machine learning, AI reality, AI limitations, AI capabilities, C. Pete Conner">
+  <script type="module" crossorigin src="./assets/js/index-UySBcwNX.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/js/modulepreload-polyfill-YP0FEG5d.js">
+  <link rel="stylesheet" crossorigin href="./assets/theme-variables-pN-KSpvn.css">
+  <link rel="stylesheet" crossorigin href="./assets/style-suYLZ0dz.css">
+  <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+
+<body>
+    <!-- Header Component Placeholder -->
+    <!-- Standard Header Component with proper ARIA landmarks -->
+    <header role="banner">
+        <div class="container">
+            <div class="logo">
+                <a href="./" aria-label="AI Reality Check - Home">
+                    <span class="visually-hidden">AI Reality Check</span>
+                    <span aria-hidden="true">AI Reality Check</span>
+                </a>
+            </div>
+            <button id="searchTrigger" class="search-trigger" aria-label="Open search"
+                style="background:none;border:none;cursor:pointer;margin-right:1rem;font-size:1.2rem;color:var(--text-main);">
+                <span aria-hidden="true">🔍</span>
+            </button>
+            <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)"
+                aria-pressed="false">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon" style="display:none">🌙</span>
+                <span class="auto-icon" style="display:none">⟲</span>
+            </button>
+            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+                aria-controls="main-navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav id="main-navigation" role="navigation" aria-label="Main navigation">
+                <ul>
+                    <li><a href="./case-studies/">Case Studies</a></li>
+                    <li><a href="./articles/">Articles</a></li>
+                    <li><a href="./portfolio/">Portfolio</a></li>
+                    <li><a href="./creative/">Creative</a></li>
+                    <li><a href="./contact/">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero section template - pages should add this after the header placeholder -->
+    <!-- 
+<section class="hero" role="region" aria-labelledby="page-title">
+    <div class="container">
+        <h1 id="page-title">Page Title</h1>
+        <p class="subtitle">Page subtitle or description</p>
+    </div>
+</section>
+-->
+
+    <!-- Visually-hidden class has been added to style.css -->
+    <!-- This template helps maintain proper heading hierarchy with h1 in main content -->
+
+    <main>
+        <!-- Hero Section - Image Only -->
+        <section class="home-hero"></section>
+
+        <section class="portfolio-preview" data-scroll-reveal>
+            <div class="container">
+                <h2>Portfolio &amp; Professional Profile</h2>
+                <div class="portfolio-summary" data-scroll-reveal="scale">
+                    <div class="profile-header" data-scroll-reveal="left">
+                        <h3>C. Pete Conner</h3>
+                        <div data-component="read-more" style="max-width: 700px; margin: 0 auto;">
+                            <p class="profile-subtitle">Seasoned leader in AI/ML strategy and customer experience
+                                transformation</p>
+                            <p>With a proven track record of driving innovation across enterprise organizations, I
+                                specialize in bridging the gap between cutting-edge AI technologies and practical
+                                business applications. My approach combines technical depth with strategic vision to
+                                deliver measurable results.</p>
+                            <p>From architecting scalable ML pipelines to leading cross-functional teams in delivering
+                                high-impact digital products, I am passionate about leveraging technology to solve
+                                complex problems and enhance user experiences.</p>
+                        </div>
+                    </div>
+                    <div class="profile-highlights" data-scroll-reveal="right">
+                        <div class="highlight-item">
+                            <strong>15+ Years Experience</strong>
+                            <p>Leading CX transformations and AI/ML implementations across diverse industries</p>
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Strategic Innovation</strong>
+                            <p>Bridging technical AI capabilities with business outcomes and customer experience goals
+                            </p>
+                        </div>
+                        <div class="highlight-item">
+                            <strong>Proven Results</strong>
+                            <p>Track record of measurable improvements in customer satisfaction and operational
+                                efficiency</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-top: 20px;">
+                    <a href="portfolio/profile-google-style.html" class="btn" target="_blank">View Full Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured" data-scroll-reveal>
+            <div class="container">
+                <h2>Featured Content</h2>
+                <div class="cards" data-scroll-reveal-stagger>
+                    <div class="card">
+                        <h2>MindMeldGPT Ships!</h2>
+                        <a href="MindMeld.html" target="_blank">
+                            <picture>
+                                <source media="(max-width: 576px)"
+                                    srcset="./assets/images/mindmeldgpt-thumb_small-cTmgKFVA.webp">
+                                <source media="(max-width: 768px)"
+                                    srcset="./assets/images/mindmeldgpt-thumb_medium-DYedAiQK.webp">
+                                <source media="(max-width: 1200px)"
+                                    srcset="./assets/images/mindmeldgpt-thumb_large-Bv40W117.webp">
+                                <img src="./assets/images/mindmeldgpt-thumb-C7WLuGUo.webp" alt="MindMeldGPT Thumbnail"
+                                    style="width:100%;max-width:400px;display:block;margin:0 auto 1rem auto;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
+                            </picture>
+                        </a>
+                        <p>Discover MindMeldGPT: a sovereign, modular, local-first LLM platform for advanced
+                            intelligence workflows. Click the image to explore the full details and architecture.</p>
+                        <button class="btn" style="margin-top: 1rem;" data-share data-share-title="MindMeldGPT"
+                            data-share-text="Check out MindMeldGPT: a sovereign, modular, local-first LLM platform."
+                            data-share-url="https://airealitycheck.org/MindMeld.html">
+                            Share Project
+                        </button>
+                    </div>
+                    <!-- YouTube Video 1 -->
+                    <div class="card">
+                        <h2>AI Reality Check: The Reflective Engine</h2>
+                        <div class="video-container"
+                            style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
+                            <iframe src="https://www.youtube.com/embed/JXpVgkgSKhw" title="The Reflective Engine"
+                                frameborder="0" allowfullscreen
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                        </div>
+                        <p>The Reflective Engine represents a revolutionary collaboration in creativity and design by
+                            using a reflection and tuned persona that complements its human colleague.</p>
+                    </div>
+                    <!-- YouTube Video 2 -->
+                    <div class="card">
+                        <h2>AI Reality Check: Humanizing AI and ML</h2>
+                        <div class="video-container"
+                            style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
+                            <iframe src="https://www.youtube.com/embed/ioovtEd2L9k" title="Humanizing AI and ML"
+                                frameborder="0" allowfullscreen
+                                style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                        </div>
+                        <p>A speech delivered at Customer Contact Week advocating for human- and customer-first,
+                            thoughtful and creative application of AI and ML.</p>
+                    </div>
+
+                    <!-- Project Gallery Card -->
+                    <div class="card">
+                        <h2>Project Gallery</h2>
+                        <a href="gallery.html">
+                            <picture>
+                                <source media="(max-width: 576px)"
+                                    srcset="./assets/images/featured-ai-image_small-B7g4u69j.webp">
+                                <source media="(max-width: 768px)"
+                                    srcset="./assets/images/featured-ai-image_medium-CIRnpbQ4.webp">
+                                <source media="(max-width: 1200px)"
+                                    srcset="./assets/images/featured-ai-image_large-BKmYcntN.webp">
+                                <img src="./assets/images/featured-ai-image-DNklXdZQ.webp"
+                                    alt="Project Gallery Preview"
+                                    style="width:100%;max-width:400px;display:block;margin:0 auto 1rem auto;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
+                            </picture>
+                        </a>
+                        <p>Explore featured images from all AI Reality Check projects, including AI Sauces, creative
+                            work, portfolio pieces, and more. Filter by repository and view high-resolution versions.
+                        </p>
+                        <div style="text-align: center; margin-top: 15px;">
+                            <a href="gallery.html" class="btn">Browse Gallery</a>
+                        </div>
+                    </div>
+                    <!-- You can add more featured cards below if needed -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <!-- Standard Footer Component -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="./">Home</a></li>
+                        <li><a href="./case-studies/">Case Studies</a></li>
+                        <li><a href="./articles/">Articles</a></li>
+                        <li><a href="./portfolio/">Portfolio</a></li>
+                        <li><a href="./creative/">Creative</a></li>
+                        <li><a href="./contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="social-media">
+                    <h3>Connect</h3>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i
+                                class="icon-linkedin"></i></a>
+                        <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i
+                                class="icon-twitter"></i></a>
+                        <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i
+                                class="icon-github"></i></a>
+                        <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i
+                                class="icon-medium"></i></a>
+                        <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i
+                                class="icon-substack"></i></a>
+                        <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i
+                                class="icon-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.min.js"></script>
+    <script src="js/scroll-animations.js"></script>
+
+    <!-- Search and Share functionality -->
+    <!-- view-transitions.js removed - was intercepting navigation -->
+
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="./assets/js/polyfills-legacy-C4RL5ki6.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="./assets/js/index-legacy-DnqARGmt.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+
+</html>

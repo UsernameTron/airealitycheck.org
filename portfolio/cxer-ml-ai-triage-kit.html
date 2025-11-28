@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CX'er ML/AI Triage Kit - Easy solutions to complex customer experience problems with ready-to-use AI tools">
+  <meta property="og:title" content="AI Reality Check | CX'er ML/AI Triage Kit">
+  <meta property="og:description" content="A curated collection of ML and AI tools for solving complex CX challenges">
+  <title>AI Reality Check | CX'er ML/AI Triage Kit</title>
+  
+  <!-- Resource hints for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../assets/main.min-BsgWE8x1.js" as="script">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Google-inspired Color Palette */
+    :root {
+      --blue: #4285F4;
+      --red: #EA4335;
+      --yellow: #FBBC05;
+      --green: #34A853;
+      --dark-blue: #1A73E8;
+      --light-blue: #8AB4F8;
+      --dark-gray: #202124;
+      --medium-gray: #5F6368;
+      --light-gray: #E8EAED;
+      --white: #FFFFFF;
+      
+      /* Theme Variables */
+      --primary-bg: var(--white);
+      --secondary-bg: var(--light-gray);
+      --tertiary-bg: #F8F9FA;
+      --primary-text: var(--dark-gray);
+      --secondary-text: var(--medium-gray);
+      --accent-color: var(--blue);
+      --secondary-accent: var(--green);
+      --highlight-color: var(--yellow);
+      --cta-color: var(--red);
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      --transition-speed: 0.25s;
+    }
+    
+    /* Dark Mode */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-bg: var(--dark-gray);
+        --secondary-bg: #303134;
+        --tertiary-bg: #404144;
+        --primary-text: var(--white);
+        --secondary-text: #BDC1C6;
+        --accent-color: var(--light-blue);
+      }
+    }
+    
+    /* Reset & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Product Sans', sans-serif;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+    
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    
+    a:hover {
+      color: var(--dark-blue);
+    }
+    
+    ul, ol {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-bg);
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all var(--transition-speed);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Product Sans', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-left: 3px;
+    }
+    
+    .logo-dot-1 {
+      background-color: var(--blue);
+    }
+    
+    .logo-dot-2 {
+      background-color: var(--red);
+    }
+    
+    .logo-dot-3 {
+      background-color: var(--yellow);
+    }
+    
+    .logo-dot-4 {
+      background-color: var(--green);
+    }
+    
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-link {
+      color: var(--primary-text);
+      font-weight: 500;
+      position: relative;
+      padding-bottom: 5px;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background-color: var(--accent-color);
+      transition: width var(--transition-speed);
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .nav-button {
+      background-color: var(--cta-color);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      box-shadow: 0 2px 5px rgba(234, 67, 53, 0.3);
+      transition: all var(--transition-speed);
+    }
+    
+    .nav-button:hover {
+      background-color: #D33426;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(234, 67, 53, 0.3);
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 8rem 0 4rem;
+      background-color: var(--primary-bg);
+      text-align: center;
+      border-bottom: 1px solid var(--secondary-bg);
+    }
+    
+    .hero-title {
+      margin-bottom: 1.5rem;
+      color: var(--primary-text);
+    }
+    
+    .hero-title span {
+      color: var(--accent-color);
+    }
+    
+    .hero-subtitle {
+      font-size: 1.5rem;
+      color: var(--secondary-text);
+      max-width: 800px;
+      margin: 0 auto 2rem;
+    }
+    
+    /* Tool Categories */
+    .category-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin: 3rem 0 5rem;
+    }
+    
+    .category-button {
+      background-color: var(--tertiary-bg);
+      color: var(--primary-text);
+      font-weight: 500;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      transition: all var(--transition-speed);
+      cursor: pointer;
+    }
+    
+    .category-button:hover {
+      background-color: var(--secondary-bg);
+      transform: translateY(-2px);
+    }
+    
+    .category-button.active {
+      background-color: var(--accent-color);
+      color: white;
+    }
+    
+    /* Tool Cards Grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin: 3rem 0;
+      position: relative;
+      padding-top: 2rem;
+    }
+    
+    .tool-card {
+      background-color: var(--primary-bg);
+      border-radius: 10px;
+      box-shadow: var(--box-shadow);
+      overflow: hidden;
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tool-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--secondary-bg);
+    }
+    
+    .tool-title {
+      color: var(--accent-color);
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .tool-icon {
+      font-size: 1.5rem;
+    }
+    
+    .tool-tag {
+      display: inline-block;
+      background-color: var(--tertiary-bg);
+      color: var(--secondary-text);
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 30px;
+      margin-right: 0.5rem;
+    }
+    
+    .tool-content {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .tool-description {
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .tool-link {
+      background-color: var(--accent-color);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 30px;
+      display: inline-block;
+      font-weight: 500;
+      text-align: center;
+      transition: all var(--transition-speed);
+    }
+    
+    .tool-link:hover {
+      background-color: var(--dark-blue);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Tool Card Colors */
+    .tool-card.blue .tool-title {
+      color: var(--blue);
+    }
+    
+    .tool-card.blue .tool-link {
+      background-color: var(--blue);
+    }
+    
+    .tool-card.blue .tool-link:hover {
+      background-color: var(--dark-blue);
+    }
+    
+    .tool-card.red .tool-title {
+      color: var(--red);
+    }
+    
+    .tool-card.red .tool-link {
+      background-color: var(--red);
+    }
+    
+    .tool-card.red .tool-link:hover {
+      background-color: #D33426;
+    }
+    
+    .tool-card.yellow .tool-title {
+      color: var(--yellow);
+    }
+    
+    .tool-card.yellow .tool-link {
+      background-color: var(--yellow);
+    }
+    
+    .tool-card.yellow .tool-link:hover {
+      background-color: #E2A700;
+    }
+    
+    .tool-card.green .tool-title {
+      color: var(--green);
+    }
+    
+    .tool-card.green .tool-link {
+      background-color: var(--green);
+    }
+    
+    .tool-card.green .tool-link:hover {
+      background-color: #2D9549;
+    }
+    
+    /* Call to Action Section */
+    .cta-section {
+      background-color: var(--tertiary-bg);
+      padding: 5rem 0;
+      text-align: center;
+    }
+    
+    .cta-title {
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    
+    .cta-button {
+      padding: 1rem 2rem;
+      border-radius: 30px;
+      font-weight: 500;
+      font-size: 1.1rem;
+      transition: all var(--transition-speed);
+    }
+    
+    .cta-button.primary {
+      background-color: var(--accent-color);
+      color: white;
+      box-shadow: 0 2px 5px rgba(66, 133, 244, 0.3);
+    }
+    
+    .cta-button.primary:hover {
+      background-color: var(--dark-blue);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(66, 133, 244, 0.3);
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--primary-bg);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid var(--secondary-bg);
+    }
+    
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .footer-links h3, .social-media h3 {
+      color: var(--accent-color);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+      margin-left: 0;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: var(--secondary-text);
+      transition: color var(--transition-speed);
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent-color);
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--tertiary-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--secondary-text);
+      transition: all var(--transition-speed);
+    }
+    
+    .social-icon:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      color: var(--secondary-text);
+      font-size: 0.9rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--secondary-bg);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .tools-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      .nav {
+        display: none;
+      }
+      
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .tools-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+      
+      .hero-subtitle {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+  <script async type="module" crossorigin src="../assets/js/portfolio-cxer-ml-ai-triage-kit-DnytC-dL.js"></script>
+  <link rel="stylesheet" crossorigin href="../assets/style-DpZAS_Ll.css">
+  <script type="module">import.meta.url;import("_").catch(()=>1);(async function*(){})().next();if(location.protocol!="file:"){window.__vite_is_modern_browser=true}</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy chunks, syntax error above and the same error below should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">
+        ARC
+        <span class="logo-dot logo-dot-1"></span>
+        <span class="logo-dot logo-dot-2"></span>
+        <span class="logo-dot logo-dot-3"></span>
+        <span class="logo-dot logo-dot-4"></span>
+      </a>
+      
+      <nav class="nav">
+        <a href="../index.html" class="nav-link">Home</a>
+        <a href="../case-studies/" class="nav-link">Case Studies</a>
+        <a href="../articles/" class="nav-link">Articles</a>
+        <a href="../portfolio/" class="nav-link">Portfolio</a>
+        <a href="../contact/" class="nav-button">Contact</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="hero-title">CX'er <span>ML/AI</span> Triage Kit</h1>
+      <p class="hero-subtitle">Practical AI solutions to complex customer experience challenges — ready to deploy from my GitHub repositories</p>
+    </div>
+  </section>
+  
+  <!-- Category Navigation -->
+  <div class="container">
+    <div class="category-nav">
+      <div class="category-button active">All Tools</div>
+      <div class="category-button">Analysis & Insight</div>
+      <div class="category-button">Content Generation</div>
+      <div class="category-button">Voice & Audio</div>
+      <div class="category-button">Visual AI</div>
+      <div class="category-button">LLM Tools</div>
+      <div class="category-button">Healthcare</div>
+    </div>
+  </div>
+  
+  <!-- Tools Grid -->
+  <div class="container">
+    <h2 style="margin-top: 2rem; text-align: center; margin-bottom: 2.5rem;">Overview</h2>
+    <div class="tools-grid">
+      <!-- Customer Experience Tools -->
+      <div class="tool-card blue">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">📊</span> Contact Center Analytics</h3>
+          <span class="tool-tag">Analysis & Insight</span>
+          <span class="tool-tag">CX Metrics</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A comprehensive data intelligence platform for contact centers, turning raw agent performance metrics into interactive dashboards and strategic insights — boosting satisfaction, efficiency, and team performance with every click.</p>
+          <a href="https://github.com/UsernameTron/contact-center-analytics" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- AI Content Creation -->
+      <div class="tool-card red">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">🔄</span> CANDOR</h3>
+          <span class="tool-tag">Content Generation</span>
+          <span class="tool-tag">Multi-Platform</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A brilliantly irreverent, AI-powered content engine that transforms a single idea into platform-tailored satire with scalpel-sharp wit. Fuses counterfactual reasoning, healthcare metrics, and ML insights via a PyQt interface.</p>
+          <a href="https://github.com/UsernameTron/Content-Generator" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- Healthcare Solutions -->
+      <div class="tool-card green">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">🏥</span> Healthcare Claims Denial Prediction</h3>
+          <span class="tool-tag">Healthcare</span>
+          <span class="tool-tag">Predictive Analytics</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A high-impact RCM analytics platform that predicts claim denials with over 90% accuracy, streamlines workflows, and saves hundreds of thousands in recovered revenue — offering data-backed clarity for healthcare finance teams.</p>
+          <a href="https://github.com/UsernameTron/healthcare-rcm-denial-prediction" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- HR Analytics -->
+      <div class="tool-card yellow">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">👥</span> HR-LLM: Hiring Sentiment Tracker</h3>
+          <span class="tool-tag">Analysis & Insight</span>
+          <span class="tool-tag">HR Optimization</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A cutting-edge AI system that deciphers hiring intent and growth signals hidden in job postings using GPU-accelerated sentiment analysis, historical benchmarking, and fuzzy pattern recognition — empowering strategic talent forecasting.</p>
+          <a href="https://github.com/UsernameTron/HR-LLM" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- Voice Technologies -->
+      <div class="tool-card blue">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">🔊</span> OpenAI Voice Toolkit</h3>
+          <span class="tool-tag">Voice & Audio</span>
+          <span class="tool-tag">Media Production</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A sleek, browser-based studio for transforming voice workflows — from advanced TTS styling to Whisper-powered transcription and GPT-4o video narration — turning natural language into expressive, ready-to-deploy media assets.</p>
+          <a href="https://github.com/UsernameTron/OpenAITTS" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- Music Generation -->
+      <div class="tool-card red">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">🎵</span> Suno Prompt Assistant</h3>
+          <span class="tool-tag">Voice & Audio</span>
+          <span class="tool-tag">Music Generation</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">An interactive music prompt builder for Suno AI that converts creative ideas into structured, audio-enhanced prompts — complete with voice input, smart templates, and analytics to elevate your sonic storytelling.</p>
+          <a href="https://github.com/UsernameTron/Suno-Prompt-Assistant" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- LLM Tooling -->
+      <div class="tool-card green">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">🧠</span> Open-Source LLM</h3>
+          <span class="tool-tag">LLM Tools</span>
+          <span class="tool-tag">Local Deployment</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A Mac-native, self-hostable framework for deploying and experimenting with open-source large language models. This toolkit is your homegrown AI laboratory — lean, fast, and fiercely local.</p>
+          <a href="https://github.com/UsernameTron/Open-Source-LLM-" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- LLM System Engineering -->
+      <div class="tool-card yellow">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">⚙️</span> LLM System Prompt Generator</h3>
+          <span class="tool-tag">LLM Tools</span>
+          <span class="tool-tag">Prompt Engineering</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">An intelligent prompt engineering toolkit that dynamically crafts optimized system prompts across multiple AI models — streamlining alignment, increasing response quality, and taking the guesswork out of multi-model orchestration.</p>
+          <a href="https://github.com/UsernameTron/LLM-System-Prompts" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- Image Generation -->
+      <div class="tool-card blue">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">🎨</span> Stable Diffusion Prompt Assistant</h3>
+          <span class="tool-tag">Visual AI</span>
+          <span class="tool-tag">Image Generation</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A sleek JavaScript tool turning raw imagination into precision-engineered prompts for image generation. With support for elite models like Juggernaut XL and Kling AI, it blends photorealism and creative ease into a single intuitive package.</p>
+          <a href="https://github.com/UsernameTron/Stable-Diffusion-Prompt-Engineer" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- Video Generation -->
+      <div class="tool-card red">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">🎬</span> Text-to-Video Prompt Assistant</h3>
+          <span class="tool-tag">Visual AI</span>
+          <span class="tool-tag">Video Generation</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">Transform narrative fragments into frame-perfect prompts with this high-precision assistant for video AI engines like Sora and Kling. Designed for creators who demand surreal cohesion and visual poetry.</p>
+          <a href="https://github.com/UsernameTron/Text-to-Video-Prompt-Assistant" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- Art Prompting -->
+      <div class="tool-card green">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">✨</span> OpenArt AI Prompt Optimizer</h3>
+          <span class="tool-tag">Visual AI</span>
+          <span class="tool-tag">Prompt Engineering</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A zero-installation, pro-grade prompt engineer built for Flux, SDXL, and SD1.5 — this tool transforms casual input into razor-sharp image prompts using scene detection, modifier logic, and model-specific tuning.</p>
+          <a href="https://github.com/UsernameTron/Openart-AI-Prompt-Tool" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+      
+      <!-- Apple Silicon Optimization -->
+      <div class="tool-card yellow">
+        <div class="tool-header">
+          <h3 class="tool-title"><span class="tool-icon">⚡</span> CoreML LLM Engine</h3>
+          <span class="tool-tag">LLM Tools</span>
+          <span class="tool-tag">Apple Silicon</span>
+        </div>
+        <div class="tool-content">
+          <p class="tool-description">A blazing-fast LLM inference engine fine-tuned for Apple Silicon, enabling real-time insights and sentiment analysis through CoreML acceleration — designed for native speed, minimal memory footprint, and maximum explainability.</p>
+          <a href="https://github.com/UsernameTron/Open-Source-LLM-" target="_blank" class="tool-link">View on GitHub</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">Need a Custom Solution?</h2>
+      <p>These open-source tools are just the beginning. I also build custom AI solutions for specific customer experience challenges.</p>
+      <div class="cta-buttons">
+        <a href="#contact" class="cta-button primary">Contact Me</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Case Studies</a></li>
+            <li><a href="#">Articles</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+        <div class="social-media">
+          <h3>Connect</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Category Filtering -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const categoryButtons = document.querySelectorAll('.category-button');
+      const toolCards = document.querySelectorAll('.tool-card');
+      
+      categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons
+          categoryButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          const category = this.textContent.trim();
+          
+          // Show all tools if "All Tools" is selected
+          if (category === 'All Tools') {
+            toolCards.forEach(card => {
+              card.style.display = 'flex';
+            });
+            return;
+          }
+          
+          // Otherwise filter by category
+          toolCards.forEach(card => {
+            const tags = card.querySelectorAll('.tool-tag');
+            let hasCategory = false;
+            
+            tags.forEach(tag => {
+              if (tag.textContent.trim() === category) {
+                hasCategory = true;
+              }
+            });
+            
+            if (hasCategory) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="../assets/js/polyfills-legacy-C4RL5ki6.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="../assets/js/portfolio-cxer-ml-ai-triage-kit-legacy-C6Gy-4tl.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+</html>
