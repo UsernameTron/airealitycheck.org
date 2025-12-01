@@ -1,0 +1,117 @@
+{
+  "hero": {
+    "name": "C. Pete Connor",
+    "title": "Director of Technical Center Operations",
+    "tagline": "Turning AI theory into operational reality",
+    "social": {
+      "linkedin": "https://linkedin.com/in/cpconnor",
+      "github": "https://github.com/UsernameTron",
+      "youtube": "https://youtube.com/@CPeteConnor",
+      "substack": "https://substack.com/@cpconnor",
+      "x": "https://x.com/connor_pet68383"
+    }
+  },
+  "metrics": [
+    { "value": "93%", "label": "FCR", "context": "First Call Resolution" },
+    { "value": "$1M+", "label": "SAVED", "context": "Cost reductions" },
+    { "value": "90%", "label": "CSAT", "context": "Customer satisfaction" },
+    { "value": "150+", "label": "AGENTS", "context": "Team managed" }
+  ],
+  "moneyLine": "93% FCR. $1M saved. 150 agents. Real AI implementation.",
+  "videos": [
+    {
+      "id": "5EMscUGemdM",
+      "title": "The Hunt for Blue November",
+      "category": "satire"
+    },
+    {
+      "id": "TxYoR-qnwMI",
+      "title": "Better Days Behind",
+      "category": "creative"
+    },
+    {
+      "id": "f745hLbSXAQ",
+      "title": "Converscapé and The Social Ghoster 3000",
+      "category": "satire"
+    },
+    {
+      "id": "UC9XSq8USyU",
+      "title": "Graves & Payne Attorneys at Law",
+      "category": "satire"
+    },
+    {
+      "id": "f0t7yBWhDtk",
+      "title": "Introducing DEFLECTO",
+      "category": "satire"
+    }
+  ],
+  "caseStudies": [
+    {
+      "id": "operational-intelligence",
+      "title": "Unified Operational Intelligence",
+      "impact": "$183K/yr",
+      "summary": "Real-time Genesys + UKG + Helpdesk consolidation with predictive SLA alerts",
+      "description": "Real-time consolidation of Genesys Cloud, UKG workforce management, and Helpdesk data into a unified dashboard with predictive SLA alerts and AI-powered recommendations.",
+      "url": "https://ispn-tc-operational-intelligence.netlify.app/",
+      "tech": ["Genesys Cloud", "UKG", "Claude AI", "Real-time APIs"],
+      "timeline": "Q4 2025",
+      "status": "active",
+      "categories": ["ai", "analytics"]
+    },
+    {
+      "id": "email-command",
+      "title": "Email Command Center",
+      "impact": "2min SLA",
+      "summary": "n8n-powered email triage with Slack alerts and AI-drafted responses",
+      "description": "n8n-powered email triage system with Slack alerts, AI-drafted responses, and automated routing. Reduces response time to under 2 minutes with 95% accuracy.",
+      "url": "https://ispn-communications-ai-automation.netlify.app/",
+      "tech": ["n8n", "Slack", "Claude API", "Gmail"],
+      "timeline": "Q4 2025",
+      "status": "active",
+      "categories": ["automation", "ai"]
+    },
+    {
+      "id": "mindmeld",
+      "title": "MindMeld Reasoning Program",
+      "impact": "95% accuracy",
+      "summary": "Multi-model orchestration for complex decision-making workflows",
+      "description": "Multi-model orchestration framework that routes complex queries to the optimal AI model. Combines Claude, GPT-4, and custom models for enhanced decision-making.",
+      "url": "#",
+      "tech": ["Claude", "GPT-4", "Custom routing"],
+      "timeline": "Ongoing",
+      "status": "active",
+      "categories": ["ai"]
+    }
+  ],
+  "creative": {
+    "collections": [
+      {
+        "id": "apple-juice",
+        "name": "Apple Juice",
+        "repo": "https://github.com/UsernameTron/Apple-Juice",
+        "baseUrl": "https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/"
+      },
+      {
+        "id": "gi-error",
+        "name": "GI-ERROR",
+        "repo": "https://github.com/UsernameTron/GIERROR",
+        "baseUrl": "https://raw.githubusercontent.com/UsernameTron/GIERROR/main/"
+      },
+      {
+        "id": "ai-sauces",
+        "name": "AI Sauces",
+        "repo": "https://github.com/UsernameTron/AISauce",
+        "baseUrl": "https://raw.githubusercontent.com/UsernameTron/AISauce/main/"
+      },
+      {
+        "id": "fun-with-sora",
+        "name": "Fun-With-Sora",
+        "repo": "https://github.com/UsernameTron/Fun-With-Sora",
+        "baseUrl": "https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/"
+      }
+    ]
+  },
+  "contact": {
+    "email": "info@airealitycheck.org"
+  }
+}

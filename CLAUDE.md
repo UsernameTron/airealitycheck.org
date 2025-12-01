@@ -1,222 +1,145 @@
-# CLAUDE.md
+CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Commands
 
-### Development & Testing
-- **Dev Server**: `npm run dev` - Start Vite dev server with hot module replacement
-- **Run Locally**: `npm run preview` - Preview production build locally
-- **Run HTTP Server**: `python -m http.server 8000` - Serve dist/ directory directly
-- **Quality Assurance**: `npm run qa` - Run comprehensive quality checks (lint, HTML validation, accessibility)
-- **Quick Fix**: `npm run qa:fix` - Automatically fix linting issues
-- **Lint All**: `npm run lint` (runs JS, CSS, and HTML linting)
-- **Lint JavaScript**: `npm run lint:js` (with --fix option: `npm run lint:fix`)
-- **Lint CSS**: `npm run lint:css`
-- **Lint HTML**: `npm run lint:html`
-- **Run Tests**: `npm run test` (includes HTML validation, link checking, accessibility)
-- **Lighthouse Performance**: `npm run test:lighthouse` - Run performance audits
+### Development
+```bash
+npm run dev              # Vite dev server with HMR (port 3000)
+npm run preview          # Preview production build (port 8080)
+python -m http.server 8000  # Serve dist/ directly (for Lighthouse tests)
+```
 
-### Build & Deployment
-- **Build Production**: `npm run build` - Vite build with HTML preprocessing, asset optimization, and compression (gzip + brotli)
-- **Build Vite Only**: `npm run build:vite` - Run Vite build without optimizations
-- **Build Tailwind CSS**: `npm run build:css` - Generate minified Tailwind CSS
-- **Watch Tailwind**: `npm run watch:css` - Watch and rebuild Tailwind CSS on changes
+### Build
+```bash
+npm run build            # Full production build (Vite + gzip/brotli compression)
+npm run build:vite       # Vite build only (used by GitHub Actions)
+npm run build:css        # Rebuild Tailwind CSS
+npm run watch:css        # Watch mode for Tailwind
+```
 
-### Asset Optimization (Legacy)
-- **Optimize Images**: `npm run optimize-images` - Compress and convert images to WebP
-- **Optimize Videos**: `npm run optimize-videos` - Compress video files
+### Quality Assurance
+```bash
+npm run qa               # Comprehensive checks (lint, HTML validation, accessibility)
+npm run qa:fix           # Auto-fix linting issues
+npm run lint             # Run all linters (JS + CSS + HTML)
+npm run lint:fix         # Fix JS and CSS issues
+npm run test:lighthouse  # Run Lighthouse performance audits
+```
 
-## Architecture Overview
+### Asset Optimization
+```bash
+npm run optimize-images  # Compress and convert images to WebP
+npm run optimize-videos  # Compress video files
+```
 
-This is a static website for AI Reality Check with a focus on simplicity, performance, and Google-inspired design. Key architectural decisions:
+## Architecture
 
-### Build System (Vite)
-- **Bundler**: Vite 5.4.11 with HTML processing for multi-page static sites
-- **Compression**: Automatic gzip and brotli compression of all assets
-- **Output**: Production files output to `dist/` directory for GitHub Pages deployment
-- **Node.js**: Requires Node.js 20+ for GitHub Actions CI/CD
+### Build System
+- **Bundler**: Vite 5.x with multi-page HTML support
+- **Output**: Production files go to `dist/` with automatic gzip/brotli compression
+- **Deployment**: GitHub Actions builds on push to main, deploys to gh-pages branch
+- **Domain**: airealitycheck.org (via CNAME)
+- **Node.js**: Requires 20+ for CI/CD
 
-### Asset Loading Strategy
-- **Component System**: Modular JavaScript components loaded on-demand (js/components.js)
-- **Lazy Loading**: Images use IntersectionObserver for viewport-based loading
-- **Progressive Enhancement**: Site works without JavaScript, enhanced features load progressively
-- **Bundled Assets**: Vite handles minification and bundling of CSS/JS automatically
+### Project Structure
+```
+├── index.html                 # Homepage
+├── articles/                  # Article pages
+├── case-studies/              # Case study pages
+├── portfolio/                 # Portfolio pages
+├── creative/                  # Creative gallery
+├── contact/                   # Contact page
+├── components/                # Shared HTML components (header, footer, meta-tags)
+├── css/
+│   ├── style.css              # Main stylesheet
+│   ├── tailwind.css           # Generated Tailwind output
+│   └── theme-variables.css    # CSS custom properties
+├── js/
+│   ├── main.js                # Primary JavaScript
+│   ├── components.js          # Component loading system
+│   └── loader.js              # Asset lazy loading
+├── images/                    # Organized by section (hero/, articles/, case-studies/, etc.)
+├── scripts/                   # Node.js build and test scripts
+├── vite.config.js             # Vite configuration
+└── lighthouserc.js            # Lighthouse CI configuration
+```
 
-### Quality Assurance Pipeline
-- **Pre-commit Hooks**: Husky + lint-staged for automated code quality checks
-- **Multi-level Testing**: ESLint for JS, Stylelint for CSS, HTMLHint for HTML
-- **Accessibility Testing**: Automated axe-core tests via scripts/accessibility-test.js
-- **Performance Budgets**: Lighthouse CI with strict thresholds (80% performance, 90% accessibility)
+### Component System
+- Shared components in `components/` are loaded on-demand via `js/components.js`
+- Images use IntersectionObserver-based lazy loading
+- Site works without JavaScript with progressive enhancement
 
-### Content Management
-- **Template Structure**: Each section (case-studies/, articles/, portfolio/) follows consistent HTML templates
-- **Image Organization**: Section-specific image folders (images/case-studies/, images/articles/)
-- **SEO Optimization**: Structured data, meta tags, and canonical URLs in all pages
+### Quality Gates
+- **Pre-commit**: lint-staged runs ESLint on JS, Stylelint on CSS, HTMLHint on HTML
+- **Pre-push**: `npm run qa:lint` validates all code
+- **Lighthouse CI**: Performance 80%, Accessibility 90%, Best Practices 85%, SEO 90%
+
+## Design System: Obsidian
+
+The site follows the **Obsidian Design System** principles:
+
+### Color Palette
+```css
+--bg: #09090b;              /* Warm near-black background */
+--surface: #111113;         /* Card/panel backgrounds */
+--border: #27272a;          /* Subtle borders (1px, no shadows) */
+--text: #fafafa;            /* Primary text */
+--text-secondary: #a1a1aa;  /* Secondary text */
+--text-muted: #71717a;      /* Muted text */
+--accent: #22d3ee;          /* Cyan accent (single accent color) */
+```
+
+### Typography Rules
+- **Sans**: Geist (fallback: Satoshi, Plus Jakarta Sans, system-ui)
+- **Mono**: Geist Mono (fallback: JetBrains Mono, SF Mono)
+- **Weight extremes**: Use 200 (light) vs 700 (bold), not middle weights
+- **Monospace for ALL numeric data** (metrics, stats, dates)
+- **Labels**: Uppercase with `letter-spacing: 0.1em`
+
+### Layout Patterns
+- **Asymmetric grids**: Use `280px | 1fr | 340px` for three-panel layouts
+- **Split hero**: `1.2fr | 1fr`, never centered
+- **1px borders only**: No box-shadows on cards
+
+### Key Components
+- **MetricCard**: Accent-colored values, uppercase labels, monospace numbers
+- **InsightCard**: 3px cyan `border-left`, rounded right corners only
+- **LiveIndicator**: Pulsing dot animation for active status
 
 ## Code Standards
 
-### JavaScript (ESLint enforced)
-- ES6+ features, no var declarations
-- 2-space indentation, single quotes, semicolons required
-- Strict equality (===), always use curly braces
-- Prefer const, arrow functions, template literals
-- No console.log in production code (warning in dev)
+### JavaScript
+- ES6+, no `var`
+- 2-space indent, single quotes, semicolons required
+- Strict equality (`===`), always use braces
+- No console.log in production
 
-### CSS (Stylelint enforced)
-- CSS variables in :root for theming
-- BEM-like naming for components
+### CSS
+- CSS variables in `:root`
+- BEM-like naming
 - Mobile-first media queries
-- No !important in component styles
-- Hex colors in long format (#ffffff)
-- 2-space indentation
+- No `!important` in component styles
+- 2-space indent
 
-### HTML (HTMLHint enforced)
-- HTML5 doctype required
-- Lowercase tags and attributes
-- Double quotes for attribute values
-- Alt text required for images
-- Unique IDs, dash-case for classes
-- Proper tag pairing and nesting
+### HTML
+- HTML5 doctype, lowercase tags
+- Double quotes for attributes
+- Alt text required on images
+- Unique IDs, dash-case classes
 
-## Analytics & Monitoring
+## Performance Targets
 
-### Current Analytics Infrastructure
+| Metric | Target |
+|--------|--------|
+| Performance | >= 80% |
+| Accessibility | >= 90% |
+| Best Practices | >= 85% |
+| SEO | >= 90% |
+| FCP | < 2000ms |
+| LCP | < 4000ms |
+| CLS | < 0.1 |
+| TBT | < 300ms |
 
-**Status:** Partially Configured
-
-**Content Security Policy:** Allows Google Tag Manager
-- CSP header permits: `https://www.googletagmanager.com`
-- Connect source restricted to `'self'` only
-- [REVIEW NEEDED] Google Analytics script not found in codebase
-
-### Performance Monitoring
-
-**Lighthouse CI Integration:**
-- Automated performance budgets via `lighthouserc.js`
-- Tests URLs: homepage, case-studies, articles, portfolio, contact
-- Device: Mobile (375x667, 2x device scale)
-- Network: Simulated 3G (150ms RTT, 1.6 Mbps)
-- Runs: 3 runs per URL for statistical significance
-
-**Performance Budgets:**
-- Performance: ≥80%
-- Accessibility: ≥90%
-- Best Practices: ≥85%
-- SEO: ≥90%
-- FCP: <2000ms
-- LCP: <4000ms
-- CLS: <0.1
-- TBT: <300ms
-
-**Reports Location:** `.lighthouseci/` directory
-- LHR files with full audit results
-- Stored locally (can integrate with remote services)
-
-**Image & Video Optimization Metrics:**
-- Unused CSS/JavaScript warnings tracked
-- WebP and modern format usage enforced
-- Responsive image implementation required
-- Optimized image format assertions active
-
-### Code Quality Metrics
-
-**Tracked via quality-assurance.js:**
-- Test execution times
-- Pass/fail status by suite
-- Critical vs. non-critical test categorization
-- QA reports saved to `qa-reports/` directory
-
-**Linting Compliance:**
-- ESLint: 0 errors before deployment
-- Stylelint: Core validation rules enforced
-- HTMLHint: Alt text, IDs, doctype verified
-
-**Accessibility Compliance:**
-- Axe-core automated testing
-- WCAG 2.1 Level AA target
-- Color contrast verification
-- ARIA attribute validation
-- Keyboard navigation checks
-
-### Custom Instrumentation
-
-**Window Object Tracking:**
-```javascript
-// Component loading status
-window.componentLoadingStatus = {
-  total: number,        // Components to load
-  loaded: number,       // Successfully loaded
-  failed: number,       // Failed loads
-  errors: Array        // Error messages
-}
-```
-
-**Theme Tracking:**
-- User theme preference stored in localStorage
-- Options: 'auto' (default), 'light', 'dark'
-- Persisted across sessions
-
-### Recommended Analytics Implementation
-
-If you choose to enable Google Analytics:
-
-1. Add Google Analytics 4 tag to header component
-2. Configure events for:
-   - Page views (automatic)
-   - Article engagement (scroll depth, time on page)
-   - Case study downloads (if added)
-   - Navigation interactions
-   - Theme preference changes
-
-3. Set up custom dimensions:
-   - User theme preference
-   - Browser capabilities (WebP support, etc.)
-   - Device type (mobile, tablet, desktop)
-
-**Note:** Before implementing, review privacy regulations (GDPR, CCPA) and update privacy policy accordingly.
-
-### Build-Time Analytics
-
-**Image Optimization Logging:**
-- Compression ratios tracked per image
-- File size reductions logged
-- WebP conversion success rates
-- Responsive size generation verified
-
-**Video Optimization Logging:**
-- Format conversion status
-- Quality tier generation
-- File size reduction metrics
-
-**Build Performance:**
-- Build process execution time tracked
-- Component inlining time
-- Asset optimization time
-- Report generation time
-
----
-
-## Deployment Metrics
-
-### GitHub Pages Performance
-
-- **Custom domain**: airealitycheck.org (via CNAME)
-- **Deployment**: Automatic on push to main via GitHub Actions
-- **Build process**: `npm run build` (Vite bundling + gzip/brotli compression)
-- **Deployment action**: JamesIves/github-pages-deploy-action v4.4.1
-- **Serves from**: `/dist` directory on gh-pages branch
-- **CDN**: GitHub Pages global CDN
-- **Node.js requirement**: 20+ (set in .github/workflows/deploy.yml)
-
-### Build Performance
-
-- **Typical frequency**: On-demand (push to main)
-- **Build time**: ~5-6 minutes (Vite build + compression + deployment)
-- **Output compression**: All assets automatically compressed with gzip and brotli
-- **Status**: View recent builds with `gh run list` or check GitHub Actions dashboard
-
----
-
-**Last Updated:** 2025-11-21
-**Documentation Version:** 2.0
+Lighthouse tests run against mobile (375x667) with simulated 3G throttling.

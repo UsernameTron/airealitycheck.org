@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+    <script>
+        // Define these variables before loading components
+        const PAGE_TITLE = "BPO Workforce Management Optimization";
+        const PAGE_DESCRIPTION = "An in-depth look at AI-driven workforce management optimization for Business Process Outsourcing (BPO) operations, highlighting key methodologies and outcomes.";
+        const REL_PATH = "../"; // Portfolio is one level down from root
+        const CANONICAL_PATH = "/portfolio/bpo-wfm-video.html"; // Path after domain
+    </script>
+
+    <!-- Resource hints for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="../css/style.min.css" as="style">
+    <link rel="preload" href="../js/main.min.js" as="script">
+
+    <!-- Meta tags component placeholder -->
+    <!-- 
+  Standard Meta Tags Component
+  This component should be included in the <head> section of all pages.
+  
+  IMPORTANT: You must manually set these variables at the top of each page:
+  - const PAGE_TITLE = "Your Page Title";
+  - const PAGE_DESCRIPTION = "Your page description";
+  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
+  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
+-->
+
+<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+<script src="../js/loader.min.js"></script>
+
+<!-- Core Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="C. Pete Conner">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Demonstration of Business Process Outsourcing workforce management system capabilities.">
+<title>AI Reality Check | BPO Workforce Management Demo</title>
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+
+<!-- Canonical URL (static for SEO reliability) -->
+<link rel="canonical" href="https://airealitycheck.org/portfolio/bpo-wfm-video.html">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Reality Check">
+<meta property="og:title" content="AI Reality Check | BPO Workforce Management Demo">
+<meta property="og:description" content="Demonstration of Business Process Outsourcing workforce management system capabilities.">
+<meta property="og:url" content="https://airealitycheck.org/portfolio/bpo-wfm-video.html">
+<meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+<meta property="og:image:alt" content="AI Reality Check banner">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@connor_pet68383">
+<meta name="twitter:creator" content="@connor_pet68383">
+<meta name="twitter:title" content="AI Reality Check | BPO Workforce Management Demo">
+<meta name="twitter:description" content="Demonstration of Business Process Outsourcing workforce management system capabilities.">
+<meta name="twitter:url" content="https://airealitycheck.org/portfolio/bpo-wfm-video.html">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="../css/style.min.css">
+<link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+
+<!-- Error Recovery Script -->
+<script>
+    // Check if styles are loaded correctly after a short delay
+    setTimeout(function() {
+        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+            try {
+                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+            } catch(e) {
+                return false;
+            }
+        });
+        
+        if (!hasStylesheet) {
+            console.warn('Stylesheet not detected, trying emergency load');
+            const emergencyStyle = document.createElement('link');
+            emergencyStyle.rel = 'stylesheet';
+            emergencyStyle.href = '../css/style.min.css';
+            document.head.appendChild(emergencyStyle);
+        }
+    }, 500);
+</script>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* Page-specific styles */
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: black;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        
+        .video-info {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 var(--space-lg);
+        }
+        
+        .video-info h1 {
+            color: var(--primary-blue);
+            margin-bottom: var(--space-md);
+        }
+        
+        .meta-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            font-size: var(--font-size-sm);
+            color: var(--neutral-medium);
+        }
+        
+        .meta-details span {
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .meta-details span::before {
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+        }
+        
+        .date::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5v-5z'/%3E%3C/svg%3E");
+        }
+        
+        .author::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E");
+        }
+        
+        .category::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z'/%3E%3C/svg%3E");
+        }
+        
+        .duration::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234285F4' d='M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z'/%3E%3C/svg%3E");
+        }
+        
+        .description {
+            line-height: 1.7;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-lg);
+            margin: var(--space-xl) 0;
+        }
+        
+        .metric-box {
+            background-color: var(--neutral-lighter);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .tags {
+            margin-top: var(--space-xl);
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: var(--space-xs) var(--space-sm);
+            margin-right: var(--space-xs);
+            margin-bottom: var(--space-xs);
+            background-color: var(--neutral-lighter);
+            border-radius: var(--radius-sm);
+            font-size: var(--font-size-xs);
+            color: var(--neutral-dark);
+        }
+        
+        .buttons {
+            margin-top: var(--space-xl);
+            display: flex;
+            gap: var(--space-md);
+        }
+        
+        .btn-secondary {
+            background-color: var(--neutral-lighter);
+            color: var(--neutral-dark);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--neutral-light);
+            color: var(--neutral-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .video-info h1 {
+                font-size: 1.8rem;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+            
+            .buttons .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component Placeholder -->
+    <!-- Standard Header Component with proper ARIA landmarks -->
+<header role="banner">
+    <div class="container">
+        <div class="logo">
+            <a href="../" aria-label="AI Reality Check - Home">
+                <span class="visually-hidden">AI Reality Check</span>
+                <span aria-hidden="true">AI Reality Check</span>
+            </a>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)" aria-pressed="false">
+          <span class="light-icon">☀️</span>
+          <span class="dark-icon" style="display:none">🌙</span>
+          <span class="auto-icon" style="display:none">⟲</span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="main-navigation" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="/case-studies/">Case Studies</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li><a href="/portfolio/">Portfolio</a></li>
+                <li><a href="/creative/">Creative</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero section template - pages should add this after the header placeholder -->
+<!-- 
+<section class="hero" role="region" aria-labelledby="page-title">
+    <div class="container">
+        <h1 id="page-title">Page Title</h1>
+        <p class="subtitle">Page subtitle or description</p>
+    </div>
+</section>
+-->
+
+<!-- Visually-hidden class has been added to style.css -->
+<!-- This template helps maintain proper heading hierarchy with h1 in main content -->
+
+    <main>
+        <section class="content">
+            <div class="container">
+                <div class="video-container" 
+                     data-video-player="true" 
+                     data-video-name="bpo-wfm-wfo" 
+                     data-poster="../images/hero/ARC Hero.webp"
+                     data-fallback-src="../videos/bpo-wfm-wfo.mp4"
+                     data-lazy-load="true">
+                    <!-- Video will be dynamically loaded here -->
+                </div>
+                
+                <div class="video-info">
+                    <h1>BPO Workforce Management Optimization</h1>
+                    
+                    <div class="meta-details">
+                        <span class="date">April 2025</span>
+                        <span class="author">C. Pete Conner</span>
+                        <span class="category">Business Operations</span>
+                        <span class="duration">1:30</span>
+                    </div>
+                    
+                    <div class="description">
+                        <p>This presentation outlines a comprehensive approach to optimizing workforce management (WFM) in Business Process Outsourcing (BPO) environments using AI-driven solutions. The framework addresses key challenges in the BPO sector, including agent turnover, scheduling efficiency, and performance optimization.</p>
+                        
+                        <p>The methodology combines advanced machine learning algorithms with traditional workforce optimization techniques to create a predictive framework that significantly improves operational efficiency. By analyzing historical patterns, employee performance metrics, and business forecasts, the system can predict staffing needs, optimize scheduling, and identify retention risks before they materialize.</p>
+                        
+                        <p>Implementation of this framework has consistently delivered measurable improvements across multiple BPO operations:</p>
+                    </div>
+                    
+                    <div class="metrics-grid">
+                        <div class="metric-box">
+                            <div class="metric-value">30%</div>
+                            <div class="metric-label">Reduction in Attrition</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">22%</div>
+                            <div class="metric-label">Improved Schedule Efficiency</div>
+                        </div>
+                        <div class="metric-box">
+                            <div class="metric-value">$3.2M</div>
+                            <div class="metric-label">Average Annual Savings</div>
+                        </div>
+                    </div>
+                    
+                    <p>This approach represents a significant advancement in how BPO operations manage their workforce, moving from reactive to proactive strategies. The integration of AI into workforce management creates a more resilient operational framework that can adapt to changing business conditions while maintaining service quality and employee satisfaction.</p>
+                    
+                    <div class="tags">
+                        <span class="tag">Workforce Management</span>
+                        <span class="tag">BPO Operations</span>
+                        <span class="tag">AI Implementation</span>
+                        <span class="tag">Attrition Reduction</span>
+                        <span class="tag">Operational Efficiency</span>
+                        <span class="tag">Predictive Analytics</span>
+                    </div>
+                    
+                    <div class="buttons">
+                        <a href="../videos/bpo-wfm-wfo.mp4" download class="btn">Download Presentation</a>
+                        <a href="../case-studies/ml-bpo-turnover-wfm.html" class="btn">Related Case Study</a>
+                        <a href="index.html" class="btn btn-secondary">Back to Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Component Placeholder -->
+    <!-- Standard Footer Component -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="/case-studies/">Case Studies</a></li>
+                    <li><a href="/articles/">Articles</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="../js/video-player.js"></script>
+    <script src="../js/main.min.js"></script>
+    
+    
+    <!-- Load components -->
+    
+</body>
+</html>

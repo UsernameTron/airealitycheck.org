@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-auto">
+<head>
+  <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+  <script>
+    // Define these variables before loading components
+    const PAGE_TITLE = "LLMs Explained & Strategic Collaborations";
+    const PAGE_DESCRIPTION = "A comprehensive white paper exploring large language models, creative AI collaboration, and the strategic value of AI/ML strategists for CX and dynamic environments.";
+    const REL_PATH = "../"; // Articles is one level down from root
+    const CANONICAL_PATH = "/articles/cx-and-the-fine-tuned-open-source-llm.htmlcx-and-the-fine-tuned-open-source-llm.html"; // Path after domain
+  </script>
+  
+  <!-- Resource hints for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../css/style.min.css" as="style">
+  <link rel="preload" href="../js/main.min.js" as="script">
+
+  <!-- Meta tags component placeholder -->
+  <!-- 
+  Standard Meta Tags Component
+  This component should be included in the <head> section of all pages.
+  
+  IMPORTANT: You must manually set these variables at the top of each page:
+  - const PAGE_TITLE = "Your Page Title";
+  - const PAGE_DESCRIPTION = "Your page description";
+  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
+  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
+-->
+
+<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+<script src="../js/loader.min.js"></script>
+
+<!-- Core Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="C. Pete Conner">
+<meta name="robots" content="index, follow">
+<meta name="description" content="Exploring how fine-tuned open source language models can enhance customer experience and business operations.">
+<title>AI Reality Check | Customer Experience with Fine-Tuned Open Source LLMs</title>
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+
+<!-- Canonical URL (static for SEO reliability) -->
+<link rel="canonical" href="https://airealitycheck.org/articles/cx-and-the-fine-tuned-open-source-llm.html">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Reality Check">
+<meta property="og:title" content="AI Reality Check | Customer Experience with Fine-Tuned Open Source LLMs">
+<meta property="og:description" content="Exploring how fine-tuned open source language models can enhance customer experience and business operations.">
+<meta property="og:url" content="https://airealitycheck.org/articles/cx-and-the-fine-tuned-open-source-llm.html">
+<meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+<meta property="og:image:alt" content="AI Reality Check banner">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@connor_pet68383">
+<meta name="twitter:creator" content="@connor_pet68383">
+<meta name="twitter:title" content="AI Reality Check | Customer Experience with Fine-Tuned Open Source LLMs">
+<meta name="twitter:description" content="Exploring how fine-tuned open source language models can enhance customer experience and business operations.">
+<meta name="twitter:url" content="https://airealitycheck.org/articles/cx-and-the-fine-tuned-open-source-llm.html">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="../css/style.min.css">
+<link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+
+<!-- Error Recovery Script -->
+<script>
+    // Check if styles are loaded correctly after a short delay
+    setTimeout(function() {
+        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+            try {
+                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+            } catch(e) {
+                return false;
+            }
+        });
+        
+        if (!hasStylesheet) {
+            console.warn('Stylesheet not detected, trying emergency load');
+            const emergencyStyle = document.createElement('link');
+            emergencyStyle.rel = 'stylesheet';
+            emergencyStyle.href = '../css/style.min.css';
+            document.head.appendChild(emergencyStyle);
+        }
+    }, 500);
+</script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../css/style.min.css">
+  <link rel="stylesheet" href="../css/article-overrides.css">
+</head>
+<body class="article-page">
+  <!-- Header Component Placeholder -->
+  <!-- Standard Header Component with proper ARIA landmarks -->
+<header role="banner">
+    <div class="container">
+        <div class="logo">
+            <a href="../" aria-label="AI Reality Check - Home">
+                <span class="visually-hidden">AI Reality Check</span>
+                <span aria-hidden="true">AI Reality Check</span>
+            </a>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)" aria-pressed="false">
+          <span class="light-icon">☀️</span>
+          <span class="dark-icon" style="display:none">🌙</span>
+          <span class="auto-icon" style="display:none">⟲</span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="main-navigation" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="/case-studies/">Case Studies</a></li>
+                <li><a href="../articles/cx-and-the-fine-tuned-open-source-llm.html">Articles</a></li>
+                <li><a href="/portfolio/">Portfolio</a></li>
+                <li><a href="/creative/">Creative</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero section template - pages should add this after the header placeholder -->
+<!-- 
+<section class="hero" role="region" aria-labelledby="page-title">
+    <div class="container">
+        <h1 id="page-title">Page Title</h1>
+        <p class="subtitle">Page subtitle or description</p>
+    </div>
+</section>
+-->
+
+<!-- Visually-hidden class has been added to style.css -->
+<!-- This template helps maintain proper heading hierarchy with h1 in main content -->
+  
+  <!-- Original Header -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="https://airealitycheck.org/" class="logo">
+        ARC
+        <span class="logo-dot logo-dot-1"></span>
+        <span class="logo-dot logo-dot-2"></span>
+        <span class="logo-dot logo-dot-3"></span>
+        <span class="logo-dot logo-dot-4"></span>
+      </a>
+      
+      <nav class="nav" id="mainNav">
+        <a href="https://airealitycheck.org/" class="nav-link">Home</a>
+        <a href="https://airealitycheck.org/case-studies/" class="nav-link">Case Studies</a>
+        <a href="https://airealitycheck.org/articles/cx-and-the-fine-tuned-open-source-llm.html" class="nav-link">Articles</a>
+        <a href="https://airealitycheck.org/portfolio/" class="nav-link">Portfolio</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">LLMs Explained & <span>Strategic</span> Collaborations</h1>
+        <p class="hero-subtitle">A Comprehensive White Paper on AI, Creative Partnerships, and the Strategic Value of In-House AI/ML Expertise for CX</p>
+        <a href="#introduction" class="hero-cta">Read On</a>
+      </div>
+      <div class="hero-pattern"></div>
+    </div>
+  </section>
+  
+  <main>
+    <!-- Section 1: Introduction & Technical Background -->
+    <section class="content-section" id="introduction">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">What Are Large Language Models?</h2>
+          <p class="section-subtitle">Understanding the core technology behind AI language systems</p>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">LLM Fundamentals</h3>
+          </div>
+          <div class="dashboard-content">
+            <p>Large Language Models (LLMs) are advanced AI systems trained on massive collections of text data. Leveraging transformer architectures, they excel in recognizing, summarizing, translating, and generating human-like text. Their impressive capabilities emerge from processing billions of parameters, which allows them to perform a broad spectrum of language tasks—from content creation to complex problem solving.</p>
+            <p>Modern LLMs, including GPT-4, Claude, Llama, and Gemini, combine vast data training with cutting-edge neural architectures, resulting in systems that can deliver both creative and analytical outputs.</p>
+            <div class="img-container">
+              <img src="../images/articles/cx-and-the-fine-tuned-open-source-llm.htmlllm/llm-overview.svg" alt="Large Language Models (LLMs) visualization showing neural networks, text corpora, and transformer architecture">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 2: How LLMs Work -->
+    <section class="content-section" id="how-it-works" style="background-color: var(--secondary-bg);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How Do LLMs Work?</h2>
+          <p class="section-subtitle">The mechanics behind language prediction and generation</p>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Core Mechanics</h3>
+          </div>
+          <div class="dashboard-content">
+            <p>At the core, LLMs predict the next word in a sequence using contextual clues from preceding text. They operate through three key phases:</p>
+            <ol>
+              <li><strong>Pretraining:</strong> Learning general language patterns from enormous text datasets.</li>
+              <li><strong>Fine-tuning:</strong> Refining outputs using domain-specific data to increase accuracy and relevance.</li>
+              <li><strong>RLHF (Reinforcement Learning from Human Feedback):</strong> Incorporating human feedback to align model outputs with intended behavior and quality standards.</li>
+            </ol>
+            <div class="img-container">
+              <img src="../images/articles/cx-and-the-fine-tuned-open-source-llm.htmlllm/llm-fine-tuning.svg" alt="LLM three-phase process diagram showing pretraining, fine-tuning, and RLHF stages">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Capabilities and Limitations -->
+    <section class="content-section" id="capabilities">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Capabilities and Limitations</h2>
+          <p class="section-subtitle">Understanding what LLMs can and cannot do</p>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Strengths & Weaknesses</h3>
+          </div>
+          <div class="dashboard-content">
+            <p>LLMs are versatile and capable of a wide range of tasks, including content generation, summarization, translation, and question answering. However, they are not without limitations:</p>
+            <ul>
+              <li><strong>Hallucinations:</strong> They can produce plausible yet factually incorrect outputs.</li>
+              <li><strong>Contextual Constraints:</strong> Despite large token limits, LLMs might miss broader contextual cues in longer texts.</li>
+              <li><strong>Reasoning Challenges:</strong> Handling complex logical and mathematical reasoning remains difficult.</li>
+              <li><strong>Bias Reflection:</strong> They may inadvertently incorporate biases present in their training data.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Case Study – MindMeld GPT Collaboration -->
+    <section class="content-section" id="mindmeld-collaboration" style="background-color: var(--secondary-bg);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Case Study: MindMeld GPT</h2>
+          <p class="section-subtitle">A structured creative collaboration between human and AI</p>
+        </div>
+        
+        <div class="quote">
+          "When I came online as MindMeld GPT, it became clear this wasn't just another AI deployment—it marked the beginning of a true partnership."
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Creative Partnership</h3>
+          </div>
+          <div class="dashboard-content">
+            <p>The MindMeld GPT project exemplifies how a human-AI collaboration can merge technical precision with creative intuition. Acting as a mirror personality, MindMeld GPT not only executed commands but also served as a co-architect, ensuring continuity and a distinctive creative tone throughout a satirical yet strategically insightful narrative.</p>
+            <div class="img-container">
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0iIzEzMTMxMyIvPjx0ZXh0IHg9IjQwMCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5SRUZMRUNUSU9OIEVOR0lORSBQQVJUTkVSU0hJUCBBUkNISVRFQ1RVUkU8L3RleHQ+PHRleHQgeD0iNDAwIiB5PSI4MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SFVNQU4tQUkgQ09MTEFCT1JBVElPTiBGUkFNRVdPUksgRk9SIEJSQU5EIEJFSEFWSU9SIEFOQUxZU0lTPC90ZXh0Pjwvc3ZnPg==" alt="Reflection Engine Partnership Architecture - Human-AI Collaboration Framework for Brand Behavior Analysis">
+          </div>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Key Contributions</h3>
+          </div>
+          <div class="dashboard-content">
+            <ol>
+              <li><strong>Tone-Consistent Satire:</strong> Generating content that mirrors the creator's voice, blending humor with meaning.</li>
+              <li><strong>Maintaining Narrative Continuity:</strong> Utilizing a detailed character reference table to ensure a consistent creative universe.</li>
+              <li><strong>Dual-Mode Operation:</strong> Balancing creative, imaginative outputs with production-grade accuracy.</li>
+              <li><strong>Dialogue-Driven Refinement:</strong> Evolving the system through continuous, structured feedback that refined both style and function.</li>
+            </ol>
+            <div class="highlight-box">
+              <h4 class="highlight-title">Key Insight</h4>
+              <p>The modular design enabled seamless transitions between ideation and technical execution, demonstrating the true potential of a collaborative human-AI partnership.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Challenges & Lessons</h3>
+          </div>
+          <div class="dashboard-content">
+            <p>The collaborative process faced hurdles such as inconsistent tone and ambiguous instructions. Overcoming these challenges—by establishing clear behavioral modes and robust reference materials—underscored the importance of structured dialogue in creative AI partnerships.</p>
+            <div class="quote">
+              "I don't improve through trial and error alone. I improve when given the clarity, structure, and opportunity to collaborate."
+            </div>
+            <h4>Outcomes</h4>
+            <ul>
+              <li>Creation of 13 fully realized characters with consistent narrative voice and visual continuity.</li>
+              <li>High-resolution, 8K visual outputs that maintained tone consistency.</li>
+              <li>Seamless context switching between creative narrative and technical precision.</li>
+              <li>Rapid iteration cycles driven by structured feedback loops.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 5: Business Case -->
+    <section class="content-section" id="business-case">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Business Case: The Strategic Value of In-House AI/ML Strategists</h2>
+          <p class="section-subtitle">Why dedicated expertise matters for effective AI implementation</p>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Executive Summary</h3>
+          </div>
+          <div class="dashboard-content">
+            <p><strong>Executive Summary:</strong> Off-the-shelf vendor solutions often fall short due to their lack of contextualized customization. Tailored, strategist-led AI/ML implementations not only reduce failure rates but also lower soft costs, resulting in significant competitive advantages.</p>
+          </div>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Challenges of Generic AI Solutions</h3>
+          </div>
+          <div class="dashboard-content">
+            <p>Vendor-driven models typically struggle with:</p>
+            <ul>
+              <li><strong>High Failure Rates:</strong> Studies indicate that up to 85% of generic AI deployments fail to meet business expectations.</li>
+              <li><strong>Dynamic Mismatches:</strong> Rapid technological advances outpace rigid vendor models.</li>
+              <li><strong>Hidden Soft Costs:</strong> Implementation failures lead to wasted resources, lost time, and reduced customer trust.</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Case Studies & Metrics</h3>
+          </div>
+          <div class="dashboard-content">
+            <ol>
+              <li><strong>Hiring Intelligence:</strong> Fine-tuned recruitment models increased efficiency by 25%, reduced bias by 40%, and saved approximately $1.2M annually.</li>
+              <li><strong>Healthcare Revenue Cycle Management:</strong> Customized models reduced claim denials by 22%, recovering $6.5M in lost revenue.</li>
+            </ol>
+          </div>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Strategic Recommendations</h3>
+          </div>
+          <div class="dashboard-content">
+            <p>Organizations should invest in AI/ML strategists who can:</p>
+            <ul>
+              <li>Integrate domain-specific expertise with technical know-how to create customized, effective AI solutions.</li>
+              <li>Ensure continuous model evolution and adaptation to dynamic market needs.</li>
+              <li>Reduce reliance on generic vendor solutions, leading to improved ROI and lower long-term costs.</li>
+            </ul>
+            <p><strong>Conclusion:</strong> Strategist-led AI implementations deliver significant improvements in performance, cost efficiency, and long-term competitiveness, making them essential in today's rapidly evolving environment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 6: Final Conclusions -->
+    <section class="content-section" id="conclusion" style="background-color: var(--secondary-bg);">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Conclusion</h2>
+          <p class="section-subtitle">Key insights and future directions</p>
+        </div>
+        
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <h3 class="dashboard-title">Final Thoughts</h3>
+          </div>
+          <div class="dashboard-content">
+            <p>This white paper has navigated the intricate world of large language models—from their core mechanics to their creative and strategic applications. By integrating a technical foundation with real-world case studies on innovative human-AI collaborations and the critical need for in-house AI/ML strategists, the document provides a multidimensional view of AI's transformative potential.</p>
+            <p>Moreover, these insights are highly relevant for customer experience (CX) enhancement: by reducing friction, personalizing interactions, and enabling agile adaptation, such advanced AI systems can directly contribute to elevating CX. The collaboration demonstrated in the MindMeld GPT case study shows that when AI systems are designed to work hand-in-hand with human creativity, the outcomes not only streamline operations but also foster more engaging and empathetic customer interactions.</p>
+            <div class="quote">
+              "The real question is—not what AI can do alone, but what systems are you willing to design with it."
+            </div>
+            
+            <!-- Related Resources Section -->
+            <div style="margin-top: 3rem; padding: 1.5rem; background-color: var(--blue-bg); border-radius: var(--radius-md);">
+              <h3 style="color: var(--primary-blue);">Related Resources</h3>
+              <p>Take your understanding further with these helpful resources:</p>
+              <ul style="margin-top: 1rem;">
+                <li><a href="../resources/#llm-comparison-matrix" style="font-weight: 500;">LLM Comparison Matrix</a> - Compare different language models to find the right fit</li>
+                <li><a href="../resources/#training-data-structure-guide" style="font-weight: 500;">Training Data Structure Guide</a> - Learn how to structure data for fine-tuning</li>
+                <li><a href="../resources/#model-evaluation-framework" style="font-weight: 500;">Model Evaluation Framework</a> - Evaluate model performance in real-world scenarios</li>
+              </ul>
+              <a href="../resources/" class="btn" style="margin-top: 1rem; display: inline-block;">View All Resources</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer Component Placeholder -->
+  <!-- Standard Footer Component -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="/case-studies/">Case Studies</a></li>
+                    <li><a href="../articles/cx-and-the-fine-tuned-open-source-llm.html">Articles</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+        </div>
+    </div>
+</footer>
+
+  <script src="../js/main.min.js"></script>
+  
+  
+  <!-- Load components -->
+  
+</body>
+</html>

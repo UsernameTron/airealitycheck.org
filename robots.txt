@@ -1,12 +1,5 @@
+# AI Reality Check - robots.txt
 User-agent: *
 Allow: /
-Sitemap: https://airealitycheck.org/sitemap.xml
 
-# Block access to certain files
-Disallow: /*.md$
-Disallow: /*.json$
-Disallow: /*.yml$
-Disallow: /*.yaml$
-Disallow: /*.xml$
-Disallow: /components/
-Disallow: /templates/
+Sitemap: https://airealitycheck.org/sitemap.xml

@@ -1,366 +1,737 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-auto">
-
+<html lang="en">
 <head>
-    <!-- Theme initialization (essential for preventing FOUC) -->
-    <script>
-        (function () {
-            const savedTheme = localStorage.getItem('theme') || 'auto';
-            document.documentElement.className = 'theme-' + savedTheme;
-        })();
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Meta Information Setup (REQUIRED for proper SEO) -->
-    <script>
-        // Define these variables before loading components
-        const PAGE_TITLE = "A Fact-Based Perspective on AI";
-        const PAGE_DESCRIPTION = "AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.";
-        const REL_PATH = "./"; // Home page is at root level
-        const CANONICAL_PATH = "/"; // Home page canonical path
-    </script>
+  <!-- Primary Meta -->
+  <title>AI Reality Check — C. Pete Connor</title>
+  <meta name="description" content="AI implementation specialist turning theory into operational reality. 93% FCR, $1M+ saved, 150+ agents managed.">
+  <meta name="author" content="C. Pete Connor">
 
-    <!-- Resource hints for performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="css/theme-variables.css" as="style">
-    <link rel="preload" href="css/style.css" as="style">
-    <link rel="preload" href="js/main.min.js" as="script">
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://airealitycheck.org/">
+  <meta property="og:title" content="AI Reality Check — C. Pete Connor">
+  <meta property="og:description" content="AI implementation specialist turning theory into operational reality. 93% FCR, $1M+ saved.">
 
-    <!-- Direct stylesheet references to ensure they load -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@connor_pet68383">
+  <meta name="twitter:title" content="AI Reality Check — C. Pete Connor">
+  <meta name="twitter:description" content="AI implementation specialist turning theory into operational reality. 93% FCR, $1M+ saved.">
 
-    <!-- Critical meta tags (loaded directly for SEO) -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1a73e8">
-    <title>A Fact-Based Perspective on AI | AI Reality Check</title>
-    <meta name="description"
-        content="AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.">
-    <link rel="canonical" href="https://airealitycheck.org/">
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
-    <!-- Meta tags component placeholder (for additional meta tags) -->
-    <!-- 
-  Standard Meta Tags Component
-  This component should be included in the <head> section of all pages.
-  
-  IMPORTANT: You must manually set these variables at the top of each page:
-  - const PAGE_TITLE = "Your Page Title";
-  - const PAGE_DESCRIPTION = "Your page description";
-  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
-  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
--->
+  <!-- Fonts: Geist (preconnect + load) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@200;400;500;600;700&family=Geist+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Essential Loader Script - Ensures basic styling and theme functionality -->
-    <script src="./js/loader.min.js"></script>
-
-    <!-- Core Meta Tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="C. Pete Conner">
-    <meta name="robots" content="index, follow">
-    <meta name="description"
-        content="AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.">
-    <title>AI Reality Check | A Fact-Based Perspective on AI</title>
-
-    <!-- Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy"
-        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
-
-    <!-- Canonical URL (static for SEO reliability) -->
-    <link rel="canonical" href="https://airealitycheck.org/">
-
-    <!-- Open Graph / Facebook Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="AI Reality Check">
-    <meta property="og:title" content="AI Reality Check | A Fact-Based Perspective on AI">
-    <meta property="og:description"
-        content="AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.">
-    <meta property="og:url" content="https://airealitycheck.org/">
-    <meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
-    <meta property="og:image:alt" content="AI Reality Check banner">
-    <meta property="og:locale" content="en_US">
-
-    <!-- Twitter Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@connor_pet68383">
-    <meta name="twitter:creator" content="@connor_pet68383">
-    <meta name="twitter:title" content="AI Reality Check | A Fact-Based Perspective on AI">
-    <meta name="twitter:description"
-        content="AI Reality Check provides objective analysis of artificial intelligence capabilities, limitations, and implications with a fact-based perspective on AI technology and its impact.">
-    <meta name="twitter:url" content="https://airealitycheck.org/">
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- Theme Variables (must load before main stylesheet) -->
-    <link rel="stylesheet" href="./css/theme-variables.css">
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="./css/style.css">
-
-    <!-- View Transitions removed - was causing navigation issues -->
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./images/favicon/apple-touch-icon.png">
-    <meta name="msapplication-TileColor" content="#1a73e8">
-    <meta name="msapplication-config" content="/browserconfig.xml">
-
-    <!-- Error Recovery Script -->
-    <script>
-        // Check if styles are loaded correctly after a short delay
-        setTimeout(function () {
-            const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
-                try {
-                    return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
-                } catch (e) {
-                    return false;
-                }
-            });
-
-            if (!hasStylesheet) {
-                console.warn('Stylesheet not detected, trying emergency load');
-                const emergencyStyle = document.createElement('link');
-                emergencyStyle.rel = 'stylesheet';
-                emergencyStyle.href = './css/style.min.css';
-                document.head.appendChild(emergencyStyle);
-            }
-        }, 500);
-    </script>
-
-    <!-- Additional keywords (not used by Google but may be used by other search engines) -->
-    <meta name="keywords"
-        content="AI, artificial intelligence, machine learning, AI reality, AI limitations, AI capabilities, C. Pete Conner">
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/obsidian.css">
 </head>
-
 <body>
-    <!-- Header Component Placeholder -->
-    <!-- Standard Header Component with proper ARIA landmarks -->
-    <header role="banner">
-        <div class="container">
-            <div class="logo">
-                <a href="./" aria-label="AI Reality Check - Home">
-                    <span class="visually-hidden">AI Reality Check</span>
-                    <span aria-hidden="true">AI Reality Check</span>
-                </a>
-            </div>
-            <button id="searchTrigger" class="search-trigger" aria-label="Open search"
-                style="background:none;border:none;cursor:pointer;margin-right:1rem;font-size:1.2rem;color:var(--text-main);">
-                <span aria-hidden="true">🔍</span>
-            </button>
-            <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)"
-                aria-pressed="false">
-                <span class="light-icon">☀️</span>
-                <span class="dark-icon" style="display:none">🌙</span>
-                <span class="auto-icon" style="display:none">⟲</span>
-            </button>
-            <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
-                aria-controls="main-navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <nav id="main-navigation" role="navigation" aria-label="Main navigation">
-                <ul>
-                    <li><a href="./case-studies/">Case Studies</a></li>
-                    <li><a href="./articles/">Articles</a></li>
-                    <li><a href="./portfolio/">Portfolio</a></li>
-                    <li><a href="./creative/">Creative</a></li>
-                    <li><a href="./contact/">Contact</a></li>
-                </ul>
-            </nav>
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       HEADER (Sticky, 56px)
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <header class="header">
+    <a href="#" class="header-logo">ARC</a>
+    <nav class="header-nav" aria-label="Main navigation">
+      <a href="#hero">Home</a>
+      <a href="#pocs">POCs</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#creative">Creative</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="btn btn-ghost" id="theme-toggle" aria-label="Toggle theme">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"></circle>
+        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path>
+      </svg>
+    </button>
+  </header>
+
+  <main id="main">
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         HERO SECTION (Split Layout: 1.2fr | 1fr)
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <section id="hero" class="hero container">
+      <!-- Left: Identity -->
+      <div class="hero-identity">
+        <span class="live-indicator">
+          <span class="pulse-dot"></span>
+          ACTIVE
+        </span>
+        <h1 class="hero-title" style="font-size: var(--text-hero); font-family: var(--font-mono); font-weight: 600; letter-spacing: -0.02em; margin-top: var(--space-md);">
+          C. Pete Connor
+        </h1>
+        <p class="hero-subtitle" style="font-size: var(--text-header); font-weight: 200; color: var(--text-secondary); margin-top: var(--space-sm);">
+          Director of Technical Center Operations
+        </p>
+        <p class="hero-tagline" style="font-family: var(--font-mono); font-size: var(--text-body); color: var(--text-muted); margin-top: var(--space-md);">
+          Turning AI theory into operational reality
+        </p>
+
+        <!-- Social Links -->
+        <div class="social-links" style="margin-top: var(--space-xl); justify-content: flex-start;">
+          <a href="https://linkedin.com/in/cpconnor" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/UsernameTron" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://youtube.com/@CPeteConnor" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://substack.com/@cpconnor" class="social-link" aria-label="Substack" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/connor_pet68383" class="social-link" aria-label="X (Twitter)" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
         </div>
-    </header>
+      </div>
 
-    <!-- Hero section template - pages should add this after the header placeholder -->
-    <!-- 
-<section class="hero" role="region" aria-labelledby="page-title">
-    <div class="container">
-        <h1 id="page-title">Page Title</h1>
-        <p class="subtitle">Page subtitle or description</p>
-    </div>
-</section>
--->
-
-    <!-- Visually-hidden class has been added to style.css -->
-    <!-- This template helps maintain proper heading hierarchy with h1 in main content -->
-
-    <main>
-        <!-- Hero Section - Image Only -->
-        <section class="home-hero"></section>
-
-        <section class="portfolio-preview" data-scroll-reveal>
-            <div class="container">
-                <h2>Portfolio &amp; Professional Profile</h2>
-                <div class="portfolio-summary" data-scroll-reveal="scale">
-                    <div class="profile-header" data-scroll-reveal="left">
-                        <h3>C. Pete Conner</h3>
-                        <div data-component="read-more" style="max-width: 700px; margin: 0 auto;">
-                            <p class="profile-subtitle">Seasoned leader in AI/ML strategy and customer experience
-                                transformation</p>
-                            <p>With a proven track record of driving innovation across enterprise organizations, I
-                                specialize in bridging the gap between cutting-edge AI technologies and practical
-                                business applications. My approach combines technical depth with strategic vision to
-                                deliver measurable results.</p>
-                            <p>From architecting scalable ML pipelines to leading cross-functional teams in delivering
-                                high-impact digital products, I am passionate about leveraging technology to solve
-                                complex problems and enhance user experiences.</p>
-                        </div>
-                    </div>
-                    <div class="profile-highlights" data-scroll-reveal="right">
-                        <div class="highlight-item">
-                            <strong>15+ Years Experience</strong>
-                            <p>Leading CX transformations and AI/ML implementations across diverse industries</p>
-                        </div>
-                        <div class="highlight-item">
-                            <strong>Strategic Innovation</strong>
-                            <p>Bridging technical AI capabilities with business outcomes and customer experience goals
-                            </p>
-                        </div>
-                        <div class="highlight-item">
-                            <strong>Proven Results</strong>
-                            <p>Track record of measurable improvements in customer satisfaction and operational
-                                efficiency</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-center" style="margin-top: 20px;">
-                    <a href="portfolio/profile-google-style.html" class="btn" target="_blank">View Full Profile</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="featured" data-scroll-reveal>
-            <div class="container">
-                <h2>Featured Content</h2>
-                <div class="cards" data-scroll-reveal-stagger>
-                    <div class="card">
-                        <h2>MindMeldGPT Ships!</h2>
-                        <a href="MindMeld.html" target="_blank">
-                            <picture>
-                                <source media="(max-width: 576px)"
-                                    srcset="images/optimized/portfolio/mindmeldgpt-thumb_small.webp">
-                                <source media="(max-width: 768px)"
-                                    srcset="images/optimized/portfolio/mindmeldgpt-thumb_medium.webp">
-                                <source media="(max-width: 1200px)"
-                                    srcset="images/optimized/portfolio/mindmeldgpt-thumb_large.webp">
-                                <img src="images/optimized/portfolio/mindmeldgpt-thumb.webp" alt="MindMeldGPT Thumbnail"
-                                    style="width:100%;max-width:400px;display:block;margin:0 auto 1rem auto;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
-                            </picture>
-                        </a>
-                        <p>Discover MindMeldGPT: a sovereign, modular, local-first LLM platform for advanced
-                            intelligence workflows. Click the image to explore the full details and architecture.</p>
-                        <button class="btn" style="margin-top: 1rem;" data-share data-share-title="MindMeldGPT"
-                            data-share-text="Check out MindMeldGPT: a sovereign, modular, local-first LLM platform."
-                            data-share-url="https://airealitycheck.org/MindMeld.html">
-                            Share Project
-                        </button>
-                    </div>
-                    <!-- YouTube Video 1 -->
-                    <div class="card">
-                        <h2>AI Reality Check: The Reflective Engine</h2>
-                        <div class="video-container"
-                            style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-                            <iframe src="https://www.youtube.com/embed/JXpVgkgSKhw" title="The Reflective Engine"
-                                frameborder="0" allowfullscreen
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-                        </div>
-                        <p>The Reflective Engine represents a revolutionary collaboration in creativity and design by
-                            using a reflection and tuned persona that complements its human colleague.</p>
-                    </div>
-                    <!-- YouTube Video 2 -->
-                    <div class="card">
-                        <h2>AI Reality Check: Humanizing AI and ML</h2>
-                        <div class="video-container"
-                            style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;">
-                            <iframe src="https://www.youtube.com/embed/ioovtEd2L9k" title="Humanizing AI and ML"
-                                frameborder="0" allowfullscreen
-                                style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
-                        </div>
-                        <p>A speech delivered at Customer Contact Week advocating for human- and customer-first,
-                            thoughtful and creative application of AI and ML.</p>
-                    </div>
-
-                    <!-- Project Gallery Card -->
-                    <div class="card">
-                        <h2>Project Gallery</h2>
-                        <a href="gallery.html">
-                            <picture>
-                                <source media="(max-width: 576px)"
-                                    srcset="images/optimized/creative/featured-ai-image_small.webp">
-                                <source media="(max-width: 768px)"
-                                    srcset="images/optimized/creative/featured-ai-image_medium.webp">
-                                <source media="(max-width: 1200px)"
-                                    srcset="images/optimized/creative/featured-ai-image_large.webp">
-                                <img src="images/optimized/creative/featured-ai-image.webp"
-                                    alt="Project Gallery Preview"
-                                    style="width:100%;max-width:400px;display:block;margin:0 auto 1rem auto;border-radius:12px;box-shadow:0 4px 16px rgba(0,0,0,0.2);">
-                            </picture>
-                        </a>
-                        <p>Explore featured images from all AI Reality Check projects, including AI Sauces, creative
-                            work, portfolio pieces, and more. Filter by repository and view high-resolution versions.
-                        </p>
-                        <div style="text-align: center; margin-top: 15px;">
-                            <a href="gallery.html" class="btn">Browse Gallery</a>
-                        </div>
-                    </div>
-                    <!-- You can add more featured cards below if needed -->
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer Component Placeholder -->
-    <!-- Standard Footer Component -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="./">Home</a></li>
-                        <li><a href="./case-studies/">Case Studies</a></li>
-                        <li><a href="./articles/">Articles</a></li>
-                        <li><a href="./portfolio/">Portfolio</a></li>
-                        <li><a href="./creative/">Creative</a></li>
-                        <li><a href="./contact/">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="social-media">
-                    <h3>Connect</h3>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i
-                                class="icon-linkedin"></i></a>
-                        <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i
-                                class="icon-twitter"></i></a>
-                        <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i
-                                class="icon-github"></i></a>
-                        <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i
-                                class="icon-medium"></i></a>
-                        <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i
-                                class="icon-substack"></i></a>
-                        <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i
-                                class="icon-youtube"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
-            </div>
+      <!-- Right: Profile Image -->
+      <div class="hero-profile">
+        <div class="profile-frame">
+          <img src="images/profile.jpeg" alt="C. Pete Connor" class="profile-image" loading="eager">
         </div>
-    </footer>
+      </div>
+    </section>
 
-    <script src="js/main.min.js"></script>
-    <script src="js/scroll-animations.js"></script>
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         MONEY LINE BANNER
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <section class="money-line">
+      <div class="container">
+        <p class="money-line-text">
+          Subtracting the obvious and focusing on the meaningful
+        </p>
+      </div>
+    </section>
 
-    <!-- Search and Share functionality -->
-    <script type="module" src="js/search.js"></script>
-    <script type="module" src="js/share.js"></script>
-    <!-- view-transitions.js removed - was intercepting navigation -->
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         POCs SECTION (Three-Panel: 280px | 1fr | 340px)
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <section id="pocs">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">POCs</span>
+          <h2 class="section-title">Proof of <strong>Concepts</strong></h2>
+          <p class="section-money-line">Active prototypes. Rapid validation.</p>
+        </div>
 
+        <div class="three-panel">
+          <!-- Left Panel: Tags/Categories -->
+          <div class="left-panel">
+            <div class="tags" id="case-study-tags">
+              <button class="tag active" data-filter="all">All</button>
+              <button class="tag" data-filter="ai">AI/ML</button>
+              <button class="tag" data-filter="automation">Automation</button>
+              <button class="tag" data-filter="analytics">Analytics</button>
+            </div>
+          </div>
+
+          <!-- Center Panel: Case Study Cards -->
+          <div class="center-panel">
+            <div class="case-study-list" id="case-study-list">
+              <!-- Case Study 1 -->
+              <div class="card selected" data-case="operational-intelligence" data-category="ai analytics">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-sm);">
+                  <span class="card-title">Unified Operational Intelligence</span>
+                  <span class="live-indicator">
+                    <span class="pulse-dot"></span>
+                    ACTIVE
+                  </span>
+                </div>
+                <p class="card-description">Real-time Genesys + UKG + Helpdesk consolidation with predictive SLA alerts</p>
+                <div style="margin-top: var(--space-md); display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                  <span class="tag">Genesys Cloud</span>
+                  <span class="tag">Claude AI</span>
+                </div>
+              </div>
+
+              <!-- Case Study 2 -->
+              <div class="card" data-case="email-command" data-category="automation ai" style="margin-top: var(--space-md);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-sm);">
+                  <span class="card-title">Email Command Center</span>
+                  <span class="live-indicator">
+                    <span class="pulse-dot"></span>
+                    ACTIVE
+                  </span>
+                </div>
+                <p class="card-description">n8n-powered email triage with Slack alerts and AI-drafted responses</p>
+                <div style="margin-top: var(--space-md); display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                  <span class="tag">n8n</span>
+                  <span class="tag">Slack</span>
+                  <span class="tag">Claude API</span>
+                </div>
+              </div>
+
+              <!-- Case Study 3 -->
+              <div class="card" data-case="mindmeld" data-category="ai" style="margin-top: var(--space-md);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--space-sm);">
+                  <span class="card-title">MindMeld Reasoning Program</span>
+                  <span class="live-indicator">
+                    <span class="pulse-dot"></span>
+                    ACTIVE
+                  </span>
+                </div>
+                <p class="card-description">Multi-model orchestration for complex decision-making workflows</p>
+                <div style="margin-top: var(--space-md); display: flex; gap: var(--space-sm); flex-wrap: wrap;">
+                  <span class="tag">Claude</span>
+                  <span class="tag">GPT-4</span>
+                  <span class="tag">Custom Routing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Panel: InsightCard (Selected Project Details) -->
+          <div class="right-panel">
+            <div class="insight-card" id="insight-panel">
+              <div class="insight-label">SELECTED PROJECT</div>
+              <h4 class="insight-title" id="insight-title">Unified Operational Intelligence</h4>
+              <p class="insight-body" id="insight-body">Real-time consolidation of Genesys Cloud, UKG workforce management, and Helpdesk data into a unified dashboard with predictive SLA alerts and AI-powered recommendations.</p>
+              <div class="insight-meta">
+                <span class="meta-label">Impact</span>
+                <span class="meta-value" id="insight-impact">$183K/yr</span>
+              </div>
+              <div class="insight-meta" style="margin-top: var(--space-sm);">
+                <span class="meta-label">Timeline</span>
+                <span class="meta-value" id="insight-timeline">Q4 2025</span>
+              </div>
+              <a href="https://ispn-tc-operational-intelligence.netlify.app/" class="btn btn-primary" style="margin-top: var(--space-lg); width: 100%;" target="_blank" rel="noopener" id="insight-link">
+                View Live Demo
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         PORTFOLIO SECTION (Career Content Showcase)
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <section id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">PORTFOLIO</span>
+          <h2 class="section-title">Work <strong>Portfolio</strong></h2>
+          <p class="section-money-line">Proven implementations. Measurable outcomes.</p>
+        </div>
+
+        <!-- Subsection: Interactive Tools -->
+        <div class="subsection" id="tools">
+          <h3 class="subsection-title">Interactive Tools</h3>
+          <div class="tools-grid">
+            <!-- ROI Calculator -->
+            <div class="tool-card">
+              <div class="tool-header">
+                <span class="tool-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                    <line x1="8" y1="6" x2="16" y2="6"></line>
+                    <line x1="8" y1="10" x2="16" y2="10"></line>
+                    <line x1="8" y1="14" x2="12" y2="14"></line>
+                    <line x1="8" y1="18" x2="16" y2="18"></line>
+                  </svg>
+                </span>
+                <span class="tool-badge">Interactive</span>
+              </div>
+              <h4 class="tool-title">AI ROI Calculator</h4>
+              <p class="tool-desc">5-year projections with industry benchmarks for Healthcare, BPO, HR, and Social Media</p>
+              <div class="tool-features">
+                <span class="feature-tag">Chart.js</span>
+                <span class="feature-tag">Industry Data</span>
+              </div>
+              <a href="career content/resources/roi-calculator.html" class="btn btn-outline" target="_blank" rel="noopener">
+                Launch Tool
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <!-- AI Readiness Assessment -->
+            <div class="tool-card">
+              <div class="tool-header">
+                <span class="tool-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M9 11l3 3L22 4"></path>
+                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+                  </svg>
+                </span>
+                <span class="tool-badge">Assessment</span>
+              </div>
+              <h4 class="tool-title">AI Readiness Assessment</h4>
+              <p class="tool-desc">Evaluate data infrastructure, team skills, process maturity, and strategic alignment</p>
+              <div class="tool-features">
+                <span class="feature-tag">Multi-Step</span>
+                <span class="feature-tag">Scoring</span>
+              </div>
+              <a href="career content/resources/ai-readiness-assessment.html" class="btn btn-outline" target="_blank" rel="noopener">
+                Take Assessment
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+
+            <!-- Prompt Workspace -->
+            <div class="tool-card">
+              <div class="tool-header">
+                <span class="tool-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="4 17 10 11 4 5"></polyline>
+                    <line x1="12" y1="19" x2="20" y2="19"></line>
+                  </svg>
+                </span>
+                <span class="tool-badge">Workspace</span>
+              </div>
+              <h4 class="tool-title">Prompt Workspace</h4>
+              <p class="tool-desc">Interactive prompt engineering environment for crafting and testing AI prompts</p>
+              <div class="tool-features">
+                <span class="feature-tag">Templates</span>
+                <span class="feature-tag">Live Testing</span>
+              </div>
+              <a href="career content/resources/prompt-workspace.html" class="btn btn-outline" target="_blank" rel="noopener">
+                Open Workspace
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Subsection: Case Studies -->
+        <div class="subsection" id="case-studies-deep">
+          <h3 class="subsection-title">Case Studies</h3>
+          <div class="card-grid">
+            <!-- Case Study 1: Contact Center AI -->
+            <a href="career content/case-studies/contact-center-analytics-AI-Executive-Overview.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">BPO</span>
+              <h4 class="portfolio-card-title">Contact Center AI Transformation</h4>
+              <p class="portfolio-card-metric">12% improvement + 10-15% AI potential</p>
+              <p class="portfolio-card-desc">Executive overview of AI-driven contact center optimization with measurable outcomes</p>
+              <span class="portfolio-card-link">
+                Read Case Study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Case Study 2: ML Turnover Prediction -->
+            <a href="career content/case-studies/ml-bpo-turnover-wfm.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">BPO / HR</span>
+              <h4 class="portfolio-card-title">ML-Driven Turnover Prediction</h4>
+              <p class="portfolio-card-metric">92% accuracy, $700K-$1.4M savings</p>
+              <p class="portfolio-card-desc">Machine learning model predicting employee turnover with workforce management integration</p>
+              <span class="portfolio-card-link">
+                Read Case Study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Case Study 3: HR Predictive Analytics -->
+            <a href="career content/case-studies/hr-predictive-model.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">HR</span>
+              <h4 class="portfolio-card-title">HR Predictive Analytics</h4>
+              <p class="portfolio-card-metric">Predictive modeling framework</p>
+              <p class="portfolio-card-desc">Advanced analytics for human resources decision-making and workforce planning</p>
+              <span class="portfolio-card-link">
+                Read Case Study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Case Study 4: LinkedIn Visibility -->
+            <a href="career content/case-studies/linkedin-visibility-google-style.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">Social Media</span>
+              <h4 class="portfolio-card-title">LinkedIn Visibility Strategy</h4>
+              <p class="portfolio-card-metric">Professional presence optimization</p>
+              <p class="portfolio-card-desc">Data-driven approach to professional social media visibility and engagement</p>
+              <span class="portfolio-card-link">
+                Read Case Study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Case Study 5: Revenue Cycle Management -->
+            <a href="career content/case-studies/revenue-cycle-management.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">Healthcare</span>
+              <h4 class="portfolio-card-title">Revenue Cycle Management</h4>
+              <p class="portfolio-card-metric">Healthcare revenue optimization</p>
+              <p class="portfolio-card-desc">AI-enhanced revenue cycle processes for healthcare organizations</p>
+              <span class="portfolio-card-link">
+                Read Case Study
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Subsection: Articles -->
+        <div class="subsection" id="articles">
+          <h3 class="subsection-title">Articles & Thought Leadership</h3>
+          <div class="card-grid">
+            <!-- Article 1: Automation Strategy -->
+            <a href="career content/articles/automation-strategy-article.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">Strategy</span>
+              <h4 class="portfolio-card-title">The Cost of Automation Without Strategy</h4>
+              <p class="portfolio-card-metric">Failure at Scale</p>
+              <p class="portfolio-card-desc">Why speed without clear strategy leads to failures, and how execution defines success</p>
+              <span class="portfolio-card-link">
+                Read Article
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Article 2: Counterfactual Reasoning -->
+            <a href="career content/articles/counterfactual-reasoning-html.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">CX / EX</span>
+              <h4 class="portfolio-card-title">Unlocking What Didn't Happen</h4>
+              <p class="portfolio-card-metric">Counterfactual Reasoning</p>
+              <p class="portfolio-card-desc">Applying counterfactual reasoning to fix your customer and employee experience</p>
+              <span class="portfolio-card-link">
+                Read Article
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Article 3: Fine-Tuned LLMs -->
+            <a href="career content/articles/cx-and-the-fine-tuned-open-source-llm.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">AI / ML</span>
+              <h4 class="portfolio-card-title">Fine-Tuned Open Source LLMs</h4>
+              <p class="portfolio-card-metric">Strategic AI Collaboration</p>
+              <p class="portfolio-card-desc">White paper on LLMs, creative AI collaboration, and strategic value for CX environments</p>
+              <span class="portfolio-card-link">
+                Read Article
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+
+            <!-- Article 4: AI Detection -->
+            <a href="career content/articles/detection.html" class="portfolio-card" target="_blank" rel="noopener">
+              <span class="industry-badge">AI Ethics</span>
+              <h4 class="portfolio-card-title">You Can't Detect AI Content</h4>
+              <p class="portfolio-card-metric">Detection Myth Debunked</p>
+              <p class="portfolio-card-desc">Why AI detection tools fail and what's really needed for content authenticity</p>
+              <span class="portfolio-card-link">
+                Read Article
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Subsection: Demos & Dashboards -->
+        <div class="subsection" id="demos">
+          <h3 class="subsection-title">Demos & Dashboards</h3>
+          <div class="carousel-container">
+            <div class="carousel" id="demos-carousel">
+              <!-- Demo 1: CX'er ML/AI Triage Kit -->
+              <a href="career content/portfolio/cxer-ml-ai-triage-kit.html" class="demo-card" target="_blank" rel="noopener">
+                <span class="demo-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                    <path d="M2 17l10 5 10-5"></path>
+                    <path d="M2 12l10 5 10-5"></path>
+                  </svg>
+                </span>
+                <span class="demo-title">CX'er ML/AI Triage Kit</span>
+                <span class="demo-desc">Curated tool collection for CX challenges</span>
+              </a>
+
+              <!-- Demo 2: Social Media Analytics -->
+              <a href="career content/portfolio/social-media-analytics.html" class="demo-card" target="_blank" rel="noopener">
+                <span class="demo-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M18 20V10"></path>
+                    <path d="M12 20V4"></path>
+                    <path d="M6 20v-6"></path>
+                  </svg>
+                </span>
+                <span class="demo-title">Social Media Analytics</span>
+                <span class="demo-desc">ML engagement prediction platform</span>
+              </a>
+
+              <!-- Demo 3: TikTok Dashboard -->
+              <a href="career content/portfolio/tiktok-dashboard-google-style-1.html" class="demo-card" target="_blank" rel="noopener">
+                <span class="demo-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <path d="M3 9h18"></path>
+                    <path d="M9 21V9"></path>
+                  </svg>
+                </span>
+                <span class="demo-title">TikTok Dashboard</span>
+                <span class="demo-desc">Social analytics visualization</span>
+              </a>
+
+              <!-- Demo 4: Professional Profile -->
+              <a href="career content/portfolio/profile-google-style.html" class="demo-card" target="_blank" rel="noopener">
+                <span class="demo-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="7" r="4"></circle>
+                    <path d="M5.5 21c0-4.14 2.91-7.5 6.5-7.5s6.5 3.36 6.5 7.5"></path>
+                  </svg>
+                </span>
+                <span class="demo-title">Professional Profile</span>
+                <span class="demo-desc">Interactive profile presentation</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         CREATIVE SECTION (Videos + Image Gallery)
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <section id="creative">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">CREATIVE</span>
+          <h2 class="section-title">Creative <strong>Work</strong></h2>
+          <p class="section-money-line">Satire, storytelling, and AI-generated art.</p>
+        </div>
+
+        <!-- Video Subsection -->
+        <div class="subsection" id="videos">
+          <h3 class="subsection-title">Video Content</h3>
+          <div class="carousel-container">
+            <div class="carousel" id="video-carousel">
+              <!-- Video 1 -->
+              <div class="carousel-item">
+                <div class="video-thumbnail" data-video-id="5EMscUGemdM">
+                  <img src="https://img.youtube.com/vi/5EMscUGemdM/maxresdefault.jpg" alt="The Hunt for Blue November" loading="lazy">
+                  <div class="video-play-btn"></div>
+                </div>
+                <span class="video-category">SATIRE</span>
+                <p class="video-title">The Hunt for Blue November</p>
+              </div>
+
+              <!-- Video 2 -->
+              <div class="carousel-item">
+                <div class="video-thumbnail" data-video-id="TxYoR-qnwMI">
+                  <img src="https://img.youtube.com/vi/TxYoR-qnwMI/hqdefault.jpg" alt="Better Days Behind" loading="lazy">
+                  <div class="video-play-btn"></div>
+                </div>
+                <span class="video-category">CREATIVE</span>
+                <p class="video-title">Better Days Behind</p>
+              </div>
+
+              <!-- Video 3 -->
+              <div class="carousel-item">
+                <div class="video-thumbnail" data-video-id="f745hLbSXAQ">
+                  <img src="https://img.youtube.com/vi/f745hLbSXAQ/maxresdefault.jpg" alt="Converscapé and The Social Ghoster 3000" loading="lazy">
+                  <div class="video-play-btn"></div>
+                </div>
+                <span class="video-category">SATIRE</span>
+                <p class="video-title">Converscapé and The Social Ghoster 3000</p>
+              </div>
+
+              <!-- Video 4 -->
+              <div class="carousel-item">
+                <div class="video-thumbnail" data-video-id="UC9XSq8USyU">
+                  <img src="https://img.youtube.com/vi/UC9XSq8USyU/maxresdefault.jpg" alt="Graves & Payne Attorneys at Law" loading="lazy">
+                  <div class="video-play-btn"></div>
+                </div>
+                <span class="video-category">SATIRE</span>
+                <p class="video-title">Graves & Payne Attorneys at Law</p>
+              </div>
+
+              <!-- Video 5 -->
+              <div class="carousel-item">
+                <div class="video-thumbnail" data-video-id="f0t7yBWhDtk">
+                  <img src="https://img.youtube.com/vi/f0t7yBWhDtk/maxresdefault.jpg" alt="Introducing DEFLECTO" loading="lazy">
+                  <div class="video-play-btn"></div>
+                </div>
+                <span class="video-category">SATIRE</span>
+                <p class="video-title">Introducing DEFLECTO</p>
+              </div>
+            </div>
+
+            <!-- Cyan Progress Bar -->
+            <div class="progress-track">
+              <div class="progress-fill" id="carousel-progress"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Subsection -->
+        <div class="subsection" id="gallery">
+          <h3 class="subsection-title">Image Gallery</h3>
+          <!-- Collection Filter Tags -->
+          <div class="tags" style="margin-bottom: var(--space-xl);" id="gallery-tags">
+          <button class="tag active" data-collection="all">All</button>
+          <button class="tag" data-collection="apple-juice">Apple Juice</button>
+          <button class="tag" data-collection="gi-error">GI-ERROR</button>
+          <button class="tag" data-collection="ai-sauces">AI Sauces</button>
+          <button class="tag" data-collection="fun-with-sora">Fun-With-Sora</button>
+        </div>
+
+        <!-- Image Grid (Images loaded from GitHub repos) -->
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Apple Juice Collection (github.com/UsernameTron/Apple-Juice) -->
+          <div class="gallery-item" data-collection="apple-juice" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/IMG_4967.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="apple-juice" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/IMG_5013.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="apple-juice" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/Apple-Juice/main/IMG_5014.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+
+          <!-- GI-ERROR Collection (github.com/UsernameTron/GIERROR) -->
+          <div class="gallery-item" data-collection="gi-error" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/GIERROR/main/97%20Course.jpg">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="gi-error" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/GIERROR/main/46E4138C-223A-4B74-9B1A-76E628F24DCA.jpeg">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="gi-error" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/GIERROR/main/Battle%20scene.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+
+          <!-- AI Sauces Collection (github.com/UsernameTron/AISauce) -->
+          <div class="gallery-item" data-collection="ai-sauces" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/AISauce/main/aimlessaioli.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="ai-sauces" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/AISauce/main/conversionketchup.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="ai-sauces" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/AISauce/main/detectiondijon.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="ai-sauces" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/AISauce/main/chipotleclickbait.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+
+          <!-- Fun-With-Sora Collection (github.com/UsernameTron/Fun-With-Sora) -->
+          <div class="gallery-item" data-collection="fun-with-sora" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/1426DA27-48FF-48FD-8C0D-B68F79238D77.jpeg">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="fun-with-sora" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/146C2CB8-2AB9-45F9-B741-6DB9F4804715.jpeg">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="fun-with-sora" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250404_1905_Breaking%20Crab_simple_compose_01jr1m8dheea0vh65ha5yern9b.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+          <div class="gallery-item" data-collection="fun-with-sora" data-fullsrc="https://raw.githubusercontent.com/UsernameTron/Fun-With-Sora/main/20250405_0019_Desert%20Showdown_simple_compose_01jr266zr7e1cb2t8z6nmdd0cv.png">
+            <div class="skeleton skeleton-image"></div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════════════════════
+         CONTACT SECTION
+         ═══════════════════════════════════════════════════════════════════════════ -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2 class="contact-title">Let's <strong>Connect</strong></h2>
+        <p class="contact-description">
+          Interested in AI implementation, operations strategy, or just want to chat about technology?
+        </p>
+        <div class="social-links">
+          <a href="https://linkedin.com/in/cpconnor" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+          <a href="mailto:info@airealitycheck.org" class="social-link" aria-label="Email">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+              <path d="M22 6l-10 7L2 6"></path>
+            </svg>
+          </a>
+          <a href="https://github.com/UsernameTron" class="social-link" aria-label="GitHub" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+          </a>
+          <a href="https://youtube.com/@CPeteConnor" class="social-link" aria-label="YouTube" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <a href="https://substack.com/@cpconnor" class="social-link" aria-label="Substack" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/>
+            </svg>
+          </a>
+          <a href="https://medium.com/@cpeteconnor/about" class="social-link" aria-label="Medium" target="_blank" rel="noopener">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       LIGHTBOX
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <img id="lightbox-img" src="" alt="Full size image">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       FOOTER
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <p class="footer-text">
+      &copy; 2025 C. Pete Connor. Built with the <a href="#">Obsidian Design System</a>.
+    </p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="js/site.js"></script>
 </body>
-
 </html>

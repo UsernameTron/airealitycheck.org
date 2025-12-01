@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-auto">
+<head>
+  <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+  <script>
+    // Define these variables before loading components
+    const PAGE_TITLE = "C. Pete Conner – Professional CX Profile";
+    const PAGE_DESCRIPTION = "Comprehensive CX Profile showcasing transformative customer experience solutions, advanced AI/ML innovations, certifications, and professional recommendations.";
+    const REL_PATH = "../"; // Profile is one level down from root
+    const CANONICAL_PATH = "/portfolio/profile-google-style.html"; // Path after domain
+  </script>
+  
+  <!-- Loader script ensures theme and critical styling works -->
+  <script src="../js/loader.min.js"></script>
+
+  <!-- Resource hints for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../css/style.min.css" as="style">
+  <link rel="preload" href="../js/main.min.js" as="script">
+
+  <!-- Meta tags component placeholder -->
+  <!-- 
+  Standard Meta Tags Component
+  This component should be included in the <head> section of all pages.
+  
+  IMPORTANT: You must manually set these variables at the top of each page:
+  - const PAGE_TITLE = "Your Page Title";
+  - const PAGE_DESCRIPTION = "Your page description";
+  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
+  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
+-->
+
+<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+<script src="../js/loader.min.js"></script>
+
+<!-- Core Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="C. Pete Conner">
+<meta name="robots" content="index, follow">
+<meta name="description" content="A modern profile interface designed with Google's Material Design principles and clean aesthetics.">
+<title>AI Reality Check | Google Style Profile Interface</title>
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+
+<!-- Canonical URL (static for SEO reliability) -->
+<link rel="canonical" href="https://airealitycheck.org/portfolio/profile-google-style.html">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Reality Check">
+<meta property="og:title" content="AI Reality Check | Google Style Profile Interface">
+<meta property="og:description" content="A modern profile interface designed with Google's Material Design principles and clean aesthetics.">
+<meta property="og:url" content="https://airealitycheck.org/portfolio/profile-google-style.html">
+<meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+<meta property="og:image:alt" content="AI Reality Check banner">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@connor_pet68383">
+<meta name="twitter:creator" content="@connor_pet68383">
+<meta name="twitter:title" content="AI Reality Check | Google Style Profile Interface">
+<meta name="twitter:description" content="A modern profile interface designed with Google's Material Design principles and clean aesthetics.">
+<meta name="twitter:url" content="https://airealitycheck.org/portfolio/profile-google-style.html">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="../css/style.min.css">
+<link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+
+<!-- Error Recovery Script -->
+<script>
+    // Check if styles are loaded correctly after a short delay
+    setTimeout(function() {
+        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+            try {
+                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+            } catch(e) {
+                return false;
+            }
+        });
+        
+        if (!hasStylesheet) {
+            console.warn('Stylesheet not detected, trying emergency load');
+            const emergencyStyle = document.createElement('link');
+            emergencyStyle.rel = 'stylesheet';
+            emergencyStyle.href = '../css/style.min.css';
+            document.head.appendChild(emergencyStyle);
+        }
+    }, 500);
+</script>
+  
+  <meta property="og:title" content="C. Pete Conner – Professional CX Profile">
+  <meta property="og:description" content="A dynamic portfolio of CX-driven accomplishments with strategic, metrics-driven outcomes.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://airealitycheck.org/portfolio/profile-google-style.html">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Product Sans is a Google-only font, using Roboto as a fallback -->
+  
+  <style>
+    /* Google-Inspired Color Palette & Theme Variables */
+    :root {
+      --blue: #4285F4;
+      --red: #EA4335;
+      --yellow: #FBBC05;
+      --green: #34A853;
+      --dark-gray: #202124;
+      --medium-gray: #5F6368;
+      --light-gray: #E8EAED;
+      --white: #FFFFFF;
+      /* Theme Defaults */
+      --primary-bg: var(--dark-gray);
+      --secondary-bg: #303134;
+      --tertiary-bg: #404144;
+      --primary-text: var(--white);
+      --secondary-text: #BDC1C6;
+      --accent-color: var(--blue);
+      --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      --transition-speed: 0.25s;
+    }
+    
+    /* Dark Mode Overrides already set as defaults */
+    
+    /* Global Resets & Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      /* Subtle dot pattern overlay */
+      background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Roboto', sans-serif;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      font-weight: 500;
+    }
+    
+    h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-top: 5rem;
+    }
+    
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+    
+    h3 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color var(--transition-speed);
+    }
+    
+    a:hover {
+      color: var(--red);
+    }
+    
+    ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    /* Header with Fixed Position */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--primary-bg);
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      padding: 1rem 0;
+      transition: all var(--transition-speed);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-left: 3px;
+    }
+    
+    .logo-dot-1 { background-color: var(--blue); }
+    .logo-dot-2 { background-color: var(--red); }
+    .logo-dot-3 { background-color: var(--yellow); }
+    .logo-dot-4 { background-color: var(--green); }
+    
+    /* Section Styling */
+    .section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--secondary-bg);
+    }
+    
+    .section:nth-child(even) {
+      background-color: var(--tertiary-bg);
+    }
+    
+    .section-title {
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(to right, var(--blue), var(--red), var(--yellow), var(--green));
+      border-radius: 2px;
+    }
+    
+    /* Metric Visuals & Cards */
+    .metric-visuals {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    
+    .metric-item {
+      background-color: var(--primary-bg);
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: var(--box-shadow);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .metric-label {
+      font-weight: 500;
+      color: var(--secondary-text);
+      margin-bottom: 1rem;
+    }
+    
+    .metric-bar-container {
+      height: 10px;
+      background-color: var(--secondary-bg);
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+    
+    .metric-bar {
+      height: 100%;
+      width: 0;
+      transition: width 1.5s ease;
+      border-radius: 5px;
+    }
+    
+    .metric-visuals .metric-item:nth-child(3n+1) .metric-bar {
+      background-color: var(--accent-color);
+    }
+    
+    .metric-visuals .metric-item:nth-child(3n+2) .metric-bar {
+      background-color: var(--red);
+    }
+    
+    .metric-visuals .metric-item:nth-child(3n+3) .metric-bar {
+      background-color: var(--green);
+    }
+    
+    .metric-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--red);
+      text-align: right;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Highlight Box for Key Takeaways */
+    .highlight {
+      background-color: var(--tertiary-bg);
+      border-left: 4px solid var(--accent-color);
+      padding: 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin: 2rem 0;
+    }
+    
+    /* Card Styles (for various sections) */
+    .card {
+      background-color: var(--secondary-bg);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    }
+    
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    
+    /* Skills & Certifications Cards - left accent */
+    .skill-card {
+      border-left: 4px solid var(--green);
+    }
+    
+    /* Recommendation Cards - left accent */
+    .recommendation-card {
+      border-left: 2px solid var(--blue);
+    }
+    
+    /* Toggle Link for Certifications Section */
+    .toggle-link {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 1px dashed var(--accent-color);
+    }
+    
+    /* Grid Layout for Recommendation Cards & Project Cards */
+    .grid {
+      display: grid;
+      gap: 1.5rem;
+    }
+    
+    .grid.single-column {
+      grid-template-columns: 1fr;
+    }
+    
+    .project-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .project-card {
+      background-color: var(--primary-bg);
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: var(--box-shadow);
+      transition: transform var(--transition-speed);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-card h3 {
+      color: var(--accent-color);
+      margin-bottom: 1rem;
+    }
+    
+    .project-card p {
+      color: var(--secondary-text);
+      flex-grow: 1;
+    }
+    
+    .project-card a {
+      margin-top: 1rem;
+      display: inline-block;
+      color: var(--accent-color);
+      font-weight: 500;
+    }
+    
+    .project-card a:hover {
+      color: var(--dark-gray);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .project-links {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.8rem;
+      }
+      h2 {
+        font-size: 2rem;
+      }
+      .metric-visuals, .project-links, .grid.single-column {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2.2rem;
+      }
+      
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+  
+  <!-- Script for Animating Metric Bars -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        document.querySelectorAll('.metric-bar').forEach(bar => {
+          bar.style.width = bar.getAttribute('data-percentage');
+        });
+      }, 300);
+    });
+  </script>
+</head>
+<body>
+  <!-- Header Component Placeholder -->
+  <!-- Standard Header Component with proper ARIA landmarks -->
+<header role="banner">
+    <div class="container">
+        <div class="logo">
+            <a href="../" aria-label="AI Reality Check - Home">
+                <span class="visually-hidden">AI Reality Check</span>
+                <span aria-hidden="true">AI Reality Check</span>
+            </a>
+        </div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Switch theme (current: auto)" aria-pressed="false">
+          <span class="light-icon">☀️</span>
+          <span class="dark-icon" style="display:none">🌙</span>
+          <span class="auto-icon" style="display:none">⟲</span>
+        </button>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <nav id="main-navigation" role="navigation" aria-label="Main navigation">
+            <ul>
+                <li><a href="/case-studies/">Case Studies</a></li>
+                <li><a href="/articles/">Articles</a></li>
+                <li><a href="/portfolio/">Portfolio</a></li>
+                <li><a href="/creative/">Creative</a></li>
+                <li><a href="/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero section template - pages should add this after the header placeholder -->
+<!-- 
+<section class="hero" role="region" aria-labelledby="page-title">
+    <div class="container">
+        <h1 id="page-title">Page Title</h1>
+        <p class="subtitle">Page subtitle or description</p>
+    </div>
+</section>
+-->
+
+<!-- Visually-hidden class has been added to style.css -->
+<!-- This template helps maintain proper heading hierarchy with h1 in main content -->
+  
+  <!-- Introduction / Overview Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Overview</h2>
+      <p>
+        I've dedicated my career to transforming operational bottlenecks into gateways for growth—always with a keen eye on maximizing the customer experience (CX). My passion for AI, ML, and process automation has consistently delivered faster resolutions, deeper insights, and measurable cost savings across BPO, healthcare RCM, and large-scale contact centers.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Why CX Matters -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Why It All Revolves Around CX</h2>
+      <p>
+        Every solution I design—whether it’s advanced generative content or robust predictive analytics—fuses seamlessly with core CX principles: speed, empathy, and customer satisfaction. My approach harmonizes workflow acceleration with people-first innovation, ensuring that every touchpoint resonates with quality and efficiency.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Large-Scale Operational Transformations -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Large-Scale Operational Transformations</h2>
+      <p>
+        By implementing AI-based workflows, I’ve turned complexity into efficiency. Key performance boosts include:
+      </p>
+      <div class="metric-visuals">
+        <div class="metric-item">
+          <span class="metric-label">Referral-to-Appointment Conversions</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="70%"></div>
+          </div>
+          <div class="metric-value">70% Increase</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Service Delivery Speed</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="33%"></div>
+          </div>
+          <div class="metric-value">33% Faster</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Cost Reduction</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="25%"></div>
+          </div>
+          <div class="metric-value">25% Reduction</div>
+        </div>
+      </div>
+      <ul>
+        <li>Deployed MindMeld AI solutions generating <strong>$8M–$12M</strong> in annual savings per engagement.</li>
+        <li>Scaled operations from 50 to 200+ agents while maintaining 90%+ CSAT under heavy demand surges.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Bottom Line:</strong> Integrating analytics with empathetic design creates lasting CX improvements.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Creative Content & Prompt Engineering -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Creative Content & Prompt Engineering</h2>
+      <p>
+        I merge brand consistency with minimal iterative overhead to generate creative content:
+      </p>
+      <div class="metric-visuals">
+        <div class="metric-item">
+          <span class="metric-label">Prompt Cycle Reduction</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="50%"></div>
+          </div>
+          <div class="metric-value">40&ndash;60% Reduction</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Text-to-Video Uptime</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="99.9%"></div>
+          </div>
+          <div class="metric-value">99.9% Uptime</div>
+        </div>
+      </div>
+      <ul>
+        <li>Maintained ~95% token accuracy for creative outputs.</li>
+        <li>Reduced manual iterations in text-to-video pipelines by ~60% achieving ~300ms cycle times.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Outcome:</strong> Creative teams pivot quickly, ensuring cohesive and impactful brand imagery.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sentiment Analysis & Resource Optimization -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Sentiment Analysis & Resource Optimization</h2>
+      <p>
+        My sentiment platforms and Apple Silicon-based LLM engines deliver real-time, efficient analysis:
+      </p>
+      <div class="metric-visuals">
+        <div class="metric-item">
+          <span class="metric-label">Data Coverage</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="98%"></div>
+          </div>
+          <div class="metric-value">98% Coverage</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Texts Processed/Sec</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="100%"></div>
+          </div>
+          <div class="metric-value">1,200/sec</div>
+        </div>
+      </div>
+      <ul>
+        <li>Handled documents up to 100MB and video frames at ~300ms latency.</li>
+        <li>Optimized GPU and memory usage for near-instant analytics.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Key Advantage:</strong> Real-time insights enable teams to adapt instantly based on sentiment metrics.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Recruitment & HR Analytics -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Recruitment & HR Analytics</h2>
+      <p>
+        Implementing predictive hiring trackers and workforce analytics empowers proactive recruitment and retention:
+      </p>
+      <div class="metric-visuals">
+        <div class="metric-item">
+          <span class="metric-label">Hiring Pattern Accuracy</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="92%"></div>
+          </div>
+          <div class="metric-value">92% Accuracy</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Turnover Reduction</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="30%"></div>
+          </div>
+          <div class="metric-value">15&ndash;30% Reduction</div>
+        </div>
+      </div>
+      <ul>
+        <li>Job screening with sub-100ms overhead saves ~$1,500 per agent annually.</li>
+        <li>Accent neutralization reduces AHT by 8–12%, saving additional training costs.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Theme:</strong> Data-informed HR decisions foster a stable, high-performing workforce.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Healthcare Denial Prediction & RCM -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Healthcare Denial Prediction & RCM</h2>
+      <p>
+        Leveraging AI to secure revenue and reduce manual tasks in healthcare:
+      </p>
+      <div class="metric-visuals">
+        <div class="metric-item">
+          <span class="metric-label">Model Accuracy</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="91.8%"></div>
+          </div>
+          <div class="metric-value">91.8% F1 ~93.8%</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">ROI</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="100%"></div>
+          </div>
+          <div class="metric-value">148.5% ROI</div>
+        </div>
+      </div>
+      <ul>
+        <li>Secured $150K+ monthly in reimbursements with a ~4.8-month payback.</li>
+        <li>Ensured full HIPAA, SOC 2, and GDPR compliance while optimizing costs.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Result:</strong> Accelerated claim approvals and robust compliance across healthcare providers.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Center Optimization & CX Metrics -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Contact Center Optimization & CX Metrics</h2>
+      <p>
+        My contact center solutions combine real-time dashboards with strategic AI to enhance customer interactions:
+      </p>
+      <div class="metric-visuals">
+        <div class="metric-item">
+          <span class="metric-label">FCR Improvement</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="19%"></div>
+          </div>
+          <div class="metric-value">Up to 93% Rate</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Ticket Reduction</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="30%"></div>
+          </div>
+          <div class="metric-value">30% Lower</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">NPS Boost</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="20%"></div>
+          </div>
+          <div class="metric-value">~20% Increase</div>
+        </div>
+      </div>
+      <ul>
+        <li>AHT reduced by 23% and customer retention improved by ~15%.</li>
+        <li>Achieved a 70% increase in referral-to-appointment conversions.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Core Benefit:</strong> Deeper agent-customer interactions delivered with speed and relevance.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Strategic Advantage & Custom In-House Models -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Strategic Advantage & Custom In-House Models</h2>
+      <p>
+        By tailoring AI models, I consistently deliver a performance edge:
+      </p>
+      <div class="metric-visuals">
+        <div class="metric-item">
+          <span class="metric-label">Vendor Failure Rate</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="85%"></div>
+          </div>
+          <div class="metric-value">Reduced to ~30&ndash;40%</div>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Cost Savings</span>
+          <div class="metric-bar-container">
+            <div class="metric-bar" data-percentage="100%"></div>
+          </div>
+          <div class="metric-value">~$620K per Deployment</div>
+        </div>
+      </div>
+      <ul>
+        <li>Customized solutions adhering to HIPAA, PCI, and SOC 2 requirements without compromising ROI.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Takeaway:</strong> Domain-savvy customization delivers sustained performance and unique business advantages.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Leadership & Collaboration -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Leadership & Collaboration</h2>
+      <p>
+        My cross-functional leadership merges data-driven insights with human empathy:
+      </p>
+      <ul>
+        <li>Collaborated seamlessly with Finance, Product, and IT, integrating payment platforms and ticketing systems.</li>
+        <li>Developed real-time KPI dashboards (Power BI, SQL) that increased performance by 25%.</li>
+      </ul>
+      <div class="highlight">
+        <strong>Philosophy:</strong> Transparent, process-driven leadership ensures unified productivity and clear stakeholder alignment.
+      </div>
+    </div>
+  </section>
+  
+  <!-- Skills & Certifications (from skills.html) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Skills & Certifications</h2>
+      <p>
+        My professional journey is bolstered by a wide range of certifications validating my expertise:
+      </p>
+      <!-- Toggle for Certifications -->
+      <span class="toggle-link" onclick="toggleCertifications()">View All Certifications</span>
+      <div id="certifications-list" style="display: none;">
+        <!-- DeepLearning.AI -->
+        <article class="card skill-card">
+          <h3>DeepLearning.AI</h3>
+          <p>
+            <strong>Advanced Reasoning Prompt Engineering with o1</strong><br>
+            Issued Dec 2024<br>
+            <em>(Credential available via DeepLearning.AI)</em>
+          </p>
+        </article>
+        <!-- 365 Data Science Certifications -->
+        <article class="card skill-card">
+          <h3>365 Data Science</h3>
+          <ul>
+            <li><strong>Build Chat Applications with OpenAI and LangChain</strong> – Issued Nov 2024</li>
+            <li><strong>Chat GPT and Generative AI</strong> – Issued Nov 2024</li>
+            <li><strong>ChatGPT for Data Science</strong> – Issued Nov 2024</li>
+            <li><strong>Data Analysis in PowerBI with ChatGPT</strong> – Issued Nov 2024</li>
+            <li><strong>Data Analysis with Excel Pivot Tables</strong> – Issued Nov 2024</li>
+            <li><strong>Data Literacy</strong> – Issued Nov 2024</li>
+            <li><strong>Data Strategy</strong> – Issued Nov 2024</li>
+            <li><strong>Git and Github</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to AI</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Data Science</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Excel</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Jupyter</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Programming Using Python</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to R Programming</strong> – Issued Nov 2024</li>
+            <li><strong>Introduction to Tableau</strong> – Issued Nov 2024</li>
+            <li><strong>Product Management for AI & Data Science</strong> – Issued Nov 2024</li>
+            <li><strong>Statistics</strong> – Issued Nov 2024</li>
+            <li><strong>The Complete Data Visualization Course with Python, R, Tableau, and Excel</strong> – Issued Nov 2024</li>
+            <li><strong>Data Analysis with ChatGPT</strong> – Issued Nov 2024</li>
+            <li><strong>Advanced Excel</strong> – Issued Nov 2024</li>
+          </ul>
+        </article>
+        <!-- Marquis Who's Who -->
+        <article class="card skill-card">
+          <h3>Marquis Who's Who</h3>
+          <p>
+            <strong>Honored Listee</strong><br>
+            Issued Jul 2024 · Expires Dec 2029
+          </p>
+        </article>
+        <!-- Certified Call Center Management -->
+        <article class="card skill-card">
+          <h3>Certified Call Center Management</h3>
+          <p><strong>Certified Call Center Management</strong></p>
+        </article>
+        <!-- Project Management Institute -->
+        <article class="card skill-card">
+          <h3>Project Management Institute</h3>
+          <p><strong>Project Management Professional (PMP)</strong></p>
+        </article>
+        <!-- Six Sigma PH -->
+        <article class="card skill-card">
+          <h3>Six Sigma PH</h3>
+          <p><strong>Six Sigma-Green Belt Change Management</strong></p>
+        </article>
+        <!-- Toastmasters International -->
+        <article class="card skill-card">
+          <h3>Toastmasters International</h3>
+          <p><strong>Toastmasters Public Speaking</strong></p>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Professional Recommendations (from reccomendations.html) -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">Professional Recommendations</h2>
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <a class="btn" href="https://www.linkedin.com/in/petecconnor/details/recommendations/?detailScreenTabIndex=0" target="_blank">View All LinkedIn Recommendations</a>
+      </div>
+      <div class="grid single-column">
+        <!-- Recommendation: Tamar Stolz -->
+        <article class="card recommendation-card">
+          <h3>Tamar Stolz</h3>
+          <p style="font-weight: bold; color: var(--accent-color);">Creator of The Momentum Accelerator™</p>
+          <p style="font-style: italic; color: var(--secondary-text);">
+            "Pete is an incredible innovator and problem-solver. I had a vision and he tackled it head-on by developing a fully customized assessment tool that brought my vision to life! Working with Pete was a fantastic experience—he’s incredibly skilled, creative, and a true pleasure to collaborate with. I highly recommend him for innovative, strategic solutions."
+          </p>
+        </article>
+        <!-- Recommendation: Darren Prine -->
+        <article class="card recommendation-card">
+          <h3>Darren Prine</h3>
+          <p style="font-weight: bold; color: var(--accent-color);">CX Facilitator, Guide and Advisor / CX Solutions Guru</p>
+          <p style="font-style: italic; color: var(--secondary-text);">
+            "I’m thrilled to recommend Pete Connor, a true innovator in the CX and AI landscape. His ability to integrate AI-driven analytics with actionable strategies has not only reduced churn but also boosted measurable outcomes. Pete’s expertise and collaborative spirit set him apart as a transformative leader."
+          </p>
+        </article>
+        <!-- Recommendation: MICHELE CROCKER -->
+        <article class="card recommendation-card">
+          <h3>MICHELE CROCKER</h3>
+          <p style="font-weight: bold; color: var(--accent-color);">
+            Digital Transformation and Contact Center Expert / Board Member / Change Leader / Harvard Business Review Contributor
+          </p>
+          <p style="font-style: italic; color: var(--secondary-text);">
+            "Pete is a seasoned contact center leader who understands the importance of optimizing and aligning people, processes, and technology. His growth mindset and forward-thinking approach create a culture of learning and innovation. He is a true A Player in every sense, consistently executing with professionalism and strategic insight."
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Footer Component Placeholder -->
+  <!-- Standard Footer Component -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="/case-studies/">Case Studies</a></li>
+                    <li><a href="/articles/">Articles</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+        </div>
+    </div>
+</footer>
+  
+  <!-- JavaScript for Toggle Functionality -->
+  <script>
+    function toggleCertifications() {
+      var certList = document.getElementById("certifications-list");
+      if (certList.style.display === "none" || certList.style.display === "") {
+        certList.style.display = "block";
+      } else {
+        certList.style.display = "none";
+      }
+    }
+  </script>
+  
+  <!-- Component loading scripts -->
+  <script src="../js/main.min.js"></script>
+  
+  
+  <!-- Load components -->
+  
+</body>
+</html>

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-auto">
+<head>
+  <!-- Meta Information Setup (REQUIRED for proper SEO) -->
+  <script>
+    // Define these variables before loading components
+    const PAGE_TITLE = "Tools That Work";
+    const PAGE_DESCRIPTION = "Practical AI prompt tools that work - no paywall, no comment bait, direct access to all the tools you need.";
+    const REL_PATH = "./"; // Tools is at root level
+    const CANONICAL_PATH = "/tools.html"; // Path after domain
+  </script>
+  
+  <!-- Loader script ensures theme and critical styling works -->
+  <script src="../js/loader.min.js"></script>
+
+  <!-- Resource hints for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="../css/style.min.css" as="style">
+  <link rel="preload" href="../js/main.min.js" as="script">
+
+  <!-- Direct stylesheet references to ensure they load -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.min.css">
+  
+  <!-- Meta tags component placeholder -->
+  <!-- 
+  Standard Meta Tags Component
+  This component should be included in the <head> section of all pages.
+  
+  IMPORTANT: You must manually set these variables at the top of each page:
+  - const PAGE_TITLE = "Your Page Title";
+  - const PAGE_DESCRIPTION = "Your page description";
+  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
+  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
+-->
+
+<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
+<script src="../js/loader.min.js"></script>
+
+<!-- Core Meta Tags -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="C. Pete Conner">
+<meta name="robots" content="index, follow">
+<meta name="description" content="A comprehensive collection of AI tools, prompts, and resources for enhancing productivity and creativity.">
+<title>AI Reality Check | AI Tools & Resources</title>
+
+<!-- Content Security Policy -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
+
+<!-- Canonical URL (static for SEO reliability) -->
+<link rel="canonical" href="https://airealitycheck.org/portfolio/tools.html">
+
+<!-- Open Graph / Facebook Meta Tags -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AI Reality Check">
+<meta property="og:title" content="AI Reality Check | AI Tools & Resources">
+<meta property="og:description" content="A comprehensive collection of AI tools, prompts, and resources for enhancing productivity and creativity.">
+<meta property="og:url" content="https://airealitycheck.org/portfolio/tools.html">
+<meta property="og:image" content="https://airealitycheck.org/images/hero/ARC-Hero.webp">
+<meta property="og:image:alt" content="AI Reality Check banner">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@connor_pet68383">
+<meta name="twitter:creator" content="@connor_pet68383">
+<meta name="twitter:title" content="AI Reality Check | AI Tools & Resources">
+<meta name="twitter:description" content="A comprehensive collection of AI tools, prompts, and resources for enhancing productivity and creativity.">
+<meta name="twitter:url" content="https://airealitycheck.org/portfolio/tools.html">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Product+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Main Stylesheet -->
+<link rel="stylesheet" href="../css/style.min.css">
+<link rel="stylesheet" href="../css/style.css" media="print" onload="this.media='all'; this.onload=null;">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+
+<!-- Error Recovery Script -->
+<script>
+    // Check if styles are loaded correctly after a short delay
+    setTimeout(function() {
+        const hasStylesheet = Array.from(document.styleSheets).some(sheet => {
+            try {
+                return sheet.href && (sheet.href.includes('/style.min.css') || sheet.href.includes('/style.css'));
+            } catch(e) {
+                return false;
+            }
+        });
+        
+        if (!hasStylesheet) {
+            console.warn('Stylesheet not detected, trying emergency load');
+            const emergencyStyle = document.createElement('link');
+            emergencyStyle.rel = 'stylesheet';
+            emergencyStyle.href = '../css/style.min.css';
+            document.head.appendChild(emergencyStyle);
+        }
+    }, 500);
+</script>
+  
+  <style>
+    :root {
+      /* Color Palette */
+      --primary-bg: #fafafa;
+      --primary-text: #202124;
+      --accent-color: #4285F4;
+      --accent-hover: #1a73e8;
+      --dark-gray: #202124;
+      --medium-gray: #5f6368;
+      --light-gray: #e8eaed;
+      --card-bg: #f5f5f5;
+      --shadow: 0 2px 10px rgba(0,0,0,0.1);
+      --transition-speed: 0.25s;
+
+      /* Typography */
+      --font-sans: 'Roboto', 'Product Sans', sans-serif;
+
+      /* Spacing */
+      --spacing-container-padding: 24px;
+      --spacing-header-padding: 24px 24px 20px;
+      --spacing-hero-padding: 80px 24px 60px;
+
+      /* Border Radius */
+      --border-radius: 8px;
+
+      /* Button */
+      --button-bg: var(--accent-color);
+      --button-text: #fff;
+      --button-hover-bg: var(--accent-hover);
+
+      /* Misc */
+      --transition: all 0.3s ease;
+    }
+
+    /* Dark Mode Support */
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --primary-bg: #202124;
+        --primary-text: #f4f4f4;
+        --accent-color: #8ab4f8;
+        --accent-hover: #1a73e8;
+        --dark-gray: #e8eaed;
+        --medium-gray: #9aa0a6;
+        --light-gray: #3c4043;
+        --card-bg: #333333;
+        --shadow: 0 2px 10px rgba(0,0,0,0.5);
+      }
+    }
+
+    /* Global Styles */
+    body {
+      margin: 0;
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary-bg);
+      padding: var(--spacing-header-padding);
+      border-bottom: 1px solid var(--light-gray);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    /* Nav and Logo */
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-weight: 500;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--primary-text);
+    }
+
+    .nav a {
+      color: var(--primary-text);
+      padding: 8px 12px;
+      border-radius: var(--border-radius);
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus {
+      background-color: var(--accent-color);
+      color: var(--button-text);
+      text-decoration: none;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      font-family: 'Product Sans', 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--accent-color);
+      user-select: none;
+      cursor: default;
+      gap: 6px;
+    }
+
+    .logo .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--accent-color);
+      display: inline-block;
+    }
+
+    .logo .dot:nth-child(2) {
+      background-color: #ea4335; /* red */
+    }
+
+    .logo .dot:nth-child(3) {
+      background-color: #fbbc05; /* yellow */
+    }
+
+    .logo .dot:nth-child(4) {
+      background-color: #34a853; /* green */
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: var(--spacing-container-padding);
+      padding-right: var(--spacing-container-padding);
+    }
+
+    /* Hero / Main Content */
+    main.tools-content {
+      padding: var(--spacing-hero-padding);
+      max-width: 900px;
+      margin: 0 auto;
+      padding-left: var(--spacing-container-padding);
+      padding-right: var(--spacing-container-padding);
+    }
+
+    main.tools-content h1 {
+      font-family: 'Product Sans', 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 2.5rem;
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .tools-intro {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+      color: var(--primary-text);
+    }
+
+    .tool-item {
+      background-color: var(--card-bg);
+      margin-bottom: 30px;
+      padding: 25px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      border-left: 5px solid var(--accent-color);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: var(--primary-text);
+    }
+
+    .tool-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .tool-item:nth-child(2) {
+      border-left-color: #ea4335;
+    }
+
+    .tool-item:nth-child(3) {
+      border-left-color: #34a853;
+    }
+
+    .tool-item:nth-child(4) {
+      border-left-color: #fbbc05;
+    }
+
+    .tool-item:nth-child(5) {
+      border-left-color: #1a73e8;
+    }
+
+    .tool-item h2 {
+      font-family: 'Product Sans', 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-top: 0;
+      margin-bottom: 0.75rem;
+      color: var(--accent-color);
+    }
+
+    .tool-item em {
+      display: block;
+      font-style: italic;
+      color: #ea4335;
+      margin-bottom: 1.25rem;
+      font-size: 1.1rem;
+    }
+
+    .tool-item p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+      color: var(--primary-text);
+    }
+
+    .tool-item ul {
+      margin-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      color: var(--primary-text);
+    }
+
+    .tool-item li {
+      margin-bottom: 0.5rem;
+    }
+
+    .tool-link {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      margin-top: 0.5rem;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      font-family: var(--font-sans);
+    }
+
+    .tool-link:hover {
+      background-color: var(--button-hover-bg);
+      transform: translateY(-2px);
+    }
+
+    .tool-section {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid var(--light-gray);
+    }
+
+    .tool-section h3 {
+      font-family: 'Product Sans', 'Roboto', sans-serif;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: var(--accent-color);
+    }
+
+    .tool-section p em {
+      display: block;
+      font-style: italic;
+      color: #ea4335;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    /* Dark mode support for section borders */
+    @media (prefers-color-scheme: dark) {
+      .tool-section {
+        border-top: 1px solid rgba(255,255,255,0.1);
+      }
+    }
+
+    .return-link {
+      display: block;
+      text-align: center;
+      margin-top: 2rem;
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: 500;
+      font-family: var(--font-sans);
+    }
+
+    .return-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      main.tools-content {
+        padding-top: 70px;
+      }
+
+      main.tools-content h1 {
+        font-size: 2rem;
+      }
+
+      .tool-item {
+        padding: 20px;
+      }
+
+      .tool-item h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main.tools-content {
+        padding-top: 60px;
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      main.tools-content h1 {
+        font-size: 1.8rem;
+      }
+
+      .tools-intro {
+        font-size: 1rem;
+      }
+
+      .tool-item h2 {
+        font-size: 1.3rem;
+      }
+
+      .tool-item em {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header Component Placeholder -->
+  <header>
+    <div class="logo" aria-label="ARC Logo" role="img" title="ARC Logo">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="dot" aria-hidden="true"></span>
+      <span class="dot" aria-hidden="true"></span>
+      ARC
+    </div>
+    <nav class="nav" role="navigation" aria-label="Primary Navigation">
+      <a href="/">Home</a>
+      <a href="/resources/">Resources</a>
+      <a href="/tools.html" aria-current="page">Tools</a>
+      <a href="/about/">About</a>
+    </nav>
+  </header>
+  
+  <!-- Main Content -->
+  <main class="tools-content">
+    <h1>🛠️ Tools That Work</h1>
+    
+    <div class="tools-intro">
+      <!-- Intro content moved to the main tool item -->
+    </div>
+    
+    <div class="tool-list">
+      <!-- Single combined tool with all content -->
+      <div class="tool-item">
+        <h2>🛠️ Tools That Work</h2>
+        <em>"No Paywall, No Comment Bait, No Film Degree Required"</em>
+        <p>You don't need to comment "🔥" to get access. You don't need to buy a course. And you definitely don't need to "DM me for the prompt."</p>
+        <p>Below are tools I actually use — not because they're magical, but because they're not trying to be. They're fast, useful, and don't make you feel like you're hacking into the Pentagon just to write a better prompt.</p>
+        
+        <div class="tool-section">
+          <h3>🎨 Image Prompt Modifier + Organizer</h3>
+          <p><em>"Feel like a director without pretending you went to NYU."</em></p>
+          <p>A clean, web-based tool that helps you build better image prompts — even if you have no idea what "anamorphic lens" means. Click modifiers, stack up a prompt that actually sounds cinematic, and copy-paste it into your image model of choice.</p>
+          <p>No film degree. No guessing. Just results.</p>
+          <a class="tool-link" href="https://imagepromptingassistant.netlify.app/" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+        
+        <div class="tool-section">
+          <h3>🎥 Video Prompt Optimizer</h3>
+          <p><em>"Make text-to-video prompts that don't suck — no A24 worship required."</em></p>
+          <p>This one's for the video generation folks. Click your way through camera movements, moods, and scene styles without pretending you're Spielberg. It generates clean, structured prompts using cinematic terms most people don't even know exist.</p>
+          <p>Useful for:</p>
+          <ul>
+            <li>AI video tools like Runway, Pika, etc.</li>
+            <li>People who don't want to Google "Dutch angle" mid-project</li>
+          </ul>
+          <a class="tool-link" href="https://videopromptassistant.netlify.app/enhancer" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+        
+        <div class="tool-section">
+          <h3>🧠 Plain English Prompt Builder</h3>
+          <p><em>"Just tell it what you want. It'll do the rest. Like a prompt therapist."</em></p>
+          <p>Built on Streamlit, this tool lets you speak like a human ("I want a summary of X with examples and stats"), choose your model, click once, and boom — usable prompt, copy-paste ready. It's natural language to optimized engineering without the headache.</p>
+          <p>For the "I don't want to learn prompt theory, I just want it to work" crowd.</p>
+          <a class="tool-link" href="https://llm-system-prompts-vkaxmtjmoxpuvepoowpgby.streamlit.app/" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+        
+        <div class="tool-section">
+          <h3>🔍 Deep Research Prompt Generator (GPT Store)</h3>
+          <p><em>"Skip the hallucinations. Get research like it matters."</em></p>
+          <p>This GPT is designed to help you structure deep research prompts — the kind that ask for citations, studies, actual stats, and no BuzzFeed energy. Perfect for content, strategy, or when you want your AI to fake having a PhD.</p>
+          <a class="tool-link" href="https://chatgpt.com/g/g-67f893e169b0819186767f75812c77ae-deep-research-prompt-generator" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+        
+        <div class="tool-section">
+          <h3>🧩 Advanced Reasoning Prompt Generator (GPT Store)</h3>
+          <p><em>"Make your AI actually think, instead of just sounding confident."</em></p>
+          <p>This one's built for complex thinking. It walks you through creating structured, multi-step prompts that make the AI reason like it has a second brain cell. Ideal for strategy work, comparisons, decisions, or when you're tired of surface-level sludge.</p>
+          <a class="tool-link" href="https://chatgpt.com/g/g-67f893d21f788191ae0a76089f6f5fcb-advanced-reasoning-prompt-generator" target="_blank" rel="noopener">👉 Access Tool</a>
+        </div>
+      </div>
+    </div>
+    
+    <a href="resources/" class="return-link">Return to All Resources</a>
+  </main>
+  
+  <!-- Footer Component Placeholder -->
+  <!-- Standard Footer Component -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../">Home</a></li>
+                    <li><a href="/case-studies/">Case Studies</a></li>
+                    <li><a href="/articles/">Articles</a></li>
+                    <li><a href="/portfolio/">Portfolio</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Connect</h3>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 AI Reality Check. No rights reserved, but at least we wrote it ourselves.</p>
+        </div>
+    </div>
+</footer>
+  
+  <!-- Component loading scripts -->
+  <script src="js/main.min.js"></script>
+  
+</body>
+</html>
