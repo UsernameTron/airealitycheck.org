@@ -1,0 +1,39 @@
+/* Article-specific overrides for career content article pages */
+
+.article-content p {
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--primary-text);
+}
+
+.article-content ul,
+.article-content ol {
+  margin-bottom: 1.25rem;
+}
+
+.article-content li {
+  margin-bottom: 0.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+
+.article-content blockquote {
+  border-left: 4px solid var(--primary-blue);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  color: var(--neutral-medium);
+  font-style: italic;
+  background: var(--blue-bg);
+  border-radius: 0 8px 8px 0;
+}
+
+.article-content h2 {
+  font-size: 1.625rem;
+  margin-top: 2rem;
+}
+
+.article-content h3 {
+  font-size: 1.25rem;
+  color: var(--neutral-dark);
+  margin-top: 1.5rem;
+}

@@ -2,85 +2,57 @@ CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Commands
-
-### Development
-```bash
-npm run dev              # Vite dev server with HMR (port 3000)
-npm run preview          # Preview production build (port 8080)
-python -m http.server 8000  # Serve dist/ directly (for Lighthouse tests)
-```
-
-### Build
-```bash
-npm run build            # Full production build (Vite + gzip/brotli compression)
-npm run build:vite       # Vite build only (used by GitHub Actions)
-npm run build:css        # Rebuild Tailwind CSS
-npm run watch:css        # Watch mode for Tailwind
-```
-
-### Quality Assurance
-```bash
-npm run qa               # Comprehensive checks (lint, HTML validation, accessibility)
-npm run qa:fix           # Auto-fix linting issues
-npm run lint             # Run all linters (JS + CSS + HTML)
-npm run lint:fix         # Fix JS and CSS issues
-npm run test:lighthouse  # Run Lighthouse performance audits
-```
-
-### Asset Optimization
-```bash
-npm run optimize-images  # Compress and convert images to WebP
-npm run optimize-videos  # Compress video files
-```
-
 ## Architecture
 
-### Build System
-- **Bundler**: Vite 5.x with multi-page HTML support
-- **Output**: Production files go to `dist/` with automatic gzip/brotli compression
-- **Deployment**: GitHub Actions builds on push to main, deploys to gh-pages branch
-- **Domain**: airealitycheck.org (via CNAME)
-- **Node.js**: Requires 20+ for CI/CD
+**Static site deployed directly via GitHub Pages — no build step.**
 
-### Project Structure
+Files are served as-is from the repository root. There is no package.json, no Node.js toolchain, no Vite, and no Tailwind build pipeline. Do not attempt to run npm commands — they will fail.
+
+### Deployment
+- GitHub Actions (`.github/workflows/deploy.yml`) uploads the entire repo root to GitHub Pages
+- Push to `main` triggers automatic deploy
+- Live at: airealitycheck.org (CNAME)
+- Verify changes at: https://airealitycheck.org (~2 min after push)
+
+### Local Development
+```bash
+python -m http.server 8000   # Serve from repo root, visit http://localhost:8000
 ```
-├── index.html                 # Homepage
-├── articles/                  # Article pages
-├── case-studies/              # Case study pages
-├── portfolio/                 # Portfolio pages
-├── creative/                  # Creative gallery
-├── contact/                   # Contact page
-├── components/                # Shared HTML components (header, footer, meta-tags)
+
+## Project Structure
+
+```
+├── index.html                    # Homepage (Obsidian Design System)
 ├── css/
-│   ├── style.css              # Main stylesheet
-│   ├── tailwind.css           # Generated Tailwind output
-│   └── theme-variables.css    # CSS custom properties
+│   └── obsidian.css              # Main stylesheet for homepage/main site
 ├── js/
-│   ├── main.js                # Primary JavaScript
-│   ├── components.js          # Component loading system
-│   └── loader.js              # Asset lazy loading
-├── images/                    # Organized by section (hero/, articles/, case-studies/, etc.)
-├── scripts/                   # Node.js build and test scripts
-├── vite.config.js             # Vite configuration
-└── lighthouserc.js            # Lighthouse CI configuration
+│   └── site.js                   # Main site JavaScript
+├── images/                       # Site images (hero/, articles/, etc.)
+├── career-content/               # Career portfolio sub-pages
+│   ├── case-studies/             # 5 case study HTML files
+│   ├── articles/                 # 4 article HTML files
+│   ├── portfolio/                # 8 portfolio/demo HTML files
+│   ├── resources/                # 3 tool pages (ROI calc, AI readiness, prompt workspace)
+│   ├── css/                      # Shared CSS for career-content pages
+│   │   ├── style.min.css         # Google-style design system (main stylesheet)
+│   │   ├── style.css             # Alias that imports style.min.css
+│   │   ├── article-overrides.css # Article-specific styles
+│   │   └── theme-variables.css   # CSS custom properties only
+│   └── js/                       # Shared JS for career-content pages
+│       ├── loader.min.js         # Theme loader (runs before page render)
+│       └── main.min.js           # Theme toggle + mobile nav
+├── content/                      # Additional content
+├── .github/workflows/deploy.yml  # GitHub Actions deploy config
+└── CNAME                         # Custom domain configuration
 ```
 
-### Component System
-- Shared components in `components/` are loaded on-demand via `js/components.js`
-- Images use IntersectionObserver-based lazy loading
-- Site works without JavaScript with progressive enhancement
+## Design Systems
 
-### Quality Gates
-- **Pre-commit**: lint-staged runs ESLint on JS, Stylelint on CSS, HTMLHint on HTML
-- **Pre-push**: `npm run qa:lint` validates all code
-- **Lighthouse CI**: Performance 80%, Accessibility 90%, Best Practices 85%, SEO 90%
+The site uses **two separate design systems** (this is intentional — not a bug):
 
-## Design System: Obsidian
+### Main Site: Obsidian Design System
+Used by `index.html` and served via `css/obsidian.css`.
 
-The site follows the **Obsidian Design System** principles:
-
-### Color Palette
 ```css
 --bg: #09090b;              /* Warm near-black background */
 --surface: #111113;         /* Card/panel backgrounds */
@@ -88,58 +60,59 @@ The site follows the **Obsidian Design System** principles:
 --text: #fafafa;            /* Primary text */
 --text-secondary: #a1a1aa;  /* Secondary text */
 --text-muted: #71717a;      /* Muted text */
---accent: #22d3ee;          /* Cyan accent (single accent color) */
+--accent: #22d3ee;          /* Cyan accent */
 ```
 
-### Typography Rules
-- **Sans**: Geist (fallback: Satoshi, Plus Jakarta Sans, system-ui)
-- **Mono**: Geist Mono (fallback: JetBrains Mono, SF Mono)
-- **Weight extremes**: Use 200 (light) vs 700 (bold), not middle weights
-- **Monospace for ALL numeric data** (metrics, stats, dates)
-- **Labels**: Uppercase with `letter-spacing: 0.1em`
+- **Fonts**: Geist (sans), Geist Mono (mono)
+- **Style**: Dark, minimal, asymmetric layouts
 
-### Layout Patterns
-- **Asymmetric grids**: Use `280px | 1fr | 340px` for three-panel layouts
-- **Split hero**: `1.2fr | 1fr`, never centered
-- **1px borders only**: No box-shadows on cards
+### Career Content: Google-Inspired Design System
+Used by all pages in `career-content/`, served via `career-content/css/style.min.css`.
 
-### Key Components
-- **MetricCard**: Accent-colored values, uppercase labels, monospace numbers
-- **InsightCard**: 3px cyan `border-left`, rounded right corners only
-- **LiveIndicator**: Pulsing dot animation for active status
+```css
+--primary-blue: #4285F4;
+--primary-red: #EA4335;
+--primary-yellow: #FBBC05;
+--primary-green: #34A853;
+--neutral-dark: #202124;
+```
+
+- **Fonts**: Product Sans (headings), Roboto (body) — loaded from Google Fonts
+- **Style**: Light background, Material Design-inspired
 
 ## Code Standards
 
-### JavaScript
-- ES6+, no `var`
-- 2-space indent, single quotes, semicolons required
-- Strict equality (`===`), always use braces
-- No console.log in production
+### HTML
+- HTML5 doctype, lowercase tags, double-quoted attributes
+- Alt text required on all images
+- Dash-case class names
 
 ### CSS
 - CSS variables in `:root`
-- BEM-like naming
 - Mobile-first media queries
 - No `!important` in component styles
-- 2-space indent
 
-### HTML
-- HTML5 doctype, lowercase tags
-- Double quotes for attributes
-- Alt text required on images
-- Unique IDs, dash-case classes
+### JavaScript
+- ES6+ syntax, strict mode where applicable
+- No `console.log` in committed code
 
-## Performance Targets
+## Editing Career Content Pages
 
-| Metric | Target |
-|--------|--------|
-| Performance | >= 80% |
-| Accessibility | >= 90% |
-| Best Practices | >= 85% |
-| SEO | >= 90% |
-| FCP | < 2000ms |
-| LCP | < 4000ms |
-| CLS | < 0.1 |
-| TBT | < 300ms |
+When editing files in `career-content/`:
+- CSS is at `career-content/css/style.min.css` (Google-inspired palette)
+- JS is at `career-content/js/main.min.js` (theme toggle, mobile nav)
+- Pages reference these via `../css/style.min.css` and `../js/main.min.js`
+- Some pages have comprehensive inline `<style>` blocks — these take precedence
+- Resources pages (`career-content/resources/`) are fully self-contained with embedded styles
 
-Lighthouse tests run against mobile (375x667) with simulated 3G throttling.
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `index.html` | Homepage — main entry point |
+| `css/obsidian.css` | Main site styles (43KB) |
+| `js/site.js` | Main site interactions (19KB) |
+| `career-content/css/style.min.css` | Career content shared CSS |
+| `career-content/js/main.min.js` | Career content shared JS |
+| `.github/workflows/deploy.yml` | Deploy configuration |
+| `CNAME` | Custom domain: airealitycheck.org |

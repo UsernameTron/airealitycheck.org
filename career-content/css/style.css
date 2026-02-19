@@ -1,0 +1,4 @@
+/* AI Reality Check — Career Content Styles (non-minified alias)
+   This file is identical in purpose to style.min.css.
+   Both are served as the same shared stylesheet. */
+@import url('./style.min.css');
