@@ -5,7 +5,7 @@
  * Features:
  * 1. Carousel with cyan progress bar
  * 2. Lazy YouTube video loading
- * 3. Case study card selection
+ * 3. POCs section (data-driven from content/data.json)
  * 4. Creative gallery filter
  * 5. Lightbox
  * 6. Smooth scroll navigation
@@ -70,93 +70,161 @@
   }
 
   // ═══════════════════════════════════════════════════════════════════════════════
-  // 3. CASE STUDY CARD SELECTION
+  // 3. POCs SECTION (Data-driven from content/data.json)
   // ═══════════════════════════════════════════════════════════════════════════════
 
-  const caseStudyData = {
-    'operational-intelligence': {
-      title: 'Unified Operational Intelligence',
-      body: 'Real-time consolidation of Genesys Cloud, UKG workforce management, and Helpdesk data into a unified dashboard with predictive SLA alerts and AI-powered recommendations.',
-      impact: '$183K/yr',
-      timeline: 'Q4 2025',
-      url: 'https://ispn-tc-operational-intelligence.netlify.app/'
-    },
-    'email-command': {
-      title: 'Email Command Center',
-      body: 'n8n-powered email triage system with Slack alerts, AI-drafted responses, and automated routing. Reduces response time to under 2 minutes with 95% accuracy.',
-      impact: '2min SLA',
-      timeline: 'Q4 2025',
-      url: 'https://ispn-communications-ai-automation.netlify.app/'
-    },
-    'mindmeld': {
-      title: 'MindMeld Reasoning Program',
-      body: 'Multi-model orchestration framework that routes complex queries to the optimal AI model. Combines Claude, GPT-4, and custom models for enhanced decision-making.',
-      impact: '95% accuracy',
-      timeline: 'Ongoing',
-      url: '#'
-    }
+  // Category labels for filter tags
+  const categoryLabels = {
+    ai: 'AI/ML',
+    automation: 'Automation',
+    analytics: 'Analytics'
   };
 
-  function initCaseStudySelection() {
-    const cards = document.querySelectorAll('#case-study-list .card');
-    const insightTitle = document.getElementById('insight-title');
-    const insightBody = document.getElementById('insight-body');
-    const insightImpact = document.getElementById('insight-impact');
-    const insightTimeline = document.getElementById('insight-timeline');
-    const insightLink = document.getElementById('insight-link');
+  function renderCard(study, isFirst) {
+    const categories = (study.categories || []).join(' ');
+    const techTags = (study.tech || []).slice(0, 3).map(function(t) {
+      return '<span class="tag">' + t + '</span>';
+    }).join('');
 
-    if (!cards.length) return;
+    const statusHtml = study.status === 'active'
+      ? '<span class="live-indicator"><span class="pulse-dot"></span>ACTIVE</span>'
+      : '';
 
-    cards.forEach(function(card) {
-      card.addEventListener('click', function() {
-        // Update selected state
-        cards.forEach(function(c) { c.classList.remove('selected'); });
-        this.classList.add('selected');
+    return '<div class="card' + (isFirst ? ' selected' : '') + '" data-case="' + study.id + '" data-category="' + categories + '">' +
+      '<div class="card-header">' +
+        '<span class="card-title">' + study.title + '</span>' +
+        statusHtml +
+      '</div>' +
+      '<p class="card-description">' + study.summary + '</p>' +
+      '<div class="card-tags">' + techTags + '</div>' +
+    '</div>';
+  }
 
-        // Get case data
-        const caseId = this.dataset.case;
-        const data = caseStudyData[caseId];
+  function renderInsightPanel(study) {
+    const demoUrl = study.url || '#';
+    const linkStyle = demoUrl === '#' ? ' style="display:none"' : '';
 
-        if (data && insightTitle) {
-          insightTitle.textContent = data.title;
-          insightBody.textContent = data.body;
-          insightImpact.textContent = data.impact;
-          insightTimeline.textContent = data.timeline;
-          insightLink.href = data.url;
+    return '<div class="insight-label">SELECTED PROJECT</div>' +
+      '<h4 class="insight-title" id="insight-title">' + study.title + '</h4>' +
+      '<p class="insight-body" id="insight-body">' + study.description + '</p>' +
+      '<div class="insight-meta">' +
+        '<span class="meta-label">Impact</span>' +
+        '<span class="meta-value" id="insight-impact">' + study.impact + '</span>' +
+      '</div>' +
+      '<div class="insight-meta">' +
+        '<span class="meta-label">Timeline</span>' +
+        '<span class="meta-value" id="insight-timeline">' + study.timeline + '</span>' +
+      '</div>' +
+      '<a href="' + demoUrl + '" class="btn btn-primary insight-link" target="_blank" rel="noopener" id="insight-link"' + linkStyle + '>' +
+        'View Live Demo' +
+      '</a>';
+  }
+
+  function renderFilterTags(studies) {
+    const seen = {};
+    studies.forEach(function(s) {
+      (s.categories || []).forEach(function(c) { seen[c] = true; });
+    });
+
+    var html = '<button class="tag active" data-filter="all">All</button>';
+    Object.keys(seen).forEach(function(cat) {
+      var label = categoryLabels[cat] || cat.charAt(0).toUpperCase() + cat.slice(1);
+      html += '<button class="tag" data-filter="' + cat + '">' + label + '</button>';
+    });
+    return html;
+  }
+
+  function updateInsightPanel(study) {
+    var title = document.getElementById('insight-title');
+    var body = document.getElementById('insight-body');
+    var impact = document.getElementById('insight-impact');
+    var timeline = document.getElementById('insight-timeline');
+    var link = document.getElementById('insight-link');
+
+    if (!title) return;
+
+    title.textContent = study.title;
+    body.textContent = study.description;
+    impact.textContent = study.impact;
+    timeline.textContent = study.timeline;
+    link.href = study.url || '#';
+    link.style.display = (!study.url || study.url === '#') ? 'none' : '';
+  }
+
+  function bindCardSelection(studiesById) {
+    const list = document.getElementById('case-study-list');
+    if (!list) return;
+
+    list.addEventListener('click', function(e) {
+      const card = e.target.closest('.card');
+      if (!card) return;
+
+      list.querySelectorAll('.card').forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+
+      const study = studiesById[card.dataset.case];
+      if (study) updateInsightPanel(study);
+    });
+  }
+
+  function bindTagFiltering() {
+    const tagsContainer = document.getElementById('case-study-tags');
+    const list = document.getElementById('case-study-list');
+    if (!tagsContainer || !list) return;
+
+    tagsContainer.addEventListener('click', function(e) {
+      const tag = e.target.closest('.tag');
+      if (!tag) return;
+
+      tagsContainer.querySelectorAll('.tag').forEach(function(t) { t.classList.remove('active'); });
+      tag.classList.add('active');
+
+      const filter = tag.dataset.filter;
+      list.querySelectorAll('.card').forEach(function(card) {
+        if (filter === 'all') {
+          card.style.display = '';
+        } else {
+          var categories = card.dataset.category || '';
+          card.style.display = categories.includes(filter) ? '' : 'none';
         }
       });
     });
   }
 
-  // Case study tag filtering
-  function initCaseStudyTags() {
-    const tags = document.querySelectorAll('#case-study-tags .tag');
-    const cards = document.querySelectorAll('#case-study-list .card');
+  function initPOCs() {
+    const tagsContainer = document.getElementById('case-study-tags');
+    const list = document.getElementById('case-study-list');
+    const panel = document.getElementById('insight-panel');
 
-    if (!tags.length) return;
+    if (!list || !panel) return;
 
-    tags.forEach(function(tag) {
-      tag.addEventListener('click', function() {
-        // Update active state
-        tags.forEach(function(t) { t.classList.remove('active'); });
-        this.classList.add('active');
+    fetch('content/data.json')
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        var studies = data.caseStudies;
+        if (!studies || !studies.length) return;
 
-        const filter = this.dataset.filter;
+        // Build lookup map
+        var studiesById = {};
+        studies.forEach(function(s) { studiesById[s.id] = s; });
 
-        cards.forEach(function(card) {
-          if (filter === 'all') {
-            card.style.display = '';
-          } else {
-            const categories = card.dataset.category || '';
-            if (categories.includes(filter)) {
-              card.style.display = '';
-            } else {
-              card.style.display = 'none';
-            }
-          }
-        });
+        // Render tags
+        if (tagsContainer) {
+          tagsContainer.innerHTML = renderFilterTags(studies);
+        }
+
+        // Render cards
+        list.innerHTML = studies.map(function(s, i) {
+          return renderCard(s, i === 0);
+        }).join('');
+
+        // Render insight panel with first study
+        panel.innerHTML = renderInsightPanel(studies[0]);
+
+        // Bind interactions
+        bindCardSelection(studiesById);
+        bindTagFiltering();
       });
-    });
   }
 
   // ═══════════════════════════════════════════════════════════════════════════════
@@ -165,13 +233,36 @@
 
   function initGalleryFilter() {
     const tags = document.querySelectorAll('#gallery-tags .tag');
+    const grid = document.getElementById('gallery-grid');
     const items = document.querySelectorAll('#gallery-grid .gallery-item');
 
-    if (!tags.length) return;
+    if (!tags.length || !grid) return;
+
+    function updateEmptyState(collection) {
+      var existing = grid.querySelector('.gallery-empty-state');
+      if (existing) existing.remove();
+
+      var visibleCount = 0;
+      items.forEach(function(item) {
+        if (item.style.display !== 'none') visibleCount++;
+      });
+
+      if (visibleCount === 0) {
+        var empty = document.createElement('div');
+        empty.className = 'gallery-empty-state';
+        empty.innerHTML =
+          '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
+            '<rect x="3" y="3" width="18" height="18" rx="2"></rect>' +
+            '<circle cx="8.5" cy="8.5" r="1.5"></circle>' +
+            '<path d="M21 15l-5-5L5 21"></path>' +
+          '</svg>' +
+          '<span>No images in ' + (collection || 'this collection') + '</span>';
+        grid.appendChild(empty);
+      }
+    }
 
     tags.forEach(function(tag) {
       tag.addEventListener('click', function() {
-        // Update active state
         tags.forEach(function(t) { t.classList.remove('active'); });
         this.classList.add('active');
 
@@ -181,13 +272,11 @@
           if (collection === 'all') {
             item.style.display = '';
           } else {
-            if (item.dataset.collection === collection) {
-              item.style.display = '';
-            } else {
-              item.style.display = 'none';
-            }
+            item.style.display = item.dataset.collection === collection ? '' : 'none';
           }
         });
+
+        updateEmptyState(collection === 'all' ? null : this.textContent.trim());
       });
     });
   }
@@ -348,54 +437,51 @@
   // LAZY LOAD GALLERY IMAGES
   // ═══════════════════════════════════════════════════════════════════════════════
 
+  function loadGalleryImage(item) {
+    const src = item.dataset.fullsrc;
+    if (!src || item.querySelector('img') || item.classList.contains('error')) return;
+
+    const img = document.createElement('img');
+    img.alt = item.dataset.collection
+      ? item.dataset.collection.replace(/-/g, ' ') + ' gallery image'
+      : 'Gallery image';
+
+    item.appendChild(img);
+
+    img.onload = function() {
+      item.classList.add('loaded');
+    };
+
+    img.onerror = function() {
+      img.remove();
+      item.classList.add('error');
+
+      const fallback = document.createElement('div');
+      fallback.className = 'gallery-error-content';
+      fallback.innerHTML =
+        '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">' +
+          '<rect x="3" y="3" width="18" height="18" rx="2"></rect>' +
+          '<circle cx="8.5" cy="8.5" r="1.5"></circle>' +
+          '<path d="M21 15l-5-5L5 21"></path>' +
+        '</svg>' +
+        '<span>Image unavailable</span>';
+      item.appendChild(fallback);
+    };
+
+    img.src = src;
+  }
+
   function initLazyImages() {
     const galleryItems = document.querySelectorAll('.gallery-item');
+
+    if (!galleryItems.length) return;
 
     if ('IntersectionObserver' in window) {
       const observer = new IntersectionObserver(function(entries) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
-            const item = entry.target;
-            const src = item.dataset.fullsrc;
-
-            if (src && !item.querySelector('img')) {
-              const img = document.createElement('img');
-              img.alt = 'Gallery image';
-              img.style.opacity = '0';
-              img.style.transition = 'opacity 0.3s ease-out';
-
-              // Add image to DOM immediately (hidden)
-              item.appendChild(img);
-
-              img.onload = function() {
-                // Fade in the image
-                img.style.opacity = '1';
-                // Remove skeleton after fade starts
-                const skeleton = item.querySelector('.skeleton');
-                if (skeleton) {
-                  skeleton.style.opacity = '0';
-                  setTimeout(function() {
-                    skeleton.remove();
-                  }, 300);
-                }
-              };
-
-              img.onerror = function() {
-                // Show error state on skeleton
-                const skeleton = item.querySelector('.skeleton');
-                if (skeleton) {
-                  skeleton.style.animation = 'none';
-                  skeleton.style.background = 'var(--surface-alt)';
-                  skeleton.innerHTML = '<span style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);font-size:11px;">Failed to load</span>';
-                }
-                img.remove();
-              };
-
-              // Set src AFTER attaching handlers
-              img.src = src;
-            }
-
-            observer.unobserve(item);
+            loadGalleryImage(entry.target);
+            observer.unobserve(entry.target);
           }
         });
       }, {
@@ -407,17 +493,8 @@
         observer.observe(item);
       });
     } else {
-      // Fallback for browsers without IntersectionObserver
       galleryItems.forEach(function(item) {
-        const src = item.dataset.fullsrc;
-        if (src && !item.querySelector('img')) {
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = 'Gallery image';
-          const skeleton = item.querySelector('.skeleton');
-          if (skeleton) skeleton.remove();
-          item.appendChild(img);
-        }
+        loadGalleryImage(item);
       });
     }
   }
@@ -455,8 +532,7 @@
   function init() {
     initCarousel();
     initVideoThumbnails();
-    initCaseStudySelection();
-    initCaseStudyTags();
+    initPOCs();
     initGalleryFilter();
     initLightbox();
     initSmoothScroll();

@@ -281,6 +281,33 @@ img {
   padding: var(--space-3xl) 0;
 }
 
+.hero-title {
+  font-size: var(--text-hero);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-top: var(--space-md);
+}
+
+.hero-subtitle {
+  font-size: var(--text-header);
+  font-weight: 200;
+  color: var(--text-secondary);
+  margin-top: var(--space-sm);
+}
+
+.hero-tagline {
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  color: var(--text-muted);
+  margin-top: var(--space-md);
+}
+
+.hero-identity .social-links {
+  margin-top: var(--space-xl);
+  justify-content: flex-start;
+}
+
 /* Hero Profile Image */
 .hero-profile {
   display: flex;
@@ -533,6 +560,15 @@ section {
   color: var(--accent);
 }
 
+.insight-meta + .insight-meta {
+  margin-top: var(--space-sm);
+}
+
+.insight-link {
+  margin-top: var(--space-lg);
+  width: 100%;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
    6.3 Live Indicator (Pulsing Dot)
    ───────────────────────────────────────────────────────────────────────────── */
@@ -623,6 +659,24 @@ section {
 .card-description {
   font-size: var(--text-body);
   color: var(--text-secondary);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-sm);
+}
+
+.card-tags {
+  margin-top: var(--space-md);
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.card + .card {
+  margin-top: var(--space-md);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -894,6 +948,10 @@ section {
    9. GALLERY
    ══════════════════════════════════════════════════════════════════════════════ */
 
+.gallery-tags {
+  margin-bottom: var(--space-xl);
+}
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -929,11 +987,69 @@ section {
   height: 100%;
   object-fit: cover;
   z-index: 2;
+  opacity: 0;
   transition: transform var(--transition-base), opacity 0.3s ease-out;
 }
 
 .gallery-item:hover img {
   transform: scale(1.05);
+}
+
+.gallery-item.loaded img {
+  opacity: 1;
+}
+
+.gallery-item.loaded .skeleton {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.gallery-item.error {
+  cursor: default;
+}
+
+.gallery-item.error .skeleton {
+  animation: none;
+  background: var(--surface-alt);
+}
+
+.gallery-error-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  z-index: 3;
+  color: var(--text-muted);
+}
+
+.gallery-error-content svg {
+  opacity: 0.5;
+}
+
+.gallery-error-content span {
+  font-size: var(--text-caption);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.gallery-empty-state {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-3xl) var(--space-lg);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-body);
+  text-align: center;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-lg);
 }
 
 /* ══════════════════════════════════════════════════════════════════════════════
