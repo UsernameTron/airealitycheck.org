@@ -1,0 +1,219 @@
+/**
+ * OBSIDIAN BRIDGE
+ * Maps Google-inspired CSS variables to Obsidian Design System equivalents.
+ * Load AFTER style.css / style.min.css to override without rewriting pages.
+ *
+ * This is a transitional stylesheet — remove once pages are fully migrated.
+ */
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   1. FONTS — Swap Google fonts for Geist
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@200;400;500;600;700&family=Geist+Mono:wght@400;600;700&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   2. VARIABLE REMAPPING — Google variables → Obsidian values
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Backgrounds: warm near-black Obsidian palette */
+  --primary-bg: #09090b;
+  --secondary-bg: #111113;
+  --tertiary-bg: #18181b;
+  --white: #09090b;
+
+  /* Text: three-tier Obsidian hierarchy */
+  --primary-text: #fafafa;
+  --secondary-text: #a1a1aa;
+  --neutral-dark: #fafafa;
+  --neutral-medium: #a1a1aa;
+  --dark-gray: #fafafa;
+  --medium-gray: #a1a1aa;
+
+  /* Accent: single cyan instead of multi-color Google palette */
+  --primary-blue: #22d3ee;
+  --dark-blue: #06b6d4;
+  --light-blue: #22d3ee;
+  --accent-color: #22d3ee;
+  --secondary-accent: #22d3ee;
+  --highlight-color: #22d3ee;
+  --cta-color: #22d3ee;
+
+  /* Collapse multi-color to cyan */
+  --blue: #22d3ee;
+  --red: #22d3ee;
+  --yellow: #22d3ee;
+  --green: #22d3ee;
+  --primary-red: #22d3ee;
+  --primary-yellow: #22d3ee;
+  --primary-green: #22d3ee;
+
+  /* Background tints: Obsidian accent-muted */
+  --blue-bg: rgba(34, 211, 238, 0.1);
+  --red-bg: rgba(34, 211, 238, 0.1);
+  --yellow-bg: rgba(34, 211, 238, 0.1);
+  --green-bg: rgba(34, 211, 238, 0.1);
+
+  /* Neutrals: Obsidian surface/border */
+  --neutral-light: #27272a;
+  --light-gray: #27272a;
+
+  /* Utility: Obsidian-style borders instead of shadows */
+  --box-shadow: 0 0 0 1px #27272a;
+  --box-shadow-hover: 0 0 0 1px #a1a1aa;
+  --border-radius: 8px;
+  --transition-speed: 0.2s;
+}
+
+/* Override dark mode media query (Obsidian IS dark mode) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-bg: #09090b;
+    --secondary-bg: #111113;
+    --tertiary-bg: #18181b;
+    --primary-text: #fafafa;
+    --secondary-text: #a1a1aa;
+    --accent-color: #22d3ee;
+    --neutral-light: #27272a;
+  }
+}
+
+/* Override JS theme classes */
+.theme-light,
+.theme-dark,
+.theme-auto {
+  --primary-bg: #09090b;
+  --secondary-bg: #111113;
+  --tertiary-bg: #18181b;
+  --primary-text: #fafafa;
+  --secondary-text: #a1a1aa;
+  --accent-color: #22d3ee;
+  --neutral-light: #27272a;
+  --white: #09090b;
+  --dark-gray: #fafafa;
+  --medium-gray: #a1a1aa;
+  --light-gray: #27272a;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   3. TYPOGRAPHY — Swap font stacks
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+body {
+  font-family: "Geist", "Satoshi", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Geist", "Satoshi", "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+code, pre, .mono {
+  font-family: "Geist Mono", "JetBrains Mono", "SF Mono", monospace;
+}
+
+/* H2 accent color override (Google style uses accent on h2) */
+h2 {
+  color: var(--primary-text);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   4. COMPONENT OVERRIDES — Key visual adjustments
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Cards: border instead of shadow */
+.card,
+.content-card,
+.article-card,
+.case-study-card,
+.portfolio-card,
+.resource-card {
+  border: 1px solid #27272a;
+  box-shadow: none;
+}
+
+/* Buttons: Obsidian accent styling */
+.btn-primary,
+.button-primary,
+a.btn-primary {
+  background: #22d3ee;
+  border-color: #22d3ee;
+  color: #09090b;
+}
+
+.btn-primary:hover,
+.button-primary:hover,
+a.btn-primary:hover {
+  background: #06b6d4;
+  border-color: #06b6d4;
+  color: #09090b;
+  text-decoration: none;
+}
+
+/* Links: Obsidian cyan */
+a {
+  color: #22d3ee;
+}
+
+a:hover {
+  color: #06b6d4;
+  text-decoration: none;
+}
+
+/* Header/Nav: Obsidian dark with blur */
+header,
+.site-header,
+nav {
+  background: rgba(9, 9, 11, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid #27272a;
+}
+
+/* Footer: Obsidian surface */
+footer,
+.site-footer {
+  background: #111113;
+  border-top: 1px solid #27272a;
+  color: #71717a;
+}
+
+/* Tags/badges: Obsidian style */
+.tag,
+.badge,
+.chip,
+.label {
+  background: #18181b;
+  border: 1px solid #27272a;
+  color: #a1a1aa;
+}
+
+/* Focus states: Obsidian cyan */
+*:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 2px;
+}
+
+/* Scrollbar: match Obsidian */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111113;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
+}
+
+/* Selection: Obsidian accent */
+::selection {
+  background-color: #22d3ee;
+  color: #09090b;
+}
