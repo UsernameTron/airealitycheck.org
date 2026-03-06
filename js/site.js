@@ -6,6 +6,7 @@
  * 1. Carousel with cyan progress bar
  * 2. Lazy YouTube video loading
  * 3. POCs section (data-driven from content/data.json)
+ * 3b. Articles & Publications (data-driven from content/data.json)
  * 4. Creative gallery filter
  * 5. Lightbox
  * 6. Smooth scroll navigation
@@ -224,6 +225,61 @@
         // Bind interactions
         bindCardSelection(studiesById);
         bindTagFiltering();
+      });
+  }
+
+  // ═══════════════════════════════════════════════════════════════════════════════
+  // 3b. ARTICLES & PUBLICATIONS (data-driven from content/data.json)
+  // ═══════════════════════════════════════════════════════════════════════════════
+
+  var arrowSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>';
+
+  function renderPublicationCard(pub) {
+    return '<a href="' + pub.filePath + '" class="portfolio-card featured-publication" target="_blank" rel="noopener">' +
+      '<span class="industry-badge">Publication</span>' +
+      '<h4 class="portfolio-card-title">' + pub.title + '</h4>' +
+      '<p class="portfolio-card-metric">' + pub.author + '</p>' +
+      '<p class="portfolio-card-desc">' + pub.description + '</p>' +
+      '<span class="portfolio-card-link">Download PDF ' + arrowSvg + '</span>' +
+    '</a>';
+  }
+
+  function renderArticleCard(article) {
+    return '<a href="' + article.url + '" class="portfolio-card" target="_blank" rel="noopener">' +
+      '<span class="industry-badge">' + article.badge + '</span>' +
+      '<h4 class="portfolio-card-title">' + article.title + '</h4>' +
+      '<p class="portfolio-card-metric">' + article.metric + '</p>' +
+      '<p class="portfolio-card-desc">' + article.description + '</p>' +
+      '<span class="portfolio-card-link">Read Article ' + arrowSvg + '</span>' +
+    '</a>';
+  }
+
+  function initArticles() {
+    var grid = document.getElementById('articles-grid');
+    if (!grid) return;
+
+    fetch('content/data.json')
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        var html = '';
+
+        // Featured publications first
+        if (data.publications && data.publications.length) {
+          data.publications.forEach(function(pub) {
+            if (pub.status === 'active') {
+              html += renderPublicationCard(pub);
+            }
+          });
+        }
+
+        // Then article cards
+        if (data.articles && data.articles.length) {
+          data.articles.forEach(function(article) {
+            html += renderArticleCard(article);
+          });
+        }
+
+        grid.innerHTML = html || '<p class="text-muted">No articles available.</p>';
       });
   }
 
@@ -533,6 +589,7 @@
     initCarousel();
     initVideoThumbnails();
     initPOCs();
+    initArticles();
     initGalleryFilter();
     initLightbox();
     initSmoothScroll();

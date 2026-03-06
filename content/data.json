@@ -83,6 +83,51 @@
       "categories": ["ai"]
     }
   ],
+  "publications": [
+    {
+      "id": "crushin-claude",
+      "title": "Crushin' Claude",
+      "author": "Pete Connor",
+      "description": "A field manual for using Claude in production — covering Claude Code, the API, MCP, Skills, Agents & Workflows. 9 chapters compressed from 193,500 words of Anthropic course curriculum.",
+      "filePath": "content/publications/Crushin-Claude.pdf",
+      "category": "ai",
+      "status": "active"
+    }
+  ],
+  "articles": [
+    {
+      "id": "automation-strategy",
+      "title": "The Cost of Automation Without Strategy",
+      "badge": "Strategy",
+      "metric": "Failure at Scale",
+      "description": "Why speed without clear strategy leads to failures, and how execution defines success",
+      "url": "career-content/articles/automation-strategy-article.html"
+    },
+    {
+      "id": "counterfactual-reasoning",
+      "title": "Unlocking What Didn't Happen",
+      "badge": "CX / EX",
+      "metric": "Counterfactual Reasoning",
+      "description": "Applying counterfactual reasoning to fix your customer and employee experience",
+      "url": "career-content/articles/counterfactual-reasoning-html.html"
+    },
+    {
+      "id": "fine-tuned-llms",
+      "title": "Fine-Tuned Open Source LLMs",
+      "badge": "AI / ML",
+      "metric": "Strategic AI Collaboration",
+      "description": "White paper on LLMs, creative AI collaboration, and strategic value for CX environments",
+      "url": "career-content/articles/cx-and-the-fine-tuned-open-source-llm.html"
+    },
+    {
+      "id": "ai-detection",
+      "title": "You Can't Detect AI Content",
+      "badge": "AI Ethics",
+      "metric": "Detection Myth Debunked",
+      "description": "Why AI detection tools fail and what's really needed for content authenticity",
+      "url": "career-content/articles/detection.html"
+    }
+  ],
   "creative": {
     "collections": [
       {
