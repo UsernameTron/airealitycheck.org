@@ -4,10 +4,13 @@
 Phase 1: Branch Cleanup & Consolidation
 
 ## Status
-COMPLETE
+ARCHIVED
 
 ## Last Updated
 2026-04-03
+
+## Milestone
+v1.0 — Branch Cleanup & Consolidation (archived)
 
 ## Phase 1 Results
 - Closed dependabot PRs #2, #4, #5, #6 (static site, no package.json)
