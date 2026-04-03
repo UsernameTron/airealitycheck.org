@@ -1,20 +1,25 @@
 # Project State
 
 ## Current Phase
-Phase 1: Branch Cleanup & Consolidation
+Phase 1: Fix YAML Parsing (8 agents)
 
 ## Status
-ARCHIVED
+PLANNING
 
 ## Last Updated
 2026-04-03
 
 ## Milestone
-v1.0 — Branch Cleanup & Consolidation (archived)
+v2.0 — GSD Crew Consolidation
 
-## Phase 1 Results
-- Closed dependabot PRs #2, #4, #5, #6 (static site, no package.json)
-- Deleted stale local branches: chore/project-governance-init, restore-site, stable-version, stable-yesterday
-- Deleted stale remote branches (GitHub auto-deleted dependabot branches on PR close)
-- Pruned stale remote tracking references
-- Verified: only main remains (+ gh-pages for deploy)
+## Phases
+- Phase 1: Fix YAML Parsing (8 agents) — PLANNING
+- Phase 2: Consolidate Verification Agents — pending
+- Phase 3: Consolidate Research Agents — pending
+- Phase 4: Merge Validator Agents — pending
+- Phase 5: Wire Utility Agents into GSD Workflows — pending
+- Phase 6: Introduce Tool-Access Tiers — pending
+- Phase 7: Add Quality Sections to Low-Scoring Agents — pending
+
+## Previous Milestone
+v1.0 — Branch Cleanup & Consolidation (archived 2026-04-03)
