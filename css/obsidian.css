@@ -137,7 +137,8 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-body);
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
   color: var(--text);
   background-color: var(--bg);
   min-height: 100vh;
@@ -295,7 +296,7 @@ img {
 
 .hero-subtitle {
   font-size: var(--text-header);
-  font-weight: 200;
+  font-weight: 300;
   color: var(--text-secondary);
   margin-top: var(--space-sm);
 }
@@ -329,7 +330,8 @@ img {
   border: 1px solid var(--border);
   background: var(--surface);
   box-shadow:
-    0 0 0 1px rgba(34, 211, 238, 0.1),
+    0 0 0 1px rgba(34, 211, 238, 0.15),
+    0 0 30px -10px rgba(34, 211, 238, 0.08),
     0 20px 40px -20px rgba(0, 0, 0, 0.5);
 }
 
@@ -343,7 +345,7 @@ img {
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0.5;
+  opacity: 0.6;
   pointer-events: none;
 }
 
@@ -1013,11 +1015,16 @@ section {
   border-color: var(--accent);
 }
 
+.gallery-item:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
 .gallery-item .skeleton {
   position: absolute;
   inset: 0;
   z-index: 1;
-  transition: opacity 0.3s ease-out;
+  transition: opacity 0.4s ease-out;
 }
 
 .gallery-item img {
@@ -1028,7 +1035,7 @@ section {
   object-fit: cover;
   z-index: 2;
   opacity: 0;
-  transition: transform var(--transition-base), opacity 0.3s ease-out;
+  transition: transform var(--transition-base), opacity 0.5s ease-out;
 }
 
 .gallery-item:hover img {
@@ -1051,6 +1058,7 @@ section {
 .gallery-item.error .skeleton {
   animation: none;
   background: var(--surface-alt);
+  opacity: 0.6;
 }
 
 .gallery-error-content {
@@ -1269,7 +1277,7 @@ section {
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -1279,7 +1287,7 @@ section {
 
 /* Staggered entrance animation */
 .animate-in {
-  animation: fadeSlideUp 0.5s ease-out forwards;
+  animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   opacity: 0;
 }
 
