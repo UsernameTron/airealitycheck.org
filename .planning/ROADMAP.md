@@ -7,10 +7,10 @@ v2.0 — GSD Crew Consolidation
 
 ### Phase 1: Fix YAML Parsing (8 agents)
 **Goal**: Convert all multi-line `description: >` blocks to single-line strings in agent frontmatter.
-**Agents**: architect, scaffolder, auditor, validator, memory-seeder, extension-validator, hook-engineer, plugin-builder
-**Files**: `~/.claude/agents/{architect,scaffolder,auditor,validator,memory-seeder,extension-validator,hook-engineer,plugin-builder}.md`
+**Agents fixed**: google-media-generation, gpt-image-1-expert, mcp-performance-diagnostics, mirror-universe-pete, repo-commit-documenter, repo-doc-architect, sdk-installer, sora-video-generator (original 8 from assessment were already clean; full sweep found these 8 with `description: |` blocks)
+**Files**: `~/.claude/agents/{google-media-generation,gpt-image-1-expert,mcp-performance-diagnostics,mirror-universe-pete,repo-commit-documenter,repo-doc-architect,sdk-installer,sora-video-generator}.md`
 **Impact**: Fixes metadata extraction tooling, improves roster accuracy
-**Status**: pending
+**Status**: complete (2026-04-03)
 
 ### Phase 2: Consolidate Verification Agents
 **Goal**: Merge gsd-plan-checker, gsd-integration-checker, and gsd-nyquist-auditor into gsd-verifier as configurable modes (`scope: plan | integration | nyquist | general`).
