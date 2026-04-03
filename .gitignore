@@ -19,4 +19,9 @@ node_modules/
 
 # Build output if added in the future
 dist/
-build//.lighthouseci/
+build/
+.lighthouseci/
+
+# Claude Code session state (private, not committed)
+state/
+context/
