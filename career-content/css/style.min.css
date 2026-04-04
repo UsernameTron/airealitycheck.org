@@ -48,6 +48,9 @@
   --cta-color: var(--primary-red);
   --tag-orange: #B06000;
 
+  /* Bridge accent — connects career-content to Obsidian main site */
+  --bridge-accent: #22d3ee;
+
   /* Utility */
   --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   --box-shadow-hover: 0 5px 15px rgba(0, 0, 0, 0.15);
@@ -716,3 +719,33 @@ footer a:hover {
   .nav { display: none; }
   .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
 }
+
+/* ==================
+   Site Bridge Bar
+   ================== */
+.site-bridge {
+  background: #09090b;
+  border-bottom: 1px solid #27272a;
+  padding: 6px 0;
+  font-size: 0.8rem;
+}
+.site-bridge .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-bridge-brand {
+  color: var(--bridge-accent);
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+.site-bridge-brand:hover { opacity: 0.85; }
+.site-bridge-label {
+  color: #a1a1aa;
+  font-size: 0.75rem;
+}
+
+/* Bridge accent link hover */
+a.bridge-link { color: var(--bridge-accent); }
+a.bridge-link:hover { color: #06b6d4; }

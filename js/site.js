@@ -461,7 +461,8 @@
     if (!toggle) return;
 
     // Get saved theme or default to 'dark' (Obsidian is dark-first)
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    // Uses 'arc-theme' key shared with career-content pages for cross-site consistency
+    const savedTheme = localStorage.getItem('arc-theme') || localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
     toggle.addEventListener('click', function() {
@@ -469,7 +470,7 @@
       const next = current === 'dark' ? 'light' : 'dark';
 
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+      localStorage.setItem('arc-theme', next);
     });
   }
 
