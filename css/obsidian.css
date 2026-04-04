@@ -25,7 +25,7 @@
   /* Text (three-tier hierarchy — NO EXCEPTIONS) */
   --text: #fafafa;
   --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
+  --text-muted: #8a8a93;
 
   /* Accent: Cyan (systems/automation/AI) - SINGLE ACCENT */
   --accent: #22d3ee;
@@ -92,7 +92,7 @@
   --border: #e4e4e7;
   --text: #09090b;
   --text-secondary: #52525b;
-  --text-muted: #a1a1aa;
+  --text-muted: #717179;
   --accent: #0891b2;
   --accent-muted: rgba(8, 145, 178, 0.1);
   --accent-hover: #0e7490;

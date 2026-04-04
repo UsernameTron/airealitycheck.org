@@ -93,6 +93,7 @@
     <link rel="stylesheet" href="../css/article-overrides.css">
 </head>
 <body class="article-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 <!-- Site Bridge — connects to main site -->
 <div class="site-bridge">
     <div class="container">
@@ -131,6 +132,7 @@
         </nav>
     </div>
 </header>
+    <div id="main-content"></div>
 
 <!-- Hero section template - pages should add this after the header placeholder -->
 <!-- 
@@ -166,7 +168,7 @@
         <section class="section executive-summary" id="executive-summary">
             <h2>Executive Summary</h2>
             <p>LinkedIn is drowning in a myth: that people can instinctively spot AI‑generated content. They can't. But that hasn't stopped hundreds of thousands from posting like they can—each one chasing attention, status, or both. This report cuts through the noise.</p>
-            <p>I used validated data to examine what's really happening on the platform. As of October 2024, <span class="data-point">54%</span> of all long‑form LinkedIn posts (100+ words) are likely AI‑generated. After ChatGPT launched, AI‑authored content spiked <a href="https://www.newsbytesapp.com/news/science/more-than-half-of-long-linkedin-posts-are-ai-generated/story" target="_blank"><span class="data-point">189%</span></a>. Despite this, a loud minority keeps pushing the same narrative: that their "gut" can sniff out synthetic prose. It's a viral delusion—and it shows up in <a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank"><span class="data-point">12–18%</span></a> of all AI‑related posts, week after week.</p>
+            <p>I used validated data to examine what's really happening on the platform. As of October 2024, <span class="data-point">54%</span> of all long‑form LinkedIn posts (100+ words) are likely AI‑generated. After ChatGPT launched, AI‑authored content spiked <a href="https://www.newsbytesapp.com/news/science/more-than-half-of-long-linkedin-posts-are-ai-generated/story" target="_blank" rel="noopener"><span class="data-point">189%</span></a>. Despite this, a loud minority keeps pushing the same narrative: that their "gut" can sniff out synthetic prose. It's a viral delusion—and it shows up in <a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank" rel="noopener"><span class="data-point">12–18%</span></a> of all AI‑related posts, week after week.</p>
             <p>Through counterfactual analysis, I explore what the landscape might look like if this myth had never gained traction—or had been publicly debunked at scale. The results point to a sobering conclusion: the claim persists not because it's true, but because it flatters professional egos, feeds algorithmic engagement, and fills the vacuum left by real detection tools that don't work.</p>
             <p>This matters. Not just because the myth is wrong—but because it slows down actual solutions, fuels false accusations (especially against non‑native writers), and drives content inflation with zero gain in quality. Until the narrative changes, expect the same cycle: performative callouts, junk engagement, and another quarter‑million posts pretending intuition is proof.</p>
         </section>
@@ -377,19 +379,19 @@
         <section class="section summary" id="summary">
             <h2>Validated Quantitative Summary</h2>
             <ul>
-                <li><a href="https://originality.ai/blog/ai-content-published-linkedin" target="_blank">54% of long‑form English posts are AI‑generated.</a></li>
-                <li><a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank">12–18% of AI‑related posts champion human‑detection superiority.</a></li>
-                <li><a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank">≈ 650k–975k total claim posts in 15 months.</a></li>
-                <li><a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank">#HumanFirstAI posts carry the claim 2.3× above baseline; certain hashtag combinations reach 94% prevalence.</a></li>
-                <li><a href="https://www.newsbytesapp.com/news/science/more-than-half-of-long-linkedin-posts-are-ai-generated/story" target="_blank">Claim surges: +217% (Apr 2024) and +189% (Nov 2024).</a></li>
-                <li><a href="https://www.linkedin.com/pulse/flawed-promise-ai-detection-why-accuracy-reliability-out-schonewille-t9htc" target="_blank">Detection tools exhibit high false‑positive rates, bias against non‑native writers, and opacity.</a></li>
+                <li><a href="https://originality.ai/blog/ai-content-published-linkedin" target="_blank" rel="noopener">54% of long‑form English posts are AI‑generated.</a></li>
+                <li><a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank" rel="noopener">12–18% of AI‑related posts champion human‑detection superiority.</a></li>
+                <li><a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank" rel="noopener">≈ 650k–975k total claim posts in 15 months.</a></li>
+                <li><a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank" rel="noopener">#HumanFirstAI posts carry the claim 2.3× above baseline; certain hashtag combinations reach 94% prevalence.</a></li>
+                <li><a href="https://www.newsbytesapp.com/news/science/more-than-half-of-long-linkedin-posts-are-ai-generated/story" target="_blank" rel="noopener">Claim surges: +217% (Apr 2024) and +189% (Nov 2024).</a></li>
+                <li><a href="https://www.linkedin.com/pulse/flawed-promise-ai-detection-why-accuracy-reliability-out-schonewille-t9htc" target="_blank" rel="noopener">Detection tools exhibit high false‑positive rates, bias against non‑native writers, and opacity.</a></li>
             </ul>
             <!-- Detector Breakdown -->
             <section class="section detection-summary" id="detection-failure">
                 <h2>Detector Breakdown</h2>
                 <p>Everything we know about detection—from commercial vendors to academic benchmarks—points to one conclusion: it's unreliable, opaque, and systemically biased.</p>
                 <ul>
-                    <li><strong>OpenAI:</strong> <a href="https://openai.com/blog/new-ai-classifier-for-indicating-ai-written-text" target="_blank">Discontinued its own detector due to accuracy failure.</a></li>
+                    <li><strong>OpenAI:</strong> <a href="https://openai.com/blog/new-ai-classifier-for-indicating-ai-written-text" target="_blank" rel="noopener">Discontinued its own detector due to accuracy failure.</a></li>
                     <li><strong>Style Confusion:</strong> Detectors use style heuristics that tag formal, polished writing as "suspicious."</li>
                 </ul>
                 <p>Detectors don't detect. They guess—and they guess wrong, especially when style deviates from middle‑American norms.</p>
@@ -431,34 +433,34 @@
             <h2>Sources</h2>
             <ul class="source-list">
                 <li class="source-item" data-number="1">
-                    Half of LinkedIn posts AI-Generated <a href="https://fudzilla.com/news/ai/60155-half-of-linkedin-posts-ai-generated" target="_blank">https://fudzilla.com/news/ai/60155-half-of-linkedin-posts-ai-generated</a>
+                    Half of LinkedIn posts AI-Generated <a href="https://fudzilla.com/news/ai/60155-half-of-linkedin-posts-ai-generated" target="_blank" rel="noopener">https://fudzilla.com/news/ai/60155-half-of-linkedin-posts-ai-generated</a>
                 </li>
                 <li class="source-item" data-number="2">
-                    AI Was Born to Blog on LinkedIn <a href="https://gizmodo.com/ai-was-born-to-blog-on-linkedin-2000530842" target="_blank">https://gizmodo.com/ai-was-born-to-blog-on-linkedin-2000530842</a>
+                    AI Was Born to Blog on LinkedIn <a href="https://gizmodo.com/ai-was-born-to-blog-on-linkedin-2000530842" target="_blank" rel="noopener">https://gizmodo.com/ai-was-born-to-blog-on-linkedin-2000530842</a>
                 </li>
                 <li class="source-item" data-number="3">
-                    Study: Over half of LinkedIn posts now AI-generated <a href="https://mindmatters.ai/brief/study-over-half-of-linkedin-posts-now-ai-generated/" target="_blank">https://mindmatters.ai/brief/study-over-half-of-linkedin-posts-now-ai-generated/</a>
+                    Study: Over half of LinkedIn posts now AI-generated <a href="https://mindmatters.ai/brief/study-over-half-of-linkedin-posts-now-ai-generated/" target="_blank" rel="noopener">https://mindmatters.ai/brief/study-over-half-of-linkedin-posts-now-ai-generated/</a>
                 </li>
                 <li class="source-item" data-number="4">
-                    Over ½ of Long Posts on LinkedIn are Likely AI-Generated Since ChatGPT Launched – Originality.AI <a href="https://originality.ai/blog/ai-content-published-linkedin" target="_blank">https://originality.ai/blog/ai-content-published-linkedin</a>
+                    Over ½ of Long Posts on LinkedIn are Likely AI-Generated Since ChatGPT Launched – Originality.AI <a href="https://originality.ai/blog/ai-content-published-linkedin" target="_blank" rel="noopener">https://originality.ai/blog/ai-content-published-linkedin</a>
                 </li>
                 <li class="source-item" data-number="5">
-                    Over 54% of LinkedIn posts are now AI-generated <a href="https://www.newsbytesapp.com/news/science/more-than-half-of-long-linkedin-posts-are-ai-generated/story" target="_blank">https://www.newsbytesapp.com/news/science/more-than-half-of-long-linkedin-posts-are-ai-generated/story</a>
+                    Over 54% of LinkedIn posts are now AI-generated <a href="https://www.newsbytesapp.com/news/science/more-than-half-of-long-linkedin-posts-are-ai-generated/story" target="_blank" rel="noopener">https://www.newsbytesapp.com/news/science/more-than-half-of-long-linkedin-posts-are-ai-generated/story</a>
                 </li>
                 <li class="source-item" data-number="6">
-                    Do AI Detectors Flag Human-Written Content? <a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank">https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze</a>
+                    Do AI Detectors Flag Human-Written Content? <a href="https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze" target="_blank" rel="noopener">https://www.linkedin.com/pulse/do-ai-detectors-flag-human-written-content-raj-khera-avaze</a>
                 </li>
                 <li class="source-item" data-number="7">
-                    The Great Hoax: AI-Plagiarism Detectors <a href="https://www.linkedin.com/pulse/great-hoax-ai-plagiarism-detectors-ruchir-bakshi-sqoxe" target="_blank">https://www.linkedin.com/pulse/great-hoax-ai-plagiarism-detectors-ruchir-bakshi-sqoxe</a>
+                    The Great Hoax: AI-Plagiarism Detectors <a href="https://www.linkedin.com/pulse/great-hoax-ai-plagiarism-detectors-ruchir-bakshi-sqoxe" target="_blank" rel="noopener">https://www.linkedin.com/pulse/great-hoax-ai-plagiarism-detectors-ruchir-bakshi-sqoxe</a>
                 </li>
                 <li class="source-item" data-number="8">
-                    The truth about AI Detectors <a href="https://www.linkedin.com/pulse/truth-ai-detectors-deon-van-zyl-kwf3f" target="_blank">https://www.linkedin.com/pulse/truth-ai-detectors-deon-van-zyl-kwf3f</a>
+                    The truth about AI Detectors <a href="https://www.linkedin.com/pulse/truth-ai-detectors-deon-van-zyl-kwf3f" target="_blank" rel="noopener">https://www.linkedin.com/pulse/truth-ai-detectors-deon-van-zyl-kwf3f</a>
                 </li>
                 <li class="source-item" data-number="9">
-                    The Flawed Promise of AI Detection: Why Accuracy and Reliability Are Out of Reach <a href="https://www.linkedin.com/pulse/flawed-promise-ai-detection-why-accuracy-reliability-out-schonewille-t9htc" target="_blank">https://www.linkedin.com/pulse/flawed-promise-ai-detection-why-accuracy-reliability-out-schonewille-t9htc</a>
+                    The Flawed Promise of AI Detection: Why Accuracy and Reliability Are Out of Reach <a href="https://www.linkedin.com/pulse/flawed-promise-ai-detection-why-accuracy-reliability-out-schonewille-t9htc" target="_blank" rel="noopener">https://www.linkedin.com/pulse/flawed-promise-ai-detection-why-accuracy-reliability-out-schonewille-t9htc</a>
                 </li>
                 <li class="source-item" data-number="10">
-                    OpenAI – AI Text Classifier retired <a href="https://openai.com/blog/new-ai-classifier-for-indicating-ai-written-text" target="_blank">https://openai.com/blog/new-ai-classifier-for-indicating-ai-written-text</a>
+                    OpenAI – AI Text Classifier retired <a href="https://openai.com/blog/new-ai-classifier-for-indicating-ai-written-text" target="_blank" rel="noopener">https://openai.com/blog/new-ai-classifier-for-indicating-ai-written-text</a>
                 </li>
                 <li class="source-item" data-number="11">
                     Allison Rossi LinkedIn post on em dashes (2024) – no longer publicly available
@@ -485,12 +487,12 @@
             <div class="social-media">
                 <h3>Connect</h3>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
-                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
-                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
-                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
-                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
-                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank" rel="noopener"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank" rel="noopener"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank" rel="noopener"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank" rel="noopener"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank" rel="noopener"><i class="icon-youtube"></i></a>
                 </div>
             </div>
         </div>
