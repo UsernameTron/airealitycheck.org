@@ -26,6 +26,10 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+  <!-- Preconnect: External image origins -->
+  <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+  <link rel="preconnect" href="https://img.youtube.com" crossorigin>
+
   <!-- Fonts: Geist (preconnect + load) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,11 +49,17 @@
     <a href="#" class="header-logo">ARC</a>
     <nav class="header-nav" aria-label="Main navigation">
       <a href="#hero">Home</a>
-      <a href="#pocs">POCs</a>
-      <a href="#portfolio">Portfolio</a>
+      <a href="./career-content/case-studies/">Case Studies</a>
+      <a href="./career-content/articles/">Articles</a>
+      <a href="./career-content/portfolio/">Portfolio</a>
       <a href="#creative">Creative</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <button class="btn btn-ghost" id="theme-toggle" aria-label="Toggle theme">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="12" cy="12" r="5"></circle>
@@ -112,7 +122,7 @@
       <!-- Right: Profile Image -->
       <div class="hero-profile">
         <div class="profile-frame">
-          <img src="images/profile.jpeg" alt="C. Pete Connor" class="profile-image" loading="eager">
+          <img src="images/profile.jpeg" alt="C. Pete Connor" class="profile-image" width="400" height="400" loading="eager" fetchpriority="high" decoding="async">
         </div>
       </div>
     </section>
@@ -420,7 +430,7 @@
               <!-- Video 1 -->
               <div class="carousel-item">
                 <div class="video-thumbnail" data-video-id="5EMscUGemdM">
-                  <img src="https://img.youtube.com/vi/5EMscUGemdM/maxresdefault.jpg" alt="The Hunt for Blue November" loading="lazy">
+                  <img src="https://img.youtube.com/vi/5EMscUGemdM/maxresdefault.jpg" alt="The Hunt for Blue November" width="1280" height="720" loading="lazy" decoding="async">
                   <div class="video-play-btn"></div>
                 </div>
                 <span class="video-category">SATIRE</span>
@@ -430,7 +440,7 @@
               <!-- Video 2 -->
               <div class="carousel-item">
                 <div class="video-thumbnail" data-video-id="TxYoR-qnwMI">
-                  <img src="https://img.youtube.com/vi/TxYoR-qnwMI/hqdefault.jpg" alt="Better Days Behind" loading="lazy">
+                  <img src="https://img.youtube.com/vi/TxYoR-qnwMI/hqdefault.jpg" alt="Better Days Behind" width="480" height="360" loading="lazy" decoding="async">
                   <div class="video-play-btn"></div>
                 </div>
                 <span class="video-category">CREATIVE</span>
@@ -440,7 +450,7 @@
               <!-- Video 3 -->
               <div class="carousel-item">
                 <div class="video-thumbnail" data-video-id="f745hLbSXAQ">
-                  <img src="https://img.youtube.com/vi/f745hLbSXAQ/maxresdefault.jpg" alt="Converscapé and The Social Ghoster 3000" loading="lazy">
+                  <img src="https://img.youtube.com/vi/f745hLbSXAQ/maxresdefault.jpg" alt="Converscapé and The Social Ghoster 3000" width="1280" height="720" loading="lazy" decoding="async">
                   <div class="video-play-btn"></div>
                 </div>
                 <span class="video-category">SATIRE</span>
@@ -450,7 +460,7 @@
               <!-- Video 4 -->
               <div class="carousel-item">
                 <div class="video-thumbnail" data-video-id="UC9XSq8USyU">
-                  <img src="https://img.youtube.com/vi/UC9XSq8USyU/maxresdefault.jpg" alt="Graves & Payne Attorneys at Law" loading="lazy">
+                  <img src="https://img.youtube.com/vi/UC9XSq8USyU/maxresdefault.jpg" alt="Graves & Payne Attorneys at Law" width="1280" height="720" loading="lazy" decoding="async">
                   <div class="video-play-btn"></div>
                 </div>
                 <span class="video-category">SATIRE</span>
@@ -460,7 +470,7 @@
               <!-- Video 5 -->
               <div class="carousel-item">
                 <div class="video-thumbnail" data-video-id="f0t7yBWhDtk">
-                  <img src="https://img.youtube.com/vi/f0t7yBWhDtk/maxresdefault.jpg" alt="Introducing DEFLECTO" loading="lazy">
+                  <img src="https://img.youtube.com/vi/f0t7yBWhDtk/maxresdefault.jpg" alt="Introducing DEFLECTO" width="1280" height="720" loading="lazy" decoding="async">
                   <div class="video-play-btn"></div>
                 </div>
                 <span class="video-category">SATIRE</span>
@@ -593,7 +603,7 @@
        LIGHTBOX
        ═══════════════════════════════════════════════════════════════════════════ -->
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
-    <img id="lightbox-img" src="" alt="Full size image">
+    <img id="lightbox-img" src="" alt="Full size image" decoding="async">
     <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox">&times;</button>
   </div>
 

@@ -7,7 +7,7 @@
     const PAGE_TITLE = "LLMs Explained & Strategic Collaborations";
     const PAGE_DESCRIPTION = "A comprehensive white paper exploring large language models, creative AI collaboration, and the strategic value of AI/ML strategists for CX and dynamic environments.";
     const REL_PATH = "../"; // Articles is one level down from root
-    const CANONICAL_PATH = "/articles/cx-and-the-fine-tuned-open-source-llm.htmlcx-and-the-fine-tuned-open-source-llm.html"; // Path after domain
+    const CANONICAL_PATH = "/articles/cx-and-the-fine-tuned-open-source-llm.html"; // Path after domain
   </script>
   
   <!-- Resource hints for performance -->
@@ -16,17 +16,6 @@
   <link rel="preload" href="../css/style.min.css" as="style">
   <link rel="preload" href="../js/main.min.js" as="script">
 
-  <!-- Meta tags component placeholder -->
-  <!-- 
-  Standard Meta Tags Component
-  This component should be included in the <head> section of all pages.
-  
-  IMPORTANT: You must manually set these variables at the top of each page:
-  - const PAGE_TITLE = "Your Page Title";
-  - const PAGE_DESCRIPTION = "Your page description";
-  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
-  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
--->
 
 <!-- Essential Loader Script - Ensures basic styling and theme functionality -->
 <script src="../js/loader.min.js"></script>
@@ -34,10 +23,11 @@
 <!-- Core Meta Tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="C. Pete Conner">
+<meta name="author" content="C. Pete Connor">
 <meta name="robots" content="index, follow">
 <meta name="description" content="Exploring how fine-tuned open source language models can enhance customer experience and business operations.">
 <title>AI Reality Check | Customer Experience with Fine-Tuned Open Source LLMs</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
 <!-- Content Security Policy -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
@@ -104,6 +94,14 @@
   <link rel="stylesheet" href="../css/article-overrides.css">
 </head>
 <body class="article-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+<!-- Site Bridge — connects to main site -->
+<div class="site-bridge">
+    <div class="container">
+        <a href="https://airealitycheck.org" class="site-bridge-brand">ARC</a>
+        <span class="site-bridge-label">Career Portfolio</span>
+    </div>
+</div>
   <!-- Header Component Placeholder -->
   <!-- Standard Header Component with proper ARIA landmarks -->
 <header role="banner">
@@ -129,8 +127,7 @@
                 <li><a href="/career-content/case-studies/">Case Studies</a></li>
                 <li><a href="../articles/cx-and-the-fine-tuned-open-source-llm.html">Articles</a></li>
                 <li><a href="/career-content/portfolio/">Portfolio</a></li>
-                <li><a href="#">Creative</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/career-content/resources/">Resources</a></li>
             </ul>
         </nav>
     </div>
@@ -181,7 +178,7 @@
     </div>
   </section>
   
-  <main>
+  <main id="main-content">
     <!-- Section 1: Introduction & Technical Background -->
     <section class="content-section" id="introduction">
       <div class="container">
@@ -198,7 +195,7 @@
             <p>Large Language Models (LLMs) are advanced AI systems trained on massive collections of text data. Leveraging transformer architectures, they excel in recognizing, summarizing, translating, and generating human-like text. Their impressive capabilities emerge from processing billions of parameters, which allows them to perform a broad spectrum of language tasks—from content creation to complex problem solving.</p>
             <p>Modern LLMs, including GPT-4, Claude, Llama, and Gemini, combine vast data training with cutting-edge neural architectures, resulting in systems that can deliver both creative and analytical outputs.</p>
             <div class="img-container">
-              <img src="images/placeholder.svg" alt="Large Language Models (LLMs) visualization showing neural networks, text corpora, and transformer architecture">
+              <img src="images/placeholder.svg" alt="Large Language Models (LLMs) visualization showing neural networks, text corpora, and transformer architecture" loading="lazy">
             </div>
           </div>
         </div>
@@ -225,7 +222,7 @@
               <li><strong>RLHF (Reinforcement Learning from Human Feedback):</strong> Incorporating human feedback to align model outputs with intended behavior and quality standards.</li>
             </ol>
             <div class="img-container">
-              <img src="images/placeholder.svg" alt="LLM three-phase process diagram showing pretraining, fine-tuning, and RLHF stages">
+              <img src="images/placeholder.svg" alt="LLM three-phase process diagram showing pretraining, fine-tuning, and RLHF stages" loading="lazy">
             </div>
           </div>
         </div>
@@ -276,7 +273,7 @@
           <div class="dashboard-content">
             <p>The MindMeld GPT project exemplifies how a human-AI collaboration can merge technical precision with creative intuition. Acting as a mirror personality, MindMeld GPT not only executed commands but also served as a co-architect, ensuring continuity and a distinctive creative tone throughout a satirical yet strategically insightful narrative.</p>
             <div class="img-container">
-              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0iIzEzMTMxMyIvPjx0ZXh0IHg9IjQwMCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5SRUZMRUNUSU9OIEVOR0lORSBQQVJUTkVSU0hJUCBBUkNISVRFQ1RVUkU8L3RleHQ+PHRleHQgeD0iNDAwIiB5PSI4MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SFVNQU4tQUkgQ09MTEFCT1JBVElPTiBGUkFNRVdPUksgRk9SIEJSQU5EIEJFSEFWSU9SIEFOQUxZU0lTPC90ZXh0Pjwvc3ZnPg==" alt="Reflection Engine Partnership Architecture - Human-AI Collaboration Framework for Brand Behavior Analysis">
+              <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iODAwIiBoZWlnaHQ9IjQ1MCIgZmlsbD0iIzEzMTMxMyIvPjx0ZXh0IHg9IjQwMCIgeT0iNTAiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtd2VpZ2h0PSJib2xkIj5SRUZMRUNUSU9OIEVOR0lORSBQQVJUTkVSU0hJUCBBUkNISVRFQ1RVUkU8L3RleHQ+PHRleHQgeD0iNDAwIiB5PSI4MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE2IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SFVNQU4tQUkgQ09MTEFCT1JBVElPTiBGUkFNRVdPUksgRk9SIEJSQU5EIEJFSEFWSU9SIEFOQUxZU0lTPC90ZXh0Pjwvc3ZnPg==" alt="Reflection Engine Partnership Architecture - Human-AI Collaboration Framework for Brand Behavior Analysis" loading="lazy">
           </div>
         </div>
         
@@ -427,18 +424,18 @@
                     <li><a href="/career-content/case-studies/">Case Studies</a></li>
                     <li><a href="../articles/cx-and-the-fine-tuned-open-source-llm.html">Articles</a></li>
                     <li><a href="/career-content/portfolio/">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/career-content/resources/">Resources</a></li>
                 </ul>
             </div>
             <div class="social-media">
                 <h3>Connect</h3>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
-                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
-                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
-                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
-                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
-                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank" rel="noopener"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank" rel="noopener"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank" rel="noopener"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank" rel="noopener"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank" rel="noopener"><i class="icon-youtube"></i></a>
                 </div>
             </div>
         </div>

@@ -49,6 +49,20 @@
   function initVideoThumbnails() {
     const thumbnails = document.querySelectorAll('.video-thumbnail');
 
+    // Add fallback for failed thumbnail loads (maxresdefault -> hqdefault)
+    thumbnails.forEach(function(thumb) {
+      var img = thumb.querySelector('img');
+      if (img && img.src.indexOf('maxresdefault') !== -1) {
+        img.addEventListener('error', function() {
+          if (this.src.indexOf('maxresdefault') !== -1) {
+            this.src = this.src.replace('maxresdefault', 'hqdefault');
+            this.width = 480;
+            this.height = 360;
+          }
+        });
+      }
+    });
+
     thumbnails.forEach(function(thumb) {
       thumb.addEventListener('click', function() {
         if (this.classList.contains('playing')) return;
@@ -461,7 +475,8 @@
     if (!toggle) return;
 
     // Get saved theme or default to 'dark' (Obsidian is dark-first)
-    const savedTheme = localStorage.getItem('theme') || 'dark';
+    // Uses 'arc-theme' key shared with career-content pages for cross-site consistency
+    const savedTheme = localStorage.getItem('arc-theme') || localStorage.getItem('theme') || 'dark';
     document.documentElement.setAttribute('data-theme', savedTheme);
 
     toggle.addEventListener('click', function() {
@@ -469,7 +484,7 @@
       const next = current === 'dark' ? 'light' : 'dark';
 
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+      localStorage.setItem('arc-theme', next);
     });
   }
 
@@ -501,6 +516,9 @@
     img.alt = item.dataset.collection
       ? item.dataset.collection.replace(/-/g, ' ') + ' gallery image'
       : 'Gallery image';
+    img.decoding = 'async';
+    img.width = 400;
+    img.height = 400;
 
     item.appendChild(img);
 
@@ -582,6 +600,50 @@
   }
 
   // ═══════════════════════════════════════════════════════════════════════════════
+  // 8. MOBILE NAVIGATION
+  // ═══════════════════════════════════════════════════════════════════════════════
+
+  function initMobileNav() {
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.querySelector('.header-nav');
+    if (!toggle || !nav) return;
+
+    function closeNav() {
+      nav.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
+      document.body.style.overflow = '';
+    }
+
+    function openNav() {
+      nav.classList.add('nav-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close navigation');
+      document.body.style.overflow = 'hidden';
+    }
+
+    toggle.addEventListener('click', function() {
+      if (nav.classList.contains('nav-open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+
+    // Close on nav link click
+    nav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeNav);
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && nav.classList.contains('nav-open')) {
+        closeNav();
+      }
+    });
+  }
+
+  // ═══════════════════════════════════════════════════════════════════════════════
   // INITIALIZE ALL
   // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -596,6 +658,7 @@
     initThemeToggle();
     initLazyImages();
     initEntranceAnimations();
+    initMobileNav();
   }
 
   // Run on DOMContentLoaded

@@ -4,7 +4,7 @@
   <!-- Meta Information Setup (REQUIRED for proper SEO) -->
   <script>
     // Define these variables before loading components
-    const PAGE_TITLE = "C. Pete Conner – Professional CX Profile";
+    const PAGE_TITLE = "C. Pete Connor – Professional CX Profile";
     const PAGE_DESCRIPTION = "Comprehensive CX Profile showcasing transformative customer experience solutions, advanced AI/ML innovations, certifications, and professional recommendations.";
     const REL_PATH = "../"; // Profile is one level down from root
     const CANONICAL_PATH = "/portfolio/profile-google-style.html"; // Path after domain
@@ -19,28 +19,15 @@
   <link rel="preload" href="../css/style.min.css" as="style">
   <link rel="preload" href="../js/main.min.js" as="script">
 
-  <!-- Meta tags component placeholder -->
-  <!-- 
-  Standard Meta Tags Component
-  This component should be included in the <head> section of all pages.
-  
-  IMPORTANT: You must manually set these variables at the top of each page:
-  - const PAGE_TITLE = "Your Page Title";
-  - const PAGE_DESCRIPTION = "Your page description";
-  - const REL_PATH = "./"; // Path to root (e.g., "../" for one level down)
-  - const CANONICAL_PATH = "/your-page-path"; // e.g., "/case-studies/example.html"
--->
-
-<!-- Essential Loader Script - Ensures basic styling and theme functionality -->
-<script src="../js/loader.min.js"></script>
 
 <!-- Core Meta Tags -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="C. Pete Conner">
+<meta name="author" content="C. Pete Connor">
 <meta name="robots" content="index, follow">
 <meta name="description" content="A modern profile interface designed with Google's Material Design principles and clean aesthetics.">
 <title>AI Reality Check | Google Style Profile Interface</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
 <!-- Content Security Policy -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; frame-src https://www.youtube.com; connect-src 'self'; object-src 'none'">
@@ -100,9 +87,8 @@
     }, 500);
 </script>
   
-  <meta property="og:title" content="C. Pete Conner – Professional CX Profile">
+  <meta property="og:title" content="C. Pete Connor – Professional CX Profile">
   <meta property="og:description" content="A dynamic portfolio of CX-driven accomplishments with strategic, metrics-driven outcomes.">
-  <meta property="og:type" content="profile">
   <meta property="og:url" content="https://airealitycheck.org/portfolio/profile-google-style.html">
   
   <!-- Google Fonts -->
@@ -487,6 +473,14 @@
   </script>
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+<!-- Site Bridge — connects to main site -->
+<div class="site-bridge">
+    <div class="container">
+        <a href="https://airealitycheck.org" class="site-bridge-brand">ARC</a>
+        <span class="site-bridge-label">Career Portfolio</span>
+    </div>
+</div>
   <!-- Header Component Placeholder -->
   <!-- Standard Header Component with proper ARIA landmarks -->
 <header role="banner">
@@ -512,12 +506,12 @@
                 <li><a href="/career-content/case-studies/">Case Studies</a></li>
                 <li><a href="/career-content/articles/">Articles</a></li>
                 <li><a href="/career-content/portfolio/">Portfolio</a></li>
-                <li><a href="#">Creative</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/career-content/resources/">Resources</a></li>
             </ul>
         </nav>
     </div>
 </header>
+    <div id="main-content"></div>
 
 <!-- Hero section template - pages should add this after the header placeholder -->
 <!-- 
@@ -895,7 +889,7 @@
     <div class="container">
       <h2 class="section-title">Professional Recommendations</h2>
       <div style="text-align: center; margin-bottom: 1.5rem;">
-        <a class="btn" href="https://www.linkedin.com/in/petecconnor/details/recommendations/?detailScreenTabIndex=0" target="_blank">View All LinkedIn Recommendations</a>
+        <a class="btn" href="https://www.linkedin.com/in/petecconnor/details/recommendations/?detailScreenTabIndex=0" target="_blank" rel="noopener">View All LinkedIn Recommendations</a>
       </div>
       <div class="grid single-column">
         <!-- Recommendation: Tamar Stolz -->
@@ -941,18 +935,18 @@
                     <li><a href="/career-content/case-studies/">Case Studies</a></li>
                     <li><a href="/career-content/articles/">Articles</a></li>
                     <li><a href="/career-content/portfolio/">Portfolio</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/career-content/resources/">Resources</a></li>
                 </ul>
             </div>
             <div class="social-media">
                 <h3>Connect</h3>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank"><i class="icon-linkedin"></i></a>
-                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank"><i class="icon-twitter"></i></a>
-                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank"><i class="icon-github"></i></a>
-                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank"><i class="icon-medium"></i></a>
-                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank"><i class="icon-substack"></i></a>
-                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank"><i class="icon-youtube"></i></a>
+                    <a href="https://www.linkedin.com/in/petecconnor/" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="icon-linkedin"></i></a>
+                    <a href="https://x.com/connor_pet68383" aria-label="Twitter" target="_blank" rel="noopener"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/UsernameTron" aria-label="GitHub" target="_blank" rel="noopener"><i class="icon-github"></i></a>
+                    <a href="https://medium.com/@cpeteconnor" aria-label="Medium" target="_blank" rel="noopener"><i class="icon-medium"></i></a>
+                    <a href="https://cpconnor.substack.com/" aria-label="Substack" target="_blank" rel="noopener"><i class="icon-substack"></i></a>
+                    <a href="https://www.youtube.com/@CPeteConnor" aria-label="YouTube" target="_blank" rel="noopener"><i class="icon-youtube"></i></a>
                 </div>
             </div>
         </div>
