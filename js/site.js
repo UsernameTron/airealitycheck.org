@@ -49,6 +49,20 @@
   function initVideoThumbnails() {
     const thumbnails = document.querySelectorAll('.video-thumbnail');
 
+    // Add fallback for failed thumbnail loads (maxresdefault -> hqdefault)
+    thumbnails.forEach(function(thumb) {
+      var img = thumb.querySelector('img');
+      if (img && img.src.indexOf('maxresdefault') !== -1) {
+        img.addEventListener('error', function() {
+          if (this.src.indexOf('maxresdefault') !== -1) {
+            this.src = this.src.replace('maxresdefault', 'hqdefault');
+            this.width = 480;
+            this.height = 360;
+          }
+        });
+      }
+    });
+
     thumbnails.forEach(function(thumb) {
       thumb.addEventListener('click', function() {
         if (this.classList.contains('playing')) return;
@@ -502,6 +516,9 @@
     img.alt = item.dataset.collection
       ? item.dataset.collection.replace(/-/g, ' ') + ' gallery image'
       : 'Gallery image';
+    img.decoding = 'async';
+    img.width = 400;
+    img.height = 400;
 
     item.appendChild(img);
 
