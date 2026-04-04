@@ -46,6 +46,7 @@
   --secondary-accent: var(--primary-green);
   --highlight-color: var(--primary-yellow);
   --cta-color: var(--primary-red);
+  --tag-orange: #B06000;
 
   /* Utility */
   --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -329,7 +330,7 @@ header[role="banner"] nav a:hover {
 }
 
 .article-header {
-  background: linear-gradient(135deg, #4285F4 0%, #1A73E8 100%);
+  background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
   color: var(--white);
   padding: 4rem 0 3rem;
 }
@@ -435,7 +436,7 @@ header[role="banner"] nav a:hover {
    Case Study Pages
    ================== */
 .case-study-header {
-  background: linear-gradient(135deg, #1A73E8 0%, #4285F4 100%);
+  background: linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 100%);
   color: var(--white);
   padding: 4rem 0 3rem;
 }
@@ -564,7 +565,7 @@ tr:hover td {
 
 .tag-red { background: var(--red-bg); color: var(--primary-red); }
 .tag-green { background: var(--green-bg); color: var(--primary-green); }
-.tag-yellow { background: var(--yellow-bg); color: #B06000; }
+.tag-yellow { background: var(--yellow-bg); color: var(--tag-orange); }
 
 /* ==================
    Buttons
