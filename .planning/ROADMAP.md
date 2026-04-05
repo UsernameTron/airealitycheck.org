@@ -21,9 +21,9 @@ v2.0 — GSD Crew Consolidation
 **Plans:** 1 plan
 
 Plans:
-- [ ] 02-01-PLAN.md — Update 5 documentation/reference files to replace old agent names with gsd-verifier (scope: X) pattern
+- [x] 02-01-PLAN.md — Update 5 documentation/reference files to replace old agent names with gsd-verifier (scope: X) pattern
 
-**Status**: planning complete
+**Status**: complete (2026-04-05)
 
 ### Phase 3: Consolidate Research Agents
 **Goal**: Merge gsd-phase-researcher and gsd-project-researcher into single agent with scope parameter.
