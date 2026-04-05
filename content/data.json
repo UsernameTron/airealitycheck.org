@@ -64,7 +64,7 @@
       "impact": "2min SLA",
       "summary": "n8n-powered email triage with Slack alerts and AI-drafted responses",
       "description": "n8n-powered email triage system with Slack alerts, AI-drafted responses, and automated routing. Reduces response time to under 2 minutes with 95% accuracy.",
-      "url": "https://ispn-communications-ai-automation.netlify.app/",
+      "url": "https://cpconnorcortex.netlify.app/#command-center",
       "tech": ["n8n", "Slack", "Claude API", "Gmail"],
       "timeline": "Q4 2025",
       "status": "active",
