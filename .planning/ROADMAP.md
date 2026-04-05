@@ -18,7 +18,12 @@ v2.0 — GSD Crew Consolidation
 **Files**: `~/.claude/agents/gsd-verifier.md` (expand), `~/.claude/agents/gsd-{plan-checker,integration-checker,nyquist-auditor}.md` (remove after merge)
 **Workflow updates**: All workflows referencing absorbed agents must route to gsd-verifier with scope param
 **Impact**: Simplifies orchestrator routing, reduces token spend on overlapping verification
-**Status**: pending
+**Plans:** 1 plan
+
+Plans:
+- [ ] 02-01-PLAN.md — Update 5 documentation/reference files to replace old agent names with gsd-verifier (scope: X) pattern
+
+**Status**: planning complete
 
 ### Phase 3: Consolidate Research Agents
 **Goal**: Merge gsd-phase-researcher and gsd-project-researcher into single agent with scope parameter.
