@@ -743,7 +743,7 @@ jobs:
       "title": "Email Command Center",
       "impact": "2min SLA",
       "summary": "n8n-powered email triage with Slack alerts and AI-drafted responses",
-      "url": "https://ispn-communications-ai-automation.netlify.app/",
+      "url": "https://cpconnorcortex.netlify.app/#command-center",
       "tech": ["n8n", "Slack", "Claude API", "Gmail"],
       "timeline": "Q4 2025",
       "status": "active"
