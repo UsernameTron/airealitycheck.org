@@ -3,7 +3,7 @@
 ## Active
 - [ ] v2.0: GSD Crew Consolidation (7 phases — autonomous execution)
 - [x] Phase 1: Fix YAML Parsing (8 agents) (2026-04-03)
-- [ ] Phase 2: Consolidate Verification Agents (4→1)
+- [x] Phase 2: Consolidate Verification Agents (4→1) (2026-04-05)
 - [ ] Phase 3: Consolidate Research Agents (2→1)
 - [ ] Phase 4: Merge Validator Agents (2→1)
 - [ ] Phase 5: Wire Utility Agents into GSD Workflows
@@ -28,11 +28,11 @@
 
 ---
 
-## Session Handoff (2026-04-03)
-**Branch**: `fix/critical-ux-bugs` (8 commits, pushed to origin)
-**Status**: All design work complete. PR #16 created to merge into `main`.
-**PR**: https://github.com/UsernameTron/airealitycheck.org/pull/16
+## Session Handoff (2026-04-05)
+**Branch**: `fix/replace-demo-cards` (PR #18 open)
+**Status**: Phase 2 shipped (PR #17). All branches merged to main. Demo cards replaced with Cortex.
+**PRs**: #17 (Phase 2 ref cleanup), #18 (demo card replacement)
 **Next steps**:
-1. Merge PR #16 (`fix/critical-ux-bugs` → `main`)
-2. Verify on GitHub Pages after merge (~2 min deploy)
-3. Resume v2.0 GSD Crew Consolidation (Phase 2+) on `chore/finalize-v1.0`
+1. Merge PR #18 (`fix/replace-demo-cards` → `main`)
+2. Verify Cortex card on live site after deploy
+3. Resume v2.0 GSD Crew Consolidation Phase 3 via `/gsd:next`
