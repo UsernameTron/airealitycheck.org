@@ -1,13 +1,19 @@
 # Project State
 
 ## Current Phase
-Phase 5: Wire Utility Agents into GSD Workflows
+Phase 6: Introduce Tool-Access Tiers
 
 ## Status
-EXECUTING — Phase 4 complete, autonomous execution of Phases 5-7
+EXECUTING — Phase 5 complete, autonomous execution of Phases 6-7
 
 ## Last Updated
 2026-04-06
+
+## Phase 5 Summary (completed)
+- Wired repo-doc-architect into /gsd:finalize Gate 6 (documentation refresh before archiving)
+- Confirmed repo-commit-documenter already integrated in /gsd:ship (no changes needed)
+- Fixed 4 stale gsd-phase-researcher references in research-phase.md (header + 2 Task() calls + success criteria)
+- Files modified: ~/.claude/commands/gsd/finalize.md, ~/.claude/commands/gsd/research-phase.md
 
 ## Phase 4 Summary (completed)
 - Merged extension-validator + validator → gsd-validator-hub (target: extension|ecosystem)
@@ -27,7 +33,7 @@ v2.0 — GSD Crew Consolidation
 - Phase 2: Consolidate Verification Agents — COMPLETE (2026-04-05)
 - Phase 3: Consolidate Research Agents — COMPLETE (2026-04-06)
 - Phase 4: Merge Validator Agents — COMPLETE (2026-04-06)
-- Phase 5: Wire Utility Agents into GSD Workflows — pending
+- Phase 5: Wire Utility Agents into GSD Workflows — COMPLETE (2026-04-06)
 - Phase 6: Introduce Tool-Access Tiers — pending
 - Phase 7: Add Quality Sections to Low-Scoring Agents — pending
 

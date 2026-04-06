@@ -41,9 +41,9 @@ Plans:
 
 ### Phase 5: Wire Utility Agents into GSD Workflows
 **Goal**: Integrate repo-doc-architect into /gsd:finalize and repo-commit-documenter into /gsd:ship workflows.
-**Files**: `~/.claude/get-shit-done/workflows/finalize.md`, `~/.claude/get-shit-done/workflows/ship.md`
+**Files**: `~/.claude/commands/gsd/finalize.md` (edited), `~/.claude/get-shit-done/workflows/ship.md` (already had repo-commit-documenter), `~/.claude/commands/gsd/research-phase.md` (stale reference cleanup)
 **Impact**: Automatic documentation updates on finalization and shipping
-**Status**: pending
+**Status**: complete (2026-04-06)
 
 ### Phase 6: Introduce Tool-Access Tiers
 **Goal**: Define 4 tiers (Explore, Research, Modify, Full) and assign each agent to appropriate tier. Audit and restrict over-granted tool access.
