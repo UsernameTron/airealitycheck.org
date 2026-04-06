@@ -4,7 +4,7 @@
 - [ ] v2.0: GSD Crew Consolidation (7 phases — autonomous execution)
 - [x] Phase 1: Fix YAML Parsing (8 agents) (2026-04-03)
 - [x] Phase 2: Consolidate Verification Agents (4→1) (2026-04-05)
-- [ ] Phase 3: Consolidate Research Agents (2→1)
+- [x] Phase 3: Consolidate Research Agents (2→1) (2026-04-06)
 - [ ] Phase 4: Merge Validator Agents (2→1)
 - [ ] Phase 5: Wire Utility Agents into GSD Workflows
 - [ ] Phase 6: Introduce Tool-Access Tiers

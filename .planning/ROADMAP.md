@@ -27,11 +27,10 @@ Plans:
 
 ### Phase 3: Consolidate Research Agents
 **Goal**: Merge gsd-phase-researcher and gsd-project-researcher into single agent with scope parameter.
-**Agents**: 2 → 1 (net -1)
-**Files**: `~/.claude/agents/gsd-phase-researcher.md` + `~/.claude/agents/gsd-project-researcher.md` → `~/.claude/agents/gsd-researcher.md`
-**Workflow updates**: plan-phase.md, new-project.md, and any workflow spawning either researcher
+**Agents**: 2 → 1 (net -1) → `gsd-research-orchestrator` with `scope: phase|project`
+**Files**: Agent file created in prior session. This phase cleaned 13 stale references across 6 GSD config files + 4 leftover Phase 2 references.
 **Impact**: Eliminates 100% tool duplication, clearer research responsibility
-**Status**: pending
+**Status**: complete (2026-04-06)
 
 ### Phase 4: Merge Validator Agents
 **Goal**: Merge extension-validator and validator into single validation hub.
