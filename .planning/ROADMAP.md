@@ -49,7 +49,7 @@ Plans:
 **Goal**: Define 4 tiers (Explore, Research, Modify, Full) and assign each agent to appropriate tier. Audit and restrict over-granted tool access.
 **Files**: All `~/.claude/agents/*.md` files — update `tools:` frontmatter
 **Impact**: Clearer capability boundaries, reduced over-granting
-**Status**: pending
+**Status**: complete (2026-04-06)
 
 ### Phase 7: Add Quality Sections to Low-Scoring Agents
 **Goal**: Add "what NOT to do", output format specs, and error handling instructions to agents scoring 6-7/10.

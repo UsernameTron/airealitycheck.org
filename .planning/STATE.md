@@ -1,13 +1,19 @@
 # Project State
 
 ## Current Phase
-Phase 6: Introduce Tool-Access Tiers
+Phase 7: Add Quality Sections to Low-Scoring Agents
 
 ## Status
-EXECUTING — Phase 5 complete, autonomous execution of Phases 6-7
+EXECUTING — Phase 6 complete, autonomous execution of Phase 7
 
 ## Last Updated
 2026-04-06
+
+## Phase 6 Summary (completed)
+- Audited all 29 agents for tool-access tier accuracy
+- Corrected 9 mismatched tier labels: 4 Research/Modify→Full (had WebSearch/WebFetch/MCP tools), 5 Explore→Research (had Bash for API interaction)
+- Final distribution: Explore (5), Research (6), Modify (14), Full (4)
+- Files modified: ~/.claude/agents/{gsd-research-orchestrator,gsd-ui-researcher,gsd-debugger,gsd-planner,google-media-generation,gpt-image-1-expert,mcp-performance-diagnostics,mirror-universe-pete,sora-video-generator}.md
 
 ## Phase 5 Summary (completed)
 - Wired repo-doc-architect into /gsd:finalize Gate 6 (documentation refresh before archiving)
@@ -34,7 +40,7 @@ v2.0 — GSD Crew Consolidation
 - Phase 3: Consolidate Research Agents — COMPLETE (2026-04-06)
 - Phase 4: Merge Validator Agents — COMPLETE (2026-04-06)
 - Phase 5: Wire Utility Agents into GSD Workflows — COMPLETE (2026-04-06)
-- Phase 6: Introduce Tool-Access Tiers — pending
+- Phase 6: Introduce Tool-Access Tiers — COMPLETE (2026-04-06)
 - Phase 7: Add Quality Sections to Low-Scoring Agents — pending
 
 ## Previous Milestone
