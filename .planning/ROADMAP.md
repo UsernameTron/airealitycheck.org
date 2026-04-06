@@ -37,7 +37,7 @@ Plans:
 **Agents**: 2 → 1 (net -1)
 **Files**: `~/.claude/agents/extension-validator.md` + `~/.claude/agents/validator.md` → `~/.claude/agents/gsd-validator.md`
 **Impact**: Eliminates 100% tool duplication
-**Status**: pending
+**Status**: complete (2026-04-06)
 
 ### Phase 5: Wire Utility Agents into GSD Workflows
 **Goal**: Integrate repo-doc-architect into /gsd:finalize and repo-commit-documenter into /gsd:ship workflows.
