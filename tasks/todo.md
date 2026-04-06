@@ -28,11 +28,9 @@
 
 ---
 
-## Session Handoff (2026-04-05)
-**Branch**: `fix/replace-demo-cards` (PR #18 open)
-**Status**: Phase 2 shipped (PR #17). All branches merged to main. Demo cards replaced with Cortex.
-**PRs**: #17 (Phase 2 ref cleanup), #18 (demo card replacement)
+## Session Handoff (2026-04-06)
+**Branch**: `main` (clean)
+**Status**: Phases 1-2 complete and archived. PRs #17, #18 merged. All branches consolidated to main. Phase 2 artifacts archived to `.planning/milestones/v2.0-phase-02/`.
 **Next steps**:
-1. Merge PR #18 (`fix/replace-demo-cards` → `main`)
-2. Verify Cortex card on live site after deploy
-3. Resume v2.0 GSD Crew Consolidation Phase 3 via `/gsd:next`
+1. Run `/gsd:autonomous` for Phases 3-7 (agent consolidation)
+2. After all phases: `/gsd:complete-milestone` to archive v2.0
