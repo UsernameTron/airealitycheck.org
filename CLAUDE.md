@@ -2,6 +2,25 @@ CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Session Policy — Project-Specific Overrides
+
+This file overrides the global `~/.claude/CLAUDE.md` for this repository.
+
+**Do not run any GSD framework slash commands in this project.** Specifically: `/gsd:prime-patterns`, `/gsd:discuss-phase`, `/gsd:plan-phase`, `/gsd:execute-phase`, `/gsd:verify-work`, `/gsd:ship`, `/gsd:finalize`, `/gsd:portfolio`, `/gsd:crew`, `/gsd:quick`, `/gsd:fast`, `/gsd:do`, `/gsd:progress`, `/gsd:stats`, `/gsd:health`, `/gsd:debug`, `/gsd:autonomous`, `/gsd:note`. These commands reference the GSD Crew Consolidation project and will load incorrect context (Phase 7, Pattern 9, agent quality sections) into this static-website project. Also do not run `/claude-mcp-ecosystem:prime` for the same reason.
+
+**Ignore references to "GSD state," "Phase 7," "Crew Consolidation," "agent quality sections," "tool-access tiers," "Pattern 9/10/11/12," and similar GSD framework concepts.** The `state/`, `tasks/`, `.agent/`, and `.claude/agent-memory/` directories in this repo are leftover hygiene tooling from a different project and are NOT relevant to the website. Treat them as inert files unless explicitly asked to clean them up.
+
+**This is a static HTML/CSS/JS website.** No build step, no Node.js, no npm, no Vite, no Tailwind compiler, no test suite, no agents. Standard git workflows only: branch off main, edit, commit, push, PR, merge. Each fix should be a separate narrow PR. Never auto-commit; always show the diff before pushing.
+
+**Before any session work, verify orientation:**
+1. `pwd` returns `/Users/cpconnor/projects/airealitycheck.org obsidian`
+2. `git remote -v` shows `origin https://github.com/UsernameTron/airealitycheck.org.git` (the public repo, NOT the private `airealitycheck.org-obsidian` repo)
+3. `git status` shows a clean working tree on main
+
+If any of those is wrong, stop and ask the user before proceeding.
+
+---
+
 ## Architecture
 
 **Static site deployed directly via GitHub Pages — no build step.**
