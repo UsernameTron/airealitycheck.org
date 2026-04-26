@@ -4,10 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Content Security Policy (GitHub Pages ignores _headers; meta tag is the deploy-time enforcement) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; frame-src https://www.youtube.com; connect-src 'self' https://raw.githubusercontent.com; object-src 'none'">
+
   <!-- Primary Meta -->
   <title>AI Reality Check — C. Pete Connor</title>
   <meta name="description" content="AI implementation specialist turning theory into operational reality. 93% FCR, $1M+ saved, 150+ agents managed.">
   <meta name="author" content="C. Pete Connor">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://airealitycheck.org/">
 
   <!-- OpenGraph -->
   <meta property="og:type" content="website">
@@ -22,6 +28,27 @@
   <meta name="twitter:title" content="AI Reality Check — C. Pete Connor">
   <meta name="twitter:description" content="AI implementation specialist turning theory into operational reality. 93% FCR, $1M+ saved.">
   <meta name="twitter:image" content="https://airealitycheck.org/images/profile.jpeg">
+
+  <!-- Structured Data: Person schema for Google Knowledge Panel and rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "C. Pete Connor",
+    "url": "https://airealitycheck.org/",
+    "image": "https://airealitycheck.org/images/profile.jpeg",
+    "jobTitle": "AI/ML CX Consultant",
+    "description": "AI implementation specialist turning theory into operational reality. 93% FCR, $1M+ saved, 150+ agents managed.",
+    "alumniOf": "MS in Artificial Intelligence",
+    "knowsAbout": ["Customer Experience", "Artificial Intelligence", "Machine Learning", "Workforce Management", "Contact Center Operations", "Process Automation"],
+    "sameAs": [
+      "https://www.linkedin.com/in/peteconnor",
+      "https://github.com/UsernameTron",
+      "https://substack.com/@cpconnor",
+      "https://medium.com/@cpeteconnor"
+    ]
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
